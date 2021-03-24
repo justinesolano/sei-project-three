@@ -1,2 +1,3 @@
 # sei-project-three
-Justine
+My group project
+Justine, Andrew, Oli and Jacqueline
