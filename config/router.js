@@ -1,7 +1,7 @@
 import express from 'express'
 import { getAllDestinations, showDestination } from '../controllers/destinations.js'
 import { registerUser, loginUser } from '../controllers/auth.js'
-import { getUserProfile } from '../controllers/users.js'
+import { getUserProfiles, getUserProfile, addPhotoToProfile } from '../controllers/users.js'
 import { secureRoute } from '../config/secureRoute.js'
 
 const router = express.Router()
@@ -18,7 +18,13 @@ router.route('/register')
 router.route('/login')
   .post(loginUser)
 
-router.route('/profile')
-  .get(secureRoute, getUserProfile)
+router.route('/profiles')
+  .get(getUserProfiles)
+
+router.route('/profiles/:id')
+  .get(getUserProfile)
+
+router.route('/profiles/:id/photos')
+  .post(secureRoute, addPhotoToProfile)
 
 export default router

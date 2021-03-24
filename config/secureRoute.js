@@ -9,6 +9,7 @@ export const secureRoute = async (req, res, next) => {
     const payload = jwt.verify(token, secret)
     const userToVerify = await User.findById(payload.sub)
     if (!userToVerify) throw new Error('User not found')
+    req.currentUser = userToVerify
     next()
   } catch (err) {
     console.log(err)
