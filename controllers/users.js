@@ -24,11 +24,8 @@ export const addPhotoToProfile = async (req, res) => {
   try {
     const { id } = req.params
     const user = await User.findById(id)
-    console.log('REQ CURRENT USER >>>>', req)
-    console.log('HEADERS', req.currentUser._id)
     if (!user) throw new Error('Cannot find user')
     if (!user._id.equals(req.currentUser._id)) throw new Error('Unauthorized')
-    // ! if id of profile is same as id of logged in user
     const newPhoto = { ...req.body }
     user.photos.push(newPhoto)
     await user.save()
@@ -38,5 +35,3 @@ export const addPhotoToProfile = async (req, res) => {
     return res.status(404).json({ message: err.message })
   }
 }
-
-// 
