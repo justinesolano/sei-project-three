@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router'
 import axios from 'axios'
-import { Button, Form } from 'semantic-ui-react'
+import { Button, Form, Grid } from 'semantic-ui-react'
 
 
 const Login = () => {
@@ -30,25 +30,29 @@ const Login = () => {
   }
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <Form.Field>
-        <label>Email</label>
-        <input
-          placeholder="Email"
-          name="email"
-          onChange={handleChange}
-        />
-      </Form.Field>
-      <Form.Field>
-        <label>Password</label>
-        <input
-          placeholder="Password"
-          name="password"
-          onChange={handleChange}
-        />
-      </Form.Field>
-      <Button type='submit'>Log In</Button>
-    </Form>
+    <Grid>
+      <Grid.Column style={{ maxWidth: 450 }}>
+        <Form onSubmit={handleSubmit}>
+          <Form.Field>
+            <label>Email</label>
+            <input
+              placeholder="Email"
+              name="email"
+              onChange={handleChange}
+            />
+          </Form.Field>
+          <Form.Field>
+            <label>Password</label>
+            <input
+              placeholder="Password"
+              name="password"
+              onChange={handleChange}
+            />
+          </Form.Field>
+          <Button type='submit'>Log In</Button>
+        </Form>
+      </Grid.Column>
+    </Grid>
   )
 }
 
