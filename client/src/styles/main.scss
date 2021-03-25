@@ -1,0 +1,22 @@
+// @import url('../assets/bebas_neue/BebasNeue.otf');
+
+// @import '~bulma/bulma.sass';
+
+.nav-length{
+  background-color: black;
+}
+
+.ui .menu{
+  font-family: 'Helvetica';
+  display: flex;
+  justify-content: center;
+}
+// .nav-links{
+//   color: white;
+// }
+.nav-links :hover{
+  color: grey;
+}
+// .jetflix-nav-logo{
+  
+// }
