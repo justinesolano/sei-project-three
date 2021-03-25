@@ -13,8 +13,6 @@ const Login = () => {
 
   const history = useHistory()
 
-  
-
   const handleChange = event => {
     const newFormData = { ...formData, [event.target.name]: event.target.value }
     setFormData(newFormData)
@@ -24,32 +22,28 @@ const Login = () => {
     event.preventDefault()
     try {
       const response = await axios.post('/api/login', formData)
-      console.log('RESPONSE', response)
       window.localStorage.setItem('token', response.data.token)
       history.push('/home')
-
     } catch (err) {
       console.log(err)
     }
   }
-
-
-
-
 
   return (
     <Form onSubmit={handleSubmit}>
       <Form.Field>
         <label>Email</label>
         <input
-          placeholder='Email'
+          placeholder="Email"
+          name="email"
           onChange={handleChange}
         />
       </Form.Field>
       <Form.Field>
         <label>Password</label>
         <input
-          placeholder='Password'
+          placeholder="Password"
+          name="password"
           onChange={handleChange}
         />
       </Form.Field>
