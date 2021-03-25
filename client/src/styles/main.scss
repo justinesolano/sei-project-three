@@ -6,16 +6,30 @@
   background-color: black;
 }
 
-.ui .menu{
+.ui.grid.menu{
   font-family: 'Helvetica';
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  background-color: black;
+  height: 100vh;
+}
+.left-nav, .right-nav{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.right-nav{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
 }
 // .nav-links{
 //   color: white;
 // }
 .nav-links :hover{
-  color: grey;
+  color: rgb(63, 37, 37);
 }
 // .jetflix-nav-logo{
   
