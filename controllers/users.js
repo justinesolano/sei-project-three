@@ -35,3 +35,21 @@ export const addPhotoToProfile = async (req, res) => {
     return res.status(404).json({ message: err.message })
   }
 }
+
+// * User POST comment on image route
+export const addCommentToPhoto = async (req, res) => {
+  try {
+    const { id } = req.params
+    const user = await User.findById(id)
+    if (!user) throw new Error('Profile not found')
+    const { photoId } = req.params
+    const userPhoto = user.photos.id(photoId)
+    if (!userPhoto) throw new Error('Photo not found')
+    const newComment = { ...req.body, owner: req.currentUser._id }
+    userPhoto.comments.push(newComment)
+    await user.save()
+    return res.status(200).json(userPhoto)
+  } catch (err) {
+    console.log(err)
+  }
+}

@@ -6,7 +6,8 @@ export default [
     'language': 'Dutch',
     'currency': 'Euro',
     'highlights': ['Rijksmuseum', 'Brown Cafes', 'Vondelpark'],
-    'suitableFor': 'Couples, Stag Do, Hen Do',
+    'suitableFor': ['Couples', 'Hen Do/Stag Do', 'Solo Travellers'],
+    'tags': ['City', 'Night Life', 'Sightseeing'],
     'image': 'https://lp-cms-production.imgix.net/2019-06/GettyImages-541441577_super.jpg?auto=format&fit=crop&ixlib=react-8.6.4&h=520&w=1312&q=75&dpr=1'
   },
   {
@@ -15,18 +16,20 @@ export default [
     'country': 'Japan',
     'language': 'Japanese',
     'currency': 'Yen',
-    'highlights': ['Tokyo Tower, Tsukiji Market, Shopping in Harajuku'],
-    'suitableFor': 'Families, Couples, Friends holidays',
+    'highlights': ['Tokyo Tower', 'Tsukiji Market', 'Shopping in Harajuku'],
+    'suitableFor': ['Families', 'Couples', 'Friends'],
+    'tags': ['City', 'Culture', 'Night Life'],
     'image': 'https://lp-cms-production.imgix.net/2019-06/fadd99e054183cf95ef705df42f6186d5cf0f88efc441f56b2c25ed053fb6442.jpg?auto=format&fit=crop&ixlib=react-8.6.4&h=520&w=1312&q=75&dpr=1'
   },
   {
     'name': 'Vancouver',
     'description': 'Explorable neighborhoods, drink-and-dine delights and memorable cultural and outdoor activities framed by striking natural vistas – there\'s a superfluity of reasons to fall for this ocean-fringed metropolis.',
     'country': 'Canada',
-    'language': 'English',
-    'currency': 'Candian Dollars', 
-    'highlights': '[Stanley Park, Capilano Suspension Bridge Park, Whistler]',
-    'suitableFor': 'Cool dudes',
+    'language': 'Englisth',
+    'currency': 'Canadian Dollars', 
+    'highlights': ['Stanley Park', 'Capilano Suspension Bridge Park', 'Whistler'],
+    'suitableFor': ['Friends', 'Couples', 'Solo Traveller'],
+    'tags': ['City', 'Night Life', 'Modern'],
     'image': 'https://lp-cms-production.imgix.net/2019-06/cda1311204247aa31758166c3d58acba-vancouver.jpg?auto=format&fit=crop&ixlib=react-8.6.4&h=520&w=1312&q=50&dpr=2'
   },
   {
@@ -35,9 +38,9 @@ export default [
     'country': 'United States of America',
     'language': 'English',
     'currency': 'United States Dollar',
-    'highlights': '[San Francisco, Redwood Forest, Yosemite National Park, Palm Springs ]',
-    'suitableFor': 'People who want to hang loose',
+    'highlights': ['Redwood Forest', 'Yosemite National Park', 'Palm Springs'],
+    'suitableFor': ['Adventure Seekers', 'Couples', 'Friends'],
+    'tags': ['Seaside', 'Night Life', 'Sightseeing'],
     'image': 'https://lp-cms-production.imgix.net/2019-06/GettyImages-186359935_full.jpg?auto=format&fit=crop&ixlib=react-8.6.4&h=520&w=1312&q=50&dpr=2'
   }
 ]
-

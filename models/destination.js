@@ -12,7 +12,8 @@ const destinationSchema = new mongoose.Schema({
   language: { type: String, required: true },
   currency: { type: String, required: true },
   highlights: { type: Array, required: true },
-  suitableFor: { type: String, required: true },
+  suitableFor: { type: Array, required: true },
+  tags: { type: Array, required: true },
   image: { type: String, required: true },
   ratings: [ratingSchema]
 })
