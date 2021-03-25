@@ -13,32 +13,43 @@ const Login = () => {
 
   const history = useHistory()
 
+  
+
   const handleChange = event => {
-    console.log('WHAT IS THIS', event)
     const newFormData = { ...formData, [event.target.name]: event.target.value }
     setFormData(newFormData)
   }
 
-
   const handleSubmit = async event => {
     event.preventDefault()
-    const response = await axios.post('/login', formData)
-    window.localStorage('token', response.data.token)
-    history.push('/home')
+    try {
+      const response = await axios.post('/api/login', formData)
+      console.log('RESPONSE', response)
+      window.localStorage.setItem('token', response.data.token)
+      history.push('/home')
 
+    } catch (err) {
+      console.log(err)
+    }
   }
+
+
+
 
 
   return (
     <Form onSubmit={handleSubmit}>
       <Form.Field>
         <label>Email</label>
-        <input placeholder='Email' />
+        <input
+          placeholder='Email'
+          onChange={handleChange}
+        />
       </Form.Field>
       <Form.Field>
         <label>Password</label>
-        <input 
-          placeholder='Last Name'
+        <input
+          placeholder='Password'
           onChange={handleChange}
         />
       </Form.Field>
