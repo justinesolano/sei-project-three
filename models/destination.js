@@ -18,4 +18,17 @@ const destinationSchema = new mongoose.Schema({
   ratings: [ratingSchema]
 })
 
+// * Average Rating
+destinationSchema
+  .virtual('avgRating')
+  .get(function() {
+    if (!this.ratings.length) return 'Not yet rated'
+    const sum = this.ratings.reduce((acc, curr) => {
+      return acc + curr.rating
+    }, 0)
+    return sum / this.ratings.length
+  })
+
+destinationSchema.set('toJSON', { virtuals: true })
+
 export default mongoose.model('Destination', destinationSchema)

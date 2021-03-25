@@ -1,6 +1,12 @@
 import mongoose from 'mongoose'
 import bcrypt from 'bcrypt'
 
+
+const likesSchema = new mongoose.Schema({
+  like: { type: Boolean, required: true },
+  owner: { type: mongoose.Schema.ObjectId, ref: 'User', required: true }
+})
+
 const commentSchema = new mongoose.Schema({
   text: { type: String, required: true, maxlength: 300 },
   owner: { type: mongoose.Schema.ObjectId, ref: 'User', required: true }
@@ -12,7 +18,8 @@ const photoSchema = new mongoose.Schema({
   title: { type: String, required: true },
   location: { type: String, required: true },
   image: { type: String, required: true },
-  comments: [commentSchema]
+  comments: [commentSchema],
+  likes: [likesSchema]
 })
 
 const userSchema = new mongoose.Schema({
@@ -22,12 +29,23 @@ const userSchema = new mongoose.Schema({
   photos: [photoSchema]
 })
 
+// * Remove password from user when populating
+userSchema.set('toJSON', {
+  virtuals: true,
+  transform(_doc, json) {
+    delete json.password
+    return json
+  }
+})
+
+// * Define virtual field on Schema
 userSchema
   .virtual('passwordConfirmation')
   .set(function(passwordConfirmation) {
     this._passwordConfirmation = passwordConfirmation
   })
 
+// * Check if password and passwordConfirmation match
 userSchema
   .pre('validate', function(next) {
     if (this.isModified('password') && this.password !== this._passwordConfirmation) {

@@ -1,7 +1,7 @@
 import express from 'express'
 import { addRatingToDestination, getAllDestinations, showDestination } from '../controllers/destinations.js'
 import { registerUser, loginUser } from '../controllers/auth.js'
-import { getUserProfiles, getUserProfile, addPhotoToProfile, addCommentToPhoto } from '../controllers/users.js'
+import { getUserProfiles, getUserProfile, addPhotoToProfile, addCommentToPhoto, addLikeToPhoto, deletePhotoFromProfile, deleteCommentFromPhoto, deleteLikeFromPhoto } from '../controllers/users.js'
 import { secureRoute } from '../config/secureRoute.js'
 
 const router = express.Router()
@@ -32,5 +32,15 @@ router.route('/profiles/:id/photos')
 
 router.route('/profiles/:id/photos/:photoId')
   .post(secureRoute, addCommentToPhoto)
+  .delete(secureRoute, deletePhotoFromProfile)
+
+router.route('/profiles/:id/photos/:photoId/likes')
+  .post(secureRoute, addLikeToPhoto)
+
+router.route('/profiles/:id/photos/:photoId/:commentId')
+  .delete(secureRoute, deleteCommentFromPhoto)
+
+router.route('/profiles/:id/photos/:photoId/likes/:likeId')
+  .delete(secureRoute, deleteLikeFromPhoto)
 
 export default router
