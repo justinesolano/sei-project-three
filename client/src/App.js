@@ -15,7 +15,7 @@ const App = () => {
         <Route exact path="/">
           <Landing />
         </Route>
-        <Route path="/Home">
+        <Route path="/home">
           <Home />
         </Route>
         <Route path="/Register">
