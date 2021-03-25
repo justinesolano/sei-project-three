@@ -11,6 +11,8 @@ const Login = () => {
     password: ''
   })
 
+  const [errors, setErrors] = useState('')
+
   const history = useHistory()
 
   const handleChange = event => {
@@ -25,8 +27,8 @@ const Login = () => {
       window.localStorage.setItem('token', response.data.token)
       history.push('/home')
     } catch (err) {
+      setErrors('error')
       console.log(err)
-      console.log(formData)
     }
   }
 
@@ -38,8 +40,15 @@ const Login = () => {
         </Header>
         <Form size="large" onSubmit={handleSubmit}>
           <Segment stacked>
-            <Form.Input fluid icon="user" iconPosition="left" name="email" placeholder="Email" onChange={handleChange} />
             <Form.Input
+              className={errors}
+              fluid icon="user" 
+              iconPosition="left" 
+              name="email" 
+              placeholder="Email" 
+              onChange={handleChange} />
+            <Form.Input
+              className={errors}
               onChange={handleChange}
               fluid
               icon="lock"
