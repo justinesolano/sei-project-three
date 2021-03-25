@@ -5,7 +5,12 @@
 .nav-length{
   background-color: black;
 }
-
+.logo-to-home{
+  display: flex;
+  justify-content: flex-start;
+  height: 120px;
+  margin-top: -20px;
+}
 .ui.grid.menu{
   font-family: 'Helvetica';
   display: flex;
@@ -14,17 +19,27 @@
   flex-direction: row;
   background-color: black;
   height: 100vh;
+  background: transparent;
 }
-.left-nav, .right-nav{
+.nav-container{
+  list-style: none;
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
-.right-nav{
-  display: flex;
-  flex-direction: row;
-  align-items: flex-end;
+// .my-list, .explore{
+//   margin: 10px;
+//   margin-top: 25px;
+// }
+// .right-nav{
+//   display: flex;
+//   flex-direction: row;
+//   align-content: flex-end;
+// }
+.control .navbar-item{
+  width: 100px;
 }
+
 // .nav-links{
 //   color: white;
 // }

@@ -22,27 +22,27 @@ const Navbar = () => {
   }
 
   return (
-    <nav className="ui menu" style={{ width: '100vw' }}>
-      <div className="nav-container">
-        <section className="left-nav">
+    <nav className="ui menu navbar" >
+      <div className="nav-container navbar-brand">
+        <div className="left-nav">
           <div className="jetflix-nav-logo">
             <Link to="/home" className="logo-to-home">
               <img src={jetflixLogo}></img>
             </Link>
           </div>
-          <div className="my-list">
+          <div className="my-list navbar-item">
             <Link to="/home" className="my-list-link">
               <a className="nav-links">My List</a>
             </Link>
           </div>
-          <div className="explore">
+          <div className="explore  navbar-item">
             <Link to="/profiles" className="explore-link">
               <a className="nav-links">Explore</a>
             </Link>
           </div>
-        </section>
-        <section className="right-nav">
-          <div className="control">
+        </div>
+        <div className="right-nav">
+          <div className="control navbar-item">
             <Select
               options={groupedOptions}
               isMulti
@@ -55,7 +55,7 @@ const Navbar = () => {
               <a className="nav-links">Profiles</a>
             </Link>
           </div>
-        </section>
+        </div>
       </div>
     </nav>
   )
