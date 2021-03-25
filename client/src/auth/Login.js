@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router'
 import axios from 'axios'
-import { Button, Form, Grid } from 'semantic-ui-react'
+import { Button, Form, Grid, Header, Message, Segment } from 'semantic-ui-react'
 
 
 const Login = () => {
@@ -26,31 +26,36 @@ const Login = () => {
       history.push('/home')
     } catch (err) {
       console.log(err)
+      console.log(formData)
     }
   }
 
   return (
-    <Grid>
+    <Grid textAlign="center" style={{ height: '100vh' }} verticalAlign="middle">
       <Grid.Column style={{ maxWidth: 450 }}>
-        <Form onSubmit={handleSubmit}>
-          <Form.Field>
-            <label>Email</label>
-            <input
-              placeholder="Email"
-              name="email"
+        <Header as="h2" color="teal" textAlign="center">
+          Log In
+        </Header>
+        <Form size="large" onSubmit={handleSubmit}>
+          <Segment stacked>
+            <Form.Input fluid icon="user" iconPosition="left" name="email" placeholder="Email" onChange={handleChange} />
+            <Form.Input
               onChange={handleChange}
-            />
-          </Form.Field>
-          <Form.Field>
-            <label>Password</label>
-            <input
+              fluid
+              icon="lock"
+              iconPosition="left"
               placeholder="Password"
+              type="password"
               name="password"
-              onChange={handleChange}
             />
-          </Form.Field>
-          <Button type='submit'>Log In</Button>
+            <Button color="teal" fluid size="large" type="submit">
+            Login
+            </Button>
+          </Segment>
         </Form>
+        <Message>
+          New to us? <a href="#">Sign Up</a>
+        </Message>
       </Grid.Column>
     </Grid>
   )
