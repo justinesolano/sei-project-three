@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Button, Form } from 'semantic-ui-react'
+import { useHistory } from 'react-router'
 import axios from 'axios'
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -8,6 +9,9 @@ const Register = () => {
     password: '',
     passwordConfirmation: ''
   })
+
+  const history = useHistory()
+
   const handleChange = event => {
     const newFormData = { ...formData, [event.target.name]: event.target.value }
     setFormData(newFormData)
@@ -17,7 +21,9 @@ const Register = () => {
     try {
       event.preventDefault()
       const response = await axios.post('/api/Register', formData)
-      console.log('Jetflix and chill?', response)
+      window.localStorage.setItem('token', response.data.token)
+      console.log(response)
+      history.push('/home')
     } catch (err) {
       console.log(err)
     }
