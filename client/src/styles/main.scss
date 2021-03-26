@@ -60,7 +60,7 @@
   height: 100vh;
 }
 
-<<<<<<< HEAD
+// * Home
 .home {
   background-color: black;
 }
@@ -69,8 +69,6 @@
 .home-subheader {
   font-family: Helvetica;
   color: white;
-  margin-top: 10px;
-  margin-bottom: 5px;
 }
 
 .hero-info {
@@ -94,16 +92,23 @@
   transition: transform 500ms;
 }
 
+.slick-list {
+  padding: 20px;
+}
+
 .home-container .home-item:focus,
 .home-container .home-item:hover {
-  transform: scale(1.5);
+  transform: scale(1.2);
   z-index: 1;
+}
+
+.previews {
+  margin: 35px;
 }
 
 body {
   overflow: hidden;
 }
-=======
 
 .ui.stacked.segment { 
   background-color: rgba(0,0,0,.75);
@@ -157,4 +162,3 @@ color:red;
 .ui.stacked.segment.login{ 
   height: 400px;
 }
->>>>>>> development
