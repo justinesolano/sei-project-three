@@ -4,8 +4,13 @@
   box-sizing: border-box;
 }
 
+
 // NAVBAR
 
+.mapboxgl-map { 
+  display: contents;
+  margin-top: 20px;
+}
 .navbar{
   position: fixed;
   top: 0;
@@ -759,6 +764,7 @@ left: 100px;
 
 // end of NAVBAR
 
+
 .home {
   background-color: black;
 }
@@ -854,4 +860,21 @@ color:red;
 .ui.stacked.segment.login{ 
   height: 400px;
 }
+
+
+//* user profile 
+.photo-userprofile { 
+  width: 150px;
+  display: inline;
+}
+
+//map 
+.map-container { 
+  border: red;
+}
+
+element.style { 
+  display:block;
+}
+
 }
