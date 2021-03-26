@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Button, Form } from 'semantic-ui-react'
+import { Button, Form, Grid, Header, Segment } from 'semantic-ui-react'
 import { useHistory } from 'react-router'
 import axios from 'axios'
 const Register = () => {
@@ -9,6 +9,8 @@ const Register = () => {
     password: '',
     passwordConfirmation: ''
   })
+
+  const [errors, setErrors] = useState('')
 
   const history = useHistory()
 
@@ -25,50 +27,69 @@ const Register = () => {
       console.log(response)
       history.push('/home')
     } catch (err) {
+      setErrors('error')
       console.log(err)
     }
   }
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <Form.Field>
-        <label>Username</label>
-        <input
-          placeholder='Username'
-          name='username'
-          value={formData.username}
-          onChange={handleChange}
-        />
-      </Form.Field>
-      <Form.Field>
-        <label>Email</label>
-        <input
-          placeholder='Email'
-          name='email'
-          value={formData.email}
-          onChange={handleChange}
-        />
-      </Form.Field>
-      <Form.Field>
-        <label>Password</label>
-        <input
-          placeholder='Password'
-          name='password'
-          value={formData.password}
-          onChange={handleChange}
-        />
-      </Form.Field>
-      <Form.Field>
-        <label>Password Confirmation</label>
-        <input
-          placeholder='Password Confirmation'
-          name='passwordConfirmation'
-          value={formData.passwordConfirmation}
-          onChange={handleChange}
-        />
-      </Form.Field>
-      <Button type='submit'>Submit</Button>
-    </Form>
+    <div className='background-register'>
+      <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle' >
+        <Grid.Column style={{ maxWidth: 450 }} >
+          
+          <Form size='large' onSubmit={handleSubmit}>
+            <Segment stacked>
+              <Header as='h2' color='black' textAlign='left' className='ui header register'>
+            Register
+              </Header>
+              <Form.Input fluid icon='user' iconPosition='left' name='email' placeholder='Email' onChange={handleChange} value={formData.email} className={errors}/>
+              <Form.Input
+                onChange={handleChange}
+                fluid
+                icon='user'
+                iconPosition='left'
+                placeholder='Username'
+                type='username'
+                name='username'
+                value={formData.username}
+                className={errors}
+
+              />
+              <Form.Input
+                onChange={handleChange}
+                fluid
+                icon='lock'
+                iconPosition='left'
+                placeholder='Password'
+                type='password'
+                name='password'
+                value={formData.password}
+                className={errors}
+                
+              />
+              <Form.Input
+                onChange={handleChange}
+                fluid
+                icon='lock'
+                iconPosition='left'
+                placeholder='Password Confirmation'
+                type='passwordConfirmation'
+                name='passwordConfirmation'
+                value={formData.passwordConfirmation}
+                className={errors}
+              />
+              <Button color='red' fluid size='large' type='submit'>
+                Register
+              </Button> 
+              <div className='account-signin-link'> 
+            Already have an account? <a href='/login'>Sign In</a>
+              </div>
+            </Segment>          
+          </Form>
+
+        </Grid.Column>
+      </Grid>
+    </div>
   )
 }
 

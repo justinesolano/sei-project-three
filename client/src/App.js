@@ -5,6 +5,7 @@ import Landing from './components/Landing'
 import Home from './components/Home'
 import Register from './auth/Register'
 import Login from './auth/Login'
+import Explore from './components/Explore'
 
 const App = () => {
 
@@ -23,6 +24,9 @@ const App = () => {
         </Route>
         <Route exact path="/login">
           <Login />
+        </Route>
+        <Route exact path="/explore">
+          <Explore />
         </Route>
       </Switch>
     </BrowserRouter>

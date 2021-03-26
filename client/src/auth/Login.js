@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router'
 import axios from 'axios'
-import { Button, Form, Grid, Header, Message, Segment } from 'semantic-ui-react'
+import { Button, Form, Grid, Header, Segment } from 'semantic-ui-react'
 
 
 const Login = () => {
@@ -10,6 +10,8 @@ const Login = () => {
     email: '',
     password: ''
   })
+
+  const [errors, setErrors] = useState('')
 
   const history = useHistory()
 
@@ -25,21 +27,28 @@ const Login = () => {
       window.localStorage.setItem('token', response.data.token)
       history.push('/home')
     } catch (err) {
+      setErrors('error')
       console.log(err)
-      console.log(formData)
     }
   }
 
   return (
     <Grid textAlign="center" style={{ height: '100vh' }} verticalAlign="middle">
       <Grid.Column style={{ maxWidth: 450 }}>
-        <Header as="h2" color="teal" textAlign="center">
-          Log In
-        </Header>
         <Form size="large" onSubmit={handleSubmit}>
-          <Segment stacked>
-            <Form.Input fluid icon="user" iconPosition="left" name="email" placeholder="Email" onChange={handleChange} />
+          <Segment stacked className='ui stacked segment login'>
+            <Header as="h2" color="white" textAlign="left" >
+              Log In
+            </Header>
             <Form.Input
+              className={errors}
+              fluid icon="user"
+              iconPosition="left"
+              name="email"
+              placeholder="Email"
+              onChange={handleChange} />
+            <Form.Input
+              className={errors}
               onChange={handleChange}
               fluid
               icon="lock"
@@ -48,14 +57,14 @@ const Login = () => {
               type="password"
               name="password"
             />
-            <Button color="teal" fluid size="large" type="submit">
-            Login
+            <Button color="red" fluid size="large" type="submit">
+              Login
             </Button>
+            <div className='account-signin-link'> 
+              New to us? <a href="/register">Sign Up</a>
+            </div>
           </Segment>
         </Form>
-        <Message>
-          New to us? <a href="#">Sign Up</a>
-        </Message>
       </Grid.Column>
     </Grid>
   )

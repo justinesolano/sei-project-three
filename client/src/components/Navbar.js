@@ -38,7 +38,7 @@ const Navbar = () => {
     <nav className={`navbar topnav ${show && 'nav__black'}`} >
       <div className="logo-and-main-nav">
         <div className="jetflix-nav-logo">
-          <Link to="/" className="logo-to-home active">
+          <Link to="/" className="logo-to-home">
             <img src={jetflixLogo} className="jetflix"></img>
           </Link>
         </div>
