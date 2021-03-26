@@ -9,3 +9,8 @@ const ExploreDestination = () => {
 }
 
 export default ExploreDestination
+
+
+// not the same as in the database - the ones people upload
+// feed in a few videos
+// 

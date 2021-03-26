@@ -15,7 +15,7 @@ const Explore = () => {
     getData()
   }, [])
   
-  console.log(profiles[0].username)
+  // console.log(profiles[0].username)
 
   const handleUser = () => {
     for (let i = 0; i < profiles.length; i++) {

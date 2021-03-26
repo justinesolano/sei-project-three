@@ -14,7 +14,7 @@ const Landing = () => {
 
   return (
     <div>
-      <div className="landing ui grid">
+      <div className="landing ui grid first">
         <Link to="/login">
           <Reveal animated='fade' className="column">
             <Reveal.Content visible>
