@@ -1,3 +1,55 @@
+// @import url('../assets/bebas_neue/BebasNeue.otf');
+
+// @import '~bulma/bulma.sass';
+
+.nav-length{
+  background-color: black;
+}
+.logo-to-home{
+  display: flex;
+  justify-content: flex-start;
+  height: 30px;
+  width: 50px;
+  margin-top: 20px;
+}
+.ui.grid.menu{
+  font-family: 'Helvetica';
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  background-color: black;
+  height: 100vh;
+  background: transparent;
+}
+.nav-container{
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+// .my-list, .explore{
+//   margin: 10px;
+//   margin-top: 25px;
+// }
+// .right-nav{
+//   display: flex;
+//   flex-direction: row;
+//   align-content: flex-end;
+// }
+.control .navbar-item{
+  width: 100px;
+}
+
+// .nav-links{
+//   color: white;
+// }
+.nav-links :hover{
+  color: rgb(63, 37, 37);
+}
+// .jetflix-nav-logo{
+  
+// }
 .landing.ui.grid {
   justify-content: center;
   align-items: center;
