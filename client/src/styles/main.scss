@@ -57,8 +57,17 @@
   z-index: 1;
 }
 
-.previews {
-  margin: 35px;
+// .previews {
+//   margin: 35px;
+// }
+
+.slick-arrow.slick-next {
+  margin-right: 30px;
+}
+
+.slick-arrow.slick-prev {
+  margin-left: 30px;
+  z-index: 1;
 }
 
 // NAVBAR

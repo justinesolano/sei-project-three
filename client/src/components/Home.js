@@ -23,6 +23,7 @@ const Home = () => {
   })
 
   const settings = {
+    arrows: true,
     dots: false,
     infinite: true,
     speed: 5000,
@@ -30,6 +31,8 @@ const Home = () => {
     slidesToScroll: 2,
     initialSlide: 0,
     autoplay: true,
+    focusOnSelect: true,
+    dragable: true,
     responsive: [
       {
         breakpoint: 1024,
@@ -60,7 +63,7 @@ const Home = () => {
       <div className="hero">
         <img src={destinations[hero].image} 
           style={{
-            'width': '100vw'
+            'height': '50vh'
           }}/>
         <div className="hero-info">
           <h1>{destinations[hero].name}</h1>
@@ -78,13 +81,13 @@ const Home = () => {
         <div className="home-container">
           <Slider {...settings} className="slider">
             {destinations.map(destination => {
-              return <div key={destination._id} className="home-item">
+              return <Link to="/" key={destination._id} className="home-item">
                 <img src={destination.image} 
                   style={{
                     'width': '500px',
                     'max-height': '200px'
                   }}/>
-              </div>
+              </Link>
             })}
           </Slider>
         </div>
@@ -92,13 +95,13 @@ const Home = () => {
         <div className="home-container">
           <Slider {...settings} className="slider">
             {destinations.map(destination => {
-              return <div key={destination._id} className="home-item">
+              return <Link to="/" key={destination._id} className="home-item">
                 <img src={destination.image} 
                   style={{
                     'width': '500px',
                     'max-height': '200px'
                   }}/>
-              </div>
+              </Link>
             })}
           </Slider>
         </div>
@@ -106,13 +109,13 @@ const Home = () => {
         <div className="home-container">
           <Slider {...settings} className="slider">
             {destinations.map(destination => {
-              return <div key={destination._id} className="home-item">
+              return <Link to="/" key={destination._id} className="home-item">
                 <img src={destination.image} 
                   style={{
                     'width': '500px',
                     'max-height': '200px'
                   }}/>
-              </div>
+              </Link>
             })}
           </Slider>
         </div>
