@@ -6,6 +6,13 @@
 
 // NAVBAR
 
+.landing.ui.grid {
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  height: 100vh;
+}
+
 .navbar{
   position: fixed;
   top: 0;
@@ -118,16 +125,7 @@ left: 100px;
 }
 
 //*register and login pqge jetflix
-.landing.ui.grid {
-  justify-content: center;
-  align-items: center;
-  background-color: black;
-  height: 100vh;
-}
 
-<<<<<<< HEAD
-// * Home
-=======
 @media screen and (max-width: 1690px){
   .navbar-link-list{
     margin: 0;
@@ -762,7 +760,6 @@ left: 100px;
 
 // end of NAVBAR
 
->>>>>>> development
 .home {
   background-color: black;
 }
