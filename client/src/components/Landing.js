@@ -4,6 +4,16 @@ import { Image, Reveal } from 'semantic-ui-react'
 import smileyBlue from '../assets/smileyfaceblue.jpg'
 import smileyYellow from '../assets/smileyfaceyellow.jpg'
 import smileyGreen from '../assets/smileyfacegreen.jpg'
+// import registerImage from '../assets/register.jpg'
+// import loginImage from '../assets/login.jpg'
+// import guestImage from '../assets/guest.jpg'
+// import redRegisterImage from '../assets/redregisterimage.jpg'
+// import redLoginImage from '../assets/redloginimage.jpg'
+// import redGuestImage from '../assets/redguestimage.jpg'
+import registerImageShadow from '../assets/redregisterimagewithshadow.jpg'
+import loginImageShadow from '../assets/redloginimagewithshadow.jpg'
+import guestImageShadow from '../assets/redguestimagewithshadow.jpg'
+
 
 const Landing = () => {
 
@@ -14,30 +24,31 @@ const Landing = () => {
         <Link to="/login">
           <Reveal animated='fade' className="column">
             <Reveal.Content visible>
-              <Image src='https://miro.medium.com/max/400/1*7c5wdOe8QXTgw_tfUi11rA.png' size='small' />
+              <Image src={loginImageShadow} size='small' />
             </Reveal.Content>
             <Reveal.Content hidden>
               <Image src={smileyBlue} size='small' />
             </Reveal.Content>
           </Reveal>
         </Link>
-        <Link to="/register">
+        <Link to="/register">     
+        
           <Reveal animated='fade' className="column">
             <Reveal.Content visible>
-              <Image src='https://i1.wp.com/sbo2com.net/wp-content/uploads/2018/10/register-icon.png?ssl=1' size='small' />
+              <Image src={registerImageShadow} size='small' />
             </Reveal.Content>
             <Reveal.Content hidden>
-              <Image src={{smileyYellow}} size='small' />
+              <Image src={smileyYellow} size='small' />
             </Reveal.Content>
           </Reveal>
         </Link>
         <Link to="/home">
           <Reveal animated='fade' className="column">
             <Reveal.Content visible>
-              <Image src='https://www.computerhope.com/jargon/g/guest-user.jpg' size='small' />
+              <Image src={guestImageShadow} size='small' />
             </Reveal.Content>
             <Reveal.Content hidden>
-              <Image src={smileyYellow} size='small' />
+              <Image src={smileyGreen} size='small' />
             </Reveal.Content>
           </Reveal>
         </Link>
