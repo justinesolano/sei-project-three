@@ -9,15 +9,19 @@ const Explore = () => {
 
   useEffect(() => {
     const getData = async () => {
-      const response = await axios.get('/api/profiles')
-      setProfiles(response)
+      const { data } = await axios.get('/api/profiles')
+      setProfiles(data)
     }
     getData()
   }, [])
   
-  console.log(profiles)
+  console.log(profiles[0].username)
 
-
+  const handleUser = () => {
+    for (let i = 0; i < profiles.length; i++) {
+      return profiles[i].username
+    }
+  }
 
 
   return (
@@ -28,7 +32,7 @@ const Explore = () => {
         </Feed.Label>
         <Feed.Content>
           <Feed.Summary>
-            <Feed.User>Elliot Fu</Feed.User> added you as a friend
+            <Feed.User>{handleUser}</Feed.User> added you as a friend
             <Feed.Date>1 Hour Ago</Feed.Date>
           </Feed.Summary>
           <Feed.Meta>
