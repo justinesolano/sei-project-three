@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Button, Form } from 'semantic-ui-react'
+import { Button, Form, Grid, Header, Message, Segment } from 'semantic-ui-react'
 import { useHistory } from 'react-router'
 import axios from 'axios'
 const Register = () => {
@@ -13,7 +13,7 @@ const Register = () => {
   const history = useHistory()
 
   const handleChange = event => {
-    const newFormData = { ...formData, [event.target.name]: event.target.value } 
+    const newFormData = { ...formData, [event.target.name]: event.target.value }
     setFormData(newFormData)
     // console.log(formData)
   }
@@ -28,47 +28,61 @@ const Register = () => {
       console.log(err)
     }
   }
-
+  
   return (
-    <Form onSubmit={handleSubmit}>
-      <Form.Field>
-        <label>Username</label>
-        <input
-          placeholder='Username'
-          name='username'
-          value={formData.username}
-          onChange={handleChange}
-        />
-      </Form.Field>
-      <Form.Field>
-        <label>Email</label>
-        <input
-          placeholder='Email'
-          name='email'
-          value={formData.email}
-          onChange={handleChange}
-        />
-      </Form.Field>
-      <Form.Field>
-        <label>Password</label>
-        <input
-          placeholder='Password'
-          name='password'
-          value={formData.password}
-          onChange={handleChange}
-        />
-      </Form.Field>
-      <Form.Field>
-        <label>Password Confirmation</label>
-        <input
-          placeholder='Password Confirmation'
-          name='passwordConfirmation'
-          value={formData.passwordConfirmation}
-          onChange={handleChange}
-        />
-      </Form.Field>
-      <Button type='submit'>Submit</Button>
-    </Form>
+
+    <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
+      <Grid.Column style={{ maxWidth: 450 }}>
+        <Header as='h2' color='teal' textAlign='center'>
+          Register
+        </Header>
+        <Form size='large' onSubmit={handleSubmit}>
+          <Segment stacked>
+            <label>Email</label>
+            <Form.Input fluid icon='user' iconPosition='left' name='email' placeholder='Email' onChange={handleChange} value={formData.email} />
+            <label>Username</label>
+            <Form.Input
+              onChange={handleChange}
+              fluid
+              icon='user'
+              iconPosition='left'
+              placeholder='Username'
+              type='username'
+              name='username'
+              value={formData.username}
+            />
+            <label>Password</label>
+            <Form.Input
+              onChange={handleChange}
+              fluid
+              icon='lock'
+              iconPosition='left'
+              placeholder='Password'
+              type='password'
+              name='password'
+              value={formData.password}
+            />
+            <label>Password Confirmation</label>
+            <Form.Input
+              onChange={handleChange}
+              fluid
+              icon='lock'
+              iconPosition='left'
+              placeholder='Password Confirmation'
+              type='passwordConfirmation'
+              name='passwordConfirmation'
+              value={formData.passwordConfirmation}
+            />
+            <Button color='teal' fluid size='large' type='submit'>
+              Register
+            </Button>
+          </Segment>
+        </Form>
+        <Message>
+          Already have an account? <a href='#'>Sign In</a>
+        </Message>
+      </Grid.Column>
+    </Grid>
   )
 }
 
