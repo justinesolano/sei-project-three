@@ -10,6 +10,8 @@ const Register = () => {
     passwordConfirmation: ''
   })
 
+  const [errors, setErrors] = useState('')
+
   const history = useHistory()
 
   const handleChange = event => {
@@ -25,6 +27,7 @@ const Register = () => {
       console.log(response)
       history.push('/home')
     } catch (err) {
+      setErrors('error')
       console.log(err)
     }
   }
@@ -39,7 +42,7 @@ const Register = () => {
               <Header as='h2' color='black' textAlign='left' className='ui header register'>
             Register
               </Header>
-              <Form.Input fluid icon='user' iconPosition='left' name='email' placeholder='Email' onChange={handleChange} value={formData.email} />
+              <Form.Input fluid icon='user' iconPosition='left' name='email' placeholder='Email' onChange={handleChange} value={formData.email} className={errors}/>
               <Form.Input
                 onChange={handleChange}
                 fluid
@@ -49,6 +52,8 @@ const Register = () => {
                 type='username'
                 name='username'
                 value={formData.username}
+                className={errors}
+
               />
               <Form.Input
                 onChange={handleChange}
@@ -59,6 +64,8 @@ const Register = () => {
                 type='password'
                 name='password'
                 value={formData.password}
+                className={errors}
+                
               />
               <Form.Input
                 onChange={handleChange}
@@ -69,12 +76,13 @@ const Register = () => {
                 type='passwordConfirmation'
                 name='passwordConfirmation'
                 value={formData.passwordConfirmation}
+                className={errors}
               />
               <Button color='red' fluid size='large' type='submit'>
                 Register
               </Button> 
               <div className='account-signin-link'> 
-            Already have an account? <a href='#'>Sign In</a>
+            Already have an account? <a href='/login'>Sign In</a>
               </div>
             </Segment>          
           </Form>
