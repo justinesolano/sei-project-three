@@ -4,3 +4,47 @@
   background-color: black;
   height: 100vh;
 }
+
+
+.ui.stacked.segment { 
+  background-color: rgba(0,0,0,.75);
+  font-weight: bold;
+  color: white;
+}
+.ui.stacked.segment {
+  padding-bottom: 1.4em;
+  height: 600px;
+  width: 480px;
+  padding-left: 60px;
+  padding-top: 50px;
+}
+
+.ui.header.register { 
+  color: white;
+}
+
+.ui.form input {
+  max-width: 250px;
+  height: 60px;
+  font: 2em;
+}
+
+.ui.fluid.input {
+  display: flex;
+  max-width: 350px; 
+  padding: 6px;
+}
+
+.ui.red.button { 
+max-width: 349px; 
+height: 60px;
+}
+
+.ui.message { 
+
+color:red;
+}
+
+.account-signin-link{ 
+  padding-top: 10px;
+}

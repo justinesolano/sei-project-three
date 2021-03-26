@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Button, Form, Grid, Header, Message, Segment } from 'semantic-ui-react'
+import { Button, Form, Grid, Header, Segment } from 'semantic-ui-react'
 import { useHistory } from 'react-router'
 import axios from 'axios'
 const Register = () => {
@@ -28,61 +28,60 @@ const Register = () => {
       console.log(err)
     }
   }
-  
-  return (
 
-    <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
-      <Grid.Column style={{ maxWidth: 450 }}>
-        <Header as='h2' color='teal' textAlign='center'>
-          Register
-        </Header>
-        <Form size='large' onSubmit={handleSubmit}>
-          <Segment stacked>
-            <label>Email</label>
-            <Form.Input fluid icon='user' iconPosition='left' name='email' placeholder='Email' onChange={handleChange} value={formData.email} />
-            <label>Username</label>
-            <Form.Input
-              onChange={handleChange}
-              fluid
-              icon='user'
-              iconPosition='left'
-              placeholder='Username'
-              type='username'
-              name='username'
-              value={formData.username}
-            />
-            <label>Password</label>
-            <Form.Input
-              onChange={handleChange}
-              fluid
-              icon='lock'
-              iconPosition='left'
-              placeholder='Password'
-              type='password'
-              name='password'
-              value={formData.password}
-            />
-            <label>Password Confirmation</label>
-            <Form.Input
-              onChange={handleChange}
-              fluid
-              icon='lock'
-              iconPosition='left'
-              placeholder='Password Confirmation'
-              type='passwordConfirmation'
-              name='passwordConfirmation'
-              value={formData.passwordConfirmation}
-            />
-            <Button color='teal' fluid size='large' type='submit'>
-              Register
-            </Button>
-          </Segment>
-        </Form>
-        <Message>
-          Already have an account? <a href='#'>Sign In</a>
-        </Message>
-      </Grid.Column>
-    </Grid>
+  return (
+    <div className='background-register'>
+      <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle' >
+        <Grid.Column style={{ maxWidth: 450 }} >
+          
+          <Form size='large' onSubmit={handleSubmit}>
+            <Segment stacked>
+              <Header as='h2' color='black' textAlign='left' className='ui header register'>
+            Register
+              </Header>
+              <Form.Input fluid icon='user' iconPosition='left' name='email' placeholder='Email' onChange={handleChange} value={formData.email} />
+              <Form.Input
+                onChange={handleChange}
+                fluid
+                icon='user'
+                iconPosition='left'
+                placeholder='Username'
+                type='username'
+                name='username'
+                value={formData.username}
+              />
+              <Form.Input
+                onChange={handleChange}
+                fluid
+                icon='lock'
+                iconPosition='left'
+                placeholder='Password'
+                type='password'
+                name='password'
+                value={formData.password}
+              />
+              <Form.Input
+                onChange={handleChange}
+                fluid
+                icon='lock'
+                iconPosition='left'
+                placeholder='Password Confirmation'
+                type='passwordConfirmation'
+                name='passwordConfirmation'
+                value={formData.passwordConfirmation}
+              />
+              <Button color='red' fluid size='large' type='submit'>
+                Register
+              </Button> 
+              <div className='account-signin-link'> 
+            Already have an account? <a href='#'>Sign In</a>
+              </div>
+            </Segment>          
+          </Form>
+
+        </Grid.Column>
+      </Grid>
+    </div>
   )
 }
 
