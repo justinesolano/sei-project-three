@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import jetflixLogo from '../assets/jetflixlogo.png'
 import Select from 'react-select'
@@ -21,40 +21,63 @@ const Navbar = () => {
     setFormdata({ ...formdata, [name]: [...values] })
   }
 
+  const [show, handleShow] = useState(false)
+
+  useEffect(() => {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 10) {
+        handleShow(true)
+      } else handleShow(false)
+    })
+    return () => {
+      window.removeEventListener('scroll', window)
+    }
+  }, [])
+
   return (
-    <nav className="ui menu navbar" >
-      <div className="nav-container navbar-brand">
-        <div className="left-nav">
-          <div className="jetflix-nav-logo">
-            <Link to="/home" className="logo-to-home">
-              <img src={jetflixLogo}></img>
-            </Link>
-          </div>
-          <div className="my-list navbar-item">
-            <Link to="/home" className="my-list-link">
-              <a className="nav-links">My List</a>
-            </Link>
-          </div>
-          <div className="explore  navbar-item">
-            <Link to="/profiles" className="explore-link">
-              <a className="nav-links">Explore</a>
-            </Link>
-          </div>
+    <nav className={`navbar topnav ${show && 'nav__black'}`} >
+      <div className="logo-and-main-nav">
+        <div className="jetflix-nav-logo">
+          <Link to="/" className="logo-to-home">
+            <img src={jetflixLogo} className="jetflix"></img>
+          </Link>
         </div>
-        <div className="right-nav">
-          <div className="control navbar-item">
-            <Select
-              options={groupedOptions}
-              isMulti
-              name="search"
-              onChange={(selected) => handleMultiChange(selected, 'search')}
-            />
-          </div>
-          <div className="profiles">
-            <Link to="/profiles" className="profiles-link">
-              <a className="nav-links">Profiles</a>
+        <ul className="navbar-link-list">
+          <section className="left-nav">
+            <li>
+              <Link to="/home" className="home-link-div">
+                <a className="nav-links home-link">Home</a>
+              </Link>
+            </li>
+            <li>
+              <Link to="/home" className="my-list-link-div">
+                <a className="nav-links my-list-link">My List</a>
+              </Link>
+            </li>
+            <li>
+              <Link to="/explore" className="explore-link-div">
+                <a className="nav-links explore-link">Explore</a>
+              </Link>
+            </li>
+          </section>
+        </ul>
+      </div>
+      <div className="navbar-link-list-two">
+        <section className="right-nav">
+          <Select className="search-bar-link"
+            options={groupedOptions}
+            isMulti
+            name="search"
+            placeholder="Find your paradise here"
+            onChange={(selected) => handleMultiChange(selected, 'search')}
+          />
+        </section>
+        <div className="end-nav">
+          <section>
+            <Link to="/profiles" className="profiles-link-div">
+              <a className="nav-links profiles-link">Profiles</a>
             </Link>
-          </div>
+          </section>
         </div>
       </div>
     </nav>
