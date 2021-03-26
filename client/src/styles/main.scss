@@ -50,6 +50,9 @@
 // .jetflix-nav-logo{
   
 // }
+
+
+//*register and login pqge jetflix
 .landing.ui.grid {
   justify-content: center;
   align-items: center;
@@ -57,6 +60,7 @@
   height: 100vh;
 }
 
+<<<<<<< HEAD
 .home {
   background-color: black;
 }
@@ -99,3 +103,58 @@
 body {
   overflow: hidden;
 }
+=======
+
+.ui.stacked.segment { 
+  background-color: rgba(0,0,0,.75);
+  font-weight: bold;
+  color: white;
+}
+.ui.stacked.segment {
+  padding-bottom: 1.4em;
+  height: 600px;
+  width: 480px;
+  padding-left: 60px;
+  padding-top: 50px;
+}
+
+.ui.header.register { 
+  color: white;
+}
+
+.ui.form input {
+  max-width: 250px;
+  height: 50px;
+  font: 2em;
+}
+
+.ui.fluid.input {
+  display: flex;
+  max-width: 350px; 
+  padding: 6px;
+}
+
+.ui.red.button { 
+max-width: 349px; 
+height: 50px;
+margin-top: 25px;
+}
+
+.ui.message { 
+color:red;
+}
+
+.account-signin-link{ 
+  padding-top: 10px;
+}
+
+//login 
+
+.ui.left.aligned.header { 
+  color: white;
+}
+
+.ui.stacked.segment.login{ 
+  height: 400px;
+}
+>>>>>>> development
