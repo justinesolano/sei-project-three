@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router'
 import axios from 'axios'
-import { Button, Form, Grid, Header, Message, Segment } from 'semantic-ui-react'
+import { Button, Form, Grid, Header, Segment } from 'semantic-ui-react'
 
 
 const Login = () => {
@@ -35,17 +35,17 @@ const Login = () => {
   return (
     <Grid textAlign="center" style={{ height: '100vh' }} verticalAlign="middle">
       <Grid.Column style={{ maxWidth: 450 }}>
-        <Header as="h2" color="teal" textAlign="center">
-          Log In
-        </Header>
         <Form size="large" onSubmit={handleSubmit}>
-          <Segment stacked>
+          <Segment stacked className='ui stacked segment login'>
+            <Header as="h2" color="white" textAlign="left" >
+              Log In
+            </Header>
             <Form.Input
               className={errors}
-              fluid icon="user" 
-              iconPosition="left" 
-              name="email" 
-              placeholder="Email" 
+              fluid icon="user"
+              iconPosition="left"
+              name="email"
+              placeholder="Email"
               onChange={handleChange} />
             <Form.Input
               className={errors}
@@ -57,14 +57,14 @@ const Login = () => {
               type="password"
               name="password"
             />
-            <Button color="teal" fluid size="large" type="submit">
-            Login
+            <Button color="red" fluid size="large" type="submit">
+              Login
             </Button>
+            <div className='account-signin-link'> 
+              New to us? <a href="/register">Sign Up</a>
+            </div>
           </Segment>
         </Form>
-        <Message>
-          New to us? <a href="#">Sign Up</a>
-        </Message>
       </Grid.Column>
     </Grid>
   )
