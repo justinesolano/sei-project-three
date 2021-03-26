@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
-import ReactMapGL, { Marker } from 'react-map-gl'
+import ReactMapGL from 'react-map-gl'
 
 const UserProfile = () => {
   const [viewPort, setViewPort] = useState(null)
   console.log(viewPort, setViewPort)
 
-  console.log('my token ', process.env.REACT_APP_MAPBOX_ACCESS_TOKEN)
   const { id } = useParams()
   const [profile, setProfile] = useState(null)
 
@@ -22,7 +21,9 @@ const UserProfile = () => {
   useEffect(() => {
     window.navigator.geolocation.getCurrentPosition(position => {
       const { longitude, latitude } = position.coords
+      console.log('coordss >>', longitude, latitude)
       setViewPort({ longitude, latitude })
+      
     })
   }, [])
 
@@ -31,23 +32,23 @@ const UserProfile = () => {
   if (!profile) return null
   return (
     <>
-      {/* <div>
+      <div>
         <h1>{profile.username} </h1>
-      </div> */}
+      </div>
       <div className='map-container'>
         {viewPort ?
           <ReactMapGL
             mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_ACCESS_TOKEN}
-            height='50%'
-            width='50%'
+            height='100%'
+            width='100%'
             mapStyle='mapbox://styles/mapbox/streets-v11'
             latitude={viewPort.latitude}
             longitude={viewPort.longitude}
             zoom={10}
           >
-            <Marker latitude={viewPort.latitude} longitude={viewPort.longitude}>
-          👩🏻‍💻
-            </Marker>
+            {/* <Marker latitude={viewPort.latitude} longitude={viewPort.longitude}>
+          
+            </Marker> */}
 
           </ReactMapGL>
           :

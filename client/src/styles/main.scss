@@ -4,8 +4,13 @@
   box-sizing: border-box;
 }
 
+
 // NAVBAR
 
+.mapboxgl-map { 
+  display: contents;
+  margin-top: 20px;
+}
 .navbar{
   position: fixed;
   top: 0;
@@ -125,8 +130,6 @@ left: 100px;
   height: 100vh;
 }
 
-<<<<<<< HEAD
-=======
 @media screen and (max-width: 1690px){
   .navbar-link-list{
     margin: 0;
@@ -761,7 +764,7 @@ left: 100px;
 
 // end of NAVBAR
 
->>>>>>> development
+
 .home {
   background-color: black;
 }
@@ -857,7 +860,6 @@ color:red;
 .ui.stacked.segment.login{ 
   height: 400px;
 }
-<<<<<<< HEAD
 
 
 //* user profile 
@@ -874,9 +876,5 @@ color:red;
 element.style { 
   display:block;
 }
-.mapboxgl-map { 
-  display: contents;
+
 }
-=======
-}
->>>>>>> development
