@@ -24,8 +24,8 @@ const Home = () => {
 
   const settings = {
     dots: true,
-    infinite: false,
-    speed: 500,
+    infinite: true,
+    speed: 2000,
     slidesToShow: 3,
     slidesToScroll: 3,
     initialSlide: 0,
@@ -66,7 +66,10 @@ const Home = () => {
           <h1>{destinations[hero].name}</h1>
           <p>{destinations[hero].description}</p>
           <Button className="button secondary">
-            <Link to="/api/destinations/:id">More Info</Link>
+            <Link to="/api/destinations/:id"
+              style={{
+                'color': 'white'
+              }}>More Info</Link>
           </Button>
         </div>
       </div>
@@ -78,7 +81,8 @@ const Home = () => {
               return <div key={destination._id} className="home-item">
                 <img src={destination.image} 
                   style={{
-                    'width': '500px'
+                    'width': '500px',
+                    'max-height': '200px'
                   }}/>
               </div>
             })}
@@ -91,7 +95,8 @@ const Home = () => {
               return <div key={destination._id} className="home-item">
                 <img src={destination.image} 
                   style={{
-                    'width': '500px'
+                    'width': '500px',
+                    'max-height': '200px'
                   }}/>
               </div>
             })}
@@ -104,7 +109,8 @@ const Home = () => {
               return <div key={destination._id} className="home-item">
                 <img src={destination.image} 
                   style={{
-                    'width': '500px'
+                    'width': '500px',
+                    'max-height': '200px'
                   }}/>
               </div>
             })}
