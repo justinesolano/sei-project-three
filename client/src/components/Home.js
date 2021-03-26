@@ -30,40 +30,58 @@ const Home = () => {
       <div className="hero">
         <img src={destinations[hero].image} 
           style={{
-            'height': '50vh'
+            'width': '100vw'
           }}/>
-        <div className="hero-info"
-          style={{
-            'position': 'absolute',
-            'top': '250px',
-            'left': 0,
-            'color': 'white',
-            'width': '40%',
-            'backgroundColor': 'rgba(0, 0, 0, 0.5)',
-            'padding': '20px'
-          }}>
+        <div className="hero-info">
           <h1>{destinations[hero].name}</h1>
           <p>{destinations[hero].description}</p>
           <Button className="button secondary">
-            <Link to="/api/destinations/:id"
-              style={{
-                'color': 'white'
-              }}>More Info</Link>
+            <Link to="/api/destinations/:id">More Info</Link>
           </Button>
         </div>
       </div>
       <div className="previews">
         <div>
-          <h2 className="ui header">My List</h2>
-
+          <h3 className="ui home-subheader">My List</h3>
+          <div className="ui grid">
+            <div className="four column row">
+              {destinations.map(destination => {
+                return (
+                  <Link to={`/destinations/${destination.id}`} key={destination.id} className="home-column column home-container">
+                    <img src={destination.image} className="home-item"/>
+                  </Link>
+                )
+              })}
+            </div>
+          </div>
         </div>
         <div>
-          <h2 className="ui header">Recommended for you</h2>
-
+          <h3 className="ui home-subheader">Recommended for you</h3>
+          <div className="ui grid">
+            <div className="four column row">
+              {destinations.map(destination => {
+                return (
+                  <Link to={`/destinations/${destination.id}`} key={destination.id} className="home-column column home-container">
+                    <img src={destination.image} className="home-item"/>
+                  </Link>
+                )
+              })}
+            </div>
+          </div>
         </div>
         <div>
-          <h2 className="ui header">Trending Now</h2>
-
+          <h3 className="ui home-subheader">Trending Now</h3>
+          <div className="ui grid">
+            <div className="four column row">
+              {destinations.map(destination => {
+                return (
+                  <Link to={`/destinations/${destination.id}`} key={destination.id} className="home-column column home-container">
+                    <img src={destination.image} className="home-item"/>
+                  </Link>
+                )
+              })}
+            </div>
+          </div>
         </div>
       </div>
     </div>

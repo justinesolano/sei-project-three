@@ -57,6 +57,45 @@
   height: 100vh;
 }
 
-.hero {
-  font-family: Helvetica
+.home {
+  background-color: black;
+}
+
+.hero,
+.home-subheader {
+  font-family: Helvetica;
+  color: white;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.hero-info {
+  position: absolute;
+  top: 250px;
+  left: 0;
+  color: white;
+  width: 40%;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+}
+
+.home-column {
+  padding: 2px;
+}
+
+.home-item {
+  position: relative;
+  display: block;
+  flex: 1 1 0px;
+  transition: transform 500ms;
+}
+
+.home-container .home-item:focus,
+.home-container .home-item:hover {
+  transform: scale(1.5);
+  z-index: 1;
+}
+
+body {
+  overflow: hidden;
 }
