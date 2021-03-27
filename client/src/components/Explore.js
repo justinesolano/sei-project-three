@@ -4,7 +4,7 @@ import axios from 'axios'
 
 
 const Explore = () => {
-  const [profiles, setProfiles] = useState(null)
+  const [profiles, setProfiles] = useState([])
 
 
   useEffect(() => {
@@ -14,14 +14,11 @@ const Explore = () => {
     }
     getData()
   }, [])
-  
-  console.log(profiles[0].username)
+  console.log(profiles)
 
-  const handleUser = () => {
-    for (let i = 0; i < profiles.length; i++) {
-      return profiles[i].username
-    }
-  }
+  const profilesUsername = profiles.map((user) => {
+    return user.username
+  })
 
 
   return (
@@ -32,7 +29,7 @@ const Explore = () => {
         </Feed.Label>
         <Feed.Content>
           <Feed.Summary>
-            <Feed.User>{handleUser}</Feed.User> added you as a friend
+            <Feed.User>{profilesUsername}</Feed.User >
             <Feed.Date>1 Hour Ago</Feed.Date>
           </Feed.Summary>
           <Feed.Meta>
