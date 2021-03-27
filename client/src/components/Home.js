@@ -14,14 +14,10 @@ const Home = () => {
     const getData = async () => {
       const { data } = await axios.get('/api/destinations')
       setDestinations(data)
-      
+      setHero(parseFloat(Math.floor(Math.random() * data.length)))
     }
     getData()
   }, [])
-
-  useEffect(() => {
-    (!destinations) ? setHero(0) : setHero(parseFloat(Math.floor(Math.random() * destinations.length)))
-  })
 
   const handleInfoButton = (event) => {
     setDetailInfoId(event.target.name)
@@ -35,7 +31,7 @@ const Home = () => {
     arrows: true,
     dots: false,
     infinite: true,
-    speed: 5000,
+    speed: 1000,
     slidesToShow: 4,
     slidesToScroll: 2,
     initialSlide: 0,
@@ -120,12 +116,8 @@ const Home = () => {
           <Slider {...settings} className="slider">
             {destinations.map(destination => {
               return <div key={destination._id} className="home-item">
-                <div>
-                  <img src={destination.image} 
-                    style={{
-                      'width': '500px',
-                      'max-height': '200px'
-                    }}/>
+                <div className="columns">
+                  <img src={destination.image} className="column"/>
                 </div>
                 <div className="home-destination-info">
                   <h3>{destination.name}</h3>
@@ -144,7 +136,7 @@ const Home = () => {
                 <img src={destination.image} 
                   style={{
                     'width': '500px',
-                    'max-height': '200px'
+                    'maxHeight': '200px'
                   }}/>
               </Link>
             })}
@@ -158,7 +150,7 @@ const Home = () => {
                 <img src={destination.image} 
                   style={{
                     'width': '500px',
-                    'max-height': '200px'
+                    'maxHeight': '200px'
                   }}/>
               </Link>
             })}

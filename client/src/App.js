@@ -3,6 +3,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Landing from './components/Landing'
 import Home from './components/Home'
+import Destination from './components/Destination'
 import Register from './auth/Register'
 import Login from './auth/Login'
 import Explore from './components/Explore'
@@ -18,6 +19,9 @@ const App = () => {
         </Route>
         <Route path="/home">
           <Home />
+        </Route>
+        <Route path="/destination/:id">
+          <Destination />
         </Route>
         <Route path="/register">
           <Register />

@@ -1,4 +1,4 @@
-
+@import '~bulma/bulma.sass';
 
 *{
   margin: 0;
@@ -34,8 +34,12 @@
   padding: 20px;
 }
 
-.home-column {
-  padding: 2px;
+.previews {
+  h3 {
+    padding-top: 20px;
+    padding-left: 20px;
+  }
+  
 }
 
 .home-item {
@@ -47,9 +51,13 @@
 }
 
 .slick-list {
-  padding: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   padding-left: 0;
   padding-right: 0;
+  // img {
+  //   max-height: 200px;
+  // }
 }
 
 .home-destination-info,
@@ -70,7 +78,6 @@
   transform: scale(1.2);
   z-index: 1;
 }
-
 
 .slick-arrow.slick-next {
   margin-right: 30px;
