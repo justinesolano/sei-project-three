@@ -35,53 +35,71 @@ const Navbar = () => {
   }, [])
 
   return (
-    <nav className={`navbar topnav ${show && 'nav__black'}`} >
-      <div className="logo-and-main-nav">
-        <div className="jetflix-nav-logo">
-          <Link to="/" className="logo-to-home">
-            <img src={jetflixLogo} className="jetflix"></img>
-          </Link>
-        </div>
-        <ul className="navbar-link-list">
-          <section className="left-nav">
-            <li>
-              <Link to="/home" className="home-link-div">
-                <a className="nav-links home-link">Home</a>
-              </Link>
-            </li>
-            <li>
-              <Link to="/home" className="my-list-link-div">
-                <a className="nav-links my-list-link">My List</a>
-              </Link>
-            </li>
-            <li>
-              <Link to="/explore" className="explore-link-div">
-                <a className="nav-links explore-link">Explore</a>
-              </Link>
-            </li>
-          </section>
-        </ul>
+    <nav className={`navbar ${show && 'nav__black'}`} role="navigation" aria-label="main-navigation">
+      <div className="navbar-brand">
+        <Link to="/" className="logo-to-home">
+          <img src={jetflixLogo} className="jetflix"></img>
+        </Link>
       </div>
-      <div className="navbar-link-list-two">
-        <section className="right-nav">
-          <Select className="search-bar-link"
-            options={groupedOptions}
-            isMulti
-            name="search"
-            placeholder="Find your paradise here"
-            onChange={(selected) => handleMultiChange(selected, 'search')}
-          />
-        </section>
-        <div className="end-nav">
-          <section>
-            <Link to="/profiles" className="profiles-link-div">
-              <a className="nav-links profiles-link">Profiles</a>
-            </Link>
-          </section>
+      <div className="navbar-menu">
+        <div className="navbar-start">
+
+
         </div>
       </div>
+
     </nav>
   )
+
+
+  // return (
+  //   <nav className={`navbar topnav ${show && 'nav__black'}`} >
+  //     <div className="navbar-brand">
+  //       <div className="jetflix-nav-logo">
+  //         <Link to="/" className="logo-to-home">
+  //           <img src={jetflixLogo} className="jetflix"></img>
+  //         </Link>
+  //       </div>
+  //       <ul className="navbar-link-list">
+  //         <section className="left-nav">
+  //           <li>
+  //             <Link to="/home" className="home-link-div">
+  //               <a className="nav-links home-link">Home</a>
+  //             </Link>
+  //           </li>
+  //           <li>
+  //             <Link to="/home" className="my-list-link-div">
+  //               <a className="nav-links my-list-link">My List</a>
+  //             </Link>
+  //           </li>
+  //           <li>
+  //             <Link to="/explore" className="explore-link-div">
+  //               <a className="nav-links explore-link">Explore</a>
+  //             </Link>
+  //           </li>
+  //         </section>
+  //       </ul>
+  //     </div>
+  //     <div className="navbar-menu">
+  //       <section className="right-nav">
+  //         <Select className="search-bar-link"
+  //           options={groupedOptions}
+  //           isMulti
+  //           name="search"
+  //           placeholder="Find your paradise here"
+  //           onChange={(selected) => handleMultiChange(selected, 'search')}
+  //         />
+  //       </section>
+  //       <div className="end-nav">
+  //         <section>
+  //           <Link to="/profiles" className="profiles-link-div">
+  //             <a className="nav-links profiles-link">Profiles</a>
+  //           </Link>
+  //         </section>
+  //       </div>
+  //     </div>
+  //   </nav>
+  // )
 }
 
 // home
