@@ -3,10 +3,11 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Landing from './components/Landing'
 import Home from './components/Home'
+import Destination from './components/Destination'
 import Register from './auth/Register'
 import Login from './auth/Login'
 import Explore from './components/Explore'
-
+import UserProfile from './components/UserProfile'
 const App = () => {
 
   return (
@@ -19,6 +20,9 @@ const App = () => {
         <Route path="/home">
           <Home />
         </Route>
+        <Route path="/destination/:id">
+          <Destination />
+        </Route>
         <Route path="/register">
           <Register />
         </Route>
@@ -27,6 +31,9 @@ const App = () => {
         </Route>
         <Route exact path="/explore">
           <Explore />
+        </Route>
+        <Route exact path='/userprofile/:id'> 
+          <UserProfile />
         </Route>
       </Switch>
     </BrowserRouter>
