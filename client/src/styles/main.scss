@@ -142,7 +142,7 @@
 
 .jetflix{
 margin-left: -40px;
-margin-top: 5px;
+margin-top: 1px;
 object-fit: contain;
 position: fixed;
 width: 100px;
@@ -171,6 +171,7 @@ left: 100px;
 .left-nav, .right-nav{
   display: flex;
   justify-content: space-around;
+  align-content: center;
   // object-fit: contain;
   // position: fixed;
   // width: 100px;
