@@ -40,6 +40,8 @@
     padding-left: 20px;
   }
   
+.home-column {
+  padding: 2px;
 }
 
 .home-item {
@@ -75,10 +77,23 @@
   }
 }
 
+}
+
+.slick-list {
+  padding: 20px;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+// .home-container .home-item:focus,
 .home-container .home-item:hover {
   transform: scale(1.2);
   z-index: 1;
 }
+
+// .previews {
+//   margin: 35px;
+// }
 
 .slick-arrow.slick-next {
   margin-right: 30px;
@@ -277,10 +292,44 @@ color:red;
   color: white;
 }
 
+}
+
+.ui.form input {
+  max-width: 250px;
+  height: 50px;
+  font: 2em;
+}
+
+.ui.fluid.input {
+  display: flex;
+  max-width: 350px; 
+  padding: 6px;
+}
+
+.ui.red.button { 
+max-width: 349px; 
+height: 50px;
+margin-top: 25px;
+}
+
+.ui.message { 
+color:red;
+}
+
+.account-signin-link{ 
+  padding-top: 10px;
+}
+
+//login 
+
+.ui.left.aligned.header { 
+  color: white;
+}
+
 .ui.stacked.segment.login{ 
   height: 400px;
 }
-}
+
 
 
 @media screen and (max-width: 1690px){
