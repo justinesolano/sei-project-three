@@ -97,7 +97,8 @@ const Home = () => {
       <div className="hero">
         <img src={destinations[hero].image} 
           style={{
-            'height': '50vh'
+            'width': '100vw',
+            'max-height': '50vh'
           }}/>
         <div className="hero-info">
           <h1>{destinations[hero].name}</h1>
@@ -132,13 +133,16 @@ const Home = () => {
         <div className="home-container">
           <Slider {...settings} className="slider">
             {destinations.map(destination => {
-              return <Link to="/" key={destination._id} className="home-item">
-                <img src={destination.image} 
-                  style={{
-                    'width': '500px',
-                    'maxHeight': '200px'
-                  }}/>
-              </Link>
+              return <div key={destination._id} className="home-item">
+                <div className="columns">
+                  <img src={destination.image} className="column"/>
+                </div>
+                <div className="home-destination-info">
+                  <h3>{destination.name}</h3>
+                  <p><i>{destination.country}</i></p>
+                  <Button className="button secondary" onClick={handleInfoButton} name={`${destinations.indexOf(destination)}`}>More info</Button>
+                </div>
+              </div>
             })}
           </Slider>
         </div>
@@ -146,13 +150,16 @@ const Home = () => {
         <div className="home-container">
           <Slider {...settings} className="slider">
             {destinations.map(destination => {
-              return <Link to="/" key={destination._id} className="home-item">
-                <img src={destination.image} 
-                  style={{
-                    'width': '500px',
-                    'maxHeight': '200px'
-                  }}/>
-              </Link>
+              return <div key={destination._id} className="home-item">
+                <div className="columns">
+                  <img src={destination.image} className="column"/>
+                </div>
+                <div className="home-destination-info">
+                  <h3>{destination.name}</h3>
+                  <p><i>{destination.country}</i></p>
+                  <Button className="button secondary" onClick={handleInfoButton} name={`${destinations.indexOf(destination)}`}>More info</Button>
+                </div>
+              </div>
             })}
           </Slider>
         </div>
