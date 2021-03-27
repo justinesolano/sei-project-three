@@ -7,6 +7,7 @@ import Destination from './components/Destination'
 import Register from './auth/Register'
 import Login from './auth/Login'
 import Explore from './components/Explore'
+import ExploreDestination from './components/ExploreDestination'
 import UserProfile from './components/UserProfile'
 const App = () => {
 
@@ -31,6 +32,9 @@ const App = () => {
         </Route>
         <Route exact path="/explore">
           <Explore />
+        </Route>
+        <Route exact path="/feed">
+          <ExploreDestination />
         </Route>
         <Route exact path='/userprofile/:id'> 
           <UserProfile />
