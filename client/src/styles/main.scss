@@ -78,12 +78,14 @@
 }
 
 }
-
-.slick-list {
-  padding: 20px;
-  padding-left: 0;
-  padding-right: 0;
+.slider {
+  .slick-list {
+    padding: 20px;
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
+
 
 // .home-container .home-item:focus,
 .home-container .home-item:hover {
@@ -123,6 +125,23 @@
     right: 15px;
   }
 }
+
+.destination-detail {
+  img {
+    height: 100vh;
+  }
+  .destination-detail-info {
+    z-index: 10;
+    color: white;
+    position: absolute;
+    display: block;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 30px;
+  }
+}
+
 
 // NAVBAR
 

@@ -88,7 +88,7 @@ const Home = () => {
             <p>Highlights: {destinations[detailInfoId].highlights.map((highlight, index) => {
               return <li key={index}>{highlight}</li>
             })}</p>
-            <Button className="button secondary" href={`/destinations/${destinations[detailInfoId].id}`}>See more</Button>
+            <Button className="button secondary" href={`/destinations/${destinations[detailInfoId].name}`}>See more</Button>
           </div>
         </div>
         :
