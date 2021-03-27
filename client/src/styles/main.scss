@@ -11,6 +11,12 @@
   display: contents;
   margin-top: 20px;
 }
+//* user profile 
+.photo-userprofile { 
+  width: 150px;
+  display: inline;
+}
+
 .navbar{
   position: fixed;
   top: 0;
@@ -862,11 +868,7 @@ color:red;
 }
 
 
-//* user profile 
-.photo-userprofile { 
-  width: 150px;
-  display: inline;
-}
+
 
 //map 
 .map-container { 

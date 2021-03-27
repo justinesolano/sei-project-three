@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
-import ReactMapGL from 'react-map-gl'
+import ReactMapGL, { Marker, Popup } from 'react-map-gl'
 
 const UserProfile = () => {
-  const [viewPort, setViewPort] = useState(null)
+  const [viewPort, setViewPort] = useState({
+    latitude: 51.515,
+    longitude: -0.078,
+    zoom: 4
+  })
   console.log(viewPort, setViewPort)
-
+  const [popup, setPopup] = useState(null)
+  console.log('popup', popup, setPopup)
   const { id } = useParams()
   const [profile, setProfile] = useState(null)
 
@@ -18,14 +23,14 @@ const UserProfile = () => {
     getData()
   }, [])
 
-  useEffect(() => {
-    window.navigator.geolocation.getCurrentPosition(position => {
-      const { longitude, latitude } = position.coords
-      console.log('coordss >>', longitude, latitude)
-      setViewPort({ longitude, latitude })
-      
-    })
-  }, [])
+  // useEffect(() => {
+  //   window.navigator.geolocation.getCurrentPosition(position => {
+  //     const { longitude, latitude } = position.coords
+  //     console.log('coordss >>', longitude, latitude)
+  //     setViewPort({ longitude, latitude })
+
+  //   })
+  // }, [])
 
 
 
@@ -42,25 +47,39 @@ const UserProfile = () => {
             height='100%'
             width='100%'
             mapStyle='mapbox://styles/mapbox/streets-v11'
-            latitude={viewPort.latitude}
-            longitude={viewPort.longitude}
-            zoom={10}
+            {...viewPort}
+            onViewportChange={(viewPort) => setViewPort(viewPort)}
           >
-            {/* <Marker latitude={viewPort.latitude} longitude={viewPort.longitude}>
-          
-            </Marker> */}
+            {profile.photos.map(photo => {
+              return <Marker key={photo._id} longitude={photo.location.longitude} latitude={photo.location.latitude}>
+                {/* <span onClick={() => setPopup(location)}> */}
+                {photo.location.icon}
+                {/* </span> */}
+              </Marker>
+            })}
 
           </ReactMapGL>
           :
           <h1>Loading your location...</h1>
         }
       </div>
-      {/* {profile.photos.map(photo => (
+      {profile.photos.map(photo => (
         <div key={photo.title}>
           <h3>{photo.title} </h3>
           <img key={photo.id} className='photo-userprofile' src={photo.image} alt={photo.title} />
         </div>
-      ))} */}
+      ))}
+      {popup &&
+        <Popup
+          latitude={popup.latitude}
+          longitude={popup.longitude}
+          closeOnClick={true}
+          onClose={() => setPopup(null)}
+        >
+          <div>{popup.title}</div>
+          <img key={popup._id} className='photo-userprofile' src={popup.image} alt={popup.title} />
+        </Popup> 
+      }
     </>
   )
 }
