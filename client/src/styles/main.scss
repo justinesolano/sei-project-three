@@ -43,12 +43,26 @@
   display: block;
   flex: 1 1 0px;
   transition: transform 500ms;
+  color: white;
 }
 
 .slick-list {
   padding: 20px;
   padding-left: 0;
   padding-right: 0;
+}
+
+.home-destination-info {
+  position: absolute;
+  bottom: 0;
+  margin: 10px;
+  visibility: hidden;
+}
+
+.home-item:hover {
+  .home-destination-info {
+    visibility: visible;
+  }
 }
 
 // .home-container .home-item:focus,

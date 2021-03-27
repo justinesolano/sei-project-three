@@ -81,13 +81,16 @@ const Home = () => {
         <div className="home-container">
           <Slider {...settings} className="slider">
             {destinations.map(destination => {
-              return <Link to="/" key={destination._id} className="home-item">
-                <img src={destination.image} 
-                  style={{
-                    'width': '500px',
-                    'max-height': '200px'
-                  }}/>
-              </Link>
+              return <div key={destination._id} className="home-item">
+                <Link to="/">
+                  <img src={destination.image} 
+                    style={{
+                      'width': '500px',
+                      'max-height': '200px'
+                    }}/>
+                </Link>
+                <p className="home-destination-info">{destination.name}</p>
+              </div>
             })}
           </Slider>
         </div>
