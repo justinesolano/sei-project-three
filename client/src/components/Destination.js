@@ -9,7 +9,7 @@ const Destination = () => {
     arrows: true,
     dots: false,
     infinite: true,
-    speed: 1000,
+    speed: 5000,
     slidesToShow: 1,
     slidesToScroll: 1,
     initialSlide: 0,
@@ -22,6 +22,7 @@ const Destination = () => {
 
   const [destinations, setDestinations] = useState(null)
   const [photos, setPhotos] = useState(null)
+  const [videos, setVideos] = useState(null)
   const { id } = useParams()
 
   useEffect(() => {
@@ -34,6 +35,16 @@ const Destination = () => {
 
   useEffect(() => {
     try {
+      const getVideos = async () => {
+        const { data } = await axios.get(
+          `https://api.pexels.com/videos/search?query=${id}`, 
+          {
+            headers: { Authorization: photoKey }
+          }
+        )
+        setVideos(data.videos)
+        console.log(videos)
+      }
       const getPhotos = async () => {
         const { data } = await axios.get(
           `https://api.pexels.com/v1/search?query=${id}`, 
@@ -43,23 +54,25 @@ const Destination = () => {
         )
         setPhotos(data.photos)
       }
+      getVideos()
+      console.log(videos)
       getPhotos()
     } catch (err) {
       console.log(err)
     }
   }, [])
 
-  if (!destinations || !photos) return null
+  if (!destinations || !videos || !photos) return null
 
   return (
     <div>
-      <div className="destination-detail">
+      <div className="destination-detail is-hero">
         <Slider {...settings}>
           {photos.map(photo => {
             return <img key={photo.id} src={photo.src.original} />
           })}
         </Slider>
-        {destinations.map(destination => {
+        {/* {destinations.map(destination => {
           if (destination.name === id) {
             return (
               <div key={destination.id} className="destination-detail-info">
@@ -78,10 +91,25 @@ const Destination = () => {
                   return <li key={index}>{highlight}</li>
                 })}</p>
               </div>
-            
             )
           }
-        })}
+        })} */}
+        <div className="columns is-multiline">
+          {videos.map(video => {
+            return (
+              <div className="column is-one-quarter-desktop is-one-third-tablet" key={video.id}>
+                <div className="card">
+                  {video.video_files.map(item => {
+                    return (
+                      <video key={item.id} className="card-image" src={item.link} autoPlay={true} muted={true} loop={true}/>
+                    )
+                  })}
+                  <div className="card-content">{video.user.name}</div>
+                </div>
+              </div>
+            )
+          })}
+        </div>
       </div>
     </div>
   )

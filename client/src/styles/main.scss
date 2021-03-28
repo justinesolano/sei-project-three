@@ -1,4 +1,4 @@
-
+@import '~bulma/bulma.sass';
 
 *{
   margin: 0;
@@ -127,9 +127,9 @@
 }
 
 .destination-detail {
-  img {
-    height: 100vh;
-  }
+  // img {
+  //   max-height: 75vh;
+  // }
   .destination-detail-info {
     z-index: 10;
     color: white;
