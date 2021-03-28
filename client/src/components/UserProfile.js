@@ -2,13 +2,11 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import ReactMapGL, { Popup, Marker } from 'react-map-gl'
+import { Button, Icon, Label } from 'semantic-ui-react'
 
 const UserProfile = () => {
-  const [viewPort, setViewPort] = useState(null)
-  console.log(viewPort, setViewPort)
 
-  const [popup, setPopup] = useState(null)
-
+  //Getting and showing photos and data 
   const { id } = useParams()
   const [profile, setProfile] = useState(null)
 
@@ -19,16 +17,29 @@ const UserProfile = () => {
     }
     getData()
   }, [])
+  //closing opening comments 
+  const [viewComments, setViewComments] = useState(true)
+
+  const handleChange = event => {
+    console.log(event.target.value)
+    if (viewComments === true) {
+      setViewComments(false)
+    } else {
+      setViewComments(true)
+    }
+
+  }
+  //map
+  const [popup, setPopup] = useState(null)
+  const [viewPort, setViewPort] = useState(null)
 
   useEffect(() => {
     window.navigator.geolocation.getCurrentPosition(position => {
       const { longitude, latitude } = position.coords
-      console.log('coordss >>', longitude, latitude)
       setViewPort({ longitude, latitude })
-      
+
     })
   }, [])
-
 
 
   if (!profile) return null
@@ -64,6 +75,33 @@ const UserProfile = () => {
         <div key={photo.title}>
           <h3>{photo.title} </h3>
           <img key={photo.id} className='photo-userprofile' src={photo.image} alt={photo.title} />
+          <Button as='div' labelPosition='right'>
+            <Button icon>
+              <Icon name='heart' />
+        Like
+            </Button>
+            <Label as='a' basic pointing='left'>
+              {photo.likes.length}
+            </Label>
+          </Button>
+          <div>
+            <Button
+              onClick={handleChange}
+              value={viewComments}
+              name={photo._id}
+              key={photo.index}>
+              View comments</Button>
+            {photo.comments.map(comment => (
+              <>
+                {!viewComments &&
+                  <p key={comment._id}>
+                    {comment.text}
+                  </p>}
+
+              </>
+
+            ))}
+          </div>
         </div>
       ))}
       {popup &&
@@ -75,7 +113,7 @@ const UserProfile = () => {
         >
           <div>{popup.title}</div>
           <img key={popup._id} className='photo-userprofile' src={popup.image} alt={popup.title} />
-        </Popup> 
+        </Popup>
       }
     </>
   )

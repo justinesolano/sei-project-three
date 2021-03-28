@@ -8,12 +8,18 @@ export default [
       {
         'title': 'San Diego puppy',
         'location': { longitude: -0.136420, latitude: 50.819520, icon: '🌊'  },
-        'image': 'https://behindthethrills.com/wp-content/uploads/2020/08/OnPaste.20200817-224437.png',
+        'image': 'https://fox5sandiego.com/wp-content/uploads/sites/15/2013/09/san-diego-puppy.gif',
+        'locationName': 'San Diego',
         'comments': [
           {
             'text': 'I like puppies',
             'owner': '605c704de6bac43634ea22bd'
+          },
+          {
+            'text': 'Can I get a pupp there?',
+            'owner': '605c704de6bac43634ea22bd'
           }
+
         ],
         'likes': [
           {
@@ -26,6 +32,7 @@ export default [
         'title': 'London puppy',
         'location': { longitude: -0.218360, latitude: 51.561140, icon: '𝍐' },
         'image': 'https://thedogvine.com/wp-content/uploads/2019/06/Dog-friendly-London-The-Best-Free-Dog-friendly-Things-To-Do-Tower-Bridge.jpg',
+        'locationName': 'London',
         'comments': [
           {
             'text': 'Cool place',
@@ -43,6 +50,7 @@ export default [
         'title': 'Paris puppy',
         'location': { longitude: -0.287110, latitude: 51.695881, icon: '🧚🏼‍♀️,' },
         'image': 'https://thumbs.dreamstime.com/z/puppy-paris-front-eifel-tower-53336391.jpg',
+        'locationName': 'Paris',
         'comments': [
           {
             'text': 'Cool puppy',
