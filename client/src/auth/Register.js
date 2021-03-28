@@ -36,7 +36,6 @@ const Register = () => {
     <div className='background-register'>
       <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle' >
         <Grid.Column style={{ maxWidth: 450 }} >
-          
           <Form size='large' onSubmit={handleSubmit}>
             <Segment stacked>
               <Header as='h2' color='black' textAlign='left' className='ui header register'>
@@ -86,7 +85,6 @@ const Register = () => {
               </div>
             </Segment>          
           </Form>
-
         </Grid.Column>
       </Grid>
     </div>
