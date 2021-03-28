@@ -1,3 +1,6 @@
+@import '~bulma/bulma.sass';
+
+
 *{
   margin: 0;
   padding: 0;
@@ -236,7 +239,26 @@ left: 100px;
 .search-bar-link {
   width: 300px;
   margin-right: 20px;
+  z-index: 2;
 }
+
+// DESTINATION CARD
+.card {
+  display: flex;
+  flex-direction: column;
+  height:100%;
+}
+.card-content {
+  margin-top:auto;
+}
+.card-image {
+  padding:1rem;
+  img {
+    height:200px;
+    object-fit:contain;
+  }
+}
+
 
 
 //*register and login page jetflix

@@ -1,80 +1,144 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-// import { Link } from 'react-router-dom'
-// import DestinationCard from './DestinationCard'
+// import Destination from './Destination'
+import DestinationCard from './DestinationCard'
 
 const ExploreDestination = () => {
 
-  const [userDestinations, setUserDestinations] = useState(null)
-  // const [exploreProfile, setExploreProfile] = useState(null)
-  const [exploreHero, setExploreHero] = useState(0)
+  const [userPhotos, setUserPhotos] = useState(null)
+
 
   useEffect(() => {
     const getData = async () => {
-      const { data } = await axios.get('/api/profiles/:id/photos')
-      setUserDestinations(data)
-      setExploreHero(parseFloat(Math.floor(Math.random() * data.length)))
-      console.log('DATA', data)
-
+      const { data } = await axios.get('api/profiles')
+      // const explorePhotos = data.photos
+      setUserPhotos(data)
     }
-    getData
+    getData()
   }, [])
 
-  console.log('USER DESTINATIONS', userDestinations)
-  console.log('EXPLORE HERO', exploreHero)
-
-  // useEffect(() => {
-  //   const getData = async () => {
-  //     const { data } = await axios.get('/api/profiles')
-  //     setExploreProfile(data)
-  //   }
-  //   getData()
-  // }, [])
-
-  // // const handleUserPhotos = () => {
-  // //   for (let i = 0; i < exploreProfile.length; i++) {
-  // //     return exploreProfile[i].username
-  // //   }
-  // // }
-
-  // if (!exploreProfile) return null
+  console.log('USER PHOTOS', userPhotos)
 
   return (
-    <>
-    </>
-    // <>
-    //   <div className="hero">
-    //     <img src={userDestinations[exploreHero].image} 
-    //       style={{
-    //         'width': '100vw',
-    //         'max-height': '50vh'
-    //       }}/>
-    //   </div>
-    //   <div className="section">
-    //     <div className="container">
-    //       { userDestinations &&
-    //       <div className="columns is-multiline">
-    //         { userDestinations.map( destinations => (
-    //           <DestinationCard key={destinations._id} {...destinations} />
-    //         ))}
-    //       </div>
-    //       }
-    //     </div>
-    //   </div>
-    // </>
+    <div className="section">
+      <div className="container">
+        { userPhotos &&
+        <div className="columns is-multiline">
+          {/* {userPhotos.map(photo => {
+            return photo.photos.map(photoid => (
+              <li key={photo.id}>
+                {photoid} - {photo.id}
+              </li>
+            ))
+          })} */}
+          { userPhotos.map(users => (
+            <DestinationCard key={users._id} { ...users.photos[1] } />
+          ))}
+        </div>
+        }
+      </div>
+    </div>
   )
 }
 
 export default ExploreDestination
 
 
-// not the same as in the database - the ones people upload
-// feed in a few videos
-// 
+// import React, { useState, useEffect } from 'react'
+// import axios from 'axios'
+// // import { Link } from 'react-router-dom'
+// import DestinationCard from './DestinationCard'
+// // import { useParams } from 'react-router-dom'
 
-// router.route('/profiles/:id/photos')
-//   .post(secureRoute, addPhotoToProfile)
+// const ExploreDestination = () => {
 
-// router.route('/profiles/:id/photos/:photoId')
-//   .post(secureRoute, addCommentToPhoto)
-//   .delete(secureRoute, deletePhotoFromProfile)
+//   // const params = useParams()
+//   const [userPhotos, setUserPhotos] = useState(null)
+//   // // const [exploreProfile, setExploreProfile] = useState(null)
+//   // const [exploreHero, setExploreHero] = useState(0)
+//   // const [explorePhotoArray, setExplorePhotoArray] = useState(0)
+
+//   useEffect(() => {
+//     const getData = async () => {
+//       const { data } = await axios.get('api/profiles')
+//       setUserPhotos(data)
+//       // setExploreHero(parseFloat(Math.floor(Math.random() * data[0].length)))
+//     }
+//     getData()
+//   }, [])
+
+//   const handleUserPhotos = () => {
+//     for (let i = 0; i < userPhotos.photos.length; i++){
+//       return userPhotos[i].image
+//     }
+//   }
+
+//   // useEffect(() => {
+//   //   const getPhotosArray = async () => {
+//   //     const { id } = await 
+//   //   }
+//   // })
+
+//   // console.log('USER DESTINATIONS', userPhotos)
+//   // console.log('USER PHOTOS', userPhotos)
+//   // console.log('HERO', exploreHero)
+//   // console.log('PHOTOS', explorePhotoArray)
+
+
+//   // if (!userPhotos) return null
+
+//   return (
+//     <div className="section">
+//       <div className="container">
+//         { userPhotos &&
+//       <div className="columns is-multiline">
+//         { userPhotos.map( users => (
+//           <DestinationCard key={users._id} {...handleUserPhotos} />
+//         ))}
+//         {/* { userPhotos.map( users => (
+//           return users.photos
+//         ))
+
+//         } */}
+
+
+//       </div>
+//         }
+//       </div>
+//     </div>
+
+//   //   <div classNameName="hero">
+//   //     <img src={userPhotos[exploreHero].image} 
+//   //       style={{
+//   //         'width': '100vw',
+//   //         'max-height': '50vh'
+//   //       }}/>
+//   //   </div>
+//   //   <div classNameName="section">
+//   //     <div classNameName="container">
+//   //       { userPhotos &&
+//   //       <div classNameName="columns is-multiline">
+//   //         { userPhotos.map( destinations => (
+//   //           <DestinationCard key={destinations._id} {...destinations} />
+//   //         ))}
+//   //       </div>
+//   //       }
+//   //     </div>
+//   //   </div>
+//   // </>
+//   )
+// }
+
+// export default ExploreDestination
+
+
+// // not the same as in the database - the ones people upload
+// // feed in a few videos
+// // 
+
+// // router.route('/profiles/:id/photos')
+// //   .post(secureRoute, addPhotoToProfile)
+
+// // router.route('/profiles/:id/photos/:photoId')
+// //   .post(secureRoute, addCommentToPhoto)
+// //   .delete(secureRoute, deletePhotoFromProfile)

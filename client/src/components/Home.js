@@ -18,7 +18,7 @@ const Home = () => {
     }
     getData()
   }, [])
-
+  
   const handleInfoButton = (event) => {
     setDetailInfoId(event.target.name)
   }

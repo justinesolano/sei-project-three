@@ -59,6 +59,11 @@ const Navbar = () => {
                 <a className="nav-links explore-link">Explore</a>
               </Link>
             </li>
+            <li>
+              <Link to="/feed" className="feed-link-div">
+                <a className="nav-links explore-link">Feed</a>
+              </Link>
+            </li>
           </section>
         </ul>
       </div>
