@@ -19,6 +19,22 @@ export const getUserProfile = async (req, res) => {
   }
 }
 
+// // * User Photos SHOW route ////
+// export const getUserPhotos = async (req, res) => {
+//   try {
+//     const { id } = req.params
+//     const userPhotos = await User.findById(id)
+//     if (!userPhotos) throw new Error('This user does not have a passport so does not exist')
+//     const photoToShow = userPhotos.photos
+//     // const photoToShow = userPhotos.photos.findById(photos)
+//     if (!photoToShow) throw new Error('This user has not uploaded any photos.')
+//     return res.status(200).json(userPhotos)
+//   } catch (err) {
+//     console.log(err)
+//     return res.status(404).json({ message: err.message })
+//   }
+// }
+
 // * User POST image route
 export const addPhotoToProfile = async (req, res) => {
   try {
@@ -84,7 +100,7 @@ export const deleteCommentFromPhoto = async (req, res) => {
     if (!userComment.owner.equals(req.currentUser._id)) throw new Error('Unauthorized')
     await userComment.remove()
     await user.save()
-    return res.status(200).json()
+    return res.status(200).json('deleted')
   } catch (err) {
     console.log(err)
   }
