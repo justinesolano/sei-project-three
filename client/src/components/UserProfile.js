@@ -1,17 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
-import ReactMapGL, { Marker, Popup } from 'react-map-gl'
+import ReactMapGL, { Popup, Marker } from 'react-map-gl'
 
 const UserProfile = () => {
-  const [viewPort, setViewPort] = useState({
-    latitude: 51.515,
-    longitude: -0.078,
-    zoom: 4
-  })
+  const [viewPort, setViewPort] = useState(null)
   console.log(viewPort, setViewPort)
+
   const [popup, setPopup] = useState(null)
-  console.log('popup', popup, setPopup)
+
   const { id } = useParams()
   const [profile, setProfile] = useState(null)
 
@@ -23,14 +20,14 @@ const UserProfile = () => {
     getData()
   }, [])
 
-  // useEffect(() => {
-  //   window.navigator.geolocation.getCurrentPosition(position => {
-  //     const { longitude, latitude } = position.coords
-  //     console.log('coordss >>', longitude, latitude)
-  //     setViewPort({ longitude, latitude })
-
-  //   })
-  // }, [])
+  useEffect(() => {
+    window.navigator.geolocation.getCurrentPosition(position => {
+      const { longitude, latitude } = position.coords
+      console.log('coordss >>', longitude, latitude)
+      setViewPort({ longitude, latitude })
+      
+    })
+  }, [])
 
 
 
@@ -83,5 +80,6 @@ const UserProfile = () => {
     </>
   )
 }
+
 
 export default UserProfile
