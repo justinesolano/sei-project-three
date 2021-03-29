@@ -14,6 +14,7 @@ const Explore = () => {
     }
     getData()
   }, [])
+<<<<<<< HEAD
 
 
   //Comments
@@ -25,11 +26,20 @@ const Explore = () => {
 
 
 
+=======
+  
+  console.log(profiles[0].username)
+>>>>>>> development
+
+  const handleUser = () => {
+    for (let i = 0; i < profiles.length; i++) {
+      return profiles[i].username
+    }
+  }
 
 
-
-  if (!profiles) return null
   return (
+<<<<<<< HEAD
     <Feed >
       {profiles.map((user) => {
         return (
@@ -76,20 +86,49 @@ const Explore = () => {
         )
       })}
       {/* <Feed.Event>
+=======
+    <Feed>
+      <Feed.Event>
+        <Feed.Label>
+          <img src="/images/avatar/small/elliot.jpg" />
+        </Feed.Label>
+        <Feed.Content>
+          <Feed.Summary>
+            <Feed.User>{handleUser}</Feed.User> added you as a friend
+            <Feed.Date>1 Hour Ago</Feed.Date>
+          </Feed.Summary>
+          <Feed.Meta>
+            <Feed.Like>
+              <Icon name="like" />4 Likes
+            </Feed.Like>
+          </Feed.Meta>
+        </Feed.Content>
+      </Feed.Event>
+
+      <Feed.Event>
+>>>>>>> development
         <Feed.Label image="/images/avatar/small/helen.jpg" />
         <Feed.Content>
           <Feed.Summary>
-            <a>Helen Troy</a> added <a>1 new illustrations</a>
+            <a>Helen Troy</a> added <a>2 new illustrations</a>
             <Feed.Date>4 days ago</Feed.Date>
           </Feed.Summary>
+          <Feed.Extra images>
+            <a>
+              <img src="/images/wireframe/image.png" />
+            </a>
+            <a>
+              <img src="/images/wireframe/image.png" />
+            </a>
+          </Feed.Extra>
           <Feed.Meta>
             <Feed.Like>
               <Icon name="like" />1 Like
             </Feed.Like>
           </Feed.Meta>
         </Feed.Content>
-      </Feed.Event> */}
-      {/* 
+      </Feed.Event>
+
       <Feed.Event>
         <Feed.Label image="/images/avatar/small/jenny.jpg" />
         <Feed.Content>
@@ -146,7 +185,7 @@ const Explore = () => {
             </Feed.Like>
           </Feed.Meta>
         </Feed.Content>
-      </Feed.Event> */}
+      </Feed.Event>
     </Feed>
   )
 }

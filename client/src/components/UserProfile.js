@@ -1,68 +1,117 @@
-import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
-import axios from 'axios'
-import ReactMapGL from 'react-map-gl'
+// import React, { useEffect, useState } from 'react'
+// import { useParams } from 'react-router-dom'
+// import axios from 'axios'
+// import ReactMapGL, { Popup, Marker } from 'react-map-gl'
+// import { Button, Icon, Label } from 'semantic-ui-react'
 
-const UserProfile = () => {
-  const [viewPort, setViewPort] = useState(null)
-  console.log(viewPort, setViewPort)
+// const UserProfile = () => {
 
-  const { id } = useParams()
-  const [profile, setProfile] = useState(null)
+//   //Getting and showing photos and data 
+//   const { id } = useParams()
+//   const [profile, setProfile] = useState(null)
 
-  useEffect(() => {
-    const getData = async () => {
-      const response = await axios.get(`/api/profiles/${id}`)
-      setProfile(response.data)
-    }
-    getData()
-  }, [])
+//   useEffect(() => {
+//     const getData = async () => {
+//       const response = await axios.get(`/api/profiles/${id}`)
+//       setProfile(response.data)
+//     }
+//     getData()
+//   }, [])
+//   //closing opening comments 
+//   const [viewComments, setViewComments] = useState('')
+//   console.log(setViewComments)
+//   const handleChange = event => {
+//     setViewComments(event.target.name)
+//   }
 
-  useEffect(() => {
-    window.navigator.geolocation.getCurrentPosition(position => {
-      const { longitude, latitude } = position.coords
-      console.log('coordss >>', longitude, latitude)
-      setViewPort({ longitude, latitude })
-      
-    })
-  }, [])
+//   //map
+//   const [popup, setPopup] = useState(null)
+//   const [viewPort, setViewPort] = useState(null)
+
+//   useEffect(() => {
+//     window.navigator.geolocation.getCurrentPosition(position => {
+//       const { longitude, latitude } = position.coords
+//       setViewPort({ longitude, latitude })
+
+//     })
+//   }, [])
 
 
+//   if (!profile) return null
+//   return (
+//     <>
+//       <div>
+//         <h1>{profile.username} </h1>
+//       </div>
+//       <div className='map-container'>
+//         {viewPort ?
+//           <ReactMapGL
+//             mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_ACCESS_TOKEN}
+//             height='100%'
+//             width='100%'
+//             mapStyle='mapbox://styles/mapbox/streets-v11'
+//             {...viewPort}
+//             onViewportChange={(viewPort) => setViewPort(viewPort)}
+//           >
+//             {profile.photos.map(photo => {
+//               return <Marker key={photo._id} longitude={photo.location.longitude} latitude={photo.location.latitude}>
+//                 {/* <span onClick={() => setPopup(location)}> */}
+//                 {photo.location.icon}
+//                 {/* </span> */}
+//               </Marker>
+//             })}
 
-  if (!profile) return null
-  return (
-    <>
-      <div>
-        <h1>{profile.username} </h1>
-      </div>
-      <div className='map-container'>
-        {viewPort ?
-          <ReactMapGL
-            mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_ACCESS_TOKEN}
-            height='100%'
-            width='100%'
-            mapStyle='mapbox://styles/mapbox/streets-v11'
-            latitude={viewPort.latitude}
-            longitude={viewPort.longitude}
-            zoom={10}
-          >
-            {/* <Marker latitude={viewPort.latitude} longitude={viewPort.longitude}>
-          
-            </Marker> */}
+//           </ReactMapGL>
+//           :
+//           <h1>Loading your location...</h1>
+//         }
+//       </div>
+//       {profile.photos.map(photo => (
+//         <div key={photo.title}>
+//           <h3>{photo.title} </h3>
+//           <img key={photo.id} className='photo-userprofile' src={photo.image} alt={photo.title} />
+//           <Button as='div' labelPosition='right'>
+//             <Button icon>
+//               <Icon name='heart' />
+//         Like
+//             </Button>
+//             <Label as='a' basic pointing='left'>
+//               {photo.likes.length}
+//             </Label>
+//           </Button>
+//           <div>
+//             <Button
+//               onClick={handleChange}
+//               name={`${photo._id}`}
+//               key={photo.index}>
+//               View comments</Button>
+//             {photo.comments.map(comment => (
+//               <>
+//                 {!viewComments &&
+//                   <p key={comment._id}>
+//                     {comment.text}
+//                   </p>}
 
-          </ReactMapGL>
-          :
-          <h1>Loading your location...</h1>
-        }
-      </div>
-      {/* {profile.photos.map(photo => (
-        <div key={photo.title}>
-          <h3>{photo.title} </h3>
-          <img key={photo.id} className='photo-userprofile' src={photo.image} alt={photo.title} />
-        </div>
-      ))} */}
-    </>
-  )
-}
+//               </>
 
-export default UserProfile
+//             ))}
+//           </div>
+//         </div>
+//       ))}
+//       {popup &&
+//         <Popup
+//           latitude={popup.latitude}
+//           longitude={popup.longitude}
+//           closeOnClick={true}
+//           onClose={() => setPopup(null)}
+//         >
+//           <div>{popup.title}</div>
+//           <img key={popup._id} className='photo-userprofile' src={popup.image} alt={popup.title} />
+//         </Popup>
+//       }
+//     </>
+//   )
+// }
+
+
+// export default UserProfile
