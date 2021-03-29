@@ -8,19 +8,19 @@ export default [
       {
         'title': 'San Diego puppy',
         'location': { longitude: -0.136420, latitude: 50.819520, icon: '🌊'  },
-        'image': 'https://behindthethrills.com/wp-content/uploads/2020/08/OnPaste.20200817-224437.png',
+        'image': 'https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
         'comments': [
           {
             'text': 'I like puppies',
-            'owner': '605c704de6bac43634ea22bd'
+            'owner': '605c704de6bac43634ea22bd',
           }
         ],
         'likes': [
           {
             'like': true,
-            'owner': '605c81c516c14b3a5d0f11c6'
+            'owner': '605c81c516c14b3a5d0f11c6',
           }
-        ]
+        ],
       },
       {
         'title': 'London puppy',
@@ -29,15 +29,15 @@ export default [
         'comments': [
           {
             'text': 'Cool place',
-            'owner': '605c704de6bac43634ea22bd'
+            'owner': '605c704de6bac43634ea22bd',
           }
         ],
         'likes': [
           {
             'like': true,
-            'owner': '605c81c516c14b3a5d0f11c6'
+            'owner': '605c81c516c14b3a5d0f11c6',
           }
-        ]
+        ],
       },
       {
         'title': 'Paris puppy',
@@ -46,16 +46,34 @@ export default [
         'comments': [
           {
             'text': 'Cool puppy',
-            'owner': '605c704de6bac43634ea22bd'
+            'owner': '605c704de6bac43634ea22bd',
           }
         ],
         'likes': [
           {
             'like': true,
-            'owner': '605c81c516c14b3a5d0f11c6'
+            'owner': '605c81c516c14b3a5d0f11c6',
           }
-        ]
+        ],
+      },
+      {
+        'title': 'Bali puppy',
+        'location': { longitude: 115.188919, latitude: -8.409518, icon: '🧚🏼‍♀️,' },
+        'image': 'https://tul.imgix.net/content/general/a_bali_pup.jpg?auto=format,compress&w=520&h=390&fit=crop',
+        'comments': [
+          {
+            'text': 'Cutee',
+            'owner': '605c704de6bac43634ea22bd',
+          }
+        ],
+        'likes': [
+          {
+            'like': true,
+            'owner': '605c81c516c14b3a5d0f11c6',
+          }
+        ],
       }
-    ]
+    ],
   }
+  
 ]
