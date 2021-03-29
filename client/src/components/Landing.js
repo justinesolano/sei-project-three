@@ -22,7 +22,7 @@ const Landing = () => {
           </Reveal.Content>
         </Reveal>
       </Link>
-      <Link to="/register">     
+      <Link to="/register">
         <Reveal animated='fade' className="column">
           <Reveal.Content visible>
             <Image src={registerImageShadow} size='big' />

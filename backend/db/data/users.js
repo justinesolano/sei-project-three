@@ -83,7 +83,7 @@ export default [
         ],
       }
     ],
-  },
+  }, 
   {
     'username': 'Andrew',
     'email': 'Andrew@email',
