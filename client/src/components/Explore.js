@@ -11,6 +11,7 @@ const Explore = () => {
     }
     getData()
   }, [])
+
   //Comments
   const [viewComments, setViewComments] = useState('')
   const handleChange = event => {
@@ -41,7 +42,7 @@ const Explore = () => {
                     <Feed.Meta>
                       <Feed.Like >
                         <Icon name="like" />
-                          Likes {photo.likes.length}
+                        Likes {photo.likes.length}
                         <div>
                           <Button
                             onClick={handleChange}

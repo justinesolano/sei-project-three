@@ -84,7 +84,7 @@ export const deleteCommentFromPhoto = async (req, res) => {
     if (!userComment.owner.equals(req.currentUser._id)) throw new Error('Unauthorized')
     await userComment.remove()
     await user.save()
-    return res.status(200).json()
+    return res.status(200).json('deleted')
   } catch (err) {
     console.log(err)
   }
