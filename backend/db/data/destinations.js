@@ -246,7 +246,7 @@ export default [
     'currency': 'Indonesian rupiah',
     'highlights': ['Banda Islands'],
     'suitableFor': ['Solo Traveler', 'Adventure Seeker', ''],
-    'tags': ['Historical',],
+    'tags': ['Historical'],
     'image': 'https://lp-cms-production.imgix.net/2019-06/521331725_full.jpg?auto=format&fit=crop&ixlib=react-8.6.4&h=520&w=1312&q=50&dpr=2'
   },
   {
