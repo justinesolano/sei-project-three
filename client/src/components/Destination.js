@@ -99,11 +99,12 @@ const Destination = () => {
             return (
               <div className="column is-one-quarter-desktop is-one-third-tablet" key={video.id}>
                 <div className="card">
-                  {video.video_files.map(item => {
+                  {/* {video.video_files.map(item => {
                     return (
                       <video key={item.id} className="card-image" src={item.link} autoPlay={true} muted={true} loop={true}/>
                     )
-                  })}
+                  })} */}
+                  <video key={video.video_files[0].id} className="card-image" src={video.video_files[0].link} autoPlay={true} muted={true} loop={true}/>
                   <div className="card-content">{video.user.name}</div>
                 </div>
               </div>

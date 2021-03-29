@@ -6,6 +6,10 @@ import Slider from 'react-slick'
 
 const Home = () => {
 
+  // Add my list key to profiles on backend to use on homepage
+
+  // Add ratings
+
   const [destinations, setDestinations] = useState(null)
   const [hero, setHero] = useState(0)
   const [detailInfoId, setDetailInfoId] = useState('')
@@ -15,6 +19,7 @@ const Home = () => {
       const { data } = await axios.get('/api/destinations')
       setDestinations(data)
       setHero(parseFloat(Math.floor(Math.random() * data.length)))
+      console.log(destinations)
     }
     getData()
   }, [])
@@ -88,6 +93,7 @@ const Home = () => {
             <p>Highlights: {destinations[detailInfoId].highlights.map((highlight, index) => {
               return <li key={index}>{highlight}</li>
             })}</p>
+            <p>{destinations[detailInfoId].avgRating}</p>
             <Button className="button secondary" href={`/destinations/${destinations[detailInfoId].name}`}>See more</Button>
           </div>
         </div>
@@ -103,6 +109,7 @@ const Home = () => {
         <div className="hero-info">
           <h1>{destinations[hero].name}</h1>
           <p>{destinations[hero].description}</p>
+          <p>{destinations[hero].avgRating}</p>
           <Button className="button secondary">
             <Link to="/api/destinations/:id"
               style={{
@@ -123,9 +130,10 @@ const Home = () => {
                 <div className="home-destination-info">
                   <h3>{destination.name}</h3>
                   <p><i>{destination.country}</i></p>
+                  <p>{destination.avgRating}</p>
                   <Button className="button secondary" onClick={handleInfoButton} name={`${destinations.indexOf(destination)}`}>More info</Button>
                 </div>
-              </div>
+              </div> 
             })}
           </Slider>
         </div>
@@ -140,6 +148,7 @@ const Home = () => {
                 <div className="home-destination-info">
                   <h3>{destination.name}</h3>
                   <p><i>{destination.country}</i></p>
+                  <p>{destination.avgRating}</p>
                   <Button className="button secondary" onClick={handleInfoButton} name={`${destinations.indexOf(destination)}`}>More info</Button>
                 </div>
               </div>
@@ -157,6 +166,7 @@ const Home = () => {
                 <div className="home-destination-info">
                   <h3>{destination.name}</h3>
                   <p><i>{destination.country}</i></p>
+                  <p>{destination.avgRating}</p>
                   <Button className="button secondary" onClick={handleInfoButton} name={`${destinations.indexOf(destination)}`}>More info</Button>
                 </div>
               </div>
