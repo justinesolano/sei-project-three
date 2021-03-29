@@ -15,6 +15,8 @@ const Explore = () => {
     getData()
   }, [])
 
+
+  //Comments
   const [viewComments, setViewComments] = useState('')
   const handleChange = event => {
     setViewComments(event.target.name)
@@ -60,9 +62,7 @@ const Explore = () => {
                                 <p key={comment._id}>
                                   {comment.text}
                                 </p>}
-
                             </>
-
                           ))}
                         </div>
                       </Feed.Like>
