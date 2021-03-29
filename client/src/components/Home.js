@@ -10,11 +10,14 @@ const Home = () => {
   const [hero, setHero] = useState(0)
   const [detailInfoId, setDetailInfoId] = useState('')
 
+  // ratings
+
   useEffect(() => {
     const getData = async () => {
       const { data } = await axios.get('/api/destinations')
       setDestinations(data)
       setHero(parseFloat(Math.floor(Math.random() * data.length)))
+      console.log(hero)
     }
     getData()
   }, [])
