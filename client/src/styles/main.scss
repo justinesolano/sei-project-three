@@ -1,6 +1,4 @@
-@import '~bulma/bulma.sass';
-// @import "~slick-carousel/slick/slick.css"; 
-// @import "~slick-carousel/slick/slick-theme.css";
+
 
 *{
   margin: 0;
@@ -9,14 +7,19 @@
 }
 
 // * HOME
-
+.landing.ui.grid {
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  height: 100vh;
+}
 
 //EXPLORE.JS
 
-#root {
-  margin-top: 20vh;
-  background-color: rgb(216, 216, 216);
-}
+// #root {
+//   margin-top: 20vh;
+//   background-color: rgb(216, 216, 216);
+// }
 .picture {
   height: 250px;
   width: 250px;
@@ -27,15 +30,7 @@
 }
 
 // NAVBAR
-.landing.ui.grid {
-  justify-content: center;
-  align-items: center;
-  background-color: black;
-  height: 100vh;
-}
-// .home {
-//   background-color: black;
-// }
+
 
 .mapboxgl-map { 
   margin-top: 20px;
@@ -267,6 +262,7 @@ left: 100px;
   margin-right: 20px;
   z-index: 2;
 }
+// end of NAVBAR
 
 // DESTINATION CARD
 .card {
@@ -285,8 +281,6 @@ left: 100px;
   }
 }
 
-
-
 //*register and login page jetflix
 .home {
   background-color: black;
@@ -296,7 +290,7 @@ left: 100px;
 .home-subheader {
   font-family: Helvetica;
   color: white;
-  margin-top: 10px;
+  // margin-top: 10px;
   margin-bottom: 5px;
 }
 
@@ -327,10 +321,6 @@ left: 100px;
   z-index: 1;
 }
 
-body {
-  overflow: hidden;
-}
-
 .ui.stacked.segment { 
   background-color: rgba(0,0,0,.75);
   font-weight: bold;
@@ -346,24 +336,7 @@ body {
 
 .ui.header.register { 
   color: white;
-// end of NAVBAR
 
-body {
-  overflow: hidden;
-}
-
-.ui.stacked.segment { 
-  background-color: rgba(0,0,0,.75);
-  font-weight: bold;
-  color: white;
-}
-.ui.stacked.segment {
-  padding-bottom: 1.4em;
-  height: 600px;
-  width: 480px;
-  padding-left: 60px;
-  padding-top: 50px;
-}
 
 .ui.header.register { 
   color: white;
@@ -427,19 +400,22 @@ color:red;
 
 .account-signin-link{ 
   padding-top: 10px;
-}
-
-//login 
-
-.ui.left.aligned.header { 
-  color: white;
 }
 
 .ui.stacked.segment.login{ 
   height: 400px;
 }
 
-/// RESPONSIVENESS
+// EXPLORE DESTINATIONS
+.explore-grid-row{
+  display: flex;
+  justify-content: center;
+}
+
+
+
+
+/// NAVBAR RESPONSIVENESS
 
 @media screen and (max-width: 1690px){
   .navbar-link-list{

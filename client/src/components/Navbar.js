@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import jetflixLogo from '../assets/jetflixlogo.png'
 import Select from 'react-select'
 import { continentOptions, suitableOptions, tagOptions } from './data/searchData'
+import 'semantic-ui-css/semantic.min.css'
 
 const groupedOptions = [
   { label: 'Continents', options: continentOptions },
