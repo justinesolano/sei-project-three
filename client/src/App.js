@@ -1,6 +1,6 @@
 import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
-// import Navbar from './components/Navbar'
+import Navbar from './components/Navbar'
 import Landing from './components/Landing'
 import Home from './components/Home'
 import Destination from './components/Destination'
@@ -13,7 +13,7 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      {/* <Navbar /> */}
+      <Navbar />
       <Switch>
         <Route exact path="/">
           <Landing />

@@ -32,12 +32,10 @@ const Home = () => {
   const handleInfoButton = (event) => {
     setDetailInfoId(event.target.name)
   }
-  
-  console.log(detailInfoId)
 
-  // const handleInfoButtonClose = () => {
-  //   setDetailInfoId('')
-  // }
+  const handleInfoButtonClose = () => {
+    setDetailInfoId('')
+  }
 
   const handleRating = async (event) => {
     if (event.target.tabIndex > 0) setRatingOne('active icon')
@@ -75,6 +73,14 @@ const Home = () => {
         }
       },
       {
+        breakpoint: 800,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          initialSlide: 1
+        }
+      },
+      {
         breakpoint: 600,
         settings: {
           slidesToShow: 1,
@@ -88,8 +94,8 @@ const Home = () => {
   if (!destinations) return null
 
   return (
-    <div className="home-page">
-      {/* {detailInfoId ?
+    <div className="home-page is-fullheight-with-navbar">
+      {detailInfoId ?
         <div className="home-detail-info">
           <Button className="button secondary home-detail-info-close" onClick={handleInfoButtonClose}>x</Button>
           <img src={destinations[detailInfoId].image} 
@@ -114,13 +120,24 @@ const Home = () => {
             <p>Highlights: {destinations[detailInfoId].highlights.map((highlight, index) => {
               return <li key={index}>{highlight}</li>
             })}</p>
-            <p>{destinations[detailInfoId].avgRating}</p>
+            {destinations[detailInfoId].avgRating !== 'Not yet rated' ? <p><i>Average Rating: {destinations[detailInfoId].avgRating}</i></p> : <p><i>Not yet rated</i></p>}
+            <div className="ui star rating" role="radiogroup" onClick={handleRating}
+              style={{
+                'backgroundColor': 'rgba(225, 225, 225, 0.6)',
+                'padding': '10px'
+              }}>
+              <i tabIndex="1" aria-checked="false" aria-posinset="1" aria-setsize="4" className={ratingOne} role="radio" id={destinations[hero].id}></i>
+              <i tabIndex="2" aria-checked="false" aria-posinset="2" aria-setsize="4" className={ratingTwo} role="radio" id={destinations[hero].id}></i>
+              <i tabIndex="3" aria-checked="true" aria-posinset="3" aria-setsize="4" className={ratingThree} role="radio" id={destinations[hero].id}></i>
+              <i tabIndex="4" aria-checked="false" aria-posinset="4" aria-setsize="4" className={ratingFour} role="radio" id={destinations[hero].id}></i>
+              <i tabIndex="5" aria-checked="false" aria-posinset="5" aria-setsize="5" className={ratingFive} role="radio" id={destinations[hero].id}></i>
+            </div>
             <Button className="button secondary" href={`/destinations/${destinations[detailInfoId].name}`}>See more</Button>
           </div>
         </div>
         :
         <div></div>
-      } */}
+      }
       <div className="hero">
         <img src={destinations[hero].image}/>
         <div className="columns">
@@ -140,7 +157,7 @@ const Home = () => {
               <i tabIndex="5" aria-checked="false" aria-posinset="5" aria-setsize="5" className={ratingFive} role="radio" id={destinations[hero].id}></i>
             </div>
             <Button className="button secondary">
-              <Link to="/api/destinations/:id"
+              <Link to={`/destinations/${destinations[hero].name}`}
                 style={{
                   'color': 'white'
                 }}>More Info</Link>
@@ -154,20 +171,18 @@ const Home = () => {
           <Slider {...settings} className="slider">
             {destinations.map(destination => {
               return <div key={destination._id} className="home-item">
-                <div className="columns">
-                  <img src={destination.image} className="column"/>
-                </div>
+                <img src={destination.image} />
                 <div className="home-destination-info">
-                  <h3>{destination.name}</h3>
+                  <h4>{destination.name}</h4>
                   <p><i>{destination.country}</i></p>
-                  <p>{destination.avgRating}</p>
+                  <p>Rating: {destination.avgRating}</p>
                   <Button className="button secondary" onClick={handleInfoButton} name={`${destinations.indexOf(destination)}`}>More info</Button>
                 </div>
               </div> 
             })}
           </Slider>
         </div>
-        {/* <h3 className="ui home-subheader">Recommended for you</h3>
+        <h3>Recommended for you</h3>
         <div className="home-container">
           <Slider {...settings} className="slider">
             {destinations.map(destination => {
@@ -176,16 +191,16 @@ const Home = () => {
                   <img src={destination.image} className="column"/>
                 </div>
                 <div className="home-destination-info">
-                  <h3>{destination.name}</h3>
+                  <h4>{destination.name}</h4>
                   <p><i>{destination.country}</i></p>
-                  <p>{destination.avgRating}</p>
+                  <p>Rating: {destination.avgRating}</p>
                   <Button className="button secondary" onClick={handleInfoButton} name={`${destinations.indexOf(destination)}`}>More info</Button>
                 </div>
               </div>
             })}
           </Slider>
         </div>
-        <h3 className="ui home-subheader">Trending now</h3>
+        <h3>Trending now</h3>
         <div className="home-container">
           <Slider {...settings} className="slider">
             {destinations.map(destination => {
@@ -194,15 +209,15 @@ const Home = () => {
                   <img src={destination.image} className="column"/>
                 </div>
                 <div className="home-destination-info">
-                  <h3>{destination.name}</h3>
+                  <h4>{destination.name}</h4>
                   <p><i>{destination.country}</i></p>
-                  <p>{destination.avgRating}</p>
+                  <p>Rating: {destination.avgRating}</p>
                   <Button className="button secondary" onClick={handleInfoButton} name={`${destinations.indexOf(destination)}`}>More info</Button>
                 </div>
               </div>
             })}
           </Slider>
-        </div> */}
+        </div>
       </div>
     </div>
   )
