@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import ReactMapGL, { Popup, Marker } from 'react-map-gl'
 import { Button, Icon, Label } from 'semantic-ui-react'
+import 'mapbox-gl/dist/mapbox-gl.css'
 
 const UserProfile = () => {
 
@@ -29,12 +30,18 @@ const UserProfile = () => {
   const [viewPort, setViewPort] = useState(null)
 
   useEffect(() => {
+
     window.navigator.geolocation.getCurrentPosition(position => {
       const { longitude, latitude } = position.coords
       setViewPort({ longitude, latitude })
-
+      
     })
   }, [])
+
+  //handle post a like 
+  const handleLike = event => { 
+    console.log(event.target.value)
+  }
 
 
   if (!profile) return null
@@ -50,6 +57,7 @@ const UserProfile = () => {
             height='100%'
             width='100%'
             mapStyle='mapbox://styles/mapbox/streets-v11'
+
             {...viewPort}
             onViewportChange={(viewPort) => setViewPort(viewPort)}
           >
@@ -65,12 +73,19 @@ const UserProfile = () => {
           :
           <h1>Loading your location...</h1>
         }
+
       </div>
       {profile.photos.map(photo => (
         <div key={photo.title}>
           <h3>{photo.title} </h3>
+          {console.log(photo)}
           <img key={photo.id} className='photo-userprofile' src={photo.image} alt={photo.title} />
-          <Button as='div' labelPosition='right'>
+          <Button
+            onClick={handleLike}  
+            key={photo.index}
+            value={photo._id}
+            as='div' 
+            labelPosition='right'>
             <Button icon>
               <Icon name='heart' />
         Like
@@ -82,7 +97,7 @@ const UserProfile = () => {
           <div>
             <Button
               onClick={handleChange}
-              name={`${photo._id}`}
+              name={`${photo.title}`}
               key={photo.index}>
               View comments</Button>
             {photo.comments.map(comment => (
