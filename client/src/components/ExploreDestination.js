@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-// import Destination from './Destination'
 import DestinationCard from './DestinationCard'
+
 
 const ExploreDestination = () => {
 
@@ -11,7 +11,6 @@ const ExploreDestination = () => {
   useEffect(() => {
     const getData = async () => {
       const { data } = await axios.get('api/profiles')
-      // const explorePhotos = data.photos
       setUserPhotos(data)
     }
     getData()
@@ -24,15 +23,8 @@ const ExploreDestination = () => {
       <div className="container">
         { userPhotos &&
         <div className="columns is-multiline">
-          {/* {userPhotos.map(photo => {
-            return photo.photos.map(photoid => (
-              <li key={photo.id}>
-                {photoid} - {photo.id}
-              </li>
-            ))
-          })} */}
           { userPhotos.map(users => (
-            <DestinationCard key={users._id} { ...users.photos[1] } />
+            <DestinationCard key={users._id} { ...users } />
           ))}
         </div>
         }

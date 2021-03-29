@@ -15,7 +15,7 @@ const Landing = () => {
       <Link to="/login">
         <Reveal animated='fade' className="column">
           <Reveal.Content visible>
-            <Image src={loginImageShadow} size='small' />
+            <Image src={loginImageShadow} size='big' />
           </Reveal.Content>
           <Reveal.Content hidden>
             <Image src={smileyBlue} size='small' />
@@ -25,7 +25,7 @@ const Landing = () => {
       <Link to="/register">     
         <Reveal animated='fade' className="column">
           <Reveal.Content visible>
-            <Image src={registerImageShadow} size='small' />
+            <Image src={registerImageShadow} size='big' />
           </Reveal.Content>
           <Reveal.Content hidden>
             <Image src={smileyYellow} size='small' />
@@ -35,7 +35,7 @@ const Landing = () => {
       <Link to="/home">
         <Reveal animated='fade' className="column">
           <Reveal.Content visible>
-            <Image src={guestImageShadow} size='small' />
+            <Image src={guestImageShadow} size='big' />
           </Reveal.Content>
           <Reveal.Content hidden>
             <Image src={smileyGreen} size='small' />
