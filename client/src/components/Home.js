@@ -187,7 +187,7 @@ const Home = () => {
             {destinations.map(destination => {
               return <div key={destination._id} className="home-item">
                 <div className="columns">
-                  <img src={destination.image} className="column"/>
+                  <img src={destination.image} />
                 </div>
                 <div className="home-destination-info">
                   <h4>{destination.name}</h4>
@@ -205,7 +205,7 @@ const Home = () => {
             {destinations.map(destination => {
               return <div key={destination._id} className="home-item">
                 <div className="columns">
-                  <img src={destination.image} className="column"/>
+                  <img src={destination.image} />
                 </div>
                 <div className="home-destination-info">
                   <h4>{destination.name}</h4>

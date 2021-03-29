@@ -7,7 +7,6 @@ import smileyGreen from '../assets/smileyfacegreen.jpg'
 import registerImageShadow from '../assets/redregisterimagewithshadow.jpg'
 import loginImageShadow from '../assets/redloginimagewithshadow.jpg'
 import guestImageShadow from '../assets/redguestimagewithshadow.jpg'
-import ReactMapGL from 'react-map-gl'
 
 const Landing = () => {
 
@@ -44,11 +43,6 @@ const Landing = () => {
           </Reveal.Content>
         </Reveal>
       </Link>
-      <ReactMapGL
-        mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_ACCESS_TOKEN}
-        mapStyle='mapbox://styles/mapbox/streets-v11'
-      >
-      </ReactMapGL>
     </div>
   )
 }
