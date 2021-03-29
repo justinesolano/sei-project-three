@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import DestinationCard from './DestinationCard'
+// import DestinationCard from './DestinationCard'
 
 
-const ExploreDestination = () => {
+const ExploreDestination = ( { photos, _id } ) => {
 
   const [userPhotos, setUserPhotos] = useState(null)
-
+  const [isShown, setIsShown] = useState(false)
 
   useEffect(() => {
     const getData = async () => {
@@ -19,16 +19,39 @@ const ExploreDestination = () => {
   console.log('USER PHOTOS', userPhotos)
 
   return (
-    <div className="section">
-      <div className="container">
+    <div className="container">
+      <button
+        onMouseEnter={() => setIsShown(true)}
+        onMouseLeave={() => setIsShown(false)}
+      >
         { userPhotos &&
-        <div className="columns is-multiline">
+        <div className="image-explore">
           { userPhotos.map(users => (
-            <DestinationCard key={users._id} { ...users } />
+            <div key={users._id} { ...users } >
+              <div className="gallery">
+                {photos.map(photo => (
+                  <div key={photo.username} className="card-content">
+                    <div key={photo.id} className="card-image">
+                      <div className="image-card">
+                        <img src={photo.image} alt={`${_id}`} />
+                      </div>
+                    </div>
+                    {isShown && (
+                      <div className="gallery-item-info">
+                        <ul>
+                          <li className="gallery-item-likes"><span className="visually-hidden">Likes:</span><i className="fas fa-heart" aria-hidden="true"></i> 56</li>
+                          <li className="gallery-item-comments"><span className="visually-hidden">Comments:</span><i className="fas fa-comment" aria-hidden="true"></i> 2</li>
+                        </ul>
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
           ))}
         </div>
         }
-      </div>
+      </button>
     </div>
   )
 }
