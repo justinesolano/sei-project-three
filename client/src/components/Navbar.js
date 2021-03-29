@@ -26,7 +26,7 @@ const Navbar = () => {
 
   useEffect(() => {
     window.addEventListener('scroll', () => {
-      if (window.scrollY > 10) {
+      if (window.scrollY > 1) {
         handleShow(true)
       } else handleShow(false)
     })
