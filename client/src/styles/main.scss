@@ -10,16 +10,41 @@
 
 // * HOME
 
+
+//EXPLORE.JS
+
+#root {
+  margin-top: 20vh;
+  background-color: rgb(216, 216, 216);
+}
+.picture {
+  height: 250px;
+  width: 250px;
+}
+.summary {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+// NAVBAR
 .landing.ui.grid {
   justify-content: center;
   align-items: center;
   background-color: black;
   height: 100vh;
 }
-.home {
-  background-color: black;
-}
+// .home {
+//   background-color: black;
+// }
 
+.mapboxgl-map { 
+  margin-top: 20px;
+}
+//* user profile 
+.photo-userprofile { 
+  width: 150px;
+  display: inline;
+}
 .hero,
 .home-subheader {
   font-family: Helvetica;

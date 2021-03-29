@@ -4,12 +4,12 @@ import bcrypt from 'bcrypt'
 
 const likesSchema = new mongoose.Schema({
   like: { type: Boolean, required: true },
-  owner: { type: mongoose.Schema.ObjectId, ref: 'User', required: true }
+  owner: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
 })
 
 const commentSchema = new mongoose.Schema({
   text: { type: String, required: true, maxlength: 300 },
-  owner: { type: mongoose.Schema.ObjectId, ref: 'User', required: true }
+  owner: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
 }, {
   timestamps: true,
 })
@@ -18,8 +18,11 @@ const photoSchema = new mongoose.Schema({
   title: { type: String, required: true },
   location: { type: Object, required: true },
   image: { type: String, required: true },
+  locationName: { type: String, required: true },
   comments: [commentSchema],
   likes: [likesSchema],
+}, {
+  timestamps: true,
 })
 
 const userSchema = new mongoose.Schema({

@@ -9,6 +9,7 @@ import Login from './auth/Login'
 import Explore from './components/Explore'
 import ExploreDestination from './components/ExploreDestination'
 import UserProfile from './components/UserProfile'
+import AddPictureToProfile from './components/AddPictureToProfile'
 const App = () => {
 
   return (
@@ -38,6 +39,9 @@ const App = () => {
         </Route>
         <Route exact path='/userprofile/:id'> 
           <UserProfile />
+        </Route>
+        <Route exact path='/addpicturetoprofile'>
+          <AddPictureToProfile /> 
         </Route>
       </Switch>
     </BrowserRouter>
