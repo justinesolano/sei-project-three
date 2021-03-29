@@ -18,17 +18,12 @@ const UserProfile = () => {
     getData()
   }, [])
   //closing opening comments 
-  const [viewComments, setViewComments] = useState(true)
-
+  const [viewComments, setViewComments] = useState('')
+  console.log(setViewComments)
   const handleChange = event => {
-    console.log(event.target.value)
-    if (viewComments === true) {
-      setViewComments(false)
-    } else {
-      setViewComments(true)
-    }
-
+    setViewComments(event.target.name)
   }
+
   //map
   const [popup, setPopup] = useState(null)
   const [viewPort, setViewPort] = useState(null)
@@ -87,8 +82,7 @@ const UserProfile = () => {
           <div>
             <Button
               onClick={handleChange}
-              value={viewComments}
-              name={photo._id}
+              name={`${photo._id}`}
               key={photo.index}>
               View comments</Button>
             {photo.comments.map(comment => (
