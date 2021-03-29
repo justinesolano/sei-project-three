@@ -2,7 +2,7 @@ import axios from 'axios'
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Button } from 'semantic-ui-react'
-// import Slider from 'react-slick'
+import Slider from 'react-slick'
 
 const Home = () => {
 
@@ -12,7 +12,7 @@ const Home = () => {
 
   const [destinations, setDestinations] = useState(null)
   const [hero, setHero] = useState(0)
-  // const [detailInfoId, setDetailInfoId] = useState('')
+  const [detailInfoId, setDetailInfoId] = useState('')
   const [ratingOne, setRatingOne] = useState('icon')
   const [ratingTwo, setRatingTwo] = useState('icon')
   const [ratingThree, setRatingThree] = useState('icon')
@@ -25,67 +25,65 @@ const Home = () => {
       setDestinations(data)
       setHero(parseFloat(Math.floor(Math.random() * data.length)))
       console.log(data)
-      data.map(destination => {
-        if (destination.avgRating !== 'Not yet rated') {
-          if (destination.avgRating > 0) setRatingOne('active icon')
-          if (destination.avgRating > 1) setRatingTwo('active icon')
-          if (destination.avgRating > 2) setRatingThree('active icon')
-          if (destination.avgRating > 3) setRatingFour('active icon')
-          if (destination.avgRating > 4) setRatingFive('active icon')
-        }
-      })
     }
     getData()
   }, [])
 
-  // const handleInfoButton = (event) => {
-  //   setDetailInfoId(event.target.name)
-  // }
+  const handleInfoButton = (event) => {
+    setDetailInfoId(event.target.name)
+  }
+  
+  console.log(detailInfoId)
 
   // const handleInfoButtonClose = () => {
   //   setDetailInfoId('')
   // }
 
-  const handleRating = (event) => {
+  const handleRating = async (event) => {
     if (event.target.tabIndex > 0) setRatingOne('active icon')
     if (event.target.tabIndex > 1) setRatingTwo('active icon')
     if (event.target.tabIndex > 2) setRatingThree('active icon')
     if (event.target.tabIndex > 3) setRatingFour('active icon')
     if (event.target.tabIndex > 4) setRatingFive('active icon')
-    
+    console.log(event.target.id)
+    await axios.post(`/api/destinations/${event.target.id}/ratings`, { rating: event.target.tabIndex }, {
+      headers: {
+        Authorization: `Bearer ${window.localStorage.getItem('token')}`
+      }
+    })
   }
 
-  // const settings = {
-  //   arrows: true,
-  //   dots: false,
-  //   infinite: true,
-  //   speed: 1000,
-  //   slidesToShow: 4,
-  //   slidesToScroll: 2,
-  //   initialSlide: 0,
-  //   autoplay: false,
-  //   focusOnSelect: true,
-  //   dragable: true,
-  //   responsive: [
-  //     {
-  //       breakpoint: 1024,
-  //       settings: {
-  //         slidesToShow: 3,
-  //         slidesToScroll: 1,
-  //         infinite: true,
-  //         dots: true
-  //       }
-  //     },
-  //     {
-  //       breakpoint: 600,
-  //       settings: {
-  //         slidesToShow: 1,
-  //         slidesToScroll: 1,
-  //         initialSlide: 1
-  //       }
-  //     }
-  //   ]
-  // }
+  const settings = {
+    arrows: true,
+    dots: false,
+    infinite: true,
+    speed: 1000,
+    slidesToShow: 4,
+    slidesToScroll: 2,
+    initialSlide: 0,
+    autoplay: false,
+    focusOnSelect: true,
+    dragable: true,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          initialSlide: 1
+        }
+      }
+    ]
+  }
 
   if (!destinations) return null
 
@@ -123,38 +121,35 @@ const Home = () => {
         :
         <div></div>
       } */}
-      <div className="hero is-fullheight-with-navbar">
-        <img src={destinations[hero].image} 
-          style={{
-            'width': '100vw',
-            'max-height': '50vh'
-          }}/>
+      <div className="hero">
+        <img src={destinations[hero].image}/>
         <div className="columns">
           <div className="hero-info column is-one-quarter-desktop is-one-third-tablet is-full-mobile">
             <h1>{destinations[hero].name}</h1>
             <p>{destinations[hero].description}</p>
+            {destinations[hero].avgRating !== 'Not yet rated' ? <p><i>Average Rating: {destinations[hero].avgRating}</i></p> : <p><i>Not yet rated</i></p>}
+            <div className="ui star rating" role="radiogroup" onClick={handleRating}
+              style={{
+                'backgroundColor': 'rgba(225, 225, 225, 0.6)',
+                'padding': '10px'
+              }}>
+              <i tabIndex="1" aria-checked="false" aria-posinset="1" aria-setsize="4" className={ratingOne} role="radio" id={destinations[hero].id}></i>
+              <i tabIndex="2" aria-checked="false" aria-posinset="2" aria-setsize="4" className={ratingTwo} role="radio" id={destinations[hero].id}></i>
+              <i tabIndex="3" aria-checked="true" aria-posinset="3" aria-setsize="4" className={ratingThree} role="radio" id={destinations[hero].id}></i>
+              <i tabIndex="4" aria-checked="false" aria-posinset="4" aria-setsize="4" className={ratingFour} role="radio" id={destinations[hero].id}></i>
+              <i tabIndex="5" aria-checked="false" aria-posinset="5" aria-setsize="5" className={ratingFive} role="radio" id={destinations[hero].id}></i>
+            </div>
             <Button className="button secondary">
               <Link to="/api/destinations/:id"
                 style={{
                   'color': 'white'
                 }}>More Info</Link>
             </Button>
-            <div className="ui star rating" role="radiogroup" tabIndex="-1"
-              style={{
-                'backgroundColor': 'rgba(225, 225, 225, 0.6)',
-                'padding': '10px'
-              }}>
-              <i tabIndex="1" aria-checked="false" aria-posinset="1" aria-setsize="4" className={ratingOne} role="radio" onClick={handleRating}></i>
-              <i tabIndex="2" aria-checked="false" aria-posinset="2" aria-setsize="4" className={ratingTwo} role="radio" onClick={handleRating}></i>
-              <i tabIndex="3" aria-checked="true" aria-posinset="3" aria-setsize="4" className={ratingThree} role="radio" onClick={handleRating}></i>
-              <i tabIndex="4" aria-checked="false" aria-posinset="4" aria-setsize="4" className={ratingFour} role="radio" onClick={handleRating}></i>
-              <i tabIndex="5" aria-checked="false" aria-posinset="5" aria-setsize="5" className={ratingFive} role="radio" onClick={handleRating}></i>
-            </div> 
           </div>
         </div>
       </div>
-      {/* <div className="previews">
-        <h3 className="ui home-subheader">My List</h3>
+      <div className="home-previews">
+        <h3>My List</h3>
         <div className="home-container">
           <Slider {...settings} className="slider">
             {destinations.map(destination => {
@@ -172,7 +167,7 @@ const Home = () => {
             })}
           </Slider>
         </div>
-        <h3 className="ui home-subheader">Recommended for you</h3>
+        {/* <h3 className="ui home-subheader">Recommended for you</h3>
         <div className="home-container">
           <Slider {...settings} className="slider">
             {destinations.map(destination => {
@@ -207,8 +202,8 @@ const Home = () => {
               </div>
             })}
           </Slider>
-        </div>
-      </div> */}
+        </div> */}
+      </div>
     </div>
   )
 }
