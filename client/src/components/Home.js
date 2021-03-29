@@ -8,8 +8,6 @@ const Home = () => {
 
   // Add my list key to profiles on backend to use on homepage
 
-  // Add ratings
-
   const [destinations, setDestinations] = useState(null)
   const [hero, setHero] = useState(0)
   const [detailInfoId, setDetailInfoId] = useState('')
@@ -18,6 +16,7 @@ const Home = () => {
   const [ratingThree, setRatingThree] = useState('icon')
   const [ratingFour, setRatingFour] = useState('icon')
   const [ratingFive, setRatingFive] = useState('icon')
+
 
   useEffect(() => {
     const getData = async () => {
