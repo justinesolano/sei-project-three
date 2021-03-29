@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Feed, Icon } from 'semantic-ui-react'
+import { Button, Feed, Icon } from 'semantic-ui-react'
 import axios from 'axios'
 
 
@@ -15,7 +15,13 @@ const Explore = () => {
     getData()
   }, [])
 
-  
+  const [viewComments, setViewComments] = useState('')
+  const handleChange = event => {
+    setViewComments(event.target.name)
+  }
+
+
+
 
 
 
@@ -34,7 +40,7 @@ const Explore = () => {
                         {user.username}
                       </Feed.User > added a photo: {photo.title}
                     </Feed.Summary>
-                    <Feed.Date key={photo._id}>{ new Date(photo.createdAt).toDateString() }</Feed.Date>
+                    <Feed.Date key={photo._id}>{new Date(photo.createdAt).toDateString()}</Feed.Date>
                     <Feed.Extra className='picture' >
                       <img src={photo.image} className='picture' />
                     </Feed.Extra>
@@ -42,6 +48,23 @@ const Explore = () => {
                       <Feed.Like >
                         <Icon name="like" />
                          Likes {photo.likes.length}
+                        <div>
+                          <Button
+                            onClick={handleChange}
+                            name={`${photo._id}`}
+                            key={photo.index}>
+                            View comments</Button>
+                          {photo.comments.map(comment => (
+                            <>
+                              {!viewComments &&
+                                <p key={comment._id}>
+                                  {comment.text}
+                                </p>}
+
+                            </>
+
+                          ))}
+                        </div>
                       </Feed.Like>
                     </Feed.Meta>
                   </>
