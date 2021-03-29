@@ -14,7 +14,6 @@ const Explore = () => {
     }
     getData()
   }, [])
-<<<<<<< HEAD
 
 
   //Comments
@@ -26,10 +25,6 @@ const Explore = () => {
 
 
 
-=======
-  
-  console.log(profiles[0].username)
->>>>>>> development
 
   const handleUser = () => {
     for (let i = 0; i < profiles.length; i++) {
@@ -39,7 +34,6 @@ const Explore = () => {
 
 
   return (
-<<<<<<< HEAD
     <Feed >
       {profiles.map((user) => {
         return (
@@ -86,27 +80,6 @@ const Explore = () => {
         )
       })}
       {/* <Feed.Event>
-=======
-    <Feed>
-      <Feed.Event>
-        <Feed.Label>
-          <img src="/images/avatar/small/elliot.jpg" />
-        </Feed.Label>
-        <Feed.Content>
-          <Feed.Summary>
-            <Feed.User>{handleUser}</Feed.User> added you as a friend
-            <Feed.Date>1 Hour Ago</Feed.Date>
-          </Feed.Summary>
-          <Feed.Meta>
-            <Feed.Like>
-              <Icon name="like" />4 Likes
-            </Feed.Like>
-          </Feed.Meta>
-        </Feed.Content>
-      </Feed.Event>
-
-      <Feed.Event>
->>>>>>> development
         <Feed.Label image="/images/avatar/small/helen.jpg" />
         <Feed.Content>
           <Feed.Summary>
