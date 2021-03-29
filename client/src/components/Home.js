@@ -131,7 +131,7 @@ const Home = () => {
               <i tabIndex="4" aria-checked="false" aria-posinset="4" aria-setsize="4" className={ratingFour} role="radio" id={destinations[hero].id}></i>
               <i tabIndex="5" aria-checked="false" aria-posinset="5" aria-setsize="5" className={ratingFive} role="radio" id={destinations[hero].id}></i>
             </div>
-            <Button className="button secondary" href={`/destinations/${destinations[detailInfoId].id}`}>See more</Button>
+            <Button className="button secondary" href={`/destinations/${destinations[detailInfoId].name}`}>See more</Button>
           </div>
         </div>
         :
