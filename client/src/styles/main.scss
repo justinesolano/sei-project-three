@@ -8,6 +8,23 @@
 
 // * HOME
 
+
+//EXPLORE.JS
+
+#root {
+  margin-top: 20vh;
+  background-color: rgb(216, 216, 216);
+}
+.picture {
+  height: 250px;
+  width: 250px;
+}
+.summary {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+// NAVBAR
 .landing.ui.grid {
   justify-content: center;
   align-items: center;

@@ -21,6 +21,8 @@ const photoSchema = new mongoose.Schema({
   locationName: { type: String, required: true },
   comments: [commentSchema],
   likes: [likesSchema]
+}, {
+  timestamps: true
 })
 
 const userSchema = new mongoose.Schema({
