@@ -4,7 +4,7 @@ import axios from 'axios'
 
 
 const Explore = () => {
-  const [profiles, setProfiles] = useState([])
+  const [profiles, setProfiles] = useState(null)
 
 
   useEffect(() => {
@@ -14,55 +14,58 @@ const Explore = () => {
     }
     getData()
   }, [])
-  console.log(profiles)
 
-  const profilesUsername = profiles.map((user) => {
-    return user.username
-  })
+  
 
 
+
+  if (!profiles) return null
   return (
-    <Feed>
-      <Feed.Event>
-        <Feed.Label>
-          <img src="/images/avatar/small/elliot.jpg" />
-        </Feed.Label>
-        <Feed.Content>
-          <Feed.Summary>
-            <Feed.User>{profilesUsername}</Feed.User >
-            <Feed.Date>1 Hour Ago</Feed.Date>
-          </Feed.Summary>
-          <Feed.Meta>
-            <Feed.Like>
-              <Icon name="like" />4 Likes
-            </Feed.Like>
-          </Feed.Meta>
-        </Feed.Content>
-      </Feed.Event>
-
-      <Feed.Event>
+    <Feed >
+      {profiles.map((user) => {
+        return (
+          <Feed.Event key={user._id}>
+            <Feed.Content>
+              {user.photos.map((photo) => {
+                return (
+                  <>
+                    <Feed.Summary>
+                      <Feed.User>
+                        {user.username}
+                      </Feed.User > added a photo: {photo.title}
+                    </Feed.Summary>
+                    <Feed.Date key={photo._id}>{ new Date(photo.createdAt).toDateString() }</Feed.Date>
+                    <Feed.Extra className='picture' >
+                      <img src={photo.image} className='picture' />
+                    </Feed.Extra>
+                    <Feed.Meta>
+                      <Feed.Like >
+                        <Icon name="like" />
+                         Likes {photo.likes.length}
+                      </Feed.Like>
+                    </Feed.Meta>
+                  </>
+                )
+              })}
+            </Feed.Content>
+          </Feed.Event>
+        )
+      })}
+      {/* <Feed.Event>
         <Feed.Label image="/images/avatar/small/helen.jpg" />
         <Feed.Content>
           <Feed.Summary>
-            <a>Helen Troy</a> added <a>2 new illustrations</a>
+            <a>Helen Troy</a> added <a>1 new illustrations</a>
             <Feed.Date>4 days ago</Feed.Date>
           </Feed.Summary>
-          <Feed.Extra images>
-            <a>
-              <img src="/images/wireframe/image.png" />
-            </a>
-            <a>
-              <img src="/images/wireframe/image.png" />
-            </a>
-          </Feed.Extra>
           <Feed.Meta>
             <Feed.Like>
               <Icon name="like" />1 Like
             </Feed.Like>
           </Feed.Meta>
         </Feed.Content>
-      </Feed.Event>
-
+      </Feed.Event> */}
+      {/* 
       <Feed.Event>
         <Feed.Label image="/images/avatar/small/jenny.jpg" />
         <Feed.Content>
@@ -119,7 +122,7 @@ const Explore = () => {
             </Feed.Like>
           </Feed.Meta>
         </Feed.Content>
-      </Feed.Event>
+      </Feed.Event> */}
     </Feed>
   )
 }

@@ -20,6 +20,8 @@ const photoSchema = new mongoose.Schema({
   image: { type: String, required: true },
   comments: [commentSchema],
   likes: [likesSchema]
+}, {
+  timestamps: true
 })
 
 const userSchema = new mongoose.Schema({
