@@ -140,7 +140,7 @@ const Home = () => {
       <div className="hero">
         <img src={destinations[hero].image}/>
         <div className="columns">
-          <div className="hero-info column is-one-quarter-desktop is-one-third-tablet is-full-mobile">
+          <div className="hero-info column is-one-third-desktop is-half-tablet is-full-mobile">
             <h1>{destinations[hero].name}</h1>
             <p>{destinations[hero].description}</p>
             {destinations[hero].avgRating !== 'Not yet rated' ? <p><i>Average Rating: {destinations[hero].avgRating}</i></p> : <p><i>Not yet rated</i></p>}
