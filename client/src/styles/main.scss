@@ -53,9 +53,14 @@
   // * Hero
   .hero {
     position: relative;
+    img {
+      height: 50vh;
+      width: auto;
+      object-fit: cover;
+    }
     .hero-info {
       position: absolute;
-      top: 35px;
+      top: 50px;
       left: 0;
       color: white;
       background-color: rgba(0, 0, 0, 0.5);
@@ -70,13 +75,17 @@
     color: white;
     position: absolute;
     display: block;
-    top: 25%;
-    left: 15%;
+    top: 35px;
+    left: 10vw;
     background-color: rgba(0, 0, 0, 0.8);
     img,
     div {
       margin: 20px;
-      width: 75vw;
+      width: 70vw;
+    }
+    img {
+      max-height: 500px;
+      object-fit: cover;
     }
     .home-detail-info-close {
       position: absolute;
@@ -100,6 +109,7 @@
     img {
       height: 180px;
       width: 100%;
+      object-fit: cover;
     }
     .home-destination-info {
       position: absolute;
@@ -113,6 +123,8 @@
       transition: .5s ease;
       .home-destination-info {
         visibility: visible;
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 10px;
       }
     }
     .slider {
@@ -129,6 +141,18 @@
     .slick-arrow.slick-prev {
       margin-left: 30px;
       z-index: 1;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .home-page {
+    .hero {
+      img {
+        height: 100vh;
+        width: auto;
+        object-fit: cover;
+      }
     }
   }
 }

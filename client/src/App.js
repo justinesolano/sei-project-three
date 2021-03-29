@@ -7,6 +7,7 @@ import Destination from './components/Destination'
 import Register from './auth/Register'
 import Login from './auth/Login'
 import Explore from './components/Explore'
+import Map from './components/Map'
 // import UserProfile from './components/UserProfile'
 import AddPictureToProfile from './components/AddPictureToProfile'
 const App = () => {
@@ -38,6 +39,9 @@ const App = () => {
         </Route> */}
         <Route path='/addpicturetoprofile'>
           <AddPictureToProfile /> 
+        </Route>
+        <Route path='/map'>
+          <Map /> 
         </Route>
       </Switch>
     </BrowserRouter>
