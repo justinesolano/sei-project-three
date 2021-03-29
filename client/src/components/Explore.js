@@ -20,6 +20,7 @@ const Explore = () => {
   const [viewComments, setViewComments] = useState('')
   const handleChange = event => {
     setViewComments(event.target.name)
+    console.log(event.target.name)
   }
 
 
