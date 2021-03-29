@@ -3,6 +3,7 @@ import axios from 'axios'
 // import DestinationCard from './DestinationCard'
 import { Grid, Image } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
+import photoFeed from '../assets/photofeed.png'
 
 
 const ExploreDestination = () => {
@@ -18,24 +19,30 @@ const ExploreDestination = () => {
   }, [])
 
   if (!userPhotos) return null
+  
   return (
-    <Grid className="explore-destination-grid">
-      {userPhotos.map((users) => {
-        return (
-          <Grid.Row className="explore-grid-row" key={users._id} columns= {4}>
-            {users.photos.map((photo) => {
-              return (
-                <Grid.Column key={photo.id} className="explore-grid-columns">
-                  <Link to={`/userprofile/${users._id}`}>
-                    <Image src={photo.image} alt={`${users._id}`}/>
-                  </Link>
-                </Grid.Column>
-              )
-            })}
-          </Grid.Row>
-        )
-      })}
-    </Grid>
+    <>
+      <Link to={'/feed'} className="feed-title">
+        <img src={photoFeed} className="photo-feed-title"/>
+      </Link>
+      <Grid className="ui explore-destination-grid">
+        {userPhotos.map((users) => {
+          return (
+            <Grid.Row className="explore-grid-row" key={users._id} columns= {4}>
+              {users.photos.map((photo) => {
+                return (
+                  <Grid.Column key={photo.id} className="explore-grid-columns">
+                    <Link to={`/userprofile/${users._id}`}>
+                      <Image src={photo.image} alt={`${users._id}`}/>
+                    </Link>
+                  </Grid.Column>
+                )
+              })}
+            </Grid.Row>
+          )
+        })}
+      </Grid>
+    </>
   )
 
 
