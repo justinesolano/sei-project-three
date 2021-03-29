@@ -26,6 +26,7 @@ export const getUserProfile = async (req, res) => {
 //     const userPhotos = await User.findById(id)
 //     if (!userPhotos) throw new Error('This user does not have a passport so does not exist')
 //     const photoToShow = userPhotos.photos
+//     console.log('PHOTO TO SHOW', photoToShow)
 //     // const photoToShow = userPhotos.photos.findById(photos)
 //     if (!photoToShow) throw new Error('This user has not uploaded any photos.')
 //     return res.status(200).json(userPhotos)
