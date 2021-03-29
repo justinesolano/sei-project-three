@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Feed, Icon } from 'semantic-ui-react'
+import { Button, Feed, Icon } from 'semantic-ui-react'
 import axios from 'axios'
 
 
@@ -14,8 +14,22 @@ const Explore = () => {
     }
     getData()
   }, [])
+<<<<<<< HEAD
+
+
+  //Comments
+  const [viewComments, setViewComments] = useState('')
+  const handleChange = event => {
+    setViewComments(event.target.name)
+    console.log(event.target.name)
+  }
+
+
+
+=======
   
   console.log(profiles[0].username)
+>>>>>>> development
 
   const handleUser = () => {
     for (let i = 0; i < profiles.length; i++) {
@@ -25,6 +39,54 @@ const Explore = () => {
 
 
   return (
+<<<<<<< HEAD
+    <Feed >
+      {profiles.map((user) => {
+        return (
+          <Feed.Event key={user._id}>
+            <Feed.Content>
+              {user.photos.map((photo) => {
+                return (
+                  <>
+                    <Feed.Summary>
+                      <Feed.User>
+                        {user.username}
+                      </Feed.User > added a photo: {photo.title}
+                    </Feed.Summary>
+                    <Feed.Date key={photo._id}>{new Date(photo.createdAt).toDateString()}</Feed.Date>
+                    <Feed.Extra className='picture' >
+                      <img src={photo.image} className='picture' />
+                    </Feed.Extra>
+                    <Feed.Meta>
+                      <Feed.Like >
+                        <Icon name="like" />
+                         Likes {photo.likes.length}
+                        <div>
+                          <Button
+                            onClick={handleChange}
+                            name={`${photo._id}`}
+                            key={photo.index}>
+                            View comments</Button>
+                          {photo.comments.map(comment => (
+                            <>
+                              {!viewComments &&
+                                <p key={comment._id}>
+                                  {comment.text}
+                                </p>}
+                            </>
+                          ))}
+                        </div>
+                      </Feed.Like>
+                    </Feed.Meta>
+                  </>
+                )
+              })}
+            </Feed.Content>
+          </Feed.Event>
+        )
+      })}
+      {/* <Feed.Event>
+=======
     <Feed>
       <Feed.Event>
         <Feed.Label>
@@ -44,6 +106,7 @@ const Explore = () => {
       </Feed.Event>
 
       <Feed.Event>
+>>>>>>> development
         <Feed.Label image="/images/avatar/small/helen.jpg" />
         <Feed.Content>
           <Feed.Summary>
