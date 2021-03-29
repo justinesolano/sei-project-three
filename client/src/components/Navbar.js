@@ -26,7 +26,7 @@ const Navbar = () => {
 
   useEffect(() => {
     window.addEventListener('scroll', () => {
-      if (window.scrollY > 1) {
+      if (window.scrollY > 10) {
         handleShow(true)
       } else handleShow(false)
     })
@@ -76,6 +76,9 @@ const Navbar = () => {
               </Link>
               <Link to="/explore" className="navbar-item">
                   Explore
+              </Link>
+              <Link to="/feed" className="navbar-item">
+                  Feed
               </Link>
             </div>
           </div>

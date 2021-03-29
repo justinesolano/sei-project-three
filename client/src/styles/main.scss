@@ -1,4 +1,22 @@
 @import '~bulma/bulma.sass';
+@import 'semantic-ui-css/semantic.min.css';
+
+// EXPLORE DESTINATIONS
+.feed-title{
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+  margin-bottom: 5px;
+  width: 100%;
+  height: 50px;
+}
+.ui.explore-destination-grid{
+  display: flex;
+  justify-content: center;
+}
+.explore-grid-row{
+  padding: -20px;
+}
 
 *{
   margin: 0;
@@ -25,7 +43,13 @@
   padding-bottom: 15px;
 }
 
-// NAVBAR
+// NAVBAR TRANSITION
+// .navbar{
+//   background-color: transparent;
+// }
+// .nav__black{
+//   background-color: black;
+// }
 
 .landing.ui.grid {
   justify-content: center;
@@ -44,7 +68,7 @@
 }
 
 
-// ! HOME
+// HOME
 
 .home-page {
   background-color: black;
@@ -154,62 +178,62 @@
 
 
 // NAVBAR
-.navbar{
-  position: fixed;
-  top: 0;
-  display: flex;
-  justify-content: space-around;
-  min-height: 8vh;
-  height: 65px;
-  font-family: 'Helvetica';
-  z-index: 1;
-  width: 100%;
-  transition-timing-function: ease-in;
-  transition: all 0.5s;
-}
-.nav__black{
-  background-color: black;
-}
+// .navbar{
+//   position: fixed;
+//   top: 0;
+//   display: flex;
+//   justify-content: space-around;
+//   min-height: 8vh;
+//   height: 65px;
+//   font-family: 'Helvetica';
+//   z-index: 1;
+//   width: 100%;
+//   transition-timing-function: ease-in;
+//   transition: all 0.5s;
+// }
+// .nav__black{
+//   background-color: black;
+// }
 
-.jetflix{
-margin-left: -40px;
-margin-top: 1px;
-object-fit: contain;
-position: fixed;
-width: 100px;
-left: 100px;
-// padding-bottom: 20px;
-}
+// .jetflix{
+// margin-left: -40px;
+// margin-top: 1px;
+// object-fit: contain;
+// position: fixed;
+// width: 100px;
+// left: 100px;
+// // padding-bottom: 20px;
+// }
 
-.home-link, .my-list-link, .explore-link{
-  padding: 10px;
-  padding-top: 15px;
-  display: flex;
-  justify-content: flex-start;
-}
-.right-nav, .end-nav{
-  margin-top: 10px;
-}
-.navbar-link-list-two{
-  margin: 0;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  list-style-type: none;
-  margin-block-start: 1em;
-  margin-block-end: 1em;
-  margin-inline-start: 250px;
-  margin-inline-end: -320px;
-  padding-inline-start: 0px;
-  justify-content: flex-end;
-  margin-top: 25px;
-}
-.search-bar-link {
-  width: 300px;
-  margin-right: 20px;
-  z-index: 2;
-}
+// .home-link, .my-list-link, .explore-link{
+//   padding: 10px;
+//   padding-top: 15px;
+//   display: flex;
+//   justify-content: flex-start;
+// }
+// .right-nav, .end-nav{
+//   margin-top: 10px;
+// }
+// .navbar-link-list-two{
+//   margin: 0;
+//   padding: 0;
+//   display: flex;
+//   align-items: center;
+//   text-decoration: none;
+//   list-style-type: none;
+//   margin-block-start: 1em;
+//   margin-block-end: 1em;
+//   margin-inline-start: 250px;
+//   margin-inline-end: -320px;
+//   padding-inline-start: 0px;
+//   justify-content: flex-end;
+//   margin-top: 25px;
+// }
+// .search-bar-link {
+//   width: 300px;
+//   margin-right: 20px;
+//   z-index: 2;
+// }
 // end of NAVBAR
 
 // DESTINATION CARD
@@ -353,22 +377,6 @@ color:red;
   height: 400px;
 }
 
-// EXPLORE DESTINATIONS
-.feed-title{
-  display: flex;
-  justify-content: center;
-  margin-top: 50px;
-  margin-bottom: 10px;
-  width: 100%;
-  height: 50px;
-}
-.ui.explore-destination-grid{
-  display: flex;
-  justify-content: center;
-    .explore-grid-row{
-      padding: -20px;
-    }
-}
 
 // @media screen and (max-width: 1690px){
 //   .navbar-link-list{
