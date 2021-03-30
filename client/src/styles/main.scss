@@ -390,8 +390,8 @@ color:red;
   color: white;
 }
 
-.ui.stacked.segment.login{ 
-  height: 400px;
+.ui.card.button{ 
+  height: 1000px;
 }
 
 
@@ -419,10 +419,30 @@ element.style {
 
   }
 
+  .ui.right.labelled.button.buttontolike { 
+    display: flex;
+    align-content: space-between;
+  }
+
   .heart-icon { 
     background-color: red;
   }
   .icon {
     width: 10px;
+   }
+   .ui.labeled.button>.label { 
+     margin-left: 10px;
+   }
+   .ui.card { 
+     height: 100px;
+   }
+   .column { 
+     margin: 0px;
+   }
+
+   .columns {
+    margin-left: 35.25rem;
+    margin-right: 39.25rem;
+    margin-top: 9.25rem;
    }
 }
