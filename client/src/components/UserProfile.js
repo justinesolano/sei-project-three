@@ -61,6 +61,8 @@ const UserProfile = () => {
 
 
   if (!profile) return null
+
+
   return (
     <>
       <div className='user-profile is-fullheight-with-navbar' >

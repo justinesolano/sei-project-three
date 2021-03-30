@@ -4,7 +4,7 @@ import jetflixLogo from '../assets/jetflixlogo.png'
 import Select from 'react-select'
 import { continentOptions, suitableOptions, tagOptions } from './data/searchData'
 import { userIsAuthenticated } from '../helpers/auth'
-import { useHistory, useLocation  } from 'react-router-dom'
+import { useHistory, useLocation } from 'react-router-dom'
 // import axios from 'axios'
 
 
@@ -50,7 +50,6 @@ const Navbar = () => {
   const toggleBurger = () => {
     if (burger === '') setBurger('is-active')
     if (burger === 'is-active') setBurger('')
-    console.log(show)
   }
 
   const handleLogout = () => {
@@ -58,16 +57,18 @@ const Navbar = () => {
     history.push('/')
   }
 
-  // const { id } = useParams()
+  // const params = useParams()
 
   // const [myProfile, setMyProfile] = useState('')
+
 
 
   // const handleMyProfile = async event => {
   //   setMyProfile(event.target.name)
   //   console.log('>>>', myProfile, event.target)
   //   const token = window.localStorage.getItem('token')
-  //   await axios.post(`/api/profiles/${id}`,
+  //   console.log('TOKEN',token)
+  //   await axios.post(`/api/myprofile/${params.username}`,
   //     {
   //       headers: {
   //         Authorization: `Bearer ${token}`
@@ -114,9 +115,8 @@ const Navbar = () => {
                 More
             </a>
             <div className="navbar-dropdown">
-              <Link to="/myprofile" className="navbar-item" >
-                  My Profile
-              </Link>
+              { !userIsAuthenticated() &&
+            <>
               <Link to="/home" className="navbar-item">
                   My List
               </Link>
@@ -126,6 +126,24 @@ const Navbar = () => {
               <Link to="/feed" className="navbar-item">
                   Feed
               </Link>
+            </>
+              }
+              { userIsAuthenticated() &&
+              <>
+                <Link to="/myprofile" className="navbar-item">
+              My Profile
+                </Link>
+                <Link to="/home" className="navbar-item">
+              My List
+                </Link>
+                <Link to="/explore" className="navbar-item">
+              Explore
+                </Link>
+                <Link to="/feed" className="navbar-item">
+              Feed
+                </Link>
+              </>
+              }
             </div>
           </div>
         </div>
