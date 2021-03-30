@@ -8,8 +8,6 @@ import { getPayloadFromToken } from '../helpers/auth'
 
 const Home = () => {
 
-  // Add my list key to profiles on backend to use on homepage
-
   const [destinations, setDestinations] = useState(null)
   const [users, setUsers] = useState(null)
   const [myList, setMyList] = useState(null)
@@ -58,6 +56,7 @@ const Home = () => {
     console.log(users)
   }, [])
 
+  // POST new items to My List
   const handleMyList = async (event) => {
     const id = event.target.name
     const profileId = getPayloadFromToken().sub
@@ -76,10 +75,12 @@ const Home = () => {
     }
   }
   
+  // Open info popup
   const handleInfoButton = (event) => {
     setDetailInfoId(event.target.name)
   }
 
+  // Close info popup
   const handleInfoButtonClose = () => {
     setDetailInfoId('')
     setRating({
@@ -91,6 +92,7 @@ const Home = () => {
     })
   }
 
+  // Post new rating
   const handleRating = async (event) => {
     if (event.target.tabIndex > 0) setRating({ one: 'active icon', two: 'icon', three: 'icon', four: 'icon', five: 'icon' })
     if (event.target.tabIndex > 1) setRating({ one: 'active icon', two: 'active icon', three: 'icon', four: 'icon', five: 'icon' })
@@ -113,35 +115,43 @@ const Home = () => {
       {detailInfoId ?
         <div className="home-detail-info column">
           <Button className="button secondary home-detail-info-close" onClick={handleInfoButtonClose}>x</Button>
-          <img className="hero-image" src={destinations[detailInfoId].image} />
-          <div>
-            <h2>{destinations[detailInfoId].name}</h2>
-            <p><i>{destinations[detailInfoId].description}</i></p>
-            <p>Country: {destinations[detailInfoId].country}</p>
-            <p>Currency: {destinations[detailInfoId].currency}</p>
-            <p>Language: {destinations[detailInfoId].language}</p>
-            <p>Suitable For: {destinations[detailInfoId].suitableFor.map((suitable, index) => {
-              return <li key={index}>{suitable}</li>
-            })}</p>
-            <p>Tags: {destinations[detailInfoId].tags.map((tag, index) => {
-              return <li key={index}>{tag}</li>
-            })}</p>
-            <p>Highlights: {destinations[detailInfoId].highlights.map((highlight, index) => {
-              return <li key={index}>{highlight}</li>
-            })}</p>
-            <div className="ui star rating" role="radiogroup" onClick={handleRating}
-              style={{
-                'backgroundColor': 'rgba(225, 225, 225, 0.6)',
-                'padding': '10px'
-              }}>
-              <i tabIndex="1" aria-checked="false" aria-posinset="1" aria-setsize="4" className={destinations[detailInfoId].avgRating > 0 ? 'active icon' : `${rating.one} icon`} role="radio" id={destinations[detailInfoId].id}></i>
-              <i tabIndex="2" aria-checked="false" aria-posinset="2" aria-setsize="4" className={destinations[detailInfoId].avgRating > 1 ? 'active icon' : `${rating.two} icon`} role="radio" id={destinations[detailInfoId].id}></i>
-              <i tabIndex="3" aria-checked="true" aria-posinset="3" aria-setsize="4" className={destinations[detailInfoId].avgRating > 2 ? 'active icon' : `${rating.three} icon`} role="radio" id={destinations[detailInfoId].id}></i>
-              <i tabIndex="4" aria-checked="false" aria-posinset="4" aria-setsize="4" className={destinations[detailInfoId].avgRating > 3 ? 'active icon' : `${rating.four} icon`} role="radio" id={destinations[detailInfoId].id}></i>
-              <i tabIndex="5" aria-checked="false" aria-posinset="5" aria-setsize="5" className={destinations[detailInfoId].avgRating > 4 ? 'active icon' : `${rating.five} icon`} role="radio" id={destinations[detailInfoId].id}></i>
-            </div>
-            <Button className="button secondary" href={`/destinations/${destinations[detailInfoId].name}`}>See more</Button>
-          </div>
+          {destinations.map(destination => {
+            if (destination.id === detailInfoId) {
+              return (
+                <>
+                  <img className="hero-image" src={destination.image} />
+                  <div>
+                    <h2>{destination.name}</h2>
+                    <p><i>{destination.description}</i></p>
+                    <p>Country: {destination.country}</p>
+                    <p>Currency: {destination.currency}</p>
+                    <p>Language: {destination.language}</p>
+                    <p>Suitable For: {destination.suitableFor.map((suitable, index) => {
+                      return <li key={index}>{suitable}</li>
+                    })}</p>
+                    <p>Tags: {destination.tags.map((tag, index) => {
+                      return <li key={index}>{tag}</li>
+                    })}</p>
+                    <p>Highlights: {destination.highlights.map((highlight, index) => {
+                      return <li key={index}>{highlight}</li>
+                    })}</p>
+                    <div className="ui star rating" role="radiogroup" onClick={handleRating}
+                      style={{
+                        'backgroundColor': 'rgba(225, 225, 225, 0.6)',
+                        'padding': '10px'
+                      }}>
+                      <i tabIndex="1" aria-checked="false" aria-posinset="1" aria-setsize="4" className={destination.avgRating > 0 ? 'active icon' : `${rating.one} icon`} role="radio" id={destination.id}></i>
+                      <i tabIndex="2" aria-checked="false" aria-posinset="2" aria-setsize="4" className={destination.avgRating > 1 ? 'active icon' : `${rating.two} icon`} role="radio" id={destination.id}></i>
+                      <i tabIndex="3" aria-checked="true" aria-posinset="3" aria-setsize="4" className={destination.avgRating > 2 ? 'active icon' : `${rating.three} icon`} role="radio" id={destination.id}></i>
+                      <i tabIndex="4" aria-checked="false" aria-posinset="4" aria-setsize="4" className={destination.avgRating > 3 ? 'active icon' : `${rating.four} icon`} role="radio" id={destination.id}></i>
+                      <i tabIndex="5" aria-checked="false" aria-posinset="5" aria-setsize="5" className={destination.avgRating > 4 ? 'active icon' : `${rating.five} icon`} role="radio" id={destination.id}></i>
+                    </div>
+                    <Button className="button secondary" href={`/destinations/${destination.name}`}>See more</Button>
+                  </div>
+                </>
+              )
+            }
+          })}
         </div>
         :
         <div></div>
@@ -184,7 +194,7 @@ const Home = () => {
                   <div className="home-destination-info">
                     <h4>{destination.name}</h4>
                     <p><i>{destination.country}</i></p>
-                    <Button className="button secondary" onClick={handleInfoButton} name={`${destinations.indexOf(destination)}`}>More info</Button>
+                    <Button className="button secondary" onClick={handleInfoButton} name={`${destination.id}`}>More info</Button>
                   </div>
                 </div> 
               })}
@@ -202,7 +212,7 @@ const Home = () => {
                 <div className="home-destination-info">
                   <h4>{destination.name}</h4>
                   <p><i>{destination.country}</i></p>
-                  <Button className="button secondary" onClick={handleInfoButton} name={`${destinations.indexOf(destination)}`}>More info</Button>
+                  <Button className="button secondary" onClick={handleInfoButton} name={`${destination.id}`}>More info</Button>
                 </div>
               </div>
             })}
@@ -217,7 +227,7 @@ const Home = () => {
                 <div className="home-destination-info">
                   <h4>{destination.name}</h4>
                   <p><i>{destination.country}</i></p>
-                  <Button className="button secondary" onClick={handleInfoButton} name={`${destinations.indexOf(destination)}`}>More info</Button>
+                  <Button className="button secondary" onClick={handleInfoButton} name={`${destination.id}`}>More info</Button>
                 </div>
               </div>
             })}

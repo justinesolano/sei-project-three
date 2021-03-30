@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import ReactTip from '@jswork/react-tip'
 
 const DestinationCard = ( { photos, _id, username }) => {
 
@@ -20,9 +19,9 @@ const DestinationCard = ( { photos, _id, username }) => {
               className="tile is-child notification"
               key={photo.id}>
               <Link to={`/userprofile/${_id}`}>
-                <ReactTip key={username._id} title={`${username}`} state='up'>
+                <div key={username._id} title={`${username}`} state='up'>
                   <img src={photo.image} alt={`${username._id}`} className="tooltip" />
-                </ReactTip>
+                </div>
                 {/* {isShown && (
                   <h2 className="username-hovered">{username}</h2>
                 )} */}
