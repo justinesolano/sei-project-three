@@ -4,8 +4,6 @@ import jetflixLogo from '../assets/jetflixlogo.png'
 import Select from 'react-select'
 import { continentOptions, suitableOptions, tagOptions } from './data/searchData'
 import { userIsAuthenticated } from '../helpers/auth'
-import { useHistory } from 'react-router-dom'
-import { useLocation } from 'react-router-dom'
 
 const groupedOptions = [
   { label: 'Continents', options: continentOptions },
@@ -23,13 +21,6 @@ const Navbar = () => {
     const values = selected ? selected.map(item => item.value) : []
     setFormdata({ ...formdata, [name]: [...values] })
   }
-
-  const location = useLocation()
-  
-  useEffect(() => {
-  }, [location.pathname])
-
-  const history = useHistory()
 
   const [show, handleShow] = useState(false)
 
