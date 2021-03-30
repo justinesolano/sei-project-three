@@ -29,10 +29,10 @@ const UserProfile = () => {
 
 
   // handle post a like 
-  const [likes, getLikes] = useState([]) 
+  const [likes, getLikes] = useState([])
   // const [arrayLikes, getArrayLikes] = useState([])
-  const [testLikes, getTestLikes] = useState(0)
-  console.log(getTestLikes)
+  // const [testLikes, getTestLikes] = useState(0)
+  // console.log(getTestLikes)
   const setArray = []
   useEffect(() => {
     const getData = async () => {
@@ -41,15 +41,21 @@ const UserProfile = () => {
     }
     getData()
   }, [])
-  
-  const handleLike = event => {
-    console.log(event.target.name)
-    if (event.target.name === Label.name) { 
-      console.log('testtt')
-    }
-    if (testLikes === 0) getTestLikes(1)
-    if (testLikes === 1) getTestLikes(0)
+  const [FormData] = useState({
+    like: true
+  })
+  const [eventName, setEventName] = useState('')
 
+  const handleLike = async event => {
+    setEventName(event.target.name) 
+    console.log('>>>', eventName, event.target)
+    const token = window.localStorage.getItem('token')
+    await axios.post(`/api/profiles/${id}/photos/${event.target.name}/likes`, FormData,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      })
   }
 
 
@@ -58,12 +64,11 @@ const UserProfile = () => {
   if (!profile) return null
   return (
     <>
-      <div key={profile.id}>
+      <div key={profile.id} className="user-profile">
         <h1>{profile.username} </h1>
       </div>
-      {likes.map(photo => ( 
-        setArray.push(photo.likes), 
-        console.log(setArray)
+      {likes.map(photo => (
+        setArray.push(photo.likes)
       ))}
       {profile.photos.map(photo => (
         <div key={photo.id}>
@@ -76,17 +81,17 @@ const UserProfile = () => {
             <Button icon
               onClick={handleLike}
               name={photo._id}
-
+              className="buttontolike button change-position add-padding get-specific "
             >
-              <Icon name='heart' />
+              <Icon name='heart' color='red' />
         Like
             </Button>
             <Label
               as='a'
               basic pointing='left'
               name={photo._id}>
-              {photo.likes.length} += {testLikes}
-              
+              {photo.likes.length}
+
             </Label>
           </Button>
           <div>

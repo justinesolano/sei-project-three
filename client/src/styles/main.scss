@@ -24,13 +24,9 @@
   box-sizing: border-box;
 }
 
-<<<<<<< HEAD
-// likes button user.profils
-=======
 .css-2b097c-container {
   min-width: 200px;
 }
->>>>>>> development
 
 //EXPLORE.JS
 
@@ -276,7 +272,7 @@
 
 .ui.header.register { 
   color: white;
-
+}
 
 .ui.header.register { 
   color: white;
@@ -409,4 +405,24 @@ color:red;
 element.style { 
   display:block;
 }
+
+
+.user-profile { 
+
+
+  .ui.icon.button .buttontolike { 
+    background-color: red;
+  }
+
+  .button.buttontolike.changeposition.add-padding.get-specific { 
+    background-color: red;
+
+  }
+
+  .heart-icon { 
+    background-color: red;
+  }
+  .icon {
+    width: 10px;
+   }
 }

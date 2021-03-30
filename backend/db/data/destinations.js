@@ -568,11 +568,7 @@ export default [
   // 'name': '',
   // 'description': '',
   // 'country': '',
-<<<<<<< HEAD
-  	  // 'continent': '',
-=======
   // 'continent': '',
->>>>>>> development
   // 'language': '',
   // 'currency': '',
   // 'highlights': [],
