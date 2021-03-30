@@ -1,5 +1,9 @@
+// $jetflixbg: '../assets/jetflixbackgroundfinal.jpg';
 @import '~bulma/bulma.sass';
 @import 'semantic-ui-css/semantic.min.css';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,500&display=swap');
+@import "balloon-css";
+@import "~@jswork/react-tip/dist/style.scss";
 
 // EXPLORE DESTINATIONS
 .feed-title{
@@ -13,9 +17,42 @@
 .ui.explore-destination-grid{
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
+  padding: 0;
+  // .username-hovered{
+  //   display: flex;
+  //   justify-content: center;
+  //   font-family: 'Helvetica';
+  //  text-decoration: none;
+  // }
 }
-.explore-grid-row{
-  padding: -20px;
+
+// DESTINATION CARD
+.tooltip {
+  position:relative; /* making the .tooltip span a container for the tooltip text */
+  border-bottom:1px dashed #000; /* little indicater to indicate it's hoverable */
+.tooltip:before {
+  content: attr(data-text); /* here's the magic */
+  position:absolute;
+  
+  /* vertically center */
+  top:50%;
+  transform:translateY(-50%);
+  
+  /* move to right */
+  left:100%;
+  margin-left:15px; /* and add a small left margin */
+  
+  /* basic styles */
+  width:200px;
+  padding:10px;
+  border-radius:10px;
+  background:#000;
+  color: #fff;
+  text-align:center;
+
+  display:none; /* hide by default */
+}
 }
 
 *{
@@ -30,13 +67,19 @@
 
 //EXPLORE.JS
 
-// #root {
-//   margin-top: 20vh;
-//   background-color: rgb(216, 216, 216);
-// }
+ .explore {
+  margin-left: 35vw;
+  margin-top: 5vh;
+}
+
+.exploreDate {
+  font-family: 'Montserrat', sans-serif;
+}
+
+
 .picture {
-  height: 250px;
-  width: 250px;
+  height: 350px;
+  width: 450px;
 }
 .summary {
   padding-top: 15px;
@@ -270,9 +313,11 @@
   padding-top: 50px;
 }
 
-.ui.header.register { 
-  color: white;
 
+// REGISTER
+.register-background{
+  background-image: './assets/jetflixbackgroundfinal.jpg';
+}
 
 .ui.header.register { 
   color: white;
@@ -405,4 +450,24 @@ color:red;
 element.style { 
   display:block;
 }
+
+
+.user-profile { 
+
+
+  .ui.icon.button .buttontolike { 
+    background-color: red;
+  }
+
+  .button.buttontolike.changeposition.add-padding.get-specific { 
+    background-color: red;
+
+  }
+
+  .heart-icon { 
+    background-color: red;
+  }
+  .icon {
+    width: 10px;
+   }
 }
