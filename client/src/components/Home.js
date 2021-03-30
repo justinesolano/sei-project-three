@@ -4,12 +4,16 @@ import { Link } from 'react-router-dom'
 import { Button } from 'semantic-ui-react'
 import Slider from 'react-slick'
 import { sliderSettings } from '../components/slider/settings'
+import { getPayloadFromToken } from '../helpers/auth'
 
 const Home = () => {
 
   // Add my list key to profiles on backend to use on homepage
 
   const [destinations, setDestinations] = useState(null)
+  const [users, setUsers] = useState(null)
+  const [myList, setMyList] = useState(null)
+  const [myNewList, setMyNewList] = useState(null)
   const [hero, setHero] = useState(0)
   const [detailInfoId, setDetailInfoId] = useState('')
   const [rating, setRating] = useState({
@@ -20,14 +24,57 @@ const Home = () => {
     five: 'icon'
   })
 
+  // GET Destination Data
   useEffect(() => {
     const getData = async () => {
-      const { data } = await axios.get('/api/destinations')
-      setDestinations(data)
-      setHero(parseFloat(Math.floor(Math.random() * data.length)))
+      try {
+        const response = await axios.get('/api/destinations')
+        setDestinations(response.data)
+        setHero(parseFloat(Math.floor(Math.random() * response.data.length)))
+      } catch (err) {
+        console.log(err)
+      }
     }
     getData()
   }, [])
+
+  // GET User Profiles
+  useEffect(() => {
+    const getUsers = async () => {
+      try {
+        const response = await axios.get('/api/profiles')
+        setUsers(response.data)
+        response.data.map(user => {
+          if (user.id === getPayloadFromToken().sub) {
+            setMyNewList(user.myList)
+            setMyList(user.myList)
+          }
+        })
+      } catch (err) {
+        console.log(err)
+      }
+    }
+    getUsers()
+    console.log(users)
+  }, [])
+
+  const handleMyList = async (event) => {
+    const id = event.target.name
+    const profileId = getPayloadFromToken().sub
+    const myNewArray = myList
+    try {
+      const { data } = await axios.get(`/api/destinations/${id}`)
+      myNewArray.push(data)
+      setMyList({ ...myNewArray })
+      await axios.post(`/api/profiles/${profileId}/myList`, data, {
+        headers: {
+          Authorization: `Bearer ${window.localStorage.getItem('token')}`
+        }
+      }, [])
+    } catch (err) {
+      console.log(err)
+    }
+  }
   
   const handleInfoButton = (event) => {
     setDetailInfoId(event.target.name)
@@ -58,6 +105,8 @@ const Home = () => {
   }
 
   if (!destinations) return null
+
+  console.log(myList)
 
   return (
     <div className="home-page is-fullheight-with-navbar">
@@ -120,25 +169,30 @@ const Home = () => {
                   'color': 'white'
                 }}>More Info</Link>
             </Button>
+            <Button className="button secondary" name={destinations[hero].id} onClick={handleMyList}>My List</Button>
           </div>
         </div>
       </div>
       <div className="home-previews">
         <h3>My List</h3>
-        <div className="home-container">
-          <Slider {...sliderSettings} className="slider">
-            {destinations.map(destination => {
-              return <div key={destination._id} className="home-item">
-                <img src={destination.image} />
-                <div className="home-destination-info">
-                  <h4>{destination.name}</h4>
-                  <p><i>{destination.country}</i></p>
-                  <Button className="button secondary" onClick={handleInfoButton} name={`${destinations.indexOf(destination)}`}>More info</Button>
-                </div>
-              </div> 
-            })}
-          </Slider>
-        </div>
+        {myNewList ?
+          <div className="home-container">
+            <Slider {...sliderSettings} className="slider">
+              {myNewList.map(destination => {
+                return <div key={destination._id} className="home-item">
+                  <img src={destination.image} />
+                  <div className="home-destination-info">
+                    <h4>{destination.name}</h4>
+                    <p><i>{destination.country}</i></p>
+                    <Button className="button secondary" onClick={handleInfoButton} name={`${destinations.indexOf(destination)}`}>More info</Button>
+                  </div>
+                </div> 
+              })}
+            </Slider>
+          </div>
+          :
+          <div></div>
+        }
         <h3>Recommended for you</h3>
         <div className="home-container">
           <Slider {...sliderSettings} className="slider">

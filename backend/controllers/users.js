@@ -36,6 +36,23 @@ export const addPhotoToProfile = async (req, res) => {
   }
 }
 
+// * User POST myList route
+export const addToMyList = async (req, res) => {
+  try {
+    const { id } = req.params
+    const user = await User.findById(id)
+    if (!user) throw new Error('Cannot find user')
+    if (!user._id.equals(req.currentUser._id)) throw new Error('Unauthorized')
+    const newMyList = { ...req.body }
+    user.myList.push(newMyList)
+    await user.save()
+    return res.status(200).json(newMyList)
+  } catch (err) {
+    console.log(err)
+    return res.status(404).json({ message: err.message })
+  }
+}
+
 // * User DELETE Image Route
 export const deletePhotoFromProfile = async (req, res) => {
   try {
