@@ -41,7 +41,7 @@ const Login = () => {
               Log In
             </Header>
             <div className="field">
-              <p className="control has-icons-left has-icons-right">
+              <p className="control has-icons-right">
                 <input 
                   className={`input ${errors}`}
                   type="email" 
@@ -49,16 +49,10 @@ const Login = () => {
                   name="email"
                   onChange={handleChange}
                 />
-                <span className="icon is-small is-left">
-                  <i className="fas fa-envelope"></i>
-                </span>
-                <span className="icon is-small is-right">
-                  <i className="fas fa-check"></i>
-                </span>
               </p>
             </div>
             <div className="field">
-              <p className="control has-icons-left">
+              <p className="control has-icons-right">
                 <input 
                   className={`input ${errors}`}
                   type="password" 
@@ -66,9 +60,6 @@ const Login = () => {
                   placeholder="Password" 
                   onChange={handleChange}
                 />
-                <span className="icon is-small is-left">
-                  <i className="fas fa-lock"></i>
-                </span>
               </p>
             </div>
             <Button color="red" fluid size="large" type="submit">

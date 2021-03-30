@@ -125,6 +125,7 @@ $profilefont: 'Montserrat', sans-serif;
   }
   .red.button {
     margin-bottom: 10px;
+    margin-top: 10px;
   }
   .account-signin-link {
     text-align: center
@@ -185,6 +186,9 @@ element.style {
       background-color: rgba(0, 0, 0, 0.5);
       padding: 20px;
       border-radius: 5px;
+    }
+    .rating {
+      margin-bottom: 10px;
     }
   }
 
