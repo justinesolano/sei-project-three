@@ -21,9 +21,6 @@ const ExploreDestination = () => {
     getTheData()
   }, [])
 
-
-  console.log('USER PHOTOS', userPhotos)
-
   if (!userPhotos) return null
   
   return (
@@ -32,8 +29,6 @@ const ExploreDestination = () => {
         <img src={photoFeed} className="photo-feed-title"/>
       </Link>
       <div className="ui explore-destination-grid tile is-ancestor is-gapless"
-        // onMouseEnter={() => setIsShown(true)}
-        // onMouseLeave={() => setIsShown(false)}
       >
         {userPhotos.map((users) => {
           return (

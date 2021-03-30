@@ -4,6 +4,9 @@ import jetflixLogo from '../assets/jetflixlogo.png'
 import Select from 'react-select'
 import { continentOptions, suitableOptions, tagOptions } from './data/searchData'
 import { userIsAuthenticated } from '../helpers/auth'
+import { useHistory, useLocation  } from 'react-router-dom'
+// import axios from 'axios'
+
 
 const groupedOptions = [
   { label: 'Continents', options: continentOptions },
@@ -21,6 +24,13 @@ const Navbar = () => {
     const values = selected ? selected.map(item => item.value) : []
     setFormdata({ ...formdata, [name]: [...values] })
   }
+
+  const location = useLocation()
+  
+  useEffect(() => {
+  }, [location.pathname])
+
+  const history = useHistory()
 
   const [show, handleShow] = useState(false)
 
@@ -48,6 +58,42 @@ const Navbar = () => {
     history.push('/')
   }
 
+  // const { id } = useParams()
+
+  // const [myProfile, setMyProfile] = useState('')
+
+
+  // const handleMyProfile = async event => {
+  //   setMyProfile(event.target.name)
+  //   console.log('>>>', myProfile, event.target)
+  //   const token = window.localStorage.getItem('token')
+  //   await axios.post(`/api/profiles/${id}`,
+  //     {
+  //       headers: {
+  //         Authorization: `Bearer ${token}`
+  //       }
+  //     })
+  // }
+
+
+
+  // const handleMyProfile = async event => {
+  //   setMyProfile(event.target.name)
+  //   const token = window.localStorage.getItem('token')
+  //   await axios.get(`/api/profiles/${id}`, myProfile,
+  //     console.log('TOKEN', token),
+  //     {
+  //       headers: {
+  //         Authorization: `Bearer ${token}`
+  //       }
+  //     })
+  // }
+
+  // const handleMyProfile = async () => {
+  //   const response = await axios.post('/api/profiles')
+  //   window.localStorage.setItem('token', response.data.token)
+  // }
+
   return (
     <nav className={`navbar is-fixed-top is-black ${show && 'is-info'}`} role="navigation" aria-label="main navigation">
       <div className="navbar-brand">
@@ -68,7 +114,7 @@ const Navbar = () => {
                 More
             </a>
             <div className="navbar-dropdown">
-              <Link to="/profiles" className="navbar-item">
+              <Link to="/myprofile" className="navbar-item" >
                   My Profile
               </Link>
               <Link to="/home" className="navbar-item">

@@ -10,6 +10,7 @@ import Explore from './components/Explore'
 import ExploreDestination from './components/ExploreDestination'
 import UserProfile from './components/UserProfile'
 import AddPictureToProfile from './components/AddPictureToProfile'
+import MyProfile from './components/MyProfile'
 import Map from './components/Map'
 const App = () => {
 
@@ -46,6 +47,9 @@ const App = () => {
         </Route>
         <Route path='/addpicturetoprofile'>
           <AddPictureToProfile /> 
+        </Route>
+        <Route path='/myprofile/:id'>
+          <MyProfile /> 
         </Route>
       </Switch>
     </BrowserRouter>
