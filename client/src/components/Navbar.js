@@ -4,6 +4,8 @@ import jetflixLogo from '../assets/jetflixlogo.png'
 import Select from 'react-select'
 import { continentOptions, suitableOptions, tagOptions } from './data/searchData'
 import { userIsAuthenticated } from '../helpers/auth'
+import { useHistory } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 
 const groupedOptions = [
   { label: 'Continents', options: continentOptions },
@@ -22,13 +24,20 @@ const Navbar = () => {
     setFormdata({ ...formdata, [name]: [...values] })
   }
 
+  const location = useLocation()
+  
+  useEffect(() => {
+  }, [location.pathname])
+
+  const history = useHistory()
+
   const [show, handleShow] = useState(false)
 
   useEffect(() => {
     window.addEventListener('scroll', () => {
       if (window.scrollY > 1) {
-        handleShow(true)
-      } else handleShow(false)
+        handleShow('is-transparent')
+      } else handleShow('is-black')
     })
     return () => {
       window.removeEventListener('scroll', window)
@@ -49,7 +58,7 @@ const Navbar = () => {
   }
 
   return (
-    <nav className={`navbar is-fixed-top is-black ${show && 'is-info'}`} role="navigation" aria-label="main navigation">
+    <nav className={`navbar is-fixed-top is-black is-transparent ${show && 'is-black'}`} role="navigation" aria-label="main navigation">
       <div className="navbar-brand">
         <Link to="/" className="navbar-item" >
           <img src={jetflixLogo} className="jetflix" />

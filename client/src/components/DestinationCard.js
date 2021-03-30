@@ -1,10 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import ReactTip from '@jswork/react-tip'
 
 const DestinationCard = ( { photos, _id, username }) => {
-
-  // const [isShown, setIsShown] = useState(false)
 
   return (
     <div
@@ -20,48 +17,21 @@ const DestinationCard = ( { photos, _id, username }) => {
               className="tile is-child notification"
               key={photo.id}>
               <Link to={`/userprofile/${_id}`}>
-                <ReactTip key={username._id} title={`${username}`} state='up'>
-                  <img src={photo.image} alt={`${username._id}`} className="tooltip" />
-                </ReactTip>
-                {/* {isShown && (
-                  <h2 className="username-hovered">{username}</h2>
-                )} */}
+                <div
+                  key={username._id}
+                  title={`${username}`}
+                  className="has-tooltip-bottom"
+                  data-tooltip=
+                    {`
+                    ${photo.title} ${photo.location.icon} by ${username} 📍 ${photo.locationName}`}>
+                  <img src={photo.image} alt={`${username._id}`} className="feed-image " />
+                </div>
               </Link>
             </div>
           </>
         )
       })}
     </div>
-
-
-
-
-
-  // <div className="explore-card-parent">
-  //   <button
-  //     onMouseEnter={() => setIsShown(true)}
-  //     onMouseLeave={() => setIsShown(false)}
-  //   >
-  //     <Link to={`/profiles/${_id}`}>
-  //       <div className="columns">
-  //         {photos.map(photo => (
-  //           <div key={photo.id} className="card-image">
-  //             <div className="image-card">
-  //               <img src={photo.image} alt={`${_id}`} />
-  //             </div>
-  //           </div>
-  //         ))}
-  //         <div className="card-content">
-  //           {isShown && (
-  //             <div className="hover-info">
-  //               {username}
-  //             </div>
-  //           )}
-  //         </div>
-  //       </div>
-  //     </Link>
-  //   </button>
-  // </div>
   )
 }
 

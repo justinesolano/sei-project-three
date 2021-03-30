@@ -1,15 +1,22 @@
 // $jetflixbg: '../assets/jetflixbackgroundfinal.jpg';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300&display=swap');
+
+$profilefont: 'Montserrat', sans-serif;
+
 @import '~bulma/bulma.sass';
 @import 'semantic-ui-css/semantic.min.css';
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,500&display=swap');
+<<<<<<< HEAD
 
+=======
+>>>>>>> development
 
 // EXPLORE DESTINATIONS
 .feed-title{
   display: flex;
   justify-content: center;
-  margin-top: 60px;
-  margin-bottom: 5px;
+  margin-top: 55px;
+  margin-bottom: 15px;
   width: 100%;
   height: 50px;
 }
@@ -18,39 +25,22 @@
   justify-content: center;
   flex-wrap: wrap;
   padding: 0;
-  // .username-hovered{
-  //   display: flex;
-  //   justify-content: center;
-  //   font-family: 'Helvetica';
-  //  text-decoration: none;
-  // }
+  font-family: $profilefont;
+  font-weight: bold;
+  background-color: rgb(15, 15, 15);
 }
 
 // DESTINATION CARD
-.tooltip {
-  position:relative; /* making the .tooltip span a container for the tooltip text */
-  border-bottom:1px dashed #000; /* little indicater to indicate it's hoverable */
-.tooltip:before {
-  content: attr(data-text); /* here's the magic */
-  position:absolute;
-  
-  /* vertically center */
-  top:50%;
-  transform:translateY(-50%);
-  
-  /* move to right */
-  left:100%;
-  margin-left:15px; /* and add a small left margin */
-  
-  /* basic styles */
-  width:200px;
-  padding:10px;
-  border-radius:10px;
-  background:#000;
-  color: #fff;
-  text-align:center;
-
-  display:none; /* hide by default */
+.tile.is-parent{
+  margin: 1px;
+.content{
+  display: flex;
+  justify-content: center;
+.feed-image{
+display: flex;
+justify-content: center;
+align-content: center;
+}
 }
 }
 
@@ -61,7 +51,7 @@
 }
 
 .css-2b097c-container {
-  min-width: 200px;
+  min-width: 300px;
 }
 
 //EXPLORE.JS
@@ -115,14 +105,6 @@
   padding: 15px 0;
 }
 
-// NAVBAR TRANSITION
-// .navbar{
-//   background-color: transparent;
-// }
-// .nav__black{
-//   background-color: black;
-// }
-
 .landing.ui.grid {
   justify-content: center;
   align-items: center;
@@ -139,17 +121,94 @@
   display: inline;
 }
 
+// DESTINATION CARD
+.card {
+  display: flex;
+  flex-direction: column;
+  height:100%;
+}
+.card-content {
+  margin-top:auto;
+}
+.card-image {
+  padding:1rem;
+  img {
+    height:200px;
+    object-fit:contain;
+  }
+}
 
-// HOME
+//*register and login page jetflix
+
+.login-page,
+.register-page {
+  background-image: url('../assets/jetflixbg.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  .ui.left.aligned.header {
+    color: white;
+  }
+  .login-content,
+  .register-content { 
+    margin-top: 30%;
+    padding: 20px;
+    background-color: rgba(0,0,0,.5);
+    font-weight: bold;
+    color: white;
+  }
+  .red.button {
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+  .account-signin-link {
+    text-align: center
+  }
+}
+
+//map 
+.map-container { 
+  border: red;
+}
+
+element.style { 
+  display:block;
+}
+
+
+.user-profile { 
+
+
+  .ui.icon.button .buttontolike { 
+    background-color: red;
+  }
+
+  .button.buttontolike.changeposition.add-padding.get-specific { 
+    background-color: red;
+
+  }
+
+  .heart-icon { 
+    background-color: red;
+  }
+  .icon {
+    width: 10px;
+   }
+}
+
+
+// ! HOME
 
 .home-page {
   background-color: black;
   font-family: Helvetica;
   color: white;
-
   // * Hero
   .hero {
     position: relative;
+    h1 {
+      color: white;
+    }
     img {
       height: 50vh;
       width: auto;
@@ -163,6 +222,12 @@
       background-color: rgba(0, 0, 0, 0.5);
       padding: 20px;
       border-radius: 5px;
+      p {
+        margin-bottom: 10px;
+      }
+      .rating {
+        margin-bottom: 10px;
+      }
     }
   }
 
@@ -175,6 +240,16 @@
     top: 35px;
     left: 10vw;
     background-color: rgba(0, 0, 0, 0.8);
+    h2 {
+      color: white;
+    }
+    p {
+      margin-top: 5px;
+    }
+    .rating,
+    .button {
+      margin-top: 20px;
+    }
     img,
     div {
       margin: 20px;
@@ -254,7 +329,7 @@
   }
 }
 
-// ! DESTINATION PAGE
+// DESTINATION PAGE
 
 .destination-detail {
   img {
@@ -342,10 +417,8 @@
   padding-top: 50px;
 }
 
-
-// REGISTER
-.register-background{
-  background-image: './assets/jetflixbackgroundfinal.jpg';
+.ui.header.register { 
+  color: white;
 }
 
 .ui.header.register { 
@@ -464,8 +537,8 @@ color:red;
   color: white;
 }
 
-.ui.stacked.segment.login{ 
-  height: 400px;
+.ui.card.button{ 
+  height: 1000px;
 }
 
 
@@ -482,21 +555,21 @@ element.style {
 
 
 .user-profile { 
+max-width:780px;
+margin:auto;
+margin-top:60px;
+  .column-user-profile { 
 
+    border:  solid white;
+  }
+  .user-profile-div-like { 
+    display: flex;
+    justify-content: space-between;
+  }
+  .button-fit-screen { 
+    width: auto;
 
-  .ui.icon.button .buttontolike { 
-    background-color: red;
   }
 
-  .button.buttontolike.changeposition.add-padding.get-specific { 
-    background-color: red;
 
-  }
-
-  .heart-icon { 
-    background-color: red;
-  }
-  .icon {
-    width: 10px;
-   }
 }

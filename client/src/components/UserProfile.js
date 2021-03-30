@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
-import { Button, Icon, Label } from 'semantic-ui-react'
-
+import { Icon } from 'semantic-ui-react'
 
 const UserProfile = () => {
 
@@ -29,15 +28,15 @@ const UserProfile = () => {
 
 
   // handle post a like 
-  const [likes, getLikes] = useState([])
+  // const [likes, getLikes] = useState([])
   // const [arrayLikes, getArrayLikes] = useState([])
   // const [testLikes, getTestLikes] = useState(0)
   // console.log(getTestLikes)
-  const setArray = []
+  // const setArray = []
   useEffect(() => {
     const getData = async () => {
       const { data } = await axios.get(`/api/profiles/${id}`)
-      getLikes(data.photos)
+      console.log(data.photos)
     }
     getData()
   }, [])
@@ -47,7 +46,7 @@ const UserProfile = () => {
   const [eventName, setEventName] = useState('')
 
   const handleLike = async event => {
-    setEventName(event.target.name) 
+    setEventName(event.target.name)
     console.log('>>>', eventName, event.target)
     const token = window.localStorage.getItem('token')
     await axios.post(`/api/profiles/${id}/photos/${event.target.name}/likes`, FormData,
@@ -64,52 +63,50 @@ const UserProfile = () => {
   if (!profile) return null
   return (
     <>
-      <div key={profile.id} className="user-profile">
-        <h1>{profile.username} </h1>
-      </div>
-      {likes.map(photo => (
-        setArray.push(photo.likes)
-      ))}
-      {profile.photos.map(photo => (
-        <div key={photo.id}>
-          <h3>{photo.title} </h3>
-          <img className='photo-userprofile' src={photo.image} alt={photo.title} />
-          <Button
-            labelPosition='right'
-            className="buttontolike"
-          >
-            <Button icon
-              onClick={handleLike}
-              name={photo._id}
-              className="buttontolike button change-position add-padding get-specific "
-            >
-              <Icon name='heart' color='red' />
-        Like
-            </Button>
-            <Label
-              as='a'
-              basic pointing='left'
-              name={photo._id}>
-              {photo.likes.length}
+      <div className='user-profile is-fullheight-with-navbar' >
+        <h1> TEST </h1>
+        <div className='columns is-multiline '>
+          {profile.photos.map(photo => {
+            return (
+              <div key={photo._id} className='column-user-profile column is-one-third
+                '>
+                <img src={photo.image} className="picture" />
+                <div className='user-profile-div-like'>
+                  <h3 className='is-7'> {photo.title} </h3>
+                  <button
+                    onClick={handleLike}
+                    name={`${photo.id}`}
+                    className='button is-3'>
+                    <Icon size='large' name='like outline'></Icon>  &nbsp; Likes {photo.likes.length}
+                  </button>
+                </div>
+                {profile.username} added a photo: {photo.title}
+                {new Date(photo.createdAt).toDateString()}
 
-            </Label>
-          </Button>
-          <div>
-            <Button
-              onClick={handleChange}
-              name={`${photo.title}`}>
-              View comments</Button>
-            {photo.comments.map(comment => (
-              <div key={comment._id}>
-                {!viewComments &&
-                  <p >
-                    {comment.text}
-                  </p>}
+                <div>
+                  <button
+                    onClick={handleChange}
+                    name={`${photo.id}`}
+                    className='button is-fullwidth'>
+                    View comments</button>
+                  
+                </div>
+                {photo.comments.map(comment => (
+                  <div key={comment._id}>
+                    {!viewComments &&
+                      <p className='p-userprofile' >
+                        {comment.text}
+                      </p>}
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
+
+            )
+
+          })}
+          {/* </div> */}
         </div>
-      ))}
+      </div>
 
     </>
   )
