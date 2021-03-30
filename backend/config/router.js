@@ -1,7 +1,7 @@
 import express from 'express'
 import { addRatingToDestination, getAllDestinations, showDestination } from '../controllers/destinations.js'
 import { registerUser, loginUser } from '../controllers/auth.js'
-import { getUserProfiles, getUserProfile, addPhotoToProfile, addCommentToPhoto, addLikeToPhoto, deletePhotoFromProfile, deleteCommentFromPhoto, deleteLikeFromPhoto } from '../controllers/users.js'
+import { getUserProfiles, getUserProfile, addPhotoToProfile, addCommentToPhoto, addLikeToPhoto, addToMyList, deletePhotoFromProfile, deleteCommentFromPhoto, deleteLikeFromPhoto } from '../controllers/users.js'
 import { secureRoute } from '../config/secureRoute.js'
 
 const router = express.Router()
@@ -30,6 +30,9 @@ router.route('/profiles/:id')
 router.route('/profiles/:id/photos')
   .post(secureRoute, addPhotoToProfile)
   // .get(getUserPhotos) ///
+
+router.route('/profiles/:id/myList')
+  .post(secureRoute, addToMyList)
 
 router.route('/profiles/:id/photos/:photoId')
   .post(secureRoute, addCommentToPhoto)

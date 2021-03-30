@@ -4,18 +4,23 @@ import axios from 'axios'
 // import { Grid, Image } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import photoFeed from '../assets/photofeed.png'
+import DestinationCard from './DestinationCard'
 
 const ExploreDestination = () => {
 
   const [userPhotos, setUserPhotos] = useState(null)
+  // const [hero, setHero] = useState(null)
+  // const [isShown, setIsShown] = useState(false)
 
   useEffect(() => {
     const getTheData = async () => {
       const { data } = await axios.get('/api/profiles')
       setUserPhotos(data)
+      // setHero(parseFloat(Math.floor(Math.random() * data.length)))
     }
     getTheData()
   }, [])
+
 
   console.log('USER PHOTOS', userPhotos)
 
@@ -26,27 +31,22 @@ const ExploreDestination = () => {
       <Link to={'/feed'} className="feed-title">
         <img src={photoFeed} className="photo-feed-title"/>
       </Link>
-      <div tile is-ancestor className="ui explore-destination-grid">
+      <div className="ui explore-destination-grid tile is-ancestor is-gapless"
+        // onMouseEnter={() => setIsShown(true)}
+        // onMouseLeave={() => setIsShown(false)}
+      >
         {userPhotos.map((users) => {
           return (
-            <div className="tile is-parent is-vertical" key={users._id} columns= {4}>
-              {users.photos.map((photo) => {
-                return (
-                  <div className="tile is-child notification" key={photo.id}>
-                    <Link to={`/userprofile/${users._id}`}>
-                      <img src={photo.image} alt={`${users._id}`}/>
-                    </Link>
-                  </div>
-                )
-              })}
-            </div>
+            <DestinationCard key={users.id} {...users} />
           )
         })}
       </div>
     </>
   )
 
-
+  //   <div className="tile explore-hero is full">
+  //   <img src={hero.} />
+  // </div>
 
   // return (
   //   <div className="explore-page">

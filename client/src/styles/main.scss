@@ -1,5 +1,11 @@
+// $jetflixbg: '../assets/jetflixbackgroundfinal.jpg';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300&display=swap');
+
+$profilefont: 'Montserrat', sans-serif;
+
 @import '~bulma/bulma.sass';
 @import 'semantic-ui-css/semantic.min.css';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,500&display=swap');
 
 // EXPLORE DESTINATIONS
 .feed-title{
@@ -13,10 +19,18 @@
 .ui.explore-destination-grid{
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
+  padding: 0;
+  font-family: $profilefont;
+  font-weight: bold;
 }
-.explore-grid-row{
-  padding: -20px;
+
+// DESTINATION CARD
+
+.tooltip.is-tooltip-multiline {
+  white-space: pre-line;
 }
+
 
 *{
   margin: 0;
@@ -30,13 +44,19 @@
 
 //EXPLORE.JS
 
-// #root {
-//   margin-top: 20vh;
-//   background-color: rgb(216, 216, 216);
-// }
+ .explore {
+  margin-left: 35vw;
+  margin-top: 5vh;
+}
+
+.exploreDate {
+  font-family: 'Montserrat', sans-serif;
+}
+
+
 .picture {
-  height: 250px;
-  width: 250px;
+  height: 350px;
+  width: 450px;
 }
 .summary {
   padding-top: 15px;
@@ -67,8 +87,82 @@
   display: inline;
 }
 
+// DESTINATION CARD
+.card {
+  display: flex;
+  flex-direction: column;
+  height:100%;
+}
+.card-content {
+  margin-top:auto;
+}
+.card-image {
+  padding:1rem;
+  img {
+    height:200px;
+    object-fit:contain;
+  }
+}
 
-// HOME
+//*register and login page jetflix
+
+.login-page,
+.register-page {
+  background-image: url('../assets/jetflixbg.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  .ui.left.aligned.header {
+    color: white;
+  }
+  .login-content,
+  .register-content { 
+    margin-top: 30%;
+    padding: 20px;
+    background-color: rgba(0,0,0,.5);
+    font-weight: bold;
+    color: white;
+  }
+  .red.button {
+    margin-bottom: 10px;
+  }
+  .account-signin-link {
+    text-align: center
+  }
+}
+
+//map 
+.map-container { 
+  border: red;
+}
+
+element.style { 
+  display:block;
+}
+
+
+.user-profile { 
+
+
+  .ui.icon.button .buttontolike { 
+    background-color: red;
+  }
+
+  .button.buttontolike.changeposition.add-padding.get-specific { 
+    background-color: red;
+
+  }
+
+  .heart-icon { 
+    background-color: red;
+  }
+  .icon {
+    width: 10px;
+   }
+}
+
+
+// ! HOME
 
 .home-page {
   background-color: black;
