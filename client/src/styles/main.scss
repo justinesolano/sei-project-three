@@ -6,10 +6,7 @@ $profilefont: 'Montserrat', sans-serif;
 @import '~bulma/bulma.sass';
 @import 'semantic-ui-css/semantic.min.css';
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,500&display=swap');
-<<<<<<< HEAD
 
-=======
->>>>>>> development
 
 // EXPLORE DESTINATIONS
 .feed-title{
@@ -555,12 +552,12 @@ element.style {
 
 
 .user-profile { 
-max-width:780px;
+max-width:1000px;
 margin:auto;
-margin-top:60px;
+margin-top:120px;
   .column-user-profile { 
-
-    border:  solid white;
+    height:300px;
+    width: 300px;
   }
   .user-profile-div-like { 
     display: flex;
@@ -569,6 +566,19 @@ margin-top:60px;
   .button-fit-screen { 
     width: auto;
 
+  }
+  .user-profile-header{ 
+    display: flex;
+    justify-content: space-between;
+    max-width: 800px;
+  }
+  .user-profile-left-header { 
+    display: flex;
+    width: 250px;;
+    justify-content: space-between;
+  }
+  .title { 
+    padding-top: 100px;
   }
 
 
