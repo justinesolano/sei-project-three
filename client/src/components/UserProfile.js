@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
-import { Button, Icon, Feed, Grid } from 'semantic-ui-react'
+import { Icon } from 'semantic-ui-react'
 
 const UserProfile = () => {
 
@@ -63,62 +63,51 @@ const UserProfile = () => {
   if (!profile) return null
   return (
     <>
-      <Feed >
-        <Grid container >
-          <div className='columns'>
-            {/* <div className='columns columns-insta'> */}
-            {profile.photos.map(photo => {
-              return (
-                <div key={photo._id} className='column 
-                is-gapless'>
-                  <Grid.Column >
-                    <Grid.Row columns={3}>
-                      <Feed.Extra className="picture">
-                        <img src={photo.image} className="picture" />
-                      </Feed.Extra>
-                      <Feed.Meta>
-                        <Feed.Like >
-                          <Button
-                            onClick={handleLike}
-                            name={`${photo.id}`}>
-                            <Icon name="like" />
-                        Likes {photo.likes.length}
-                          </Button>
-
-                          <div>
-                            <Button
-                              onClick={handleChange}
-                              name={`${photo.id}`}>
-                              View comments</Button>
-                            {photo.comments.map(comment => (
-                              <div key={comment._id}>
-                                {!viewComments &&
-                                  <p >
-                                    {comment.text}
-                                  </p>}
-                              </div>
-                            ))}
-                          </div>
-                        </Feed.Like>
-
-                      </Feed.Meta>
-                      <Feed.Summary>
-                        <Feed.User>
-                          {profile.username}
-                        </Feed.User > added a photo: {photo.title}
-                      </Feed.Summary>
-                      <Feed.Date>{new Date(photo.createdAt).toDateString()}</Feed.Date>
-                    </Grid.Row>
-                  </Grid.Column>
+      <div className='user-profile is-fullheight-with-navbar' >
+        <h1> TEST </h1>
+        <div className='columns is-multiline '>
+          {profile.photos.map(photo => {
+            return (
+              <div key={photo._id} className='column-user-profile column is-one-third
+                '>
+                <img src={photo.image} className="picture" />
+                <div className='user-profile-div-like'>
+                  <h3 className='is-7'> {photo.title} </h3>
+                  <button
+                    onClick={handleLike}
+                    name={`${photo.id}`}
+                    className='button is-3'>
+                    <Icon size='large' name='like outline'></Icon>  &nbsp; Likes {photo.likes.length}
+                  </button>
                 </div>
+                {profile.username} added a photo: {photo.title}
+                {new Date(photo.createdAt).toDateString()}
 
-              )
+                <div>
+                  <button
+                    onClick={handleChange}
+                    name={`${photo.id}`}
+                    className='button is-fullwidth'>
+                    View comments</button>
+                  
+                </div>
+                {photo.comments.map(comment => (
+                  <div key={comment._id}>
+                    {!viewComments &&
+                      <p className='p-userprofile' >
+                        {comment.text}
+                      </p>}
+                  </div>
+                ))}
+              </div>
 
-            })}
-            {/* </div> */}
-          </div>
-        </Grid>
-      </Feed>
+            )
+
+          })}
+          {/* </div> */}
+        </div>
+      </div>
+
     </>
   )
 }

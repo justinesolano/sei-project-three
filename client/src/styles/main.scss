@@ -408,41 +408,21 @@ element.style {
 
 
 .user-profile { 
+max-width:780px;
+margin:auto;
+margin-top:60px;
+  .column-user-profile { 
 
-
-  .ui.icon.button .buttontolike { 
-    background-color: red;
+    border:  solid white;
   }
-
-  .button.buttontolike.changeposition.add-padding.get-specific { 
-    background-color: red;
-
-  }
-
-  .ui.right.labelled.button.buttontolike { 
+  .user-profile-div-like { 
     display: flex;
-    align-content: space-between;
+    justify-content: space-between;
+  }
+  .button-fit-screen { 
+    width: auto;
+
   }
 
-  .heart-icon { 
-    background-color: red;
-  }
-  .icon {
-    width: 10px;
-   }
-   .ui.labeled.button>.label { 
-     margin-left: 10px;
-   }
-   .ui.card { 
-     height: 100px;
-   }
-   .column { 
-     margin: 0px;
-   }
 
-   .columns {
-    margin-left: 35.25rem;
-    margin-right: 39.25rem;
-    margin-top: 9.25rem;
-   }
 }
