@@ -1,5 +1,8 @@
+// $jetflixbg: '../assets/jetflixbackgroundfinal.jpg';
 @import '~bulma/bulma.sass';
 @import 'semantic-ui-css/semantic.min.css';
+@import "balloon-css";
+@import "~@jswork/react-tip/dist/style.scss";
 
 // EXPLORE DESTINATIONS
 .feed-title{
@@ -23,6 +26,33 @@
   // }
 }
 
+// DESTINATION CARD
+.tooltip {
+  position:relative; /* making the .tooltip span a container for the tooltip text */
+  border-bottom:1px dashed #000; /* little indicater to indicate it's hoverable */
+.tooltip:before {
+  content: attr(data-text); /* here's the magic */
+  position:absolute;
+  
+  /* vertically center */
+  top:50%;
+  transform:translateY(-50%);
+  
+  /* move to right */
+  left:100%;
+  margin-left:15px; /* and add a small left margin */
+  
+  /* basic styles */
+  width:200px;
+  padding:10px;
+  border-radius:10px;
+  background:#000;
+  color: #fff;
+  text-align:center;
+
+  display:none; /* hide by default */
+}
+}
 
 *{
   margin: 0;
@@ -276,8 +306,10 @@
   padding-top: 50px;
 }
 
-.ui.header.register { 
-  color: white;
+
+// REGISTER
+.register-background{
+  background-image: './assets/jetflixbackgroundfinal.jpg';
 }
 
 .ui.header.register { 

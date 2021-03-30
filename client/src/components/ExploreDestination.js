@@ -4,6 +4,7 @@ import axios from 'axios'
 // import { Grid, Image } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import photoFeed from '../assets/photofeed.png'
+import DestinationCard from './DestinationCard'
 
 const ExploreDestination = () => {
 
@@ -36,24 +37,7 @@ const ExploreDestination = () => {
       >
         {userPhotos.map((users) => {
           return (
-            <div className="tile is-parent is-vertical is-3 is-gapless" key={users._id}>
-              {users.photos.map((photo) => {
-                return (
-                  <>
-                    <div
-                      className="tile is-child notification"
-                      key={photo.id}>
-                      <Link to={`/userprofile/${users._id}`}>
-                        <img src={photo.image} alt={`${users._id}`}/>
-                        {/* {isShown && (
-                          <h2 className="username-hovered">{users.username}</h2>
-                        )} */}
-                      </Link>
-                    </div>
-                  </>
-                )
-              })}
-            </div>
+            <DestinationCard key={users.id} {...users} />
           )
         })}
       </div>

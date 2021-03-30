@@ -34,7 +34,7 @@ const Register = () => {
 
   return (
     <div className='background-register'>
-      <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle' >
+      <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle' className="register-background">
         <Grid.Column style={{ maxWidth: 450 }} >
           <Form size='large' onSubmit={handleSubmit}>
             <Segment stacked>
