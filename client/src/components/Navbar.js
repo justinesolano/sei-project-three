@@ -36,8 +36,8 @@ const Navbar = () => {
   useEffect(() => {
     window.addEventListener('scroll', () => {
       if (window.scrollY > 1) {
-        handleShow(true)
-      } else handleShow(false)
+        handleShow('is-transparent')
+      } else handleShow('is-black')
     })
     return () => {
       window.removeEventListener('scroll', window)
@@ -58,7 +58,7 @@ const Navbar = () => {
   }
 
   return (
-    <nav className={`navbar is-fixed-top is-black ${show && 'is-info'}`} role="navigation" aria-label="main navigation">
+    <nav className={`navbar is-fixed-top is-black is-transparent ${show && 'is-black'}`} role="navigation" aria-label="main navigation">
       <div className="navbar-brand">
         <Link to="/" className="navbar-item" >
           <img src={jetflixLogo} className="jetflix" />

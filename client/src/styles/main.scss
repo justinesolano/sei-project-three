@@ -47,7 +47,7 @@ align-content: center;
 }
 
 .css-2b097c-container {
-  min-width: 200px;
+  min-width: 300px;
 }
 
 //EXPLORE.JS
@@ -169,10 +169,12 @@ element.style {
   background-color: black;
   font-family: Helvetica;
   color: white;
-
   // * Hero
   .hero {
     position: relative;
+    h1 {
+      color: white;
+    }
     img {
       height: 50vh;
       width: auto;
@@ -186,9 +188,12 @@ element.style {
       background-color: rgba(0, 0, 0, 0.5);
       padding: 20px;
       border-radius: 5px;
-    }
-    .rating {
-      margin-bottom: 10px;
+      p {
+        margin-bottom: 10px;
+      }
+      .rating {
+        margin-bottom: 10px;
+      }
     }
   }
 
@@ -201,6 +206,16 @@ element.style {
     top: 35px;
     left: 10vw;
     background-color: rgba(0, 0, 0, 0.8);
+    h2 {
+      color: white;
+    }
+    p {
+      margin-top: 5px;
+    }
+    .rating,
+    .button {
+      margin-top: 20px;
+    }
     img,
     div {
       margin: 20px;

@@ -121,7 +121,7 @@ const Home = () => {
                 <div key={destination.id}>
                   <img className="hero-image" src={destination.image} />
                   <div>
-                    <h2>{destination.name}</h2>
+                    <h2 className="title">{destination.name}</h2>
                     <p><i>{destination.description}</i></p>
                     <p>Country: {destination.country}</p>
                     <p>Currency: {destination.currency}</p>
@@ -160,7 +160,7 @@ const Home = () => {
         <img src={destinations[hero].image}/>
         <div className="columns">
           <div className="hero-info column is-one-third-desktop is-half-tablet is-full-mobile">
-            <h1>{destinations[hero].name}</h1>
+            <h1 className="title">{destinations[hero].name}</h1>
             <p>{destinations[hero].description}</p>
             <div className="ui star rating" role="radiogroup" onClick={handleRating}
               style={{
