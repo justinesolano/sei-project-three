@@ -23,15 +23,22 @@ $profilefont: 'Montserrat', sans-serif;
   padding: 0;
   font-family: $profilefont;
   font-weight: bold;
-  background-color: black;
+  background-color: rgb(15, 15, 15);
 }
 
 // DESTINATION CARD
-
-.tooltip.is-tooltip-multiline {
-  white-space: pre-line;
+.tile.is-parent{
+  margin: 1px;
+.content{
+  display: flex;
+  justify-content: center;
+.feed-image{
+display: flex;
+justify-content: center;
+align-content: center;
 }
-
+}
+}
 
 *{
   margin: 0;
@@ -269,7 +276,7 @@ element.style {
   }
 }
 
-// ! DESTINATION PAGE
+// DESTINATION PAGE
 
 .destination-detail {
   img {
