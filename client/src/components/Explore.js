@@ -13,11 +13,8 @@ const Explore = () => {
   }, [])
 
   //Comments
-  const [viewComments, setViewComments] = useState('')
-  const handleChange = event => {
-    setViewComments(event.target.name)
-    console.log(event.target.name)
-  }
+  const [showComments, setShowComments] = useState(false)
+
 
   if (!profiles) return null
 
@@ -26,7 +23,7 @@ const Explore = () => {
       {profiles.map((user) => {
         return (
           <Feed.Event key={user.id}>
-            <Feed.Content>
+            <Feed.Content className="explore">
               {user.photos.map((photo) => {
                 return (
                   <div key={photo._id}>
@@ -35,7 +32,7 @@ const Explore = () => {
                         {user.username}
                       </Feed.User > added a photo: {photo.title}
                     </Feed.Summary>
-                    <Feed.Date>{new Date(photo.createdAt).toDateString()}</Feed.Date>
+                    <Feed.Date className="exploreDate">{new Date(photo.createdAt).toString()}</Feed.Date>
                     <Feed.Extra className="picture">
                       <img src={photo.image} className="picture" />
                     </Feed.Extra>
@@ -45,17 +42,23 @@ const Explore = () => {
                         Likes {photo.likes.length}
                         <div>
                           <Button
-                            onClick={handleChange}
+                            onClick={() => setShowComments(!showComments)}
                             name={`${photo.id}`}>
                             View comments</Button>
-                          {photo.comments.map(comment => (
-                            <div key={comment._id}>
-                              {!viewComments &&
-                                <p >
-                                  {comment.text}
-                                </p>}
-                            </div>
-                          ))}
+                          {
+                            showComments ?
+
+                              photo.comments.map(comment => (
+                                <div key={comment._id}>
+                                  {
+                                    <p >
+                                      {comment.text}
+                                    </p>}
+                                </div>
+                              ))
+                              :
+                              <p></p>
+                          }
                         </div>
                       </Feed.Like>
                     </Feed.Meta>
