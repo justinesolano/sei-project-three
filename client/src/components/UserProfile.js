@@ -17,6 +17,8 @@ const UserProfile = () => {
     }
     getData()
   }, [])
+
+
   //closing opening comments 
   const [viewComments, setViewComments] = useState('')
   const handleChange = event => {
@@ -27,69 +29,69 @@ const UserProfile = () => {
 
 
   // handle post a like 
-  const [likePhoto, setLikePhoto] = useState('')
-  const [FormData, setFormdata] = useState({
+  const [likes, getLikes] = useState([])
+  // const [arrayLikes, getArrayLikes] = useState([])
+  // const [testLikes, getTestLikes] = useState(0)
+  // console.log(getTestLikes)
+  const setArray = []
+  useEffect(() => {
+    const getData = async () => {
+      const { data } = await axios.get(`/api/profiles/${id}`)
+      getLikes(data.photos)
+    }
+    getData()
+  }, [])
+  const [FormData] = useState({
     like: true
   })
-  console.log(setFormdata)
-  const [toggleForLike, setToggleForLike] = useState(false)
-  const handleLike = async event => {
-    if (toggleForLike === false) {
-      setToggleForLike(true)
-      const token = window.localStorage.getItem('token')
-      setLikePhoto(event.target.name)
-      console.log(likePhoto)
-      const setData = await axios.post(`/api/profiles/${id}/photos/${likePhoto}/likes`, FormData,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`
-          }
-        })
-      console.log(setData)
-    } else {
-      setToggleForLike(false)
-      // const token = window.localStorage.getItem('token')
-      const getLikesFromApi = await axios.get(`/api/profiles/${id}`)
-      console.log(getLikesFromApi.data._id)
-      console.log('value >>> ', event.target.value)
-      setLikePhoto(event.target.name)
-      console.log(likePhoto)
-      // await axios.delete(`/api/profiles/${id}/photos/${likePhoto}/likes/`, FormData,
-      //   {
-      //     headers: {
-      //       Authorization: `Bearer ${token}`
-      //     }
-      //   })
-    }
+  const [eventName, setEventName] = useState('')
 
+  const handleLike = async event => {
+    setEventName(event.target.name) 
+    console.log('>>>', eventName, event.target)
+    const token = window.localStorage.getItem('token')
+    await axios.post(`/api/profiles/${id}/photos/${event.target.name}/likes`, FormData,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      })
   }
 
 
 
-  if (!profile) return null
 
+  if (!profile) return null
   return (
     <>
-      <div key={profile.id}>
+      <div key={profile.id} className="user-profile">
         <h1>{profile.username} </h1>
       </div>
+      {likes.map(photo => (
+        setArray.push(photo.likes)
+      ))}
       {profile.photos.map(photo => (
         <div key={photo.id}>
           <h3>{photo.title} </h3>
           <img className='photo-userprofile' src={photo.image} alt={photo.title} />
           <Button
-            labelPosition='right'>
+            labelPosition='right'
+            className="buttontolike"
+          >
             <Button icon
               onClick={handleLike}
               name={photo._id}
+              className="buttontolike button change-position add-padding get-specific "
             >
-              <Icon name='heart' />
+              <Icon name='heart' color='red' />
         Like
             </Button>
             <Label
               as='a'
-              basic pointing='left'>
+              basic pointing='left'
+              name={photo._id}>
               {photo.likes.length}
+
             </Label>
           </Button>
           <div>
