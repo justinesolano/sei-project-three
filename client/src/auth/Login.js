@@ -33,30 +33,44 @@ const Login = () => {
   }
 
   return (
-    <Grid textAlign="center" style={{ height: '100vh' }} verticalAlign="middle">
+    <Grid className="login-page" textAlign="center" style={{ height: '100vh' }} verticalAlign="middle">
       <Grid.Column style={{ maxWidth: 450 }}>
         <Form size="large" onSubmit={handleSubmit}>
-          <Segment stacked className='ui stacked segment login'>
-            <Header as="h2" color="white" textAlign="left" >
+          <Segment stacked className='login-content'>
+            <Header className="header" as="h2" textAlign="left" >
               Log In
             </Header>
-            <Form.Input
-              className={errors}
-              fluid icon="user"
-              iconPosition="left"
-              name="email"
-              placeholder="Email"
-              onChange={handleChange} />
-            <Form.Input
-              className={errors}
-              onChange={handleChange}
-              fluid
-              icon="lock"
-              iconPosition="left"
-              placeholder="Password"
-              type="password"
-              name="password"
-            />
+            <div className="field">
+              <p className="control has-icons-left has-icons-right">
+                <input 
+                  className={errors}
+                  type="email" 
+                  placeholder="Email"
+                  name="email"
+                  onChange={handleChange}
+                />
+                <span className="icon is-small is-left">
+                  <i className="fas fa-envelope"></i>
+                </span>
+                <span className="icon is-small is-right">
+                  <i className="fas fa-check"></i>
+                </span>
+              </p>
+            </div>
+            <div className="field">
+              <p className="control has-icons-left">
+                <input 
+                  className={errors}
+                  type="password" 
+                  name="password"
+                  placeholder="Password" 
+                  onChange={handleChange}
+                />
+                <span className="icon is-small is-left">
+                  <i className="fas fa-lock"></i>
+                </span>
+              </p>
+            </div>
             <Button color="red" fluid size="large" type="submit">
               Login
             </Button>
