@@ -48,7 +48,7 @@ const App = () => {
         <Route path='/addpicturetoprofile'>
           <AddPictureToProfile /> 
         </Route>
-        <Route exact path='/myprofile/username'>
+        <Route exact path='/myprofile/:id'>
           <MyProfile /> 
         </Route>
       </Switch>
