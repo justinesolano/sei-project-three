@@ -1151,6 +1151,11 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
+"@creativebulma/bulma-tooltip@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@creativebulma/bulma-tooltip/-/bulma-tooltip-1.2.0.tgz#84dcdd59d94c09c2975fadbec1d3d765ae29c471"
+  integrity sha512-ooImbeXEBxf77cttbzA7X5rC5aAWm9UsXIGViFOnsqB+6M944GkB28S5R4UWRqjFd2iW4zGEkEifAU+q43pt2w==
+
 "@csstools/convert-colors@^1.4.0":
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
@@ -9835,6 +9840,11 @@ react-slick@^0.28.1:
     json2mq "^0.2.0"
     lodash.debounce "^4.0.8"
     resize-observer-polyfill "^1.5.0"
+
+react-tip@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/react-tip/-/react-tip-0.0.2.tgz#55a36d63bc198cfff6ff8170594b4a7a8662abbf"
+  integrity sha512-4lajFMTA9JBSuSaPBXF6gYJOgQ9Wy8eijDhojmOjuQBXBLdE34Rq0+DdS0HO/Sfh06tECJr+rGPtCNIHtutBxQ==
 
 react-tooltip@^4.2.17:
   version "4.2.17"

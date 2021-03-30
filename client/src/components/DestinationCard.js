@@ -20,14 +20,11 @@ const DestinationCard = ( { photos, _id, username }) => {
                 <div
                   key={username._id}
                   title={`${username}`}
+                  className="has-tooltip-bottom"
                   data-tooltip=
                     {`
-                    ${photo.title} ${photo.location.icon} by ${username} 📍 ${photo.locationName}`}
-                  tooltip
-                  has-tooltip-top
-                  has-tooltip-success
-                  is-tooltip-multiline>
-                  <img src={photo.image} alt={`${username._id}`} />
+                    ${photo.title} ${photo.location.icon} by ${username} 📍 ${photo.locationName}`}>
+                  <img src={photo.image} alt={`${username._id}`} className="feed-image " />
                 </div>
               </Link>
             </div>
@@ -35,7 +32,6 @@ const DestinationCard = ( { photos, _id, username }) => {
         )
       })}
     </div>
-
   )
 }
 

@@ -6,13 +6,17 @@ $profilefont: 'Montserrat', sans-serif;
 @import '~bulma/bulma.sass';
 @import 'semantic-ui-css/semantic.min.css';
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,500&display=swap');
+<<<<<<< HEAD
+
+=======
+>>>>>>> development
 
 // EXPLORE DESTINATIONS
 .feed-title{
   display: flex;
   justify-content: center;
-  margin-top: 60px;
-  margin-bottom: 5px;
+  margin-top: 55px;
+  margin-bottom: 15px;
   width: 100%;
   height: 50px;
 }
@@ -23,14 +27,22 @@ $profilefont: 'Montserrat', sans-serif;
   padding: 0;
   font-family: $profilefont;
   font-weight: bold;
+  background-color: rgb(15, 15, 15);
 }
 
 // DESTINATION CARD
-
-.tooltip.is-tooltip-multiline {
-  white-space: pre-line;
+.tile.is-parent{
+  margin: 1px;
+.content{
+  display: flex;
+  justify-content: center;
+.feed-image{
+display: flex;
+justify-content: center;
+align-content: center;
 }
-
+}
+}
 
 *{
   margin: 0;
@@ -39,37 +51,59 @@ $profilefont: 'Montserrat', sans-serif;
 }
 
 .css-2b097c-container {
-  min-width: 200px;
+  min-width: 300px;
 }
 
 //EXPLORE.JS
 
  .explore {
-  margin-left: 35vw;
-  margin-top: 5vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Montserrat', sans-serif;
+  background-image: url('../assets/blackwhitemoved.jpg');
 }
+.exploreContent {
+   border: 4px black solid;
+   border-radius: 25px;
+   font-size: 15px;
+   padding: 0 10px 10px 10px;
+ }
 
 .exploreDate {
-  font-family: 'Montserrat', sans-serif;
+  padding: 7px 0;
+  font-size: 13px;
 }
 
+.explorePicture {
+  text-align: center;
+  margin-top: 8vh;
+  padding-bottom: 10px;
+}
+
+
+.pExplore {
+  padding-left: 20px;
+}
+
+.exploreSpan {
+  font-size: 15px;
+}
+
+
+
+#commentsButton {
+  padding: 15px 0 20px 5px ;
+  background: none
+}
 
 .picture {
   height: 350px;
   width: 450px;
 }
 .summary {
-  padding-top: 15px;
-  padding-bottom: 15px;
+  padding: 15px 0;
 }
-
-// NAVBAR TRANSITION
-// .navbar{
-//   background-color: transparent;
-// }
-// .nav__black{
-//   background-color: black;
-// }
 
 .landing.ui.grid {
   justify-content: center;
@@ -125,6 +159,7 @@ $profilefont: 'Montserrat', sans-serif;
   }
   .red.button {
     margin-bottom: 10px;
+    margin-top: 10px;
   }
   .account-signin-link {
     text-align: center
@@ -168,10 +203,12 @@ element.style {
   background-color: black;
   font-family: Helvetica;
   color: white;
-
   // * Hero
   .hero {
     position: relative;
+    h1 {
+      color: white;
+    }
     img {
       height: 50vh;
       width: auto;
@@ -185,6 +222,12 @@ element.style {
       background-color: rgba(0, 0, 0, 0.5);
       padding: 20px;
       border-radius: 5px;
+      p {
+        margin-bottom: 10px;
+      }
+      .rating {
+        margin-bottom: 10px;
+      }
     }
   }
 
@@ -197,6 +240,16 @@ element.style {
     top: 35px;
     left: 10vw;
     background-color: rgba(0, 0, 0, 0.8);
+    h2 {
+      color: white;
+    }
+    p {
+      margin-top: 5px;
+    }
+    .rating,
+    .button {
+      margin-top: 20px;
+    }
     img,
     div {
       margin: 20px;
@@ -276,7 +329,7 @@ element.style {
   }
 }
 
-// ! DESTINATION PAGE
+// DESTINATION PAGE
 
 .destination-detail {
   img {
