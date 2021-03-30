@@ -36,7 +36,7 @@ const ExploreDestination = () => {
       >
         {userPhotos.map((users) => {
           return (
-            <div className="tile is-parent is-vertical is-3  is-gapless" key={users._id}>
+            <div className="tile is-parent is-vertical is-3 is-gapless" key={users._id}>
               {users.photos.map((photo) => {
                 return (
                   <>
