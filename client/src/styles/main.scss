@@ -132,17 +132,23 @@
   background-image: url('../assets/jetflixbackgroundfinal.jpg');
   background-size: cover;
   background-position: center;
+  height: 100vh;
   .ui.left.aligned.header {
     color: white;
   }
-  .ui.login-content,
-  .ui.register-content { 
-  background-color: rgba(0,0,0,.5);
-  font-weight: bold;
-  color: white;
+  .login-content,
+  .register-content { 
+    margin-top: 30%;
+    padding: 20px;
+    background-color: rgba(0,0,0,.5);
+    font-weight: bold;
+    color: white;
   }
   .red.button {
     margin-bottom: 10px;
+  }
+  .account-signin-link {
+    text-align: center
   }
 }
 

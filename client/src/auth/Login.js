@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router'
 import axios from 'axios'
-import { Button, Form, Grid, Header, Segment } from 'semantic-ui-react'
+import { Button, Header } from 'semantic-ui-react'
 
 
 const Login = () => {
@@ -27,23 +27,23 @@ const Login = () => {
       window.localStorage.setItem('token', response.data.token)
       history.push('/home')
     } catch (err) {
-      setErrors('error')
+      setErrors('input is-danger')
       console.log(err)
     }
   }
 
   return (
-    <Grid className="login-page" textAlign="center" style={{ height: '100vh' }} verticalAlign="middle">
-      <Grid.Column style={{ maxWidth: 450 }}>
-        <Form size="large" onSubmit={handleSubmit}>
-          <Segment stacked className='login-content'>
+    <section className="login-page section">
+      <div className="container">
+        <div className="columns">
+          <form className="login-content box column is-half is-offset-one-quarter" onSubmit={handleSubmit}>
             <Header className="header" as="h2" textAlign="left" >
               Log In
             </Header>
             <div className="field">
               <p className="control has-icons-left has-icons-right">
                 <input 
-                  className={errors}
+                  className={`input ${errors}`}
                   type="email" 
                   placeholder="Email"
                   name="email"
@@ -60,7 +60,7 @@ const Login = () => {
             <div className="field">
               <p className="control has-icons-left">
                 <input 
-                  className={errors}
+                  className={`input ${errors}`}
                   type="password" 
                   name="password"
                   placeholder="Password" 
@@ -77,10 +77,10 @@ const Login = () => {
             <div className='account-signin-link'> 
               New to us? <a href="/register">Sign Up</a>
             </div>
-          </Segment>
-        </Form>
-      </Grid.Column>
-    </Grid>
+          </form>
+        </div>
+      </div>
+    </section>
   )
 }
 
