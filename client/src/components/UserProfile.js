@@ -17,6 +17,8 @@ const UserProfile = () => {
     }
     getData()
   }, [])
+
+
   //closing opening comments 
   const [viewComments, setViewComments] = useState('')
   const handleChange = event => {
@@ -27,69 +29,64 @@ const UserProfile = () => {
 
 
   // handle post a like 
-  const [likePhoto, setLikePhoto] = useState('')
-  const [FormData, setFormdata] = useState({
-    like: true
-  })
-  console.log(setFormdata)
-  const [toggleForLike, setToggleForLike] = useState(false)
-  const handleLike = async event => {
-    if (toggleForLike === false) {
-      setToggleForLike(true)
-      const token = window.localStorage.getItem('token')
-      setLikePhoto(event.target.name)
-      console.log(likePhoto)
-      const setData = await axios.post(`/api/profiles/${id}/photos/${likePhoto}/likes`, FormData,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`
-          }
-        })
-      console.log(setData)
-    } else {
-      setToggleForLike(false)
-      // const token = window.localStorage.getItem('token')
-      const getLikesFromApi = await axios.get(`/api/profiles/${id}`)
-      console.log(getLikesFromApi.data._id)
-      console.log('value >>> ', event.target.value)
-      setLikePhoto(event.target.name)
-      console.log(likePhoto)
-      // await axios.delete(`/api/profiles/${id}/photos/${likePhoto}/likes/`, FormData,
-      //   {
-      //     headers: {
-      //       Authorization: `Bearer ${token}`
-      //     }
-      //   })
+  const [likes, getLikes] = useState([]) 
+  // const [arrayLikes, getArrayLikes] = useState([])
+  const [testLikes, getTestLikes] = useState(0)
+  console.log(getTestLikes)
+  const setArray = []
+  useEffect(() => {
+    const getData = async () => {
+      const { data } = await axios.get(`/api/profiles/${id}`)
+      getLikes(data.photos)
     }
+    getData()
+  }, [])
+  
+  const handleLike = event => {
+    console.log(event.target.name)
+    if (event.target.name === Label.name) { 
+      console.log('testtt')
+    }
+    if (testLikes === 0) getTestLikes(1)
+    if (testLikes === 1) getTestLikes(0)
 
   }
 
 
 
-  if (!profile) return null
 
+  if (!profile) return null
   return (
     <>
       <div key={profile.id}>
         <h1>{profile.username} </h1>
       </div>
+      {likes.map(photo => ( 
+        setArray.push(photo.likes), 
+        console.log(setArray)
+      ))}
       {profile.photos.map(photo => (
         <div key={photo.id}>
           <h3>{photo.title} </h3>
           <img className='photo-userprofile' src={photo.image} alt={photo.title} />
           <Button
-            labelPosition='right'>
+            labelPosition='right'
+            className="buttontolike"
+          >
             <Button icon
               onClick={handleLike}
               name={photo._id}
+
             >
               <Icon name='heart' />
         Like
             </Button>
             <Label
               as='a'
-              basic pointing='left'>
-              {photo.likes.length}
+              basic pointing='left'
+              name={photo._id}>
+              {photo.likes.length} += {testLikes}
+              
             </Label>
           </Button>
           <div>

@@ -50,4 +50,46 @@ import 'mapbox-gl/dist/mapbox-gl.css'
           <div>{popup.title}</div>
           <img key={popup._id} className='photo-userprofile' src={popup.image} alt={popup.title} />
         </Popup>
-      } */}
+      } */} 
+
+        // const [likePhoto, setLikePhoto] = useState('')
+  const [FormData, setFormdata] = useState({
+    like: true
+  })
+  console.log(setFormdata)
+  const [toggleForLike, setToggleForLike] = useState(false)
+  const handleLike = async event => {
+    if (toggleForLike === false) {
+      console.log('POST ME', event.target.name)
+      const token = window.localStorage.getItem('token')
+      // setLikePhoto(event.target.name)
+      const setData = await axios.post(`/api/profiles/${id}/photos/6062044671b2ed3c86db142a/likes`, FormData,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        })
+      console.log(setData)
+      console.log('im senind DSATAAA')
+      setToggleForLike(true)
+      console.log(toggleForLike)
+    } else {
+      console.log('DELETE ME', event.target.name)
+      // const token = window.localStorage.getItem('token')
+      const getLikesFromApi = await axios.get(`/api/profiles/${id}`)
+      // const photoToMapLikes = getLikesFromApi.data.photos[event.target.value]
+      console.log('>>>>>', getLikesFromApi)
+      // setLikePhoto(event.target.name)
+
+      // await axios.delete(`/api/profiles/${id}/photos/${likePhoto}/likes/`, FormData,
+      //   {
+      //     headers: {
+      //       Authorization: `Bearer ${token}`
+      //     }
+      //   })
+      setToggleForLike(false)
+    }
+
+  }
+
+
