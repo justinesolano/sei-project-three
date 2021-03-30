@@ -1,10 +1,25 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import ReactTip from '@jswork/react-tip'
 
 const DestinationCard = ( { photos, _id, username }) => {
 
   // const [isShown, setIsShown] = useState(false)
+
+  // const [state, setState] = useState(null)
+
+  // const state = {
+  //   placements: [
+  //     'up',
+  //     'down',
+  //     'left',
+  //     'right',
+  //     'up-left',
+  //     'up-right',
+  //     'down-left',
+  //     'down-right'
+  //   ]
+  // }
+
 
   return (
     <div
@@ -20,12 +35,18 @@ const DestinationCard = ( { photos, _id, username }) => {
               className="tile is-child notification"
               key={photo.id}>
               <Link to={`/userprofile/${_id}`}>
-                <ReactTip key={username._id} title={`${username}`} state='up'>
-                  <img src={photo.image} alt={`${username._id}`} className="tooltip" />
-                </ReactTip>
-                {/* {isShown && (
-                  <h2 className="username-hovered">{username}</h2>
-                )} */}
+                <div
+                  key={username._id}
+                  title={`${username}`}
+                  data-tooltip=
+                    {`
+                    ${photo.title} ${photo.location.icon} by ${username} 📍 ${photo.locationName}`}
+                  tooltip
+                  has-tooltip-top
+                  has-tooltip-success
+                  is-tooltip-multiline>
+                  <img src={photo.image} alt={`${username._id}`} />
+                </div>
               </Link>
             </div>
           </>
