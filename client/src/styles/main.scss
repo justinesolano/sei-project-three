@@ -2,8 +2,7 @@
 @import '~bulma/bulma.sass';
 @import 'semantic-ui-css/semantic.min.css';
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,500&display=swap');
-@import "balloon-css";
-@import "~@jswork/react-tip/dist/style.scss";
+
 
 // EXPLORE DESTINATIONS
 .feed-title{
@@ -68,22 +67,52 @@
 //EXPLORE.JS
 
  .explore {
-  margin-left: 35vw;
-  margin-top: 5vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Montserrat', sans-serif;
+  background-image: url('../assets/blackwhitemoved.jpg');
 }
+.exploreContent {
+   border: 4px black solid;
+   border-radius: 25px;
+   font-size: 15px;
+   padding: 0 10px 10px 10px;
+ }
 
 .exploreDate {
-  font-family: 'Montserrat', sans-serif;
+  padding: 7px 0;
+  font-size: 13px;
 }
 
+.explorePicture {
+  text-align: center;
+  margin-top: 8vh;
+  padding-bottom: 10px;
+}
+
+
+.pExplore {
+  padding-left: 20px;
+}
+
+.exploreSpan {
+  font-size: 15px;
+}
+
+
+
+#commentsButton {
+  padding: 15px 0 20px 5px ;
+  background: none
+}
 
 .picture {
   height: 350px;
   width: 450px;
 }
 .summary {
-  padding-top: 15px;
-  padding-bottom: 15px;
+  padding: 15px 0;
 }
 
 // NAVBAR TRANSITION
