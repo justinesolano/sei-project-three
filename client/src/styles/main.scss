@@ -11,8 +11,8 @@ $profilefont: 'Montserrat', sans-serif;
 .feed-title{
   display: flex;
   justify-content: center;
-  margin-top: 60px;
-  margin-bottom: 5px;
+  margin-top: 55px;
+  margin-bottom: 15px;
   width: 100%;
   height: 50px;
 }
@@ -23,14 +23,22 @@ $profilefont: 'Montserrat', sans-serif;
   padding: 0;
   font-family: $profilefont;
   font-weight: bold;
+  background-color: rgb(15, 15, 15);
 }
 
 // DESTINATION CARD
-
-.tooltip.is-tooltip-multiline {
-  white-space: pre-line;
+.tile.is-parent{
+  margin: 1px;
+.content{
+  display: flex;
+  justify-content: center;
+.feed-image{
+display: flex;
+justify-content: center;
+align-content: center;
 }
-
+}
+}
 
 *{
   margin: 0;
@@ -62,14 +70,6 @@ $profilefont: 'Montserrat', sans-serif;
   padding-top: 15px;
   padding-bottom: 15px;
 }
-
-// NAVBAR TRANSITION
-// .navbar{
-//   background-color: transparent;
-// }
-// .nav__black{
-//   background-color: black;
-// }
 
 .landing.ui.grid {
   justify-content: center;
@@ -280,7 +280,7 @@ element.style {
   }
 }
 
-// ! DESTINATION PAGE
+// DESTINATION PAGE
 
 .destination-detail {
   img {
@@ -296,4 +296,231 @@ element.style {
     background-color: rgba(0, 0, 0, 0.5);
     padding: 30px;
   }
+}
+
+// DESTINATION CARD
+.card {
+  display: flex;
+  flex-direction: column;
+  height:100%;
+}
+.card-content {
+  margin-top:auto;
+}
+.card-image {
+  padding:1rem;
+  img {
+    height:200px;
+    object-fit:contain;
+  }
+}
+
+//*register and login page jetflix
+.home {
+  background-color: black;
+}
+
+.hero,
+.home-subheader {
+  font-family: Helvetica;
+  color: white;
+  // margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.hero-info {
+  position: absolute;
+  top: 250px;
+  left: 0;
+  color: white;
+  width: 40%;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+}
+
+.home-column {
+  padding: 2px;
+}
+
+.home-item {
+  position: relative;
+  display: block;
+  flex: 1 1 0px;
+  transition: transform 500ms;
+}
+
+.home-container .home-item:focus,
+.home-container .home-item:hover {
+  transform: scale(1.5);
+  z-index: 1;
+}
+
+.ui.stacked.segment { 
+  background-color: rgba(0,0,0,.75);
+  font-weight: bold;
+  color: white;
+}
+.ui.stacked.segment {
+  padding-bottom: 1.4em;
+  height: 600px;
+  width: 480px;
+  padding-left: 60px;
+  padding-top: 50px;
+}
+
+.ui.header.register { 
+  color: white;
+}
+
+.ui.header.register { 
+  color: white;
+}
+
+.ui.form input {
+  max-width: 250px;
+  height: 50px;
+  font: 2em;
+}
+
+.ui.fluid.input {
+  display: flex;
+  max-width: 350px; 
+  padding: 6px;
+}
+
+.ui.red.button { 
+max-width: 349px; 
+height: 50px;
+margin-top: 25px;
+}
+
+.ui.message { 
+color:red;
+}
+
+.account-signin-link{ 
+  padding-top: 10px;
+}
+
+//login 
+
+.ui.left.aligned.header { 
+  color: white;
+}
+
+
+.ui.form input {
+  max-width: 250px;
+  height: 50px;
+  font: 2em;
+}
+
+.ui.fluid.input {
+  display: flex;
+  max-width: 350px; 
+  padding: 6px;
+}
+
+.ui.red.button { 
+max-width: 349px; 
+height: 50px;
+margin-top: 25px;
+}
+
+.ui.message { 
+color:red;
+}
+
+.account-signin-link{ 
+  padding-top: 10px;
+}
+
+.ui.stacked.segment.login{ 
+  height: 400px;
+}
+
+.ui.stacked.segment { 
+  background-color: rgba(0,0,0,.75);
+  font-weight: bold;
+  color: white;
+}
+.ui.stacked.segment {
+  padding-bottom: 1.4em;
+  height: 600px;
+  width: 480px;
+  padding-left: 60px;
+  padding-top: 50px;
+}
+
+.ui.header.register { 
+  color: white;
+}
+
+.ui.form input {
+  max-width: 250px;
+  height: 50px;
+  font: 2em;
+}
+
+.ui.fluid.input {
+  display: flex;
+  max-width: 350px; 
+  padding: 6px;
+}
+
+.ui.red.button { 
+max-width: 349px; 
+height: 50px;
+margin-top: 25px;
+}
+
+.ui.message { 
+color:red;
+}
+
+.account-signin-link{ 
+  padding-top: 10px;
+}
+
+//login 
+
+.ui.left.aligned.header { 
+  color: white;
+}
+
+.ui.card.button{ 
+  height: 1000px;
+}
+
+
+
+
+//map 
+.map-container { 
+  border: red;
+}
+
+element.style { 
+  display:block;
+}
+
+
+.user-profile { 
+max-width:780px;
+margin:auto;
+margin-top:60px;
+  .column-user-profile { 
+
+    border:  solid white;
+  }
+  .user-profile-div-like { 
+    display: flex;
+    justify-content: space-between;
+  }
+  .button-fit-screen { 
+    width: auto;
+
+  }
+
+
 }

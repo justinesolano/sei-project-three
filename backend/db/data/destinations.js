@@ -555,7 +555,20 @@ export default [
     'suitableFor': ['Young Children', 'Couples', 'Friends'],
     'tags': ['City Seaside', 'Nature', 'Wedding Destination'],
     'image': 'https://lp-cms-production.imgix.net/2019-06/cf55c1e2c6c38dc3a35ad424968c555c1487b60980cdd279ff93a32e982c2c67.jpg?auto=format&fit=crop&ixlib=react-8.6.4&h=520&w=1312&q=50&dpr=2',
+  },
+  {
+    'name': 'Tuscany',
+    'description': 'With its lyrical landscapes, world-class art and a superb cucina contadina (farmer\'s kitchen), the Tuscan experience is perfectly in symbiosis with the land.',
+    'country': 'Italy',
+    'continent': 'Europe',
+    'language': 'Italian',
+    'currency': 'Euro',
+    'highlights': ['Galleria degli Uffizi', 'Basilica di Santa Maria Novella', 'Duomo'],
+    'suitableFor': ['Couples', 'Family', 'Solo traveler'],
+    'tags': ['Peaceful', 'Historical', 'Wedding Destination'],
+    'image': 'https://lp-cms-production.imgix.net/2019-06/GettyImages-524074485_super.jpg?auto=format&fit=crop&ixlib=react-8.6.4&h=520&w=1312&q=75&dpr=1',
   }
+  
 
 
 
@@ -575,36 +588,5 @@ export default [
   // 'suitableFor': [],
   // 'tags': [],
   // 'image': ''
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ]

@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@creativebulma/bulma-tooltip": "^1.2.0",
     "@jswork/react-tip": "^1.0.0",
     "axios": "^0.21.1",
     "bulma": "^0.9.2",
