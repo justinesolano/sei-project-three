@@ -3,7 +3,7 @@ import { Button, Header } from 'semantic-ui-react'
 import { useHistory } from 'react-router'
 import axios from 'axios'
 import Select from 'react-select'
-import { continentOptions, suitableOptions, tagOptions } from '../components/data/searchData'
+import { suitableOptions, tagOptions } from '../components/data/searchData'
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -14,16 +14,11 @@ const Register = () => {
     myTags: []
   })
 
-  // const [searchdata, setSearchdata] = useState({
-  //   search: []
-  // })
-
   const [errors, setErrors] = useState('')
 
   const history = useHistory()
 
   const groupedOptions = [
-    { label: 'Continents', options: continentOptions },
     { label: 'Suitable For', options: suitableOptions },
     { label: 'Tags', options: tagOptions }
   ]

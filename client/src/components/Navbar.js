@@ -2,13 +2,12 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import jetflixLogo from '../assets/jetflixlogo.png'
 import Select from 'react-select'
-import { continentOptions, suitableOptions, tagOptions } from './data/searchData'
+import { suitableOptions, tagOptions } from './data/searchData'
 import { userIsAuthenticated } from '../helpers/auth'
 import { useHistory } from 'react-router-dom'
 import { useLocation } from 'react-router-dom'
 
 const groupedOptions = [
-  { label: 'Continents', options: continentOptions },
   { label: 'Suitable For', options: suitableOptions },
   { label: 'Tags', options: tagOptions }
 ]
