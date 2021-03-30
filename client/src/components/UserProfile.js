@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import { Icon } from 'semantic-ui-react'
+import { Link } from 'react-router-dom'
 
 const UserProfile = () => {
 
@@ -19,11 +20,16 @@ const UserProfile = () => {
 
 
   //closing opening comments 
-  const [viewComments, setViewComments] = useState('')
+  // const [viewComments, setViewComments] = useState('true')
+  const [toggleComments, setToggleComments] = useState(true)
   const handleChange = event => {
-    setViewComments(event.target.name)
-    console.log(event.target.name)
-
+    if (toggleComments === true) {
+      setToggleComments(false)
+      console.log(event.target)
+    }
+    if (toggleComments === false) {
+      setToggleComments(true)
+    }
   }
 
 
@@ -65,19 +71,19 @@ const UserProfile = () => {
     <>
       <div className='user-profile is-fullheight-with-navbar' >
         <h1> TEST </h1>
-        <div className='columns is-multiline '>
+        <div className='columns is-multiline  '>
           {profile.photos.map(photo => {
             return (
-              <div key={photo._id} className='column-user-profile column is-one-third
+              <div key={photo._id} className='column-user-profile column is-one-third card is-danger
                 '>
-                <img src={photo.image} className="picture" />
+                <img src={photo.image} className="picture card-image" />
                 <div className='user-profile-div-like'>
                   <h3 className='is-7'> {photo.title} </h3>
                   <button
                     onClick={handleLike}
-                    name={`${photo.id}`}
+                    name={`${photo._id}`}
                     className='button is-3'>
-                    <Icon size='large' name='like outline'></Icon>  &nbsp; Likes {photo.likes.length}
+                    <Icon size='large' name='like outline'></Icon>  &nbsp;  &nbsp; &nbsp;     Likes {photo.likes.length}
                   </button>
                 </div>
                 {profile.username} added a photo: {photo.title}
@@ -89,13 +95,12 @@ const UserProfile = () => {
                     name={`${photo.id}`}
                     className='button is-fullwidth'>
                     View comments</button>
-                  
                 </div>
                 {photo.comments.map(comment => (
                   <div key={comment._id}>
-                    {!viewComments &&
+                    {toggleComments &&
                       <p className='p-userprofile' >
-                        {comment.text}
+                        <Link to={`/userprofiles/${comment.owner}` }><Icon name='user' />- {comment.text} </Link>
                       </p>}
                   </div>
                 ))}
