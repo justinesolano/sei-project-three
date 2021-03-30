@@ -30,13 +30,13 @@ const ExploreDestination = () => {
       <Link to={'/feed'} className="feed-title">
         <img src={photoFeed} className="photo-feed-title"/>
       </Link>
-      <div tile is-ancestor className="ui explore-destination-grid"
+      <div className="ui explore-destination-grid tile is-ancestor is-gapless"
         // onMouseEnter={() => setIsShown(true)}
         // onMouseLeave={() => setIsShown(false)}
       >
         {userPhotos.map((users) => {
           return (
-            <div className="tile is-parent is-vertical is-3" key={users._id}>
+            <div className="tile is-parent is-vertical is-3  is-gapless" key={users._id}>
               {users.photos.map((photo) => {
                 return (
                   <>

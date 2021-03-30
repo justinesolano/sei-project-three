@@ -14,16 +14,15 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  .username-hovered{
-    display: flex;
-    justify-content: center;
-    font-family: 'Helvetica';
-   text-decoration: none;
-  }
+  padding: 0;
+  // .username-hovered{
+  //   display: flex;
+  //   justify-content: center;
+  //   font-family: 'Helvetica';
+  //  text-decoration: none;
+  // }
 }
-.explore-grid-row{
-  padding: -20px;
-}
+
 
 *{
   margin: 0;
