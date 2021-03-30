@@ -7,8 +7,13 @@ import Destination from './components/Destination'
 import Register from './auth/Register'
 import Login from './auth/Login'
 import Explore from './components/Explore'
+<<<<<<< HEAD
+=======
+import ExploreDestination from './components/ExploreDestination'
+>>>>>>> development
 import UserProfile from './components/UserProfile'
 import AddPictureToProfile from './components/AddPictureToProfile'
+import Map from './components/Map'
 const App = () => {
 
   return (
@@ -27,16 +32,29 @@ const App = () => {
         <Route path="/register">
           <Register />
         </Route>
-        <Route exact path="/login">
+        <Route path="/login">
           <Login />
         </Route>
-        <Route exact path="/explore">
+        <Route path="/explore">
           <Explore />
         </Route>
+<<<<<<< HEAD
         <Route exact path='/userprofile/:id'> 
           <UserProfile />
         </Route>
         <Route exact path='/addpicturetoprofile'>
+=======
+        <Route exact path="/feed">
+          <ExploreDestination />
+        </Route>
+        <Route exact path='/userprofile/:id'> 
+          <UserProfile />
+        </Route>
+        <Route exact path='/userprofile/:id/map'>
+          <Map /> 
+        </Route>
+        <Route path='/addpicturetoprofile'>
+>>>>>>> development
           <AddPictureToProfile /> 
         </Route>
       </Switch>

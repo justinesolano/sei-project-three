@@ -29,6 +29,7 @@ router.route('/profiles/:id')
 
 router.route('/profiles/:id/photos')
   .post(secureRoute, addPhotoToProfile)
+  // .get(getUserPhotos) ///
 
 router.route('/profiles/:id/photos/:photoId')
   .post(secureRoute, addCommentToPhoto)
