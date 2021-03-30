@@ -1,5 +1,6 @@
 @import '~bulma/bulma.sass';
 @import 'semantic-ui-css/semantic.min.css';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,500&display=swap');
 
 // EXPLORE DESTINATIONS
 .feed-title{
@@ -36,13 +37,19 @@
 
 //EXPLORE.JS
 
-// #root {
-//   margin-top: 20vh;
-//   background-color: rgb(216, 216, 216);
-// }
+ .explore {
+  margin-left: 35vw;
+  margin-top: 5vh;
+}
+
+.exploreDate {
+  font-family: 'Montserrat', sans-serif;
+}
+
+
 .picture {
-  height: 250px;
-  width: 250px;
+  height: 350px;
+  width: 450px;
 }
 .summary {
   padding-top: 15px;
