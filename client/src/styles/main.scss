@@ -1,4 +1,8 @@
 // $jetflixbg: '../assets/jetflixbackgroundfinal.jpg';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300&display=swap');
+
+$profilefont: 'Montserrat', sans-serif;
+
 @import '~bulma/bulma.sass';
 @import 'semantic-ui-css/semantic.min.css';
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,500&display=swap');
@@ -17,41 +21,16 @@
   justify-content: center;
   flex-wrap: wrap;
   padding: 0;
-  // .username-hovered{
-  //   display: flex;
-  //   justify-content: center;
-  //   font-family: 'Helvetica';
-  //  text-decoration: none;
-  // }
+  font-family: $profilefont;
+  font-weight: bold;
 }
 
 // DESTINATION CARD
-.tooltip {
-  position:relative; /* making the .tooltip span a container for the tooltip text */
-  border-bottom:1px dashed #000; /* little indicater to indicate it's hoverable */
-.tooltip:before {
-  content: attr(data-text); /* here's the magic */
-  position:absolute;
-  
-  /* vertically center */
-  top:50%;
-  transform:translateY(-50%);
-  
-  /* move to right */
-  left:100%;
-  margin-left:15px; /* and add a small left margin */
-  
-  /* basic styles */
-  width:200px;
-  padding:10px;
-  border-radius:10px;
-  background:#000;
-  color: #fff;
-  text-align:center;
 
-  display:none; /* hide by default */
+.tooltip.is-tooltip-multiline {
+  white-space: pre-line;
 }
-}
+
 
 *{
   margin: 0;

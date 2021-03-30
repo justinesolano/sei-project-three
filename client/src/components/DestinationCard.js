@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom'
 
 const DestinationCard = ( { photos, _id, username }) => {
 
-  // const [isShown, setIsShown] = useState(false)
-
   return (
     <div
       className="tile is-parent is-vertical is-3 is-gapless"
@@ -19,12 +17,18 @@ const DestinationCard = ( { photos, _id, username }) => {
               className="tile is-child notification"
               key={photo.id}>
               <Link to={`/userprofile/${_id}`}>
-                <div key={username._id} title={`${username}`} state='up'>
-                  <img src={photo.image} alt={`${username._id}`} className="tooltip" />
+                <div
+                  key={username._id}
+                  title={`${username}`}
+                  data-tooltip=
+                    {`
+                    ${photo.title} ${photo.location.icon} by ${username} 📍 ${photo.locationName}`}
+                  tooltip
+                  has-tooltip-top
+                  has-tooltip-success
+                  is-tooltip-multiline>
+                  <img src={photo.image} alt={`${username._id}`} />
                 </div>
-                {/* {isShown && (
-                  <h2 className="username-hovered">{username}</h2>
-                )} */}
               </Link>
             </div>
           </>
@@ -32,35 +36,6 @@ const DestinationCard = ( { photos, _id, username }) => {
       })}
     </div>
 
-
-
-
-
-  // <div className="explore-card-parent">
-  //   <button
-  //     onMouseEnter={() => setIsShown(true)}
-  //     onMouseLeave={() => setIsShown(false)}
-  //   >
-  //     <Link to={`/profiles/${_id}`}>
-  //       <div className="columns">
-  //         {photos.map(photo => (
-  //           <div key={photo.id} className="card-image">
-  //             <div className="image-card">
-  //               <img src={photo.image} alt={`${_id}`} />
-  //             </div>
-  //           </div>
-  //         ))}
-  //         <div className="card-content">
-  //           {isShown && (
-  //             <div className="hover-info">
-  //               {username}
-  //             </div>
-  //           )}
-  //         </div>
-  //       </div>
-  //     </Link>
-  //   </button>
-  // </div>
   )
 }
 
