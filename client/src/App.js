@@ -42,7 +42,7 @@ const App = () => {
         <Route exact path='/profile/:id'> 
           <UserProfile />
         </Route>
-        <Route exact path='/userprofile/:id/map'>
+        <Route exact path='/profile/:id/map'>
           <Map /> 
         </Route>
         <Route path='/addpicturetoprofile'>

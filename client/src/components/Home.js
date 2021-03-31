@@ -148,7 +148,7 @@ const Home = () => {
                       <i tabIndex="4" aria-checked="false" aria-posinset="4" aria-setsize="4" className={destination.avgRating > 3 ? 'active icon' : `${rating.four} icon`} role="radio" id={destination.id}></i>
                       <i tabIndex="5" aria-checked="false" aria-posinset="5" aria-setsize="5" className={destination.avgRating > 4 ? 'active icon' : `${rating.five} icon`} role="radio" id={destination.id}></i>
                     </div>
-                    <Button className="button secondary" href={`/destinations/${destination.name}`}>See more</Button>
+                    <Button className="button secondary" href={`/explore/${destination.name}`}>Explore</Button>
                   </div>
                 </div>
               )
