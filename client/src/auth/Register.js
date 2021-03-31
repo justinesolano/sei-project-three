@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Button, Header } from 'semantic-ui-react'
+import { Header } from 'semantic-ui-react'
 import { useHistory } from 'react-router'
 import axios from 'axios'
 import Select from 'react-select'
@@ -97,7 +97,7 @@ const Register = () => {
                 />
               </p>
             </div>
-            <div className="field">
+            <div className="field last-field">
               <p className="control has-icons-right">
                 <input 
                   className={`input ${errors}`}
@@ -117,10 +117,10 @@ const Register = () => {
               placeholder="Pick your favourite destinations"
               onChange={(selected) => handleMultiChange(selected, 'search')}
             />
-            <Button color='red' fluid size='large' type='submit'>
-                Register
-            </Button> 
-            <div className='account-signin-link'> 
+            <button className="button is-danger is-large">
+              Register
+            </button> 
+            <div className="account-signin-link"> 
             Already have an account? <a href='/login'>Sign In</a>
             </div>         
           </form>

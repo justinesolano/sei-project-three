@@ -26,21 +26,39 @@ $profilefont: 'Montserrat', sans-serif;
   font-family: $profilefont;
   font-weight: bold;
   background-color: rgb(15, 15, 15);
+  // .explore-destination-link{
+  //   // display: flex;
+  //   // justify-content: center;
+  //   flex-wrap: wrap;
+  //   padding: 0;
+  // }
+  
 }
 
 // DESTINATION CARD
 .tile.is-parent{
   margin: 1px;
-.content{
-  display: flex;
-  justify-content: center;
-.feed-image{
+// .content{
+//   display: flex;
+//   justify-content: center;
+.feed-image, .card-video{
 display: flex;
 justify-content: center;
 align-content: center;
 }
+// }s
+}
+
+// DESTINATION SPECIFIC 
+.tile.is-parent.is-3.is-gapless.one-destination{
+display: flex;
+justify-content: flex-start;
+flex-wrap: wrap;
+.tile.is-child.notification.is-12{
+  margin: 1px;
 }
 }
+
 
 *{
   margin: 0;
@@ -62,7 +80,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: 'Montserrat', sans-serif;
+  font-family: $profilefont;
   // background-image: url('../assets/blackwhitemoved8.jpg');
   background-color: black;
 }
@@ -167,34 +185,77 @@ body {
 }
 
 
-//*register and login page jetflix
-
-.login-page,
+// * REGISTER & LOGIN PAGE
 .register-page {
   background-image: url('../assets/jetflixbg.jpg');
   background-size: cover;
   background-position: center;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Helvetica';
   height: 100vh;
   .ui.left.aligned.header {
     color: white;
   }
-  .login-content,
   .register-content { 
     margin-top: 15%;
     padding: 20px;
     background-color: rgba(0,0,0,.5);
     font-weight: bold;
     color: white;
-    height: 400px;
-  }
-  .red.button {
-    margin-bottom: 10px;
-    margin-top: 10px;
+    height: 500px;
+    .field{
+      margin-top: 20px;
+    }
+    .last-field{
+      margin-bottom: 20px;
+    }
+  .button {
+    margin-top: 20px;
+    width: 100%;
+    height: 40px;
+    font-size: 18px;
+    background-color: #E50914;
+    font-weight: bold;
   }
   .account-signin-link {
-    text-align: center
+    text-align: center;
+    margin-top: 20px;
   }
+}
+}
+
+.login-page {
+  background-image: url('../assets/jetflixbg.jpg');
+  background-size: cover;
+  background-position: center;
+  font-family: 'Helvetica';
+  height: 100vh;
+  font-weight: bold;
+  .ui.left.aligned.header {
+    color: white;
+  }
+  .login-content{ 
+    margin-top: 15%;
+    padding: 20px;
+    background-color: rgba(0,0,0,.5);
+    font-weight: bold;
+    color: white;
+    height: 350px;
+    .field{
+      margin-top: 20px;
+    }
+  .button {
+    margin-top: 10px;
+    width: 100%;
+    height: 40px;
+    font-size: 18px;
+    background-color: #E50914;
+    font-weight: bold;
+  }
+  .account-signin-link {
+    text-align: center;
+    margin-top: 20px;
+  }
+}
 }
 
 //map 
@@ -231,7 +292,7 @@ element.style {
 
 .home-page {
   background-color: black;
-  font-family: Helvetica;
+  font-family: 'Helvetica';
   color: white;
   // * Hero
   .hero {
@@ -389,7 +450,7 @@ element.style {
 
 .hero,
 .home-subheader {
-  font-family: Helvetica;
+  font-family: 'Helvetica';
   color: white;
   // margin-top: 10px;
   margin-bottom: 5px;

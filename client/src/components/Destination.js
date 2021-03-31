@@ -42,29 +42,33 @@ const Destination = () => {
   if (!videos || !apiPhotos) return null
 
   return (
-    <div
-      className="tile is-parent is-vertical is-3 is-gapless"
-      key={destination}
-    >
-      {videos.map((video) => {
-        return (
-          <div
-            className="tile is-child notification"
-            key={video.id}>
-            <video key={video.video_files[0].id} className="card-video" src={video.video_files[0].link} autoPlay={true} muted={true} loop={true}/>
-          </div>
-        )
-      })}
-      {apiPhotos.map((apiPhoto) => {
-        return (
-          <div
-            className="tile is-child notification"
-            key={apiPhoto.id}>
-            <img key={apiPhoto.id} src={apiPhoto.src.small} />
-          </div>
-        )
-      })}
-    </div>
+
+    <>
+      <div
+        className="tile is-parent is-3 is-gapless one-destination"
+        key={destination}
+      >
+        {/* <h1 className="one-destination-title">{destination}</h1> */}
+        {videos.map((video) => {
+          return (
+            <div
+              className="tile is-child notification is-12 "
+              key={video.id}>
+              <video key={video.video_files[0].id} className="card-video" src={video.video_files[0].link} autoPlay={true} muted={true} loop={true}/>
+            </div>
+          )
+        })}
+        {apiPhotos.map((apiPhoto) => {
+          return (
+            <div
+              className="tile is-child notification is-12"
+              key={apiPhoto.id}>
+              <img key={apiPhoto.id} src={apiPhoto.src.small} />
+            </div>
+          )
+        })}
+      </div>
+    </>
   )
 }
 

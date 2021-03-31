@@ -85,7 +85,7 @@ const Navbar = () => {
             <div className="navbar-dropdown">
               { !userIsAuthenticated() &&
             <>
-              <Link to="/explore/all" className="navbar-item">
+              <Link to="/explore/alldestinations" className="navbar-item">
                   Explore
               </Link>
               <Link to="/feed" className="navbar-item">
@@ -101,7 +101,7 @@ const Navbar = () => {
                 <Link to="/feed" className="navbar-item">
               Feed
                 </Link>
-                <Link to="/explore/all" className="navbar-item">
+                <Link to="/explore/alldestinations" className="navbar-item">
               Explore
                 </Link>
               </>

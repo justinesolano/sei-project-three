@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router'
 import axios from 'axios'
-import { Button, Header } from 'semantic-ui-react'
+import { Header } from 'semantic-ui-react'
 
 
 const Login = () => {
@@ -62,10 +62,10 @@ const Login = () => {
                 />
               </p>
             </div>
-            <Button className="login-button" color="red" fluid size="large" type="submit">
-              Login
-            </Button>
-            <div className='account-signin-link'> 
+            <button className="button is-danger is-large">
+                Login
+            </button>
+            <div className="account-signin-link"> 
               New to us? <a href="/register">Sign Up</a>
             </div>
           </form>
