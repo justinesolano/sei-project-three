@@ -34,12 +34,6 @@ const UserProfile = () => {
   // }
 
 
-  // handle post a like 
-  // const [likes, getLikes] = useState([])
-  // const [arrayLikes, getArrayLikes] = useState([])
-  // const [testLikes, getTestLikes] = useState(0)
-  // console.log(getTestLikes)
-  // const setArray = []
   useEffect(() => {
     const getData = async () => {
       const { data } = await axios.get(`/api/profiles/${id}`)
@@ -47,22 +41,6 @@ const UserProfile = () => {
     }
     getData()
   }, [])
-  // const [FormData] = useState({
-  //   like: true
-  // })
-  // const [eventName, setEventName] = useState('')
-
-  // const handleLike = async event => {
-  //   setEventName(event.target.name)
-  //   console.log('>>>', eventName, event.target)
-  //   const token = window.localStorage.getItem('token')
-  //   await axios.post(`/api/profiles/${id}/photos/${event.target.name}/likes`, FormData,
-  //     {
-  //       headers: {
-  //         Authorization: `Bearer ${token}`
-  //       }
-  //     })
-  // }
 
 
 
