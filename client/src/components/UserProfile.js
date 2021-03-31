@@ -71,12 +71,6 @@ const UserProfile = () => {
 
   return (
     <div className="everythingProfile">
-      {/* <Card
-        href='#card-example-link-card'
-        header='Elliot Baker'
-        meta='Friend'
-        description='Elliot is a sound engineer living in Nashville who enjoys playing guitar and hanging with his cat.'
-      /> */}
       <div className='user-profile is-fullheight-with-navbar ' >
         <div className='columns user-profile-header'>
           <div className='user-profile-left-header'>

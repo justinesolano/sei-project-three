@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Button, Feed, Icon } from 'semantic-ui-react'
 import axios from 'axios'
 
-import explorePicture from '../assets/explore.png'
+import feedPicture from '../assets/photofeed.png'
 import { Link } from 'react-router-dom'
 
 const Explore = () => {
@@ -25,7 +25,7 @@ const Explore = () => {
   return (
     <Feed >
       <div className="explore">
-        <img src={explorePicture} className="explorePicture"></img>
+        <img src={feedPicture} className="explorePicture"></img>
         {profiles.map((user) => {
           return (
             <Feed.Event key={user.id}>
