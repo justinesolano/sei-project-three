@@ -11,7 +11,7 @@ const commentSchema = new mongoose.Schema({
   text: { type: String, required: true, maxlength: 300 },
   owner: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
 }, {
-  timestamps: true
+  timestamps: true,
 })
 
 const photoSchema = new mongoose.Schema({
@@ -20,9 +20,9 @@ const photoSchema = new mongoose.Schema({
   image: { type: String, required: true },
   locationName: { type: String, required: true },
   comments: [commentSchema],
-  likes: [likesSchema]
+  likes: [likesSchema],
 }, {
-  timestamps: true
+  timestamps: true,
 })
 
 const userSchema = new mongoose.Schema({
@@ -31,7 +31,7 @@ const userSchema = new mongoose.Schema({
   password: { type: String, required: true },
   photos: [photoSchema],
   myList: { type: Array, unique: true },
-  myTags: { type: Array, unique: true }
+  myTags: { type: Array, unique: true },
 })
 
 // * Remove password from user when populating
@@ -40,7 +40,7 @@ userSchema.set('toJSON', {
   transform(_doc, json) {
     delete json.password
     return json
-  }
+  },
 })
 
 // * Define virtual field on Schema

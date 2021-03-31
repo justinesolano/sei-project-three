@@ -3,9 +3,8 @@ import { Link } from 'react-router-dom'
 import jetflixLogo from '../assets/jetflixlogo.png'
 import Select from 'react-select'
 import { suitableOptions, tagOptions } from './data/searchData'
-import { userIsAuthenticated } from '../helpers/auth'
-import { useHistory } from 'react-router-dom'
-import { useLocation } from 'react-router-dom'
+import { userIsAuthenticated, getPayloadFromToken } from '../helpers/auth'
+import { useHistory, useLocation } from 'react-router-dom'
 
 const groupedOptions = [
   { label: 'Suitable For', options: suitableOptions },
@@ -55,13 +54,14 @@ const Navbar = () => {
   const toggleBurger = () => {
     if (burger === '') setBurger('is-active')
     if (burger === 'is-active') setBurger('')
-    console.log(show)
   }
 
   const handleLogout = () => {
     window.localStorage.removeItem('token')
     history.push('/')
   }
+
+  const profileId = getPayloadFromToken().sub
 
   return (
     <nav className={`navbar is-fixed-top is-black is-transparent ${show && 'is-black'}`} role="navigation" aria-label="main navigation">
@@ -83,18 +83,29 @@ const Navbar = () => {
                 More
             </a>
             <div className="navbar-dropdown">
-              <Link to="/profiles" className="navbar-item">
-                  My Profile
-              </Link>
-              <Link to="/home" className="navbar-item">
-                  My List
-              </Link>
+              { !userIsAuthenticated() &&
+            <>
               <Link to="/explore" className="navbar-item">
                   Explore
               </Link>
               <Link to="/feed" className="navbar-item">
                   Feed
               </Link>
+            </>
+              }
+              { userIsAuthenticated() &&
+              <>
+                <Link to={`/profile/${profileId}`} className="navbar-item" >
+              My Profile
+                </Link>
+                <Link to="/explore" className="navbar-item">
+              Explore
+                </Link>
+                <Link to="/feed" className="navbar-item">
+              Feed
+                </Link>
+              </>
+              }
             </div>
           </div>
         </div>
