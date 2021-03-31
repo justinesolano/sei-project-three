@@ -7,8 +7,6 @@ const DestinationCard = ( { photos, _id, username }) => {
     <div
       className="tile is-parent is-vertical is-3 is-gapless"
       key={_id}
-      // onMouseEnter={() => setIsShown(true)}
-      // onMouseLeave={() => setIsShown(false)}
     >
       {photos.map((photo) => {
         return (
@@ -16,7 +14,7 @@ const DestinationCard = ( { photos, _id, username }) => {
             <div
               className="tile is-child notification"
               key={photo.id}>
-              <Link to={`/userprofile/${_id}`}>
+              <Link to={`/profile/${_id}`}>
                 <div
                   key={username._id}
                   title={`${username}`}

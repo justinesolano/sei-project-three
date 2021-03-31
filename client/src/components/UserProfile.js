@@ -67,6 +67,8 @@ const UserProfile = () => {
 
 
   if (!profile) return null
+
+
   return (
     <>
       <Card
@@ -86,7 +88,6 @@ const UserProfile = () => {
         <div className='columns is-multiline  '>
           {profile.photos.map(photo => {
             return (
-
               <Link key={photo._id} to={`/profile/${profile._id}/showcomments`}>
                 <div className=''>
                   <img src={photo.image} className="picture card-image column column-user-profile is-active:hover" />
