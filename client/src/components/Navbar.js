@@ -12,6 +12,13 @@ const groupedOptions = [
   { label: 'Tags', options: tagOptions }
 ]
 
+const customStyles = {
+  option: (provided, state) => ({
+    ...provided,
+    color: state.isSelected ? 'grey' : 'darkgrey'
+  })
+}
+
 const Navbar = () => {
 
   const [formdata, setFormdata] = useState({
@@ -95,6 +102,7 @@ const Navbar = () => {
           <div className="navbar-item">
             <Select className="search-bar-link"
               options={groupedOptions}
+              styles={customStyles}
               isMulti
               name="search"
               placeholder="Find your paradise here"

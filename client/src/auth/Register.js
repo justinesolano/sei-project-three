@@ -23,6 +23,13 @@ const Register = () => {
     { label: 'Tags', options: tagOptions }
   ]
 
+  const customStyles = {
+    option: (provided, state) => ({
+      ...provided,
+      color: state.isSelected ? 'grey' : 'darkgrey'
+    })
+  }
+
   const handleChange = event => {
     const newFormData = { ...formData, [event.target.name]: event.target.value }
     setFormData(newFormData)
@@ -104,6 +111,7 @@ const Register = () => {
             </div>
             <Select className="search-bar-link"
               options={groupedOptions}
+              styles={customStyles}
               isMulti
               name="search"
               placeholder="Pick your favourite destinations"

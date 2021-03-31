@@ -120,15 +120,23 @@ const Home = () => {
                     <p>Country: {destination.country}</p>
                     <p>Currency: {destination.currency}</p>
                     <p>Language: {destination.language}</p>
-                    <p>Suitable For: {destination.suitableFor.map((suitable, index) => {
-                      return <li key={index}>{suitable}</li>
-                    })}</p>
-                    <p>Tags: {destination.tags.map((tag, index) => {
-                      return <li key={index}>{tag}</li>
-                    })}</p>
-                    <p>Highlights: {destination.highlights.map((highlight, index) => {
-                      return <li key={index}>{highlight}</li>
-                    })}</p>
+                    <div className="columns">
+                      <div className="column home-detail-tags">
+                        <p>Suitable For: {destination.suitableFor.map((suitable, index) => {
+                          return <li key={index}>{suitable}</li>
+                        })}</p>
+                      </div>
+                      <div className="column home-detail-tags">
+                        <p>Tags: {destination.tags.map((tag, index) => {
+                          return <li key={index}>{tag}</li>
+                        })}</p>
+                      </div>
+                      <div className="column home-detail-tags">
+                        <p>Highlights: {destination.highlights.map((highlight, index) => {
+                          return <li key={index}>{highlight}</li>
+                        })}</p>
+                      </div>
+                    </div>
                     <div className="ui star rating" role="radiogroup" onClick={handleRating}
                       style={{
                         'backgroundColor': 'rgba(225, 225, 225, 0.6)',
