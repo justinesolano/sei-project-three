@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import { Button } from 'semantic-ui-react'
 import Slider from 'react-slick'
 import { sliderSettings } from './Home/SliderSettings'
@@ -176,12 +176,7 @@ const Home = () => {
               <i tabIndex="5" aria-checked="false" aria-posinset="5" aria-setsize="5" className={destinations[hero].avgRating > 4 ? `active ${rating.five}` : `${rating.five} icon`} role="radio" id={destinations[hero].id}></i>
             </div>
             <br />
-            <Button className="button secondary">
-              <Link to={`/destinations/${destinations[hero].name}`}
-                style={{
-                  'color': 'white'
-                }}>More Info</Link>
-            </Button>
+            <Button className="button secondary" onClick={handleInfoButton} name={`${destinations[hero].id}`}>More info</Button>
             <Button className="button secondary" name={destinations[hero].id} onClick={handleMyList}>My List</Button>
           </div>
         </div>
