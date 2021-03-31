@@ -125,7 +125,7 @@ const AddCommentsToProfile = () => {
                           <nav className='level'>
                             <div className='level-left'>
                               <div className='level-item'>
-                                <a onClick={handleComment} className='button is-info'>Submit</a>
+                                <a onClick={handleComment} className='button is-info'>Submit</a> 
                               </div>
                             </div>
                             <div className='level-right'>
