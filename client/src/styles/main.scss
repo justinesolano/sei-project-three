@@ -26,39 +26,21 @@ $profilefont: 'Montserrat', sans-serif;
   font-family: $profilefont;
   font-weight: bold;
   background-color: rgb(15, 15, 15);
-  // .explore-destination-link{
-  //   // display: flex;
-  //   // justify-content: center;
-  //   flex-wrap: wrap;
-  //   padding: 0;
-  // }
-  
 }
 
 // DESTINATION CARD
 .tile.is-parent{
   margin: 1px;
-// .content{
-//   display: flex;
-//   justify-content: center;
-.feed-image, .card-video{
+.content{
+  display: flex;
+  justify-content: center;
+.feed-image{
 display: flex;
 justify-content: center;
 align-content: center;
 }
-// }s
-}
-
-// DESTINATION SPECIFIC 
-.tile.is-parent.is-3.is-gapless.one-destination{
-display: flex;
-justify-content: flex-start;
-flex-wrap: wrap;
-.tile.is-child.notification.is-12{
-  margin: 1px;
 }
 }
-
 
 *{
   margin: 0;
@@ -80,7 +62,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: $profilefont;
+  font-family: 'Montserrat', sans-serif;
   // background-image: url('../assets/blackwhitemoved8.jpg');
   background-color: black;
 }
@@ -118,8 +100,16 @@ body {
 
 
 #commentsButton {
-  padding: 15px 0 20px 5px ;
+  // padding: 15px 0 20px 5px ;
   background: none
+}
+
+.likesArea {
+  padding-right: 5vw;
+}
+
+.ui.button.likeButton {
+  background: none;
 }
 
 .picture {
@@ -185,7 +175,7 @@ body {
 }
 
 
-// * REGISTER & LOGIN PAGE
+/// * REGISTER & LOGIN PAGE
 .register-page {
   background-image: url('../assets/jetflixbg.jpg');
   background-size: cover;
@@ -292,7 +282,7 @@ element.style {
 
 .home-page {
   background-color: black;
-  font-family: 'Helvetica';
+  font-family: Helvetica;
   color: white;
   // * Hero
   .hero {
@@ -450,7 +440,7 @@ element.style {
 
 .hero,
 .home-subheader {
-  font-family: 'Helvetica';
+  font-family: Helvetica;
   color: white;
   // margin-top: 10px;
   margin-bottom: 5px;
@@ -632,11 +622,18 @@ element.style {
   display:block;
 }
 
-
-.user-profile { 
+//*Userprofile 
+.everythingProfile { 
+  height:100vh;
+  background-color: black;
+.user-profile{ 
 max-width:1000px;
 margin:auto;
-margin-top:120px;
+margin-top:64px;}
+
+.columns { 
+  padding-left: 20px;
+}
   .column-user-profile { 
     height:300px;
     width: 300px;
@@ -653,17 +650,20 @@ margin-top:120px;
     display: flex;
     justify-content: space-between;
     max-width: 800px;
+    padding-top: 80px;
 
   }
   .user-profile-left-header { 
     display: flex;
-    width: 320px;
+    width: 280px;
     justify-content: space-between;
     margin-bottom: 10px;
   }
   .title { 
     padding-top: 25px;
     padding-left:10px;
+    color:#E50914;
+    font-size: 40px;
   }
   .round-the-image { 
     border-radius: 15px;
@@ -671,22 +671,71 @@ margin-top:120px;
 
   .explorePicture { 
     margin-top: 20px;
+    height: 80px;
   }
 
-
 }
 
+//*user comments add 
+.body-show-comments{ 
+  background-color: black;
 .show-comments {
-  margin-top: 100px; 
+  margin-top: 50px; 
   .card-width { 
   max-width: 600px;
+  }
+}
+.columns { 
+  background-color: black;
+  padding-left: 15px;
+}
+
+.column { 
+  background-color: white;
 }
   .card-image.card-width.column { 
-  background-color: white;
   border: solid grey;
   border-radius: 25px;
+  padding: 4vh;
 }
   .big-heart { 
     font-size: x-large;
+    pointer-events: none;
 }
+.title { 
+  padding-top: 25px;
+  padding-left:10px;
+  color:#E50914;
+  font-size: 40px;
+}
+.user-profile-header{ 
+  display: flex;
+  justify-content: space-between;
+  max-width: 800px;
+  padding-top: 10px;
+
+}
+.user-profile-left-header { 
+  display: flex;
+  width: 320px;
+  margin-bottom: 0;
+  margin-top: 80px;
+  padding-right: 40px;
+}
+}
+
+.dropzone {
+  height: 8rem;
+  margin: 1rem;
+  padding: 1rem;
+  border: 2px dashed salmon;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+.active {
+  border: 2px solid rebeccapurple;
 }
