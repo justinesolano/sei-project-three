@@ -34,7 +34,7 @@ const Explore = () => {
                   return (
                     <div key={photo._id} className="exploreContent" >
                       <Feed.Summary>
-                        <Link to={`/userprofile/${user.id}`}>
+                        <Link to={`/profile/${user.id}`}>
                           <Feed.User className="exploreUser">
                             {user.username}
                           </Feed.User >
@@ -68,7 +68,7 @@ const Explore = () => {
                                   <div key={comment._id} className="pExplore">
                                     {
                                       <p  >
-                                        <Link to={`/userprofile/${user.id}`}>
+                                        <Link to={`/profile/${user.id}`}>
                                           <Icon.Group size="small">
                                             <Icon size="big" name="circle outline" />
                                             <Icon name="user" />
