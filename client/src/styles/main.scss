@@ -590,15 +590,40 @@ margin-top:120px;
     display: flex;
     justify-content: space-between;
     max-width: 800px;
+
   }
   .user-profile-left-header { 
     display: flex;
-    width: 250px;;
+    width: 320px;
     justify-content: space-between;
+    margin-bottom: 10px;
   }
   .title { 
-    padding-top: 100px;
+    padding-top: 25px;
+    padding-left:10px;
+  }
+  .round-the-image { 
+    border-radius: 15px;
+  }
+
+  .explorePicture { 
+    margin-top: 20px;
   }
 
 
+}
+
+.show-comments {
+  margin-top: 100px; 
+  .card-width { 
+  max-width: 600px;
+}
+  .card-image.card-width.column { 
+  background-color: white;
+  border: solid grey;
+  border-radius: 25px;
+}
+  .big-heart { 
+    font-size: x-large;
+}
 }
