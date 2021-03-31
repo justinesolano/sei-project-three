@@ -61,7 +61,7 @@ const Home = () => {
     try {
       myList.map(item => {
         if (item.id === event.target.name) {
-          return
+          throw new Error
         }
       })
       const { data } = await axios.get(`/api/destinations/${id}`)
@@ -73,7 +73,8 @@ const Home = () => {
         }
       }, [])
     } catch (err) {
-      window.alert('Cannot add to My List')
+      console.log('Cannot add to My List')
+      window.alert('Error! Cannot add to My List')
     }
   }
   
