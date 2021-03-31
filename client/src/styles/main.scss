@@ -100,8 +100,16 @@ body {
 
 
 #commentsButton {
-  padding: 15px 0 20px 5px ;
+  // padding: 15px 0 20px 5px ;
   background: none
+}
+
+.likesArea {
+  padding-right: 5vw;
+}
+
+.ui.button.likeButton {
+  background: none;
 }
 
 .picture {
