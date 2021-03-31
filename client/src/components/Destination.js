@@ -45,7 +45,7 @@ const Destination = () => {
 
     <>
       <div
-        className="tile is-parent is-3 is-gapless one-destination"
+        className="tile is-parent is-vertical is-gapless one-destination"
         key={destination}
       >
         {/* <h1 className="one-destination-title">{destination}</h1> */}
