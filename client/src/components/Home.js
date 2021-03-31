@@ -31,7 +31,6 @@ const Home = () => {
         const { data } = await axios.get('/api/destinations')
         setDestinations(data)
         const destinationsArray = data
-        setHero(parseFloat(Math.floor(Math.random() * data.length)))
         const response = await axios.get('/api/profiles')
         response.data.map(user => {
           if (user.id === getPayloadFromToken().sub) {
@@ -51,8 +50,20 @@ const Home = () => {
       }
     }
     getUsers()
-  }, [])
+  }, [rating])
 
+  useEffect(() => {
+    const getHero = async () => {
+      try {
+        const { data } = await axios.get('/api/destinations')
+        setHero(parseFloat(Math.floor(Math.random() * data.length)))
+      } catch (err) {
+        console.log(err)
+      }
+    }
+    getHero()
+  }, [])
+  
   // POST new items to My List
   const handleMyList = async (event) => {
     const id = event.target.name
@@ -107,6 +118,13 @@ const Home = () => {
       console.log(err)
       window.alert('You need to login to submit a rating')
     }
+    setRating({
+      one: 'icon',
+      two: 'icon',
+      three: 'icon',
+      four: 'icon',
+      five: 'icon'
+    })
   }
 
   if (!destinations) return null
