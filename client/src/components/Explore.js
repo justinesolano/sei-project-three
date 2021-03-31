@@ -40,7 +40,7 @@ const Explore = () => {
                           </Feed.User >
                         </Link>
                         <span className="exploreSpan"> added a photo: </span>
-                        <span className="loaction">{photo.title} </span>
+                        <p className="loaction">{photo.title} </p>
                       </Feed.Summary>
                       <p>
                         <Icon name="map pin" />

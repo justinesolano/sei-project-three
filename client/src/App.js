@@ -39,16 +39,16 @@ const App = () => {
         <Route exact path="/feed">
           <ExploreDestination />
         </Route>
-        <Route exact path='/userprofile/:id'> 
+        <Route exact path='/profile/:id'> 
           <UserProfile />
         </Route>
-        <Route exact path='/userprofile/:id/map'>
+        <Route exact path='/profile/:id/map'>
           <Map /> 
         </Route>
         <Route path='/addpicturetoprofile'>
           <AddPictureToProfile /> 
         </Route>
-        <Route path='/userprofile/:id/showcomments'>
+        <Route path='/profile/:id/showcomments'>
           <AddCommentsToProfile /> 
         </Route>
       </Switch>
