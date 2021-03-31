@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
-import { Icon } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
-
+import profilePicture from '../assets/profile.png'
+import { Icon, Card } from 'semantic-ui-react'
 const UserProfile = () => {
 
   //Getting and showing photos and data 
@@ -21,16 +21,16 @@ const UserProfile = () => {
 
   //closing opening comments 
   // const [viewComments, setViewComments] = useState('true')
-  const [toggleComments, setToggleComments] = useState(true)
-  const handleChange = event => {
-    if (toggleComments === true) {
-      setToggleComments(false)
-      console.log(event.target)
-    }
-    if (toggleComments === false) {
-      setToggleComments(true)
-    }
-  }
+  // const [toggleComments, setToggleComments] = useState(true)
+  // const handleChange = event => {
+  //   if (toggleComments === true) {
+  //     setToggleComments(false)
+  //     console.log(event.target)
+  //   }
+  //   if (toggleComments === false) {
+  //     setToggleComments(true)
+  //   }
+  // }
 
 
   // handle post a like 
@@ -46,68 +46,54 @@ const UserProfile = () => {
     }
     getData()
   }, [])
-  const [FormData] = useState({
-    like: true
-  })
-  const [eventName, setEventName] = useState('')
+  // const [FormData] = useState({
+  //   like: true
+  // })
+  // const [eventName, setEventName] = useState('')
 
-  const handleLike = async event => {
-    setEventName(event.target.name)
-    console.log('>>>', eventName, event.target)
-    const token = window.localStorage.getItem('token')
-    await axios.post(`/api/profiles/${id}/photos/${event.target.name}/likes`, FormData,
-      {
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
-      })
-  }
+  // const handleLike = async event => {
+  //   setEventName(event.target.name)
+  //   console.log('>>>', eventName, event.target)
+  //   const token = window.localStorage.getItem('token')
+  //   await axios.post(`/api/profiles/${id}/photos/${event.target.name}/likes`, FormData,
+  //     {
+  //       headers: {
+  //         Authorization: `Bearer ${token}`
+  //       }
+  //     })
+  // }
 
 
 
 
   if (!profile) return null
+
+
   return (
     <>
-      <div className='user-profile is-fullheight-with-navbar' >
-        <h1> TEST </h1>
+      <Card
+        href='#card-example-link-card'
+        header='Elliot Baker'
+        meta='Friend'
+        description='Elliot is a sound engineer living in Nashville who enjoys playing guitar and hanging with his cat.'
+      />
+      <div className='user-profile is-fullheight-with-navbar ' >
+        <div className='columns user-profile-header'>
+          <div className='user-profile-left-header'>
+            <Icon name="user circle outline" size="massive" />
+            <h1 className='title'> {profile.username}</h1>
+          </div>
+          <img src={profilePicture} className="explorePicture is-hidden-mobile		"></img>
+        </div>
         <div className='columns is-multiline  '>
           {profile.photos.map(photo => {
             return (
-              <div key={photo._id} className='column-user-profile column is-one-third card is-danger
-                '>
-                <img src={photo.image} className="picture card-image" />
-                <div className='user-profile-div-like'>
-                  <h3 className='is-7'> {photo.title} </h3>
-                  <button
-                    onClick={handleLike}
-                    name={`${photo._id}`}
-                    className='button is-3'>
-                    <Icon size='large' name='like outline'></Icon>  &nbsp;  &nbsp; &nbsp;     Likes {photo.likes.length}
-                  </button>
+              <Link key={photo._id} to={`/profile/${profile._id}/showcomments`}>
+                <div className=''>
+                  <img src={photo.image} className="picture card-image column column-user-profile is-active:hover" />
                 </div>
-                {profile.username} added a photo: {photo.title}
-                {new Date(photo.createdAt).toDateString()}
-
-                <div>
-                  <button
-                    onClick={handleChange}
-                    name={`${photo.id}`}
-                    className='button is-fullwidth'>
-                    View comments</button>
-                </div>
-                {photo.comments.map(comment => (
-                  <div key={comment._id}>
-                    {toggleComments &&
-                      <p className='p-userprofile' >
-                        <Link to={`/userprofiles/${comment.owner}` }><Icon name='user' />- {comment.text} </Link>
-                      </p>}
-                  </div>
-                ))}
-              </div>
-
+              </Link>
             )
-
           })}
           {/* </div> */}
         </div>
