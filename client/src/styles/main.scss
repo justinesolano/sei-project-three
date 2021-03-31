@@ -569,7 +569,7 @@ element.style {
   display:block;
 }
 
-
+//*Userprofile 
 .everythingProfile { 
   height:100vh;
   background-color: black;
@@ -578,6 +578,9 @@ max-width:1000px;
 margin:auto;
 margin-top:64px;}
 
+.columns { 
+  padding-left: 20px;
+}
   .column-user-profile { 
     height:300px;
     width: 300px;
@@ -594,15 +597,14 @@ margin-top:64px;}
     display: flex;
     justify-content: space-between;
     max-width: 800px;
-    padding-top: 10px;
+    padding-top: 80px;
 
   }
   .user-profile-left-header { 
     display: flex;
-    width: 320px;
+    width: 280px;
     justify-content: space-between;
     margin-bottom: 10px;
-    
   }
   .title { 
     padding-top: 25px;
@@ -616,22 +618,23 @@ margin-top:64px;}
 
   .explorePicture { 
     margin-top: 20px;
+    height: 80px;
   }
-
-
 
 }
 
+//*user comments add 
 .body-show-comments{ 
   background-color: black;
 .show-comments {
-  margin-top: 100px; 
+  margin-top: 50px; 
   .card-width { 
   max-width: 600px;
   }
 }
 .columns { 
   background-color: black;
+  padding-left: 15px;
 }
 
 .column { 
@@ -640,10 +643,30 @@ margin-top:64px;}
   .card-image.card-width.column { 
   border: solid grey;
   border-radius: 25px;
-  padding: 10px;
+  padding: 4vh;
 }
   .big-heart { 
     font-size: x-large;
     pointer-events: none;
+}
+.title { 
+  padding-top: 25px;
+  padding-left:10px;
+  color:#E50914;
+  font-size: 40px;
+}
+.user-profile-header{ 
+  display: flex;
+  justify-content: space-between;
+  max-width: 800px;
+  padding-top: 10px;
+
+}
+.user-profile-left-header { 
+  display: flex;
+  width: 320px;
+  margin-bottom: 0;
+  margin-top: 80px;
+  padding-right: 40px;
 }
 }

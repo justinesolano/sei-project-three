@@ -25,25 +25,53 @@ const AddCommentsToProfile = () => {
     console.log(event.target.name, eventName)
     setEventName(event.target.name)
     const setLikes = async () => {
-      const token = window.localStorage.getItem('token')
-      await axios.post(`/api/profiles/${id}/photos/${event.target.name}/likes`, FormData,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`
-          }
-        })
-      window.location.reload()
+
+      try {
+        const token = window.localStorage.getItem('token')
+        await axios.post(`/api/profiles/${id}/photos/${event.target.name}/likes`, FormData,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`
+            }
+          })
+        window.location.reload()
+
+      } catch (err) {
+        window.alert('You cannot like the photo, you are not logged in. 😬')
+      }
     }
     setLikes()
   }
+
+  const handleComment = event => { 
+    console.log(event.target)
+  }
+
   if (!profile) return null
   return (
     <div className='body-show-comments'>
       <div className='card columns is-multiline show-comments is-vcentered'>
+        <div className='columns user-profile-header'>
+          <div className='user-profile-left-header'>
+            <div
+              title={`${profile.username}`}
+              className='has-tooltip-bottom'
+              data-tooltip=
+                {`
+                      👤 Back to profile`}>
+              <figure className='image is-96x96 '>
+                <Link to={`/profile/${profile._id}`}>
+                  <img src={smileyGreen} alt='Placeholder image' className='round-the-image' />
+                </Link>
+              </figure>
+            </div>
+            <h1 className='title is-hidden-mobile	'> &nbsp; &nbsp; {profile.username}</h1>
+          </div>
+        </div>
         {profile.photos.map(photo => {
           return (
             <>
-              <div className='show-comments'>
+              <div className='show-comments '>
                 <div className='card-image card-width column'>
                   <div>
                     <figure className='image'>
@@ -58,8 +86,8 @@ const AddCommentsToProfile = () => {
                         </figure>
                       </div>
                       <div className='media-content'>
-                        <p className='title is-4'>{photo.title}</p>
-                        <p className='subtitle is-6'>📍 {photo.locationName}</p>
+                        <p className='title is-4 is-hidden-mobile'>{photo.title}</p>
+                        <p className='subtitle is-6 is-hidden-mobile'>📍 {photo.locationName}</p>
                       </div>
                       <button
                         name={`${photo._id}`}
@@ -72,13 +100,45 @@ const AddCommentsToProfile = () => {
                   <div className='content'>
                     <h5 className='title is-5'>Comments:</h5>
                     {photo.comments.map(comment => (
-                      <div key={comment._id}>
-                        {
-                          <p className='p-userprofile' >
+                      <>
+                        <div key={comment._id}>
+                          {<p className='p-userprofile' >
                             <Link to={`/profiles/${comment.owner}`}> 👤 - {comment.text} </Link>
                           </p>}
-                      </div>
+                        </div>
+
+                      </>
                     ))}
+                    <div>
+                      <article className='media '>
+                        <figure className='media-right'>
+                          <p className='image is-64x64'>
+                            <img src='https://bulma.io/images/placeholders/128x128.png' />
+                          </p>
+                        </figure>
+                        <div className='media-content'>
+                          <div className='field'>
+                            <p className='control'>
+                              <textarea className='textarea is-small' placeholder='Add a comment...'></textarea>
+                            </p>
+                          </div>
+                          <nav className='level'>
+                            <div className='level-left'>
+                              <div className='level-item'>
+                                <a onClick={handleComment} className='button is-info'>Submit</a>
+                              </div>
+                            </div>
+                            <div className='level-right'>
+                              <div className='level-item'>
+                                <label className='checkbox'>
+                                  <input type='checkbox' /> Press enter to submit
+                                </label>
+                              </div>
+                            </div>
+                          </nav>
+                        </div>
+                      </article>
+                    </div>
                     <br>
                     </br>
                     <time>11:09 PM - 1 Jan 2016</time>
