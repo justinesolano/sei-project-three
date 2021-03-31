@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import profilePicture from '../assets/profile.png'
-import { Icon } from 'semantic-ui-react'
+import { Icon, Card } from 'semantic-ui-react'
 const UserProfile = () => {
 
   //Getting and showing photos and data 
@@ -69,7 +69,12 @@ const UserProfile = () => {
   if (!profile) return null
   return (
     <>
-
+      <Card
+        href='#card-example-link-card'
+        header='Elliot Baker'
+        meta='Friend'
+        description='Elliot is a sound engineer living in Nashville who enjoys playing guitar and hanging with his cat.'
+      />
       <div className='user-profile is-fullheight-with-navbar ' >
         <div className='columns user-profile-header'>
           <div className='user-profile-left-header'>
@@ -81,9 +86,10 @@ const UserProfile = () => {
         <div className='columns is-multiline  '>
           {profile.photos.map(photo => {
             return (
+
               <Link key={photo._id} to={`/profile/${profile._id}/showcomments`}>
                 <div className=''>
-                  <img src={photo.image} className="picture card-image column column-user-profile" />
+                  <img src={photo.image} className="picture card-image column column-user-profile is-active:hover" />
                 </div>
               </Link>
             )
