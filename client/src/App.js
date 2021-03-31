@@ -33,10 +33,10 @@ const App = () => {
         <Route path="/login">
           <Login />
         </Route>
-        <Route path="/explore">
+        <Route path="/feed">
           <Explore />
         </Route>
-        <Route exact path="/feed">
+        <Route exact path="/explore/:destination">
           <ExploreDestination />
         </Route>
         <Route exact path='/profile/:id'> 

@@ -3,6 +3,7 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 import photoFeed from '../assets/photofeed.png'
 import DestinationCard from './DestinationCard'
+import Destination from './Destination'
 
 const ExploreDestination = () => {
 
@@ -30,6 +31,7 @@ const ExploreDestination = () => {
             <DestinationCard key={users.id} {...users} />
           )
         })}
+        <Destination />
       </div>
     </>
   )
