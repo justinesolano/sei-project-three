@@ -6,14 +6,8 @@ $profilefont: 'Montserrat', sans-serif;
 
 @import '~bulma/bulma.sass';
 @import 'semantic-ui-css/semantic.min.css';
-<<<<<<< HEAD
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,500&display=swap');
-
-// @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,500&display=swap');
-=======
 
 
->>>>>>> development
 
 // EXPLORE DESTINATIONS
 .feed-title{
@@ -133,10 +127,23 @@ body {
   margin-top: 20px;
 }
 //* user profile 
+
+
 .photo-userprofile { 
   width: 150px;
   display: inline;
 }
+
+.user-profile.is-fullheight-with-navbar {
+  background-color: black;
+}
+
+.userCard {
+  border: 5px white solid;
+  border-radius: 25px;
+}
+
+
 
 // DESTINATION CARD
 .card {
