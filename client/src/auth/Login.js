@@ -62,7 +62,7 @@ const Login = () => {
                 />
               </p>
             </div>
-            <Button color="red" fluid size="large" type="submit">
+            <Button className="login-button" color="red" fluid size="large" type="submit">
               Login
             </Button>
             <div className='account-signin-link'> 
