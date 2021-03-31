@@ -39,7 +39,7 @@ const App = () => {
         <Route exact path="/feed">
           <ExploreDestination />
         </Route>
-        <Route exact path='/userprofile/:id'> 
+        <Route exact path='/profile/:id'> 
           <UserProfile />
         </Route>
         <Route exact path='/userprofile/:id/map'>
