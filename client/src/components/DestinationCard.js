@@ -1,61 +1,57 @@
-// import axios from 'axios'
 import React from 'react'
 import { Link, useParams } from 'react-router-dom'
 
 const DestinationCard = ( { photos, _id, username }) => {
 
   const { destination } = useParams()
+<<<<<<< HEAD
   
   // console.log('PARAMS', destination)
   // console.log('PHOTOS', photos[0].locationName)
   // console.log('DESTINATION', destination === photos[0].locationName)
+=======
+>>>>>>> development
 
   return (
     <div
       className="tile is-parent is-vertical is-3 is-gapless"
       key={_id}
     >
-      {photos.map((photo) => {
+      {photos.map((photo, index) => {
         if (photo.locationName === destination){
           return (
-            <>
-              <div
-                className="tile is-child notification"
-                key={photo.id}>
-                <Link to={`/profile/${_id}`}>
-                  <div
-                    key={username._id}
-                    title={`${username}`}
-                    className="has-tooltip-bottom"
-                    data-tooltip=
-                      {`
+            <div
+              className="tile is-child notification"
+              key={index}>
+              <Link to={`/profile/${_id}`}>
+                <div
+                  title={`${username}`}
+                  className="has-tooltip-bottom"
+                  data-tooltip=
+                    {`
                       ${photo.title} ${photo.location.icon} by ${username} 📍 ${photo.locationName}`}>
-                    <img src={photo.image} alt={`${username._id}`} className="feed-image " />
-                  </div>
-                </Link>
-              </div>
-            </>
+                  <img src={photo.image} alt={`${username._id}`} className="feed-image " />
+                </div>
+              </Link>
+            </div>
           )
         } 
-        if (destination === 'all'){
+        if (destination === 'alldestinations'){
           return (
-            <>
-              <div
-                className="tile is-child notification"
-                key={photo.id}>
-                <Link to={`/profile/${_id}`}>
-                  <div
-                    key={username._id}
-                    title={`${username}`}
-                    className="has-tooltip-bottom"
-                    data-tooltip=
-                      {`
+            <div
+              className="tile is-child notification"
+              key={index}>
+              <Link to={`/profile/${_id}`}>
+                <div
+                  title={`${username}`}
+                  className="has-tooltip-bottom"
+                  data-tooltip=
+                    {`
                     ${photo.title} ${photo.location.icon} by ${username} 📍 ${photo.locationName}`}>
-                    <img src={photo.image} alt={`${username._id}`} className="feed-image " />
-                  </div>
-                </Link>
-              </div>
-            </>
+                  <img src={photo.image} alt={`${username._id}`} className="feed-image " />
+                </div>
+              </Link>
+            </div>
           )
         }
       })}
