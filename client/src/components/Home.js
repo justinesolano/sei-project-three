@@ -199,25 +199,29 @@ const Home = () => {
           <div></div>
         }
         {tagDestinations &&
-        <>
-          <h3>Recommended for you</h3>
-          <div className="home-container">
-            <Slider {...sliderSettings} className="slider">
-              {tagDestinations.map(destination => {
-                return <div key={destination._id} className="home-item">
-                  <img src={destination.image} />
-                  <div className="home-destination-info">
-                    <h4>{destination.name}</h4>
-                    <p><i>{destination.country}</i></p>
-                    <Button className="button secondary" onClick={handleInfoButton} name={`${destination.id}`}>More info</Button>
-                  </div>
-                </div>
-              })}
-            </Slider>
-          </div>
-        </>
+          <>
+            {tagDestinations.length > 0 &&
+            <>
+              <h3>Recommended for you</h3>
+              <div className="home-container">
+                <Slider {...sliderSettings} className="slider">
+                  {tagDestinations.map(destination => {
+                    return <div key={destination._id} className="home-item">
+                      <img src={destination.image} />
+                      <div className="home-destination-info">
+                        <h4>{destination.name}</h4>
+                        <p><i>{destination.country}</i></p>
+                        <Button className="button secondary" onClick={handleInfoButton} name={`${destination.id}`}>More info</Button>
+                      </div>
+                    </div>
+                  })}
+                </Slider>
+              </div>
+            </>
+            }
+          </>
         }
-        <h3>Recommended</h3>
+        <h3>Must See</h3>
         <div className="home-container">
           <Slider {...sliderSettings} className="slider">
             {destinations.map(destination => {

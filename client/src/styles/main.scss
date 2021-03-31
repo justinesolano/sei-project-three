@@ -5,11 +5,7 @@ $profilefont: 'Montserrat', sans-serif;
 
 @import '~bulma/bulma.sass';
 @import 'semantic-ui-css/semantic.min.css';
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,500&display=swap');
-<<<<<<< HEAD
-
-=======
->>>>>>> development
+// @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,500&display=swap');
 
 // EXPLORE DESTINATIONS
 .feed-title{
@@ -60,7 +56,7 @@ body {
 
 //EXPLORE.JS
 
- .explore {
+.explore {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -68,11 +64,11 @@ body {
   background-image: url('../assets/blackwhitemoved.jpg');
 }
 .exploreContent {
-   border: 4px black solid;
-   border-radius: 25px;
-   font-size: 15px;
-   padding: 0 10px 10px 10px;
- }
+  border: 4px black solid;
+  border-radius: 25px;
+  font-size: 15px;
+  padding: 0 10px 10px 10px;
+}
 
 .exploreDate {
   padding: 7px 0;
@@ -197,7 +193,7 @@ element.style {
   }
   .icon {
     width: 10px;
-   }
+  }
 }
 
 
