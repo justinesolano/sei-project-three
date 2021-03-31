@@ -3,7 +3,6 @@ import { Button, Feed, Icon } from 'semantic-ui-react'
 import axios from 'axios'
 // import { getPayloadFromToken } from '../helpers/auth'
 import feedPicture from '../assets/photofeed.png'
-import { Link } from 'react-router-dom'
 
 const Explore = () => {
   const [profiles, setProfiles] = useState(null)
@@ -28,7 +27,9 @@ const Explore = () => {
     const setLikes = async () => {
       try {
         const token = window.localStorage.getItem('token')
-        console.log(event.target.id)
+        console.log('EVENT', event.target.id)
+        console.log('EVENT', event.target.name)
+        console.log(token)
         await axios.post(`/api/profiles/${event.target.id}/photos/${event.target.name}/likes`, formData,
           {
             headers: {
@@ -59,11 +60,9 @@ const Explore = () => {
                   return (
                     <div key={photo._id} className="exploreContent" >
                       <Feed.Summary>
-                        <Link to={`/profile/${user.id}`}>
-                          <Feed.User className="exploreUser">
-                            {user.username}
-                          </Feed.User >
-                        </Link>
+                        <Feed.User href={`/profile/${user.id}`} className="exploreUser">
+                          {user.username}
+                        </Feed.User >
                         <span className="exploreSpan"> added a photo: </span>
                         <p className="loaction">{photo.title} </p>
                       </Feed.Summary>
@@ -77,42 +76,37 @@ const Explore = () => {
                       <Feed.Date className="exploreDate">{new Date(photo.createdAt).toString()}
                       </Feed.Date>
                       <Feed.Meta>
-                        <Feed.Like >
-                          <div >
-                            <Button
-                              name={`${photo._id}`}
-                              id={`${user.id}`}
-                              onClick={handleLike}
-                              className="likeButton">
-                              <p className="likesArea">❤️  Likes {photo.likes.length}</p> 
-                            </Button>
-                            <Button
-                              id="commentsButton"
-                              onClick={() => setShowComments(!showComments)}
-                              name={`${photo.id}`}>
+                        <Feed.Like>
+                          <Button
+                            name={photo._id}
+                            id={`${user.id}`}
+                            onClick={handleLike}
+                            className="likeButton">
+                            <p className="likesArea">❤️  Likes {photo.likes.length}</p> 
+                          </Button>
+                          <Button
+                            id="commentsButton"
+                            onClick={() => setShowComments(!showComments)}
+                            name={`${photo.id}`}>
                               View comments
-                            </Button>
-                            {
-                              showComments ?
-                                photo.comments.map(comment => (
-                                  <div key={comment._id} className="pExplore">
-                                    {
-                                      <p  >
-                                        <Link to={`/profile/${user.id}`}>
-                                          <Icon.Group size="small">
-                                            <Icon size="big" name="circle outline" />
-                                            <Icon name="user" />
-                                          </Icon.Group>
-                                          {comment.text}
-                                        </Link>
-                                      </p>
-                                    }
-                                  </div>
-                                ))
-                                :
-                                <p></p>
-                            }
-                          </div>
+                          </Button>
+                          {
+                            showComments ?
+                              photo.comments.map(comment => (
+                                <div key={comment._id} className="pExplore">
+                                  {
+                                    <p  >
+                                      <Icon.Group href={`/profile/${user.id}`} size="small">
+                                        <Icon name="user" />
+                                      </Icon.Group>
+                                      {comment.text}
+                                    </p>
+                                  }
+                                </div>
+                              ))
+                              :
+                              <p></p>
+                          }
                         </Feed.Like>
                       </Feed.Meta>
                     </div>
