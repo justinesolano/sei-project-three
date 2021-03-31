@@ -1,51 +1,50 @@
+import axios from 'axios'
 import React, { useState } from 'react'
 import { ImageUploadField } from '../components/ImageUploadField'
-import Select from 'react-select'
+import { getPayloadFromToken } from '../helpers/auth'
+import { Header } from 'semantic-ui-react'
 
-const locationOptions = [
-  { longitude: -0.136420, latitude: 50.819520, location: 'London', label: 'London' },
-  { longitude: -2.136420, latitude: 1.819520, location: 'Antartiica', label: 'Antartica' },
-  { longitude: -1.136420, latitude: 2.819520, location: 'Spain', label: 'Spain' }
-]
 const AddPictureToProfile = () => {
 
   const [formdata, setFormdata] = useState({
     title: '',
     icon: '',
-    location: [],
-    photoImage: ''
+    locationName: '',
+    image: ''
   })
 
-
-  const handleChange = event => {
-    console.log(event.target.value)
-    setFormdata(event.target.value)
+  const handleChange = (event) => {
+    const name = event.target.name
+    const value = event.target.value
+    setFormdata({ ...formdata, [name]: value })
   }
 
-  const handleSubmit = event => {
-    console.log(event.value)
-  }
-
-  const handleMultiChange = (selected, name) => {
-    const values = selected ? selected.map(item => { 
-      item
+  const handleSubmit = async () => {
+    const profileId = getPayloadFromToken().sub
+    try {
+      await axios.post(`/api/profiles/${profileId}/photos`, formdata, {
+        headers: {
+          Authorization: `Bearer ${window.localStorage.getItem('token')}`
+        }
+      })
+    } catch (err) {
+      console.log(err)
     }
-    ) : []
-    setFormdata({ ...formdata, [name]: [...values] })
-    console.log(formdata)
   }
 
   const handleImageUrl = url => {
-    setFormdata({ ...formdata, photoImage: url })
+    setFormdata({ ...formdata, image: url })
   }
 
   return (
-    <main className="section">
-      <div className="columns is-mobile">
-        <div className="column is-6-tablet is-offset-3-tablet is-8-mobile is-offset-2-mobile box">
-          <form onSubmit={handleSubmit}>
-            <div className="field">
-              <label className="label">Title</label>
+    <main className="picture-page section">
+      <div className="container">
+        <div className="columns">
+          <form className="picture-content box column is-half is-offset-one-quarter" onSubmit={handleSubmit}>
+            <Header className="header" as="h2" textAlign="left" >
+              Post a picture
+            </Header><div className="field">
+              <label>Title</label>
               <div className="control">
                 <input
                   className="input"
@@ -56,7 +55,7 @@ const AddPictureToProfile = () => {
               </div>
             </div>
             <div className="field">
-              <label className="label">Icon</label>
+              <label>Icon</label>
               <div className="control">
                 <input
                   className="input"
@@ -67,18 +66,18 @@ const AddPictureToProfile = () => {
               </div>
             </div>
             <div className="field">
-              <label className="label">Location</label>
+              <label>Location</label>
               <div className="control">
-                <Select
-                  options={locationOptions}
-                  isMulti
-                  name="location"
-                  onChange={(selected) => handleMultiChange(selected, 'location')}
+                <input
+                  className="input"
+                  name="locationName"
+                  value={formdata.locationName}
+                  onChange={handleChange}
                 />
               </div>
             </div>
             <ImageUploadField
-              value={formdata.photoImage}
+              value={formdata.image}
               name="photoImage"
               handleImageUrl={handleImageUrl}
             />
