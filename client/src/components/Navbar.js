@@ -3,11 +3,8 @@ import { Link } from 'react-router-dom'
 import jetflixLogo from '../assets/jetflixlogo.png'
 import Select from 'react-select'
 import { continentOptions, suitableOptions, tagOptions } from './data/searchData'
-import { userIsAuthenticated } from '../helpers/auth'
+import { userIsAuthenticated, getPayloadFromToken } from '../helpers/auth'
 import { useHistory, useLocation } from 'react-router-dom'
-import axios from 'axios'
-// import user from '../../../backend/models/user'
-
 
 const groupedOptions = [
   { label: 'Continents', options: continentOptions },
@@ -58,64 +55,7 @@ const Navbar = () => {
     history.push('/')
   }
 
-
-  const [allProfiles, setAllProfiles] = useState(null)
-  
-  useEffect(() => {
-
-    const getAllProfiles = async () => {
-      const response = await axios.get('/api/profiles')
-      setAllProfiles(response.data)
-    }
-    getAllProfiles()
-  })
-
-  // const [myProfile, setMyProfile] = useState(null)
-
-  // useEffect(() => {
-  //   const handleMyProfile = async (event) => {
-  //     const id = event.target.name
-  //     const profileId = getPayloadFromToken().sub
-  //     try {
-  //       const { data } = await axios.get(`api/profiles/${id}`)
-  //       // myProfile.
-  //       setMyProfile.push(data)
-  //       await axios.post(`/api/profiles/${profileId}`, data, {
-  //         headers: {
-  //           Authorization: `Bearer ${window.localStorage.getItem('token')}`
-  //         }
-  //       }, [])
-  //     } catch (err) {
-  //       console.log(err)
-  //     }
-  //   }
-  //   console.log(handleMyProfile)
-  // }, [])
-
-
-  // const response = await axios.get('/api/profiles')
-  // myProfile(response.data)
-  // response.data.map(profile => {
-  //   if (profile.id === getPayloadFromToken().sub){
-  //     setMyProfile(profile.)
-  //   }
-  // })
-
-
-  // const [myProfile, setMyProfile] = useState('')
-
-  // const handleMyProfile = async event => {
-  //   setMyProfile(event.target.name)
-  //   console.log('>>>', myProfile, event.target)
-  //   userIsOwner(userId)
-  //   const userId = payload.sub
-  //   await axios.get(`/api/myprofile/${userId}`)
-  // }
-
-  // const handleMyProfile = async () => {
-  //   const response = await axios.post('/api/profiles')
-  //   window.localStorage.setItem('token', response.data.token)
-  // }
+  const profileId = getPayloadFromToken().sub
 
   return (
     <nav className={`navbar is-fixed-top is-black ${show && 'is-info'}`} role="navigation" aria-label="main navigation">
@@ -152,7 +92,7 @@ const Navbar = () => {
               }
               { userIsAuthenticated() &&
               <>
-                <Link to='/myprofile' className="navbar-item" name={allProfiles} >
+                <Link to={`/profile/${profileId}`} className="navbar-item" >
               My Profile
                 </Link>
                 <Link to="/home" className="navbar-item">

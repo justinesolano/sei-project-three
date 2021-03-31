@@ -10,7 +10,6 @@ import Explore from './components/Explore'
 import ExploreDestination from './components/ExploreDestination'
 import UserProfile from './components/UserProfile'
 import AddPictureToProfile from './components/AddPictureToProfile'
-import MyProfile from './components/MyProfile'
 import Map from './components/Map'
 const App = () => {
 
@@ -39,7 +38,7 @@ const App = () => {
         <Route exact path="/feed">
           <ExploreDestination />
         </Route>
-        <Route exact path='/userprofile/:id'> 
+        <Route exact path='/profile/:id'> 
           <UserProfile />
         </Route>
         <Route exact path='/userprofile/:id/map'>
@@ -47,9 +46,6 @@ const App = () => {
         </Route>
         <Route path='/addpicturetoprofile'>
           <AddPictureToProfile /> 
-        </Route>
-        <Route exact path='/myprofile/:id'>
-          <MyProfile /> 
         </Route>
       </Switch>
     </BrowserRouter>

@@ -1,11 +1,12 @@
 // $jetflixbg: '../assets/jetflixbackgroundfinal.jpg';
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300&display=swap'); // feed
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,500&display=swap'); // explore 
 
 $profilefont: 'Montserrat', sans-serif;
 
 @import '~bulma/bulma.sass';
 @import 'semantic-ui-css/semantic.min.css';
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,500&display=swap');
+
 
 // EXPLORE DESTINATIONS
 .feed-title{
@@ -166,8 +167,7 @@ element.style {
    }
 }
 
-
-// ! HOME
+// HOME
 
 .home-page {
   background-color: black;
