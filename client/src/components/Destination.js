@@ -4,12 +4,9 @@ import { useParams } from 'react-router-dom'
 
 const Destination = () => {
   const photoKey = process.env.REACT_APP_PEXELS_ACCESS_TOKEN
-  console.log(photoKey)
   const [apiPhotos, setApiPhotos] = useState(null)
   const [videos, setVideos] = useState(null)
   const { destination } = useParams()
-
-  console.log('ID', destination)
 
   useEffect(() => {
     try {
@@ -17,7 +14,7 @@ const Destination = () => {
         const { data } = await axios.get(
           `https://api.pexels.com/videos/search?query=${destination}`, 
           {
-            headers: { Authorization: '563492ad6f91700001000001e598b2cbf2844705b19005a497565bfe' }
+            headers: { Authorization: photoKey }
           }
         )
         setVideos(data.videos)
@@ -27,7 +24,7 @@ const Destination = () => {
         const { data } = await axios.get(
           `https://api.pexels.com/v1/search?query=${destination}`, 
           {
-            headers: { Authorization: '563492ad6f91700001000001e598b2cbf2844705b19005a497565bfe' }
+            headers: { Authorization: photoKey }
           }
         )
         setApiPhotos(data.photos)

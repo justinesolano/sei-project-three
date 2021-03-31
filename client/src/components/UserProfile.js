@@ -42,9 +42,6 @@ const UserProfile = () => {
     getData()
   }, [])
 
-
-
-
   if (!profile) return null
 
 
