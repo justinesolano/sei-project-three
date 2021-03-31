@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-import photoFeed from '../assets/photofeed.png'
+import explore from '../assets/explore.png'
 import DestinationCard from './DestinationCard'
 
 const ExploreDestination = () => {
 
   const [userPhotos, setUserPhotos] = useState(null)
+  // const params = useParams()
+
 
   useEffect(() => {
     const getTheData = async () => {
@@ -21,7 +23,7 @@ const ExploreDestination = () => {
   return (
     <>
       <Link to={'/feed'} className="feed-title">
-        <img src={photoFeed} className="photo-feed-title"/>
+        <img src={explore} className="photo-feed-title"/>
       </Link>
       <div className="ui explore-destination-grid tile is-ancestor is-gapless"
       >

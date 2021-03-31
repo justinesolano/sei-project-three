@@ -152,17 +152,19 @@ body {
   background-image: url('../assets/jetflixbg.jpg');
   background-size: cover;
   background-position: center;
+  font-family: Arial, Helvetica, sans-serif;
   height: 100vh;
   .ui.left.aligned.header {
     color: white;
   }
   .login-content,
   .register-content { 
-    margin-top: 10%;
+    margin-top: 15%;
     padding: 20px;
     background-color: rgba(0,0,0,.5);
     font-weight: bold;
     color: white;
+    height: 400px;
   }
   .red.button {
     margin-bottom: 10px;
