@@ -6,6 +6,11 @@ $profilefont: 'Montserrat', sans-serif;
 @import '~bulma/bulma.sass';
 @import 'semantic-ui-css/semantic.min.css';
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,500&display=swap');
+<<<<<<< HEAD
+=======
+
+// @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,500&display=swap');
+>>>>>>> development
 
 // EXPLORE DESTINATIONS
 .feed-title{
@@ -46,13 +51,17 @@ align-content: center;
   box-sizing: border-box;
 }
 
+body {
+  background-color: black;
+}
+
 .css-2b097c-container {
   min-width: 300px;
 }
 
 //EXPLORE.JS
 
- .explore {
+.explore {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -60,11 +69,11 @@ align-content: center;
   background-image: url('../assets/blackwhitemoved8.jpg');
 }
 .exploreContent {
-   border: 4px black solid;
-   border-radius: 25px;
-   font-size: 15px;
-   padding: 0 10px 10px 10px;
- }
+  border: 4px black solid;
+  border-radius: 25px;
+  font-size: 15px;
+  padding: 0 10px 10px 10px;
+}
 
 .exploreDate {
   padding: 7px 0;
@@ -189,7 +198,7 @@ element.style {
   }
   .icon {
     width: 10px;
-   }
+  }
 }
 
 
@@ -242,23 +251,27 @@ element.style {
     p {
       margin-top: 5px;
     }
+    .home-detail-tags {
+      width: 35vw;
+    }
     .rating,
     .button {
       margin-top: 20px;
     }
     img,
     div {
-      margin: 20px;
+      margin: 10px;
       width: 70vw;
+      margin-right: 30px;
     }
     img {
-      max-height: 500px;
+      max-height: 400px;
       object-fit: cover;
     }
     .home-detail-info-close {
       position: absolute;
-      top: 20px;
-      right: 15px;
+      top: 10px;
+      right: 20px;
     }
     .rating {
       display: inline;
@@ -551,12 +564,12 @@ element.style {
 
 
 .user-profile { 
-max-width:780px;
+max-width:1000px;
 margin:auto;
-margin-top:60px;
+margin-top:120px;
   .column-user-profile { 
-
-    border:  solid white;
+    height:300px;
+    width: 300px;
   }
   .user-profile-div-like { 
     display: flex;
@@ -565,6 +578,19 @@ margin-top:60px;
   .button-fit-screen { 
     width: auto;
 
+  }
+  .user-profile-header{ 
+    display: flex;
+    justify-content: space-between;
+    max-width: 800px;
+  }
+  .user-profile-left-header { 
+    display: flex;
+    width: 250px;;
+    justify-content: space-between;
+  }
+  .title { 
+    padding-top: 100px;
   }
 
 

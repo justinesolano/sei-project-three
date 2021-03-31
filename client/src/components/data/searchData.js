@@ -25,16 +25,3 @@ export const tagOptions = [
   { value: 'Resorts', label: 'Resorts' },
   { value: 'Wedding Destination', label: 'Wedding Destination' }
 ]
-
-export const continentOptions = [
-  { value: 'Europe', label: 'Europe' },
-  { value: 'Africa', label: 'Africa' },
-  { value: 'Australia & Pacific', label: 'Australia & Pacific' },
-  { value: 'Central America', label: 'Central America' },
-  { value: 'Caribbean', label: 'Caribbean' },
-  { value: 'Middle East', label: 'Middle East' },
-  { value: 'Asia', label: 'Asia' },
-  { value: 'North America', label: 'North America' },
-  { value: 'South America', label: 'South America' },
-  { value: 'Antartica', label: 'Antartica' }
-]

@@ -11,6 +11,7 @@ import ExploreDestination from './components/ExploreDestination'
 import UserProfile from './components/UserProfile'
 import AddPictureToProfile from './components/AddPictureToProfile'
 import Map from './components/Map'
+import AddCommentsToProfile from './components/AddCommentsToProfile'
 const App = () => {
 
   return (
@@ -46,6 +47,9 @@ const App = () => {
         </Route>
         <Route path='/addpicturetoprofile'>
           <AddPictureToProfile /> 
+        </Route>
+        <Route path='/userprofile/:id/showcomments'>
+          <AddCommentsToProfile /> 
         </Route>
       </Switch>
     </BrowserRouter>

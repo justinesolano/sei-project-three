@@ -40,6 +40,7 @@ const Home = () => {
             user.myTags.map(tag => {
               destinationsArray.map(destination => {
                 if (destination.tags.includes(tag)) myDestinationArray.push(destination)
+                if (destination.suitableFor.includes(tag)) myDestinationArray.push(destination)
               })
             })
           }
@@ -80,13 +81,6 @@ const Home = () => {
   // Close info popup
   const handleInfoButtonClose = () => {
     setDetailInfoId('')
-    setRating({
-      one: 'icon',
-      two: 'icon',
-      three: 'icon',
-      four: 'icon',
-      five: 'icon'
-    })
   }
 
   // Post new rating
@@ -126,15 +120,23 @@ const Home = () => {
                     <p>Country: {destination.country}</p>
                     <p>Currency: {destination.currency}</p>
                     <p>Language: {destination.language}</p>
-                    <p>Suitable For: {destination.suitableFor.map((suitable, index) => {
-                      return <li key={index}>{suitable}</li>
-                    })}</p>
-                    <p>Tags: {destination.tags.map((tag, index) => {
-                      return <li key={index}>{tag}</li>
-                    })}</p>
-                    <p>Highlights: {destination.highlights.map((highlight, index) => {
-                      return <li key={index}>{highlight}</li>
-                    })}</p>
+                    <div className="columns">
+                      <div className="column home-detail-tags">
+                        <p>Suitable For: {destination.suitableFor.map((suitable, index) => {
+                          return <li key={index}>{suitable}</li>
+                        })}</p>
+                      </div>
+                      <div className="column home-detail-tags">
+                        <p>Tags: {destination.tags.map((tag, index) => {
+                          return <li key={index}>{tag}</li>
+                        })}</p>
+                      </div>
+                      <div className="column home-detail-tags">
+                        <p>Highlights: {destination.highlights.map((highlight, index) => {
+                          return <li key={index}>{highlight}</li>
+                        })}</p>
+                      </div>
+                    </div>
                     <div className="ui star rating" role="radiogroup" onClick={handleRating}
                       style={{
                         'backgroundColor': 'rgba(225, 225, 225, 0.6)',
@@ -159,7 +161,7 @@ const Home = () => {
       <div className="hero">
         <img src={destinations[hero].image}/>
         <div className="columns">
-          <div className="hero-info column is-one-third-desktop is-half-tablet is-full-mobile">
+          <div className="hero-info column is-half-tablet is-full-mobile">
             <h1 className="title">{destinations[hero].name}</h1>
             <p>{destinations[hero].description}</p>
             <div className="ui star rating" role="radiogroup" onClick={handleRating}
@@ -204,31 +206,14 @@ const Home = () => {
           :
           <div></div>
         }
-        {tagDestinations === [] ?
+        {tagDestinations &&
           <>
-            <h3>Recommended for you</h3>
-            <div className="home-container">
-              <Slider {...sliderSettings} className="slider">
-                {tagDestinations.map(destination => {
-                  return <div key={destination._id} className="home-item">
-                    <img src={destination.image} />
-                    <div className="home-destination-info">
-                      <h4>{destination.name}</h4>
-                      <p><i>{destination.country}</i></p>
-                      <Button className="button secondary" onClick={handleInfoButton} name={`${destination.id}`}>More info</Button>
-                    </div>
-                  </div>
-                })}
-              </Slider>
-            </div>
-          </>
-          :
-          <>
-            <h3>Recommended</h3>
-            <div className="home-container">
-              <Slider {...sliderSettings} className="slider">
-                {destinations.map(destination => {
-                  if (destination.currency === 'Euro')
+            {tagDestinations.length > 0 &&
+            <>
+              <h3>Recommended for you</h3>
+              <div className="home-container">
+                <Slider {...sliderSettings} className="slider">
+                  {tagDestinations.map(destination => {
                     return <div key={destination._id} className="home-item">
                       <img src={destination.image} />
                       <div className="home-destination-info">
@@ -237,11 +222,29 @@ const Home = () => {
                         <Button className="button secondary" onClick={handleInfoButton} name={`${destination.id}`}>More info</Button>
                       </div>
                     </div>
-                })}
-              </Slider>
-            </div>
+                  })}
+                </Slider>
+              </div>
+            </>
+            }
           </>
         }
+        <h3>Must See</h3>
+        <div className="home-container">
+          <Slider {...sliderSettings} className="slider">
+            {destinations.map(destination => {
+              if (destination.currency === 'Euro')
+                return <div key={destination._id} className="home-item">
+                  <img src={destination.image} />
+                  <div className="home-destination-info">
+                    <h4>{destination.name}</h4>
+                    <p><i>{destination.country}</i></p>
+                    <Button className="button secondary" onClick={handleInfoButton} name={`${destination.id}`}>More info</Button>
+                  </div>
+                </div>
+            })}
+          </Slider>
+        </div>
         <h3>Trending now</h3>
         <div className="home-container">
           <Slider {...sliderSettings} className="slider">
