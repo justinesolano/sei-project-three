@@ -71,7 +71,6 @@ const UserProfile = () => {
 
 
   return (
-    <>
     <div className="everythingProfile">
 
       <div className='user-profile is-fullheight-with-navbar ' >
