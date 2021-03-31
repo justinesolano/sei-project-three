@@ -59,6 +59,11 @@ const Home = () => {
     const profileId = getPayloadFromToken().sub
     const myNewArray = myList
     try {
+      myList.map(item => {
+        if (item.id === event.target.name) {
+          return
+        }
+      })
       const { data } = await axios.get(`/api/destinations/${id}`)
       myNewArray.push(data)
       setMyList({ ...myNewArray })
@@ -68,19 +73,20 @@ const Home = () => {
         }
       }, [])
     } catch (err) {
-      console.log(err)
-      window.alert('You need to login to add to your list')
+      window.alert('Cannot add to My List')
     }
   }
   
   // Open info popup
   const handleInfoButton = (event) => {
     setDetailInfoId(event.target.name)
+    setMyList(myNewList)
   }
 
   // Close info popup
   const handleInfoButtonClose = () => {
     setDetailInfoId('')
+    setMyList(myNewList)
   }
 
   // Post new rating
@@ -137,7 +143,7 @@ const Home = () => {
                         })}</p>
                       </div>
                     </div>
-                    <div className="ui star rating" role="radiogroup" onClick={handleRating}
+                    <div className="ui large star rating" role="radiogroup" clearable='true' onClick={handleRating}
                       style={{
                         'backgroundColor': 'rgba(225, 225, 225, 0.6)',
                         'padding': '10px'
@@ -149,6 +155,7 @@ const Home = () => {
                       <i tabIndex="5" aria-checked="false" aria-posinset="5" aria-setsize="5" className={destination.avgRating > 4 ? 'active icon' : `${rating.five} icon`} role="radio" id={destination.id}></i>
                     </div>
                     <Button className="button secondary" href={`/explore/${destination.name}`}>Explore</Button>
+                    <Button className="button secondary" name={destination.id} onClick={handleMyList}>My List</Button>
                   </div>
                 </div>
               )
@@ -164,7 +171,7 @@ const Home = () => {
           <div className="hero-info column is-half-tablet is-full-mobile">
             <h1 className="title">{destinations[hero].name}</h1>
             <p>{destinations[hero].description}</p>
-            <div className="ui star rating" role="radiogroup" onClick={handleRating}
+            <div className="ui large star rating" role="radiogroup" onClick={handleRating}
               style={{
                 'backgroundColor': 'rgba(225, 225, 225, 0.6)',
                 'padding': '10px'
@@ -177,7 +184,7 @@ const Home = () => {
             </div>
             <br />
             <Button className="button secondary" onClick={handleInfoButton} name={`${destinations[hero].id}`}>More info</Button>
-            <Button className="button secondary" name={destinations[hero].id} onClick={handleMyList}>My List</Button>
+            {/* <Button className="button secondary" name={destinations[hero].id} onClick={handleMyList}>My List</Button> */}
           </div>
         </div>
       </div>
