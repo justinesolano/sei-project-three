@@ -63,13 +63,15 @@ body {
   flex-direction: column;
   align-items: center;
   font-family: 'Montserrat', sans-serif;
-  background-image: url('../assets/blackwhitemoved8.jpg');
+  // background-image: url('../assets/blackwhitemoved8.jpg');
+  background-color: black;
 }
 .exploreContent {
   border: 4px black solid;
   border-radius: 25px;
   font-size: 15px;
-  padding: 0 10px 10px 10px;
+  padding: 10px 40px;
+  background-color: white;
 }
 
 .exploreDate {
@@ -92,6 +94,9 @@ body {
   font-size: 15px;
 }
 
+.location {
+  max-width: 10px;
+}
 
 
 #commentsButton {
@@ -104,8 +109,12 @@ body {
   width: 450px;
 }
 .summary {
-  padding: 15px 0;
+  max-width: 40vw;
+  padding: 10px 0;
 }
+
+//end of explore
+
 
 .landing.ui.grid {
   justify-content: center;
@@ -118,10 +127,23 @@ body {
   margin-top: 20px;
 }
 //* user profile 
+
+
 .photo-userprofile { 
   width: 150px;
   display: inline;
 }
+
+.user-profile.is-fullheight-with-navbar {
+  background-color: black;
+}
+
+.userCard {
+  border: 5px white solid;
+  border-radius: 25px;
+}
+
+
 
 // DESTINATION CARD
 .card {
@@ -339,23 +361,7 @@ element.style {
   }
 }
 
-// DESTINATION PAGE
 
-.destination-detail {
-  img {
-    max-height: 75vh;
-  }
-  .destination-detail-info {
-    z-index: 10;
-    color: white;
-    position: absolute;
-    display: block;
-    bottom: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 30px;
-  }
-}
 
 // DESTINATION CARD
 .card {
@@ -584,15 +590,40 @@ margin-top:120px;
     display: flex;
     justify-content: space-between;
     max-width: 800px;
+
   }
   .user-profile-left-header { 
     display: flex;
-    width: 250px;;
+    width: 320px;
     justify-content: space-between;
+    margin-bottom: 10px;
   }
   .title { 
-    padding-top: 100px;
+    padding-top: 25px;
+    padding-left:10px;
+  }
+  .round-the-image { 
+    border-radius: 15px;
+  }
+
+  .explorePicture { 
+    margin-top: 20px;
   }
 
 
+}
+
+.show-comments {
+  margin-top: 100px; 
+  .card-width { 
+  max-width: 600px;
+}
+  .card-image.card-width.column { 
+  background-color: white;
+  border: solid grey;
+  border-radius: 25px;
+}
+  .big-heart { 
+    font-size: x-large;
+}
 }
