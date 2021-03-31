@@ -570,10 +570,14 @@ element.style {
 }
 
 
-.user-profile { 
+.everythingProfile { 
+  height:100vh;
+  background-color: black;
+.user-profile{ 
 max-width:1000px;
 margin:auto;
-margin-top:120px;
+margin-top:64px;}
+
   .column-user-profile { 
     height:300px;
     width: 300px;
@@ -590,6 +594,7 @@ margin-top:120px;
     display: flex;
     justify-content: space-between;
     max-width: 800px;
+    padding-top: 10px;
 
   }
   .user-profile-left-header { 
@@ -597,10 +602,13 @@ margin-top:120px;
     width: 320px;
     justify-content: space-between;
     margin-bottom: 10px;
+    
   }
   .title { 
     padding-top: 25px;
     padding-left:10px;
+    color:#E50914;
+    font-size: 40px;
   }
   .round-the-image { 
     border-radius: 15px;
@@ -611,19 +619,31 @@ margin-top:120px;
   }
 
 
+
 }
 
+.body-show-comments{ 
+  background-color: black;
 .show-comments {
   margin-top: 100px; 
   .card-width { 
   max-width: 600px;
+  }
+}
+.columns { 
+  background-color: black;
+}
+
+.column { 
+  background-color: white;
 }
   .card-image.card-width.column { 
-  background-color: white;
   border: solid grey;
   border-radius: 25px;
+  padding: 10px;
 }
   .big-heart { 
     font-size: x-large;
+    pointer-events: none;
 }
 }
