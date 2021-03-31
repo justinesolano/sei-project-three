@@ -72,6 +72,8 @@ const UserProfile = () => {
 
   return (
     <>
+    <div className="everythingProfile">
+
       <div className='user-profile is-fullheight-with-navbar ' >
         <div className='columns user-profile-header'>
           <div className='user-profile-left-header'>
@@ -104,7 +106,7 @@ const UserProfile = () => {
         </div>
       </div>
 
-    </>
+    </div>
   )
 }
 
