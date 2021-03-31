@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import { Button, Feed, Icon } from 'semantic-ui-react'
 import axios from 'axios'
-
-import explorePicture from '../assets/explore.png'
+// import { getPayloadFromToken } from '../helpers/auth'
+import feedPicture from '../assets/photofeed.png'
 import { Link } from 'react-router-dom'
 
 const Explore = () => {
   const [profiles, setProfiles] = useState(null)
   useEffect(() => {
     const getData = async () => {
-      const { data } = await axios.get('/api/profiles')
+      const { data } = await axios.get('/api/profiles/')
       setProfiles(data)
       console.log(data)
     }
@@ -20,12 +20,37 @@ const Explore = () => {
   const [showComments, setShowComments] = useState(false)
 
 
+  const [formData] = useState({
+    like: true
+  })
+
+  const handleLike = async event => {
+    const setLikes = async () => {
+      try {
+        const token = window.localStorage.getItem('token')
+        console.log(event.target.id)
+        await axios.post(`/api/profiles/${event.target.id}/photos/${event.target.name}/likes`, formData,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`
+            }
+          })
+        window.location.reload()
+
+      } catch (err) {
+        window.alert('You cannot like the photo, you are not logged in. 😬 ')
+      }
+    }
+    setLikes()
+  }
+
+
   if (!profiles) return null
 
   return (
     <Feed >
       <div className="explore">
-        <img src={explorePicture} className="explorePicture"></img>
+        <img src={feedPicture} className="explorePicture"></img>
         {profiles.map((user) => {
           return (
             <Feed.Event key={user.id}>
@@ -53,9 +78,14 @@ const Explore = () => {
                       </Feed.Date>
                       <Feed.Meta>
                         <Feed.Like >
-                          <Icon name="like" />
-                        Likes {photo.likes.length}
                           <div >
+                            <Button
+                              name={`${photo._id}`}
+                              id={`${user.id}`}
+                              onClick={handleLike}
+                              className="likeButton">
+                              <p className="likesArea">❤️  Likes {photo.likes.length}</p> 
+                            </Button>
                             <Button
                               id="commentsButton"
                               onClick={() => setShowComments(!showComments)}

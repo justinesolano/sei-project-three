@@ -34,12 +34,6 @@ const UserProfile = () => {
   // }
 
 
-  // handle post a like 
-  // const [likes, getLikes] = useState([])
-  // const [arrayLikes, getArrayLikes] = useState([])
-  // const [testLikes, getTestLikes] = useState(0)
-  // console.log(getTestLikes)
-  // const setArray = []
   useEffect(() => {
     const getData = async () => {
       const { data } = await axios.get(`/api/profiles/${id}`)
@@ -47,22 +41,6 @@ const UserProfile = () => {
     }
     getData()
   }, [])
-  // const [FormData] = useState({
-  //   like: true
-  // })
-  // const [eventName, setEventName] = useState('')
-
-  // const handleLike = async event => {
-  //   setEventName(event.target.name)
-  //   console.log('>>>', eventName, event.target)
-  //   const token = window.localStorage.getItem('token')
-  //   await axios.post(`/api/profiles/${id}/photos/${event.target.name}/likes`, FormData,
-  //     {
-  //       headers: {
-  //         Authorization: `Bearer ${token}`
-  //       }
-  //     })
-  // }
 
 
 
@@ -71,9 +49,7 @@ const UserProfile = () => {
 
 
   return (
-    <>
-    <div className="everythingProfile">
-
+    <div className='everythingProfile'>
       <div className='user-profile is-fullheight-with-navbar ' >
         <div className='columns user-profile-header'>
           <div className='user-profile-left-header'>
@@ -82,7 +58,7 @@ const UserProfile = () => {
             </figure>
             <h1 className='title'> &nbsp; &nbsp; {profile.username}</h1>
           </div>
-          <img src={profilePicture} className="explorePicture is-hidden-mobile		"></img>
+          <img src={profilePicture} className='explorePicture is-hidden-touch	'></img>
         </div>
         <div className='columns is-multiline  '>
           {profile.photos.map(photo => {
@@ -91,11 +67,11 @@ const UserProfile = () => {
                 <div className=''>                <div
                   key={photo._id}
                   title={`${profile.username}`}
-                  className="has-tooltip-bottom"
+                  className='has-tooltip-bottom'
                   data-tooltip=
                     {`
                       📍 ${photo.locationName} ❤️ Likes: ${photo.likes.length} 💬 View comments`}>
-                  <img src={photo.image} className="picture card-image column column-user-profile button" />
+                  <img src={photo.image} className='picture card-image column column-user-profile button' />
                 </div>
 
                 </div>
