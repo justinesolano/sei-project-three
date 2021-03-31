@@ -5,7 +5,6 @@ import App from './App'
 import 'semantic-ui-css/semantic.min.css'
 import 'mapbox-gl/dist/mapbox-gl.css'
 import '../node_modules/bulma/bulma.sass'
-import '../node_modules/react-tooltip/dist/index.js'
 
 
 ReactDOM.render(<App />, document.getElementById('root'))

@@ -2,15 +2,21 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import jetflixLogo from '../assets/jetflixlogo.png'
 import Select from 'react-select'
-import { continentOptions, suitableOptions, tagOptions } from './data/searchData'
+import { suitableOptions, tagOptions } from './data/searchData'
 import { userIsAuthenticated, getPayloadFromToken } from '../helpers/auth'
 import { useHistory, useLocation } from 'react-router-dom'
 
 const groupedOptions = [
-  { label: 'Continents', options: continentOptions },
   { label: 'Suitable For', options: suitableOptions },
   { label: 'Tags', options: tagOptions }
 ]
+
+const customStyles = {
+  option: (provided, state) => ({
+    ...provided,
+    color: state.isSelected ? 'grey' : 'darkgrey'
+  })
+}
 
 const Navbar = () => {
 
@@ -35,8 +41,8 @@ const Navbar = () => {
   useEffect(() => {
     window.addEventListener('scroll', () => {
       if (window.scrollY > 1) {
-        handleShow(true)
-      } else handleShow(false)
+        handleShow('is-transparent')
+      } else handleShow('is-black')
     })
     return () => {
       window.removeEventListener('scroll', window)
@@ -58,7 +64,7 @@ const Navbar = () => {
   const profileId = getPayloadFromToken().sub
 
   return (
-    <nav className={`navbar is-fixed-top is-black ${show && 'is-info'}`} role="navigation" aria-label="main navigation">
+    <nav className={`navbar is-fixed-top is-black is-transparent ${show && 'is-black'}`} role="navigation" aria-label="main navigation">
       <div className="navbar-brand">
         <Link to="/" className="navbar-item" >
           <img src={jetflixLogo} className="jetflix" />
@@ -113,6 +119,7 @@ const Navbar = () => {
           <div className="navbar-item">
             <Select className="search-bar-link"
               options={groupedOptions}
+              styles={customStyles}
               isMulti
               name="search"
               placeholder="Find your paradise here"
