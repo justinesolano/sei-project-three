@@ -81,7 +81,7 @@ const UserProfile = () => {
         <div className='columns is-multiline  '>
           {profile.photos.map(photo => {
             return (
-              <Link key={photo._id} to={`/userprofile/${profile._id}/showcomments`}>
+              <Link key={photo._id} to={`/profile/${profile._id}/showcomments`}>
                 <div className=''>
                   <img src={photo.image} className="picture card-image column column-user-profile" />
                 </div>

@@ -48,7 +48,7 @@ const App = () => {
         <Route path='/addpicturetoprofile'>
           <AddPictureToProfile /> 
         </Route>
-        <Route path='/userprofile/:id/showcomments'>
+        <Route path='/profile/:id/showcomments'>
           <AddCommentsToProfile /> 
         </Route>
       </Switch>
