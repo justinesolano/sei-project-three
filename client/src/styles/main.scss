@@ -339,23 +339,7 @@ element.style {
   }
 }
 
-// DESTINATION PAGE
 
-.destination-detail {
-  img {
-    max-height: 75vh;
-  }
-  .destination-detail-info {
-    z-index: 10;
-    color: white;
-    position: absolute;
-    display: block;
-    bottom: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 30px;
-  }
-}
 
 // DESTINATION CARD
 .card {
