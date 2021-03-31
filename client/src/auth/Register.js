@@ -2,22 +2,44 @@ import React, { useState } from 'react'
 import { Button, Header } from 'semantic-ui-react'
 import { useHistory } from 'react-router'
 import axios from 'axios'
+import Select from 'react-select'
+import { suitableOptions, tagOptions } from '../components/data/searchData'
+
 const Register = () => {
   const [formData, setFormData] = useState({
     username: '',
     email: '',
     password: '',
-    passwordConfirmation: ''
+    passwordConfirmation: '',
+    myTags: []
   })
 
   const [errors, setErrors] = useState('')
 
   const history = useHistory()
 
+  const groupedOptions = [
+    { label: 'Suitable For', options: suitableOptions },
+    { label: 'Tags', options: tagOptions }
+  ]
+
+  const customStyles = {
+    option: (provided, state) => ({
+      ...provided,
+      color: state.isSelected ? 'grey' : 'darkgrey'
+    })
+  }
+
   const handleChange = event => {
     const newFormData = { ...formData, [event.target.name]: event.target.value }
     setFormData(newFormData)
   }
+
+  const handleMultiChange = (selected) => {
+    const values = selected ? selected.map(item => item.value) : []
+    setFormData({ ...formData, myTags: [...values] })
+  }
+
   const handleSubmit = async event => {
     try {
       event.preventDefault()
@@ -40,7 +62,7 @@ const Register = () => {
             Register
             </Header>
             <div className="field">
-              <p className="control has-icons-left has-icons-right">
+              <p className="control has-icons-right">
                 <input
                   className={`input ${errors}`}
                   type="email" 
@@ -49,16 +71,10 @@ const Register = () => {
                   onChange={handleChange}
                   value={formData.email}
                 />
-                <span className="icon is-small is-left">
-                  <i className="fas fa-envelope"></i>
-                </span>
-                <span className="icon is-small is-right">
-                  <i className="fas fa-check"></i>
-                </span>
               </p>
             </div>
             <div className="field">
-              <p className="control has-icons-left has-icons-right">
+              <p className="control has-icons-right">
                 <input 
                   className={`input ${errors}`}
                   type="text" 
@@ -67,16 +83,10 @@ const Register = () => {
                   onChange={handleChange}
                   value={formData.username}
                 />
-                <span className="icon is-small is-left">
-                  <i className="fas fa-envelope"></i>
-                </span>
-                <span className="icon is-small is-right">
-                  <i className="fas fa-check"></i>
-                </span>
               </p>
             </div>
             <div className="field">
-              <p className="control has-icons-left">
+              <p className="control has-icons-right">
                 <input 
                   className={`input ${errors}`}
                   type="password" 
@@ -85,13 +95,10 @@ const Register = () => {
                   value={formData.password}
                   onChange={handleChange}
                 />
-                <span className="icon is-small is-left">
-                  <i className="fas fa-lock"></i>
-                </span>
               </p>
             </div>
             <div className="field">
-              <p className="control has-icons-left">
+              <p className="control has-icons-right">
                 <input 
                   className={`input ${errors}`}
                   type="password" 
@@ -100,11 +107,16 @@ const Register = () => {
                   value={formData.passwordConfirmation}
                   onChange={handleChange}
                 />
-                <span className="icon is-small is-left">
-                  <i className="fas fa-lock"></i>
-                </span>
               </p>
             </div>
+            <Select className="search-bar-link"
+              options={groupedOptions}
+              styles={customStyles}
+              isMulti
+              name="search"
+              placeholder="Pick your favourite destinations"
+              onChange={(selected) => handleMultiChange(selected, 'search')}
+            />
             <Button color='red' fluid size='large' type='submit'>
                 Register
             </Button> 

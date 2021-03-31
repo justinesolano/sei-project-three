@@ -2,11 +2,11 @@ export const sliderSettings = {
   arrows: true,
   dots: false,
   infinite: false,
-  speed: 1000,
+  speed: 2000,
   slidesToShow: 4,
   slidesToScroll: 2,
   initialSlide: 0,
-  autoplay: false,
+  autoplay: true,
   focusOnSelect: true,
   dragable: true,
   responsive: [
@@ -15,8 +15,7 @@ export const sliderSettings = {
       settings: {
         slidesToShow: 3,
         slidesToScroll: 1,
-        infinite: true,
-        dots: true
+        initialSlide: 1
       }
     },
     {

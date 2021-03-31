@@ -30,7 +30,8 @@ const userSchema = new mongoose.Schema({
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   photos: [photoSchema],
-  myList: { type: Array, unique: true }
+  myList: { type: Array, unique: true },
+  myTags: { type: Array, unique: true }
 })
 
 // * Remove password from user when populating

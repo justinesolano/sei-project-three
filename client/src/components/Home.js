@@ -3,13 +3,14 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Button } from 'semantic-ui-react'
 import Slider from 'react-slick'
-import { sliderSettings } from '../components/slider/settings'
+import { sliderSettings } from './Home/SliderSettings'
 import { getPayloadFromToken } from '../helpers/auth'
+
 
 const Home = () => {
 
   const [destinations, setDestinations] = useState(null)
-  const [users, setUsers] = useState(null)
+  const [tagDestinations, setTagDestinations] = useState(null)
   const [myList, setMyList] = useState(null)
   const [myNewList, setMyNewList] = useState(null)
   const [hero, setHero] = useState(0)
@@ -22,38 +23,34 @@ const Home = () => {
     five: 'icon'
   })
 
-  // GET Destination Data
-  useEffect(() => {
-    const getData = async () => {
-      try {
-        const response = await axios.get('/api/destinations')
-        setDestinations(response.data)
-        setHero(parseFloat(Math.floor(Math.random() * response.data.length)))
-      } catch (err) {
-        console.log(err)
-      }
-    }
-    getData()
-  }, [])
-
-  // GET User Profiles
+  // GET Destination Data & GET User Profiles
   useEffect(() => {
     const getUsers = async () => {
+      const myDestinationArray = []
       try {
+        const { data } = await axios.get('/api/destinations')
+        setDestinations(data)
+        const destinationsArray = data
+        setHero(parseFloat(Math.floor(Math.random() * data.length)))
         const response = await axios.get('/api/profiles')
-        setUsers(response.data)
         response.data.map(user => {
           if (user.id === getPayloadFromToken().sub) {
             setMyNewList(user.myList)
             setMyList(user.myList)
+            user.myTags.map(tag => {
+              destinationsArray.map(destination => {
+                if (destination.tags.includes(tag)) myDestinationArray.push(destination)
+                if (destination.suitableFor.includes(tag)) myDestinationArray.push(destination)
+              })
+            })
           }
         })
+        setTagDestinations(myDestinationArray)
       } catch (err) {
         console.log(err)
       }
     }
     getUsers()
-    console.log(users)
   }, [])
 
   // POST new items to My List
@@ -72,6 +69,7 @@ const Home = () => {
       }, [])
     } catch (err) {
       console.log(err)
+      window.alert('You need to login to add to your list')
     }
   }
   
@@ -83,32 +81,28 @@ const Home = () => {
   // Close info popup
   const handleInfoButtonClose = () => {
     setDetailInfoId('')
-    setRating({
-      one: 'icon',
-      two: 'icon',
-      three: 'icon',
-      four: 'icon',
-      five: 'icon'
-    })
   }
 
   // Post new rating
   const handleRating = async (event) => {
-    if (event.target.tabIndex > 0) setRating({ one: 'active icon', two: 'icon', three: 'icon', four: 'icon', five: 'icon' })
-    if (event.target.tabIndex > 1) setRating({ one: 'active icon', two: 'active icon', three: 'icon', four: 'icon', five: 'icon' })
-    if (event.target.tabIndex > 2) setRating({ one: 'active icon', two: 'active icon', three: 'active icon', four: 'icon', five: 'icon' })
-    if (event.target.tabIndex > 3) setRating({ one: 'active icon', two: 'active icon', three: 'active icon', four: 'active icon', five: 'icon' })
-    if (event.target.tabIndex > 4) setRating({ one: 'active icon', two: 'active icon', three: 'active icon', four: 'active icon', five: 'active icon' })
-    await axios.post(`/api/destinations/${event.target.id}/ratings`, { rating: event.target.tabIndex }, {
-      headers: {
-        Authorization: `Bearer ${window.localStorage.getItem('token')}`
-      }
-    })
+    try {
+      await axios.post(`/api/destinations/${event.target.id}/ratings`, { rating: event.target.tabIndex }, {
+        headers: {
+          Authorization: `Bearer ${window.localStorage.getItem('token')}`
+        }
+      })
+      if (event.target.tabIndex > 0) setRating({ one: 'active icon', two: 'icon', three: 'icon', four: 'icon', five: 'icon' })
+      if (event.target.tabIndex > 1) setRating({ one: 'active icon', two: 'active icon', three: 'icon', four: 'icon', five: 'icon' })
+      if (event.target.tabIndex > 2) setRating({ one: 'active icon', two: 'active icon', three: 'active icon', four: 'icon', five: 'icon' })
+      if (event.target.tabIndex > 3) setRating({ one: 'active icon', two: 'active icon', three: 'active icon', four: 'active icon', five: 'icon' })
+      if (event.target.tabIndex > 4) setRating({ one: 'active icon', two: 'active icon', three: 'active icon', four: 'active icon', five: 'active icon' })
+    } catch (err) {
+      console.log(err)
+      window.alert('You need to login to submit a rating')
+    }
   }
 
   if (!destinations) return null
-
-  console.log(myList)
 
   return (
     <div className="home-page is-fullheight-with-navbar">
@@ -118,23 +112,31 @@ const Home = () => {
           {destinations.map(destination => {
             if (destination.id === detailInfoId) {
               return (
-                <>
+                <div key={destination.id}>
                   <img className="hero-image" src={destination.image} />
                   <div>
-                    <h2>{destination.name}</h2>
+                    <h2 className="title">{destination.name}</h2>
                     <p><i>{destination.description}</i></p>
                     <p>Country: {destination.country}</p>
                     <p>Currency: {destination.currency}</p>
                     <p>Language: {destination.language}</p>
-                    <p>Suitable For: {destination.suitableFor.map((suitable, index) => {
-                      return <li key={index}>{suitable}</li>
-                    })}</p>
-                    <p>Tags: {destination.tags.map((tag, index) => {
-                      return <li key={index}>{tag}</li>
-                    })}</p>
-                    <p>Highlights: {destination.highlights.map((highlight, index) => {
-                      return <li key={index}>{highlight}</li>
-                    })}</p>
+                    <div className="columns">
+                      <div className="column home-detail-tags">
+                        <p>Suitable For: {destination.suitableFor.map((suitable, index) => {
+                          return <li key={index}>{suitable}</li>
+                        })}</p>
+                      </div>
+                      <div className="column home-detail-tags">
+                        <p>Tags: {destination.tags.map((tag, index) => {
+                          return <li key={index}>{tag}</li>
+                        })}</p>
+                      </div>
+                      <div className="column home-detail-tags">
+                        <p>Highlights: {destination.highlights.map((highlight, index) => {
+                          return <li key={index}>{highlight}</li>
+                        })}</p>
+                      </div>
+                    </div>
                     <div className="ui star rating" role="radiogroup" onClick={handleRating}
                       style={{
                         'backgroundColor': 'rgba(225, 225, 225, 0.6)',
@@ -148,7 +150,7 @@ const Home = () => {
                     </div>
                     <Button className="button secondary" href={`/destinations/${destination.name}`}>See more</Button>
                   </div>
-                </>
+                </div>
               )
             }
           })}
@@ -159,8 +161,8 @@ const Home = () => {
       <div className="hero">
         <img src={destinations[hero].image}/>
         <div className="columns">
-          <div className="hero-info column is-one-third-desktop is-half-tablet is-full-mobile">
-            <h1>{destinations[hero].name}</h1>
+          <div className="hero-info column is-half-tablet is-full-mobile">
+            <h1 className="title">{destinations[hero].name}</h1>
             <p>{destinations[hero].description}</p>
             <div className="ui star rating" role="radiogroup" onClick={handleRating}
               style={{
@@ -173,6 +175,7 @@ const Home = () => {
               <i tabIndex="4" aria-checked="false" aria-posinset="4" aria-setsize="4" className={destinations[hero].avgRating > 3 ? `active ${rating.four}` : `${rating.four} icon`} role="radio" id={destinations[hero].id}></i>
               <i tabIndex="5" aria-checked="false" aria-posinset="5" aria-setsize="5" className={destinations[hero].avgRating > 4 ? `active ${rating.five}` : `${rating.five} icon`} role="radio" id={destinations[hero].id}></i>
             </div>
+            <br />
             <Button className="button secondary">
               <Link to={`/destinations/${destinations[hero].name}`}
                 style={{
@@ -203,18 +206,42 @@ const Home = () => {
           :
           <div></div>
         }
-        <h3>Recommended for you</h3>
+        {tagDestinations &&
+          <>
+            {tagDestinations.length > 0 &&
+            <>
+              <h3>Recommended for you</h3>
+              <div className="home-container">
+                <Slider {...sliderSettings} className="slider">
+                  {tagDestinations.map(destination => {
+                    return <div key={destination._id} className="home-item">
+                      <img src={destination.image} />
+                      <div className="home-destination-info">
+                        <h4>{destination.name}</h4>
+                        <p><i>{destination.country}</i></p>
+                        <Button className="button secondary" onClick={handleInfoButton} name={`${destination.id}`}>More info</Button>
+                      </div>
+                    </div>
+                  })}
+                </Slider>
+              </div>
+            </>
+            }
+          </>
+        }
+        <h3>Must See</h3>
         <div className="home-container">
           <Slider {...sliderSettings} className="slider">
             {destinations.map(destination => {
-              return <div key={destination._id} className="home-item">
-                <img src={destination.image} />
-                <div className="home-destination-info">
-                  <h4>{destination.name}</h4>
-                  <p><i>{destination.country}</i></p>
-                  <Button className="button secondary" onClick={handleInfoButton} name={`${destination.id}`}>More info</Button>
+              if (destination.currency === 'Euro')
+                return <div key={destination._id} className="home-item">
+                  <img src={destination.image} />
+                  <div className="home-destination-info">
+                    <h4>{destination.name}</h4>
+                    <p><i>{destination.country}</i></p>
+                    <Button className="button secondary" onClick={handleInfoButton} name={`${destination.id}`}>More info</Button>
+                  </div>
                 </div>
-              </div>
             })}
           </Slider>
         </div>

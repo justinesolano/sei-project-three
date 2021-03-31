@@ -7,6 +7,7 @@ $profilefont: 'Montserrat', sans-serif;
 @import 'semantic-ui-css/semantic.min.css';
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,500&display=swap');
 
+
 // EXPLORE DESTINATIONS
 .feed-title{
   display: flex;
@@ -46,29 +47,63 @@ align-content: center;
   box-sizing: border-box;
 }
 
+body {
+  background-color: black;
+}
+
 .css-2b097c-container {
-  min-width: 200px;
+  min-width: 300px;
 }
 
 //EXPLORE.JS
 
- .explore {
-  margin-left: 35vw;
-  margin-top: 5vh;
+.explore {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Montserrat', sans-serif;
+  background-image: url('../assets/blackwhitemoved8.jpg');
+}
+.exploreContent {
+  border: 4px black solid;
+  border-radius: 25px;
+  font-size: 15px;
+  padding: 0 10px 10px 10px;
 }
 
 .exploreDate {
-  font-family: 'Montserrat', sans-serif;
+  padding: 7px 0;
+  font-size: 13px;
 }
 
+.explorePicture {
+  text-align: center;
+  margin-top: 8vh;
+  padding-bottom: 10px;
+}
+
+
+.pExplore {
+  padding-left: 20px;
+}
+
+.exploreSpan {
+  font-size: 15px;
+}
+
+
+
+#commentsButton {
+  padding: 15px 0 20px 5px ;
+  background: none
+}
 
 .picture {
   height: 350px;
   width: 450px;
 }
 .summary {
-  padding-top: 15px;
-  padding-bottom: 15px;
+  padding: 15px 0;
 }
 
 .landing.ui.grid {
@@ -125,6 +160,7 @@ align-content: center;
   }
   .red.button {
     margin-bottom: 10px;
+    margin-top: 10px;
   }
   .account-signin-link {
     text-align: center
@@ -158,7 +194,7 @@ element.style {
   }
   .icon {
     width: 10px;
-   }
+  }
 }
 
 
@@ -168,10 +204,12 @@ element.style {
   background-color: black;
   font-family: Helvetica;
   color: white;
-
   // * Hero
   .hero {
     position: relative;
+    h1 {
+      color: white;
+    }
     img {
       height: 50vh;
       width: auto;
@@ -185,6 +223,12 @@ element.style {
       background-color: rgba(0, 0, 0, 0.5);
       padding: 20px;
       border-radius: 5px;
+      p {
+        margin-bottom: 10px;
+      }
+      .rating {
+        margin-bottom: 10px;
+      }
     }
   }
 
@@ -197,19 +241,33 @@ element.style {
     top: 35px;
     left: 10vw;
     background-color: rgba(0, 0, 0, 0.8);
+    h2 {
+      color: white;
+    }
+    p {
+      margin-top: 5px;
+    }
+    .home-detail-tags {
+      width: 35vw;
+    }
+    .rating,
+    .button {
+      margin-top: 20px;
+    }
     img,
     div {
-      margin: 20px;
+      margin: 10px;
       width: 70vw;
+      margin-right: 30px;
     }
     img {
-      max-height: 500px;
+      max-height: 400px;
       object-fit: cover;
     }
     .home-detail-info-close {
       position: absolute;
-      top: 20px;
-      right: 15px;
+      top: 10px;
+      right: 20px;
     }
     .rating {
       display: inline;
@@ -292,4 +350,244 @@ element.style {
     background-color: rgba(0, 0, 0, 0.5);
     padding: 30px;
   }
+}
+
+// DESTINATION CARD
+.card {
+  display: flex;
+  flex-direction: column;
+  height:100%;
+}
+.card-content {
+  margin-top:auto;
+}
+.card-image {
+  padding:1rem;
+  img {
+    height:200px;
+    object-fit:contain;
+  }
+}
+
+//*register and login page jetflix
+.home {
+  background-color: black;
+}
+
+.hero,
+.home-subheader {
+  font-family: Helvetica;
+  color: white;
+  // margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.hero-info {
+  position: absolute;
+  top: 250px;
+  left: 0;
+  color: white;
+  width: 40%;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+}
+
+.home-column {
+  padding: 2px;
+}
+
+.home-item {
+  position: relative;
+  display: block;
+  flex: 1 1 0px;
+  transition: transform 500ms;
+}
+
+.home-container .home-item:focus,
+.home-container .home-item:hover {
+  transform: scale(1.5);
+  z-index: 1;
+}
+
+.ui.stacked.segment { 
+  background-color: rgba(0,0,0,.75);
+  font-weight: bold;
+  color: white;
+}
+.ui.stacked.segment {
+  padding-bottom: 1.4em;
+  height: 600px;
+  width: 480px;
+  padding-left: 60px;
+  padding-top: 50px;
+}
+
+.ui.header.register { 
+  color: white;
+}
+
+.ui.header.register { 
+  color: white;
+}
+
+.ui.form input {
+  max-width: 250px;
+  height: 50px;
+  font: 2em;
+}
+
+.ui.fluid.input {
+  display: flex;
+  max-width: 350px; 
+  padding: 6px;
+}
+
+.ui.red.button { 
+max-width: 349px; 
+height: 50px;
+margin-top: 25px;
+}
+
+.ui.message { 
+color:red;
+}
+
+.account-signin-link{ 
+  padding-top: 10px;
+}
+
+//login 
+
+.ui.left.aligned.header { 
+  color: white;
+}
+
+
+.ui.form input {
+  max-width: 250px;
+  height: 50px;
+  font: 2em;
+}
+
+.ui.fluid.input {
+  display: flex;
+  max-width: 350px; 
+  padding: 6px;
+}
+
+.ui.red.button { 
+max-width: 349px; 
+height: 50px;
+margin-top: 25px;
+}
+
+.ui.message { 
+color:red;
+}
+
+.account-signin-link{ 
+  padding-top: 10px;
+}
+
+.ui.stacked.segment.login{ 
+  height: 400px;
+}
+
+.ui.stacked.segment { 
+  background-color: rgba(0,0,0,.75);
+  font-weight: bold;
+  color: white;
+}
+.ui.stacked.segment {
+  padding-bottom: 1.4em;
+  height: 600px;
+  width: 480px;
+  padding-left: 60px;
+  padding-top: 50px;
+}
+
+.ui.header.register { 
+  color: white;
+}
+
+.ui.form input {
+  max-width: 250px;
+  height: 50px;
+  font: 2em;
+}
+
+.ui.fluid.input {
+  display: flex;
+  max-width: 350px; 
+  padding: 6px;
+}
+
+.ui.red.button { 
+max-width: 349px; 
+height: 50px;
+margin-top: 25px;
+}
+
+.ui.message { 
+color:red;
+}
+
+.account-signin-link{ 
+  padding-top: 10px;
+}
+
+//login 
+
+.ui.left.aligned.header { 
+  color: white;
+}
+
+.ui.card.button{ 
+  height: 1000px;
+}
+
+
+
+
+//map 
+.map-container { 
+  border: red;
+}
+
+element.style { 
+  display:block;
+}
+
+
+.user-profile { 
+max-width:1000px;
+margin:auto;
+margin-top:120px;
+  .column-user-profile { 
+    height:300px;
+    width: 300px;
+  }
+  .user-profile-div-like { 
+    display: flex;
+    justify-content: space-between;
+  }
+  .button-fit-screen { 
+    width: auto;
+
+  }
+  .user-profile-header{ 
+    display: flex;
+    justify-content: space-between;
+    max-width: 800px;
+  }
+  .user-profile-left-header { 
+    display: flex;
+    width: 250px;;
+    justify-content: space-between;
+  }
+  .title { 
+    padding-top: 100px;
+  }
+
+
 }
