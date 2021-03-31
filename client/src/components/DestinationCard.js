@@ -7,7 +7,7 @@ const DestinationCard = ( { photos, _id, username }) => {
   const { destination } = useParams()
   
   // console.log('PARAMS', destination)
-  console.log('PHOTOS', photos[0].locationName)
+  // console.log('PHOTOS', photos[0].locationName)
   // console.log('DESTINATION', destination === photos[0].locationName)
 
   return (
