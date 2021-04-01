@@ -1,11 +1,10 @@
 import axios from 'axios'
 import React, { useState, useEffect } from 'react'
-// import { Link } from 'react-router-dom'
-import { Button } from 'semantic-ui-react'
-import Slider from 'react-slick'
-import { sliderSettings } from './Home/SliderSettings'
 import { getPayloadFromToken } from '../helpers/auth'
 
+import Hero from '../components/Home/Hero'
+import Previews from '../components/Home/Previews'
+import DetailInfo from '../components/Home/DetailInfo'
 
 const Home = () => {
 
@@ -31,7 +30,6 @@ const Home = () => {
         const { data } = await axios.get('/api/destinations')
         setDestinations(data)
         const destinationsArray = data
-        setHero(parseFloat(Math.floor(Math.random() * data.length)))
         const response = await axios.get('/api/profiles')
         response.data.map(user => {
           if (user.id === getPayloadFromToken().sub) {
@@ -41,6 +39,7 @@ const Home = () => {
               destinationsArray.map(destination => {
                 if (destination.tags.includes(tag)) myDestinationArray.push(destination)
                 if (destination.suitableFor.includes(tag)) myDestinationArray.push(destination)
+                if (destination.continent.includes(tag)) myDestinationArray.push(destination)
               })
             })
           }
@@ -51,14 +50,32 @@ const Home = () => {
       }
     }
     getUsers()
-  }, [])
+  }, [rating])
 
+  // GET Hero destination
+  useEffect(() => {
+    const getHero = async () => {
+      try {
+        const { data } = await axios.get('/api/destinations')
+        setHero(parseFloat(Math.floor(Math.random() * data.length)))
+      } catch (err) {
+        console.log(err)
+      }
+    }
+    getHero()
+  }, [])
+  
   // POST new items to My List
   const handleMyList = async (event) => {
     const id = event.target.name
     const profileId = getPayloadFromToken().sub
     const myNewArray = myList
     try {
+      myList.map(item => {
+        if (item.id === event.target.name) {
+          throw new Error
+        }
+      })
       const { data } = await axios.get(`/api/destinations/${id}`)
       myNewArray.push(data)
       setMyList({ ...myNewArray })
@@ -68,19 +85,21 @@ const Home = () => {
         }
       }, [])
     } catch (err) {
-      console.log(err)
-      window.alert('You need to login to add to your list')
+      console.log('Cannot add to My List')
+      window.alert('Error! Cannot add to My List')
     }
   }
   
   // Open info popup
   const handleInfoButton = (event) => {
     setDetailInfoId(event.target.name)
+    setMyList(myNewList)
   }
 
   // Close info popup
   const handleInfoButtonClose = () => {
     setDetailInfoId('')
+    setMyList(myNewList)
   }
 
   // Post new rating
@@ -100,162 +119,41 @@ const Home = () => {
       console.log(err)
       window.alert('You need to login to submit a rating')
     }
+    setRating({
+      one: 'icon',
+      two: 'icon',
+      three: 'icon',
+      four: 'icon',
+      five: 'icon'
+    })
   }
 
   if (!destinations) return null
 
   return (
     <div className="home-page is-fullheight-with-navbar">
-      {detailInfoId ?
-        <div className="home-detail-info column">
-          <Button className="button secondary home-detail-info-close" onClick={handleInfoButtonClose}>x</Button>
-          {destinations.map(destination => {
-            if (destination.id === detailInfoId) {
-              return (
-                <div key={destination.id}>
-                  <img className="hero-image" src={destination.image} />
-                  <div>
-                    <h2 className="title">{destination.name}</h2>
-                    <p><i>{destination.description}</i></p>
-                    <p>Country: {destination.country}</p>
-                    <p>Currency: {destination.currency}</p>
-                    <p>Language: {destination.language}</p>
-                    <div className="columns">
-                      <div className="column home-detail-tags">
-                        <p>Suitable For: {destination.suitableFor.map((suitable, index) => {
-                          return <li key={index}>{suitable}</li>
-                        })}</p>
-                      </div>
-                      <div className="column home-detail-tags">
-                        <p>Tags: {destination.tags.map((tag, index) => {
-                          return <li key={index}>{tag}</li>
-                        })}</p>
-                      </div>
-                      <div className="column home-detail-tags">
-                        <p>Highlights: {destination.highlights.map((highlight, index) => {
-                          return <li key={index}>{highlight}</li>
-                        })}</p>
-                      </div>
-                    </div>
-                    <div className="ui star rating" role="radiogroup" onClick={handleRating}
-                      style={{
-                        'backgroundColor': 'rgba(225, 225, 225, 0.6)',
-                        'padding': '10px'
-                      }}>
-                      <i tabIndex="1" aria-checked="false" aria-posinset="1" aria-setsize="4" className={destination.avgRating > 0 ? 'active icon' : `${rating.one} icon`} role="radio" id={destination.id}></i>
-                      <i tabIndex="2" aria-checked="false" aria-posinset="2" aria-setsize="4" className={destination.avgRating > 1 ? 'active icon' : `${rating.two} icon`} role="radio" id={destination.id}></i>
-                      <i tabIndex="3" aria-checked="true" aria-posinset="3" aria-setsize="4" className={destination.avgRating > 2 ? 'active icon' : `${rating.three} icon`} role="radio" id={destination.id}></i>
-                      <i tabIndex="4" aria-checked="false" aria-posinset="4" aria-setsize="4" className={destination.avgRating > 3 ? 'active icon' : `${rating.four} icon`} role="radio" id={destination.id}></i>
-                      <i tabIndex="5" aria-checked="false" aria-posinset="5" aria-setsize="5" className={destination.avgRating > 4 ? 'active icon' : `${rating.five} icon`} role="radio" id={destination.id}></i>
-                    </div>
-                    <Button className="button secondary" href={`/explore/${destination.name}`}>Explore</Button>
-                  </div>
-                </div>
-              )
-            }
-          })}
-        </div>
-        :
-        <div></div>
-      }
-      <div className="hero">
-        <img src={destinations[hero].image}/>
-        <div className="columns">
-          <div className="hero-info column is-half-tablet is-full-mobile">
-            <h1 className="title">{destinations[hero].name}</h1>
-            <p>{destinations[hero].description}</p>
-            <div className="ui star rating" role="radiogroup" onClick={handleRating}
-              style={{
-                'backgroundColor': 'rgba(225, 225, 225, 0.6)',
-                'padding': '10px'
-              }}>
-              <i tabIndex="1" aria-checked="false" aria-posinset="1" aria-setsize="4" className={destinations[hero].avgRating > 0 ? `active ${rating.one}` : `${rating.one} icon`} role="radio" id={destinations[hero].id}></i>
-              <i tabIndex="2" aria-checked="false" aria-posinset="2" aria-setsize="4" className={destinations[hero].avgRating > 1 ? `active ${rating.two}` : `${rating.two} icon`} role="radio" id={destinations[hero].id}></i>
-              <i tabIndex="3" aria-checked="true" aria-posinset="3" aria-setsize="4" className={destinations[hero].avgRating > 2 ? `active ${rating.three}` : `${rating.three} icon`} role="radio" id={destinations[hero].id}></i>
-              <i tabIndex="4" aria-checked="false" aria-posinset="4" aria-setsize="4" className={destinations[hero].avgRating > 3 ? `active ${rating.four}` : `${rating.four} icon`} role="radio" id={destinations[hero].id}></i>
-              <i tabIndex="5" aria-checked="false" aria-posinset="5" aria-setsize="5" className={destinations[hero].avgRating > 4 ? `active ${rating.five}` : `${rating.five} icon`} role="radio" id={destinations[hero].id}></i>
-            </div>
-            <br />
-            <Button className="button secondary" onClick={handleInfoButton} name={`${destinations[hero].id}`}>More info</Button>
-            <Button className="button secondary" name={destinations[hero].id} onClick={handleMyList}>My List</Button>
-          </div>
-        </div>
-      </div>
-      <div className="home-previews">
-        <h3>My List</h3>
-        {myNewList ?
-          <div className="home-container">
-            <Slider {...sliderSettings} className="slider">
-              {myNewList.map(destination => {
-                return <div key={destination._id} className="home-item">
-                  <img src={destination.image} />
-                  <div className="home-destination-info">
-                    <h4>{destination.name}</h4>
-                    <p><i>{destination.country}</i></p>
-                    <Button className="button secondary" onClick={handleInfoButton} name={`${destination.id}`}>More info</Button>
-                  </div>
-                </div> 
-              })}
-            </Slider>
-          </div>
-          :
-          <div></div>
-        }
-        {tagDestinations &&
-          <>
-            {tagDestinations.length > 0 &&
-            <>
-              <h3>Recommended for you</h3>
-              <div className="home-container">
-                <Slider {...sliderSettings} className="slider">
-                  {tagDestinations.map(destination => {
-                    return <div key={destination._id} className="home-item">
-                      <img src={destination.image} />
-                      <div className="home-destination-info">
-                        <h4>{destination.name}</h4>
-                        <p><i>{destination.country}</i></p>
-                        <Button className="button secondary" onClick={handleInfoButton} name={`${destination.id}`}>More info</Button>
-                      </div>
-                    </div>
-                  })}
-                </Slider>
-              </div>
-            </>
-            }
-          </>
-        }
-        <h3>Must See</h3>
-        <div className="home-container">
-          <Slider {...sliderSettings} className="slider">
-            {destinations.map(destination => {
-              if (destination.currency === 'Euro')
-                return <div key={destination._id} className="home-item">
-                  <img src={destination.image} />
-                  <div className="home-destination-info">
-                    <h4>{destination.name}</h4>
-                    <p><i>{destination.country}</i></p>
-                    <Button className="button secondary" onClick={handleInfoButton} name={`${destination.id}`}>More info</Button>
-                  </div>
-                </div>
-            })}
-          </Slider>
-        </div>
-        <h3>Trending now</h3>
-        <div className="home-container">
-          <Slider {...sliderSettings} className="slider">
-            {destinations.map(destination => {
-              return <div key={destination._id} className="home-item">
-                <img src={destination.image} />
-                <div className="home-destination-info">
-                  <h4>{destination.name}</h4>
-                  <p><i>{destination.country}</i></p>
-                  <Button className="button secondary" onClick={handleInfoButton} name={`${destination.id}`}>More info</Button>
-                </div>
-              </div>
-            })}
-          </Slider>
-        </div>
-      </div>
+      <DetailInfo 
+        detailInfoId={detailInfoId}
+        handleInfoButtonClose={handleInfoButtonClose}
+        handleMyList={handleMyList}
+        handleRating={handleRating}
+        rating={rating}
+        destinations={destinations}
+      />
+      <Hero 
+        handleInfoButton={handleInfoButton}
+        handleRating={handleRating}
+        handleMyList={handleMyList}
+        destinations={destinations}
+        hero={hero}
+        rating={rating}
+      />
+      <Previews
+        handleInfoButton={handleInfoButton} 
+        destinations={destinations}
+        tagDestinations={tagDestinations}
+        myNewList={myNewList}
+      />
     </div>
   )
 }

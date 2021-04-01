@@ -1,5 +1,80 @@
 export default [
   {
+    'myList': [],
+    'myTags': [
+      'Adventure Seekers'
+    ],
+    'username': 'FlynnTravels',
+    'email': 'flynn@email.com',
+    'password': 'pass',
+    'passwordConfirmation': 'pass',
+    'photos': [
+      {
+        'title': 'Winter Wonderland',
+        'locationName': 'North Pole',
+        'image': 'http://res.cloudinary.com/dyng677ts/image/upload/v1617226788/yioe7b3os35e3neh9rbr.jpg',
+        'comments': [],
+        'likes': [],
+        'createdAt': '2021-03-31T21:39:50.317Z',
+        'updatedAt': '2021-03-31T21:39:50.317Z'
+      },
+      {
+        'title': 'Flying high',
+        'locationName': 'Atlantic Ocean',
+        'image': 'http://res.cloudinary.com/dyng677ts/image/upload/v1617226858/oevjwrmwd9kuhrqjgapv.jpg',
+        'comments': [],
+        'likes': [],
+        'createdAt': '2021-03-31T21:41:00.724Z',
+        'updatedAt': '2021-03-31T21:41:00.724Z'
+      },
+      {
+        'title': 'Paris!',
+        'locationName': 'Paris',
+        'image': 'http://res.cloudinary.com/dyng677ts/image/upload/v1617226898/dnjpske09pah4y45hrns.jpg',
+        'comments': [],
+        'likes': [],
+        'createdAt': '2021-03-31T21:41:54.551Z',
+        'updatedAt': '2021-03-31T21:41:54.551Z'
+      },
+      {
+        'title': 'Beach, beach beach!',
+        'locationName': 'Bora Bora',
+        'image': 'http://res.cloudinary.com/dyng677ts/image/upload/v1617226955/aitvvqtnlzwl6q9apl4s.jpg',
+        'comments': [],
+        'likes': [],
+        'createdAt': '2021-03-31T21:42:50.506Z',
+        'updatedAt': '2021-03-31T21:42:50.506Z'
+      },
+      {
+        'title': 'Taj Mahal',
+        'locationName': 'India',
+        'image': 'http://res.cloudinary.com/dyng677ts/image/upload/v1617226989/puxlecxd5a9p8tz2d7l7.jpg',
+        'comments': [],
+        'likes': [],
+        'createdAt': '2021-03-31T21:43:26.413Z',
+        'updatedAt': '2021-03-31T21:43:26.413Z'
+      },
+      {
+        'title': 'When in Rome...',
+        'locationName': 'Rome',
+        'image': 'http://res.cloudinary.com/dyng677ts/image/upload/v1617227013/bd7a66pshaj4rbtfgyes.jpg',
+        'comments': [],
+        'likes': [],
+        'createdAt': '2021-03-31T21:43:55.696Z',
+        'updatedAt': '2021-03-31T21:43:55.696Z'
+      },
+      {
+        'title': 'Faro Fun',
+        'locationName': 'Faro',
+        'image': 'http://res.cloudinary.com/dyng677ts/image/upload/v1617227040/mib0wmkhixyqldu2ptde.jpg',
+        'comments': [],
+        'likes': [],
+        'createdAt': '2021-03-31T21:44:30.401Z',
+        'updatedAt': '2021-03-31T21:44:30.401Z'
+      }
+    ]
+  },
+  {
     'username': 'Flynn',
     'email': 'flynn@email',
     'password': '$2b$10$HqG9k9LLUw1j97igeGfPcuPPjiJrdq9dWZmEBJoJoBP5G6GUfee22',
