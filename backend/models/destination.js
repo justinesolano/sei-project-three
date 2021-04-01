@@ -2,7 +2,7 @@ import mongoose from 'mongoose'
 
 const ratingSchema = new mongoose.Schema({
   rating: { type: Number, required: true, min: 1, max: 5 },
-  owner: { type: mongoose.Schema.ObjectId, ref: 'User', required: true }
+  owner: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
 })
 
 const destinationSchema = new mongoose.Schema({
@@ -16,7 +16,7 @@ const destinationSchema = new mongoose.Schema({
   suitableFor: { type: Array, required: true },
   tags: { type: Array, required: true },
   image: { type: String, required: true },
-  ratings: [ratingSchema]
+  ratings: [ratingSchema],
 })
 
 // * Average Rating

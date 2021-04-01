@@ -50,6 +50,7 @@ const Register = () => {
       history.push('/home')
     } catch (err) {
       setErrors('input is-danger')
+      window.alert('Your email or username is already in use.')
       console.log(err)
     }
   }

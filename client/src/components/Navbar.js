@@ -67,9 +67,16 @@ const Navbar = () => {
   return (
     <nav className={`navbar is-fixed-top is-black is-transparent ${show && 'is-black'}`} role="navigation" aria-label="main navigation">
       <div className="navbar-brand">
-        <Link to="/" className="navbar-item" >
-          <img src={jetflixLogo} className="jetflix" />
-        </Link>
+        { userIsAuthenticated() &&
+         <Link to="/home" className="navbar-item" >
+           <img src={jetflixLogo} className="jetflix" />
+         </Link>
+        }
+        { !userIsAuthenticated() &&  
+         <Link to="/" className="navbar-item" >
+           <img src={jetflixLogo} className="jetflix" />
+         </Link>
+        }
         <div onClick={toggleBurger} className={`navbar-burger ${burger}`} data-target="jetflix-navbar">
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
@@ -86,7 +93,7 @@ const Navbar = () => {
             <div className="navbar-dropdown">
               { !userIsAuthenticated() &&
             <>
-              <Link to="/explore/alldestinations" className="navbar-item">
+              <Link to="/explore/destinations" className="navbar-item">
                   Explore
               </Link>
               <Link to="/feed" className="navbar-item">
@@ -99,11 +106,11 @@ const Navbar = () => {
                 <Link to={`/profile/${profileId}`} className="navbar-item" >
               My Profile
                 </Link>
+                <Link to="/explore/destinations" className="navbar-item">
+              Explore
+                </Link>
                 <Link to="/feed" className="navbar-item">
               Feed
-                </Link>
-                <Link to="/explore/alldestinations" className="navbar-item">
-              Explore
                 </Link>
               </>
               }

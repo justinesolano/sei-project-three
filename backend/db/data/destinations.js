@@ -616,7 +616,7 @@ export default [
     'image': 'https://lp-cms-production.imgix.net/2019-06/84631981.jpg?auto=format&fit=crop&ixlib=react-8.6.4&h=520&w=1312&q=75&dpr=1',
   },
   {
-    'name': 'Kolkata (Calcutta)',
+    'name': 'Kolkata',
     'description': 'India’s third-largest city is a daily festival of human existence, simultaneously noble and squalid, cultured and desperate, decidedly futuristic while splendid in decay. By its old spelling, Calcutta readily conjures images of human suffering to most Westerners – although that\'s not a complete picture of this 330-year-old metropolis. Locally, Kolkata is regarded as India’s intellectual, artistic and cultural capital. Although poverty is certainly apparent, the self-made middle class drives the city\'s core machinery, a nascent hipster culture thrives among its millennial residents and its dapper Bengali gentry frequent grand colonial-era clubs.',
     'country': 'India',
     'continent': 'Asia',
