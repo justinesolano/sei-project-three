@@ -16,7 +16,7 @@ export default [
         'comments': [],
         'likes': [],
         'createdAt': '2021-03-31T21:39:50.317Z',
-        'updatedAt': '2021-03-31T21:39:50.317Z'
+        'updatedAt': '2021-03-31T21:39:50.317Z',
       },
       {
         'title': 'Flying high',
@@ -25,7 +25,7 @@ export default [
         'comments': [],
         'likes': [],
         'createdAt': '2021-03-31T21:41:00.724Z',
-        'updatedAt': '2021-03-31T21:41:00.724Z'
+        'updatedAt': '2021-03-31T21:41:00.724Z',
       },
       {
         'title': 'Paris!',
@@ -34,7 +34,7 @@ export default [
         'comments': [],
         'likes': [],
         'createdAt': '2021-03-31T21:41:54.551Z',
-        'updatedAt': '2021-03-31T21:41:54.551Z'
+        'updatedAt': '2021-03-31T21:41:54.551Z',
       },
       {
         'title': 'Beach, beach beach!',
@@ -43,7 +43,7 @@ export default [
         'comments': [],
         'likes': [],
         'createdAt': '2021-03-31T21:42:50.506Z',
-        'updatedAt': '2021-03-31T21:42:50.506Z'
+        'updatedAt': '2021-03-31T21:42:50.506Z',
       },
       {
         'title': 'Taj Mahal',
@@ -52,7 +52,7 @@ export default [
         'comments': [],
         'likes': [],
         'createdAt': '2021-03-31T21:43:26.413Z',
-        'updatedAt': '2021-03-31T21:43:26.413Z'
+        'updatedAt': '2021-03-31T21:43:26.413Z',
       },
       {
         'title': 'When in Rome...',
@@ -61,7 +61,7 @@ export default [
         'comments': [],
         'likes': [],
         'createdAt': '2021-03-31T21:43:55.696Z',
-        'updatedAt': '2021-03-31T21:43:55.696Z'
+        'updatedAt': '2021-03-31T21:43:55.696Z',
       },
       {
         'title': 'Faro Fun',
@@ -70,9 +70,9 @@ export default [
         'comments': [],
         'likes': [],
         'createdAt': '2021-03-31T21:44:30.401Z',
-        'updatedAt': '2021-03-31T21:44:30.401Z'
+        'updatedAt': '2021-03-31T21:44:30.401Z',
       }
-    ]
+    ],
   },
   {
     'username': 'Flynn',
