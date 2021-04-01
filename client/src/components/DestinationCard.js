@@ -29,7 +29,7 @@ const DestinationCard = ( { photos, _id, username }) => {
             </div>
           )
         } 
-        if (destination === 'all'){
+        if (destination === 'destinations'){
           return (
             <div
               className="tile is-child notification"

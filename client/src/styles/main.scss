@@ -284,19 +284,24 @@ body {
   font-weight: bold;
   background-color: rgb(15, 15, 15);
   // DESTINATION CARD
+  .tile.is-parent.is-vertical.is-gapless.one-destination{
+    display: flex;
+    justify-content: center;
+  }
   .tile.is-parent{
     margin: 1px;
-    .content{
-      display: flex;
-      justify-content: center;
+    // .content{
+    //   display: flex;
+    //   justify-content: center;
       .feed-image{
       display: flex;
       justify-content: center;
       align-content: center;
       }
-    }
   }
 }
+
+
 
 // Userprofile 
 .everythingProfile { 

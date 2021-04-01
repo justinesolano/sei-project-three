@@ -49,18 +49,23 @@ const Destination = () => {
         {videos.map((video) => {
           return (
             <div
-              className="tile is-child notification is-12 "
+              className="tile is-child notification"
               key={video.id}>
               <video key={video.video_files[0].id} className="card-video" src={video.video_files[0].link} autoPlay={true} muted={true} loop={true}/>
             </div>
           )
         })}
+      </div>
+      <div
+        className="tile is-parent is-vertical is-gapless one-destination"
+        key={destination.id}
+      >
         {apiPhotos.map((apiPhoto) => {
           return (
             <div
-              className="tile is-child notification is-12"
+              className="tile is-child notification"
               key={apiPhoto.id}>
-              <img key={apiPhoto.id} src={apiPhoto.src.small} />
+              <img className="destination-api-image" key={apiPhoto.id} src={apiPhoto.src.small} />
             </div>
           )
         })}

@@ -23,7 +23,7 @@ const ExploreDestination = () => {
   
   return (
     <>
-      <Link to={'/explore/all'} className="feed-title">
+      <Link to={'/explore/destinations'} className="feed-title">
         <img src={explore} className="photo-feed-title"/>
       </Link>
       <div className="ui explore-destination-grid tile is-ancestor is-gapless"
@@ -33,6 +33,9 @@ const ExploreDestination = () => {
             <DestinationCard key={users.id} {...users} />
           )
         })}
+      </div>
+      <div className="ui explore-destination-grid tile is-ancestor is-gapless"
+      >
         <Destination key={userPhotos.id}/>
       </div>
     </>

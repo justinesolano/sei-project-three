@@ -92,7 +92,7 @@ const Navbar = () => {
             <div className="navbar-dropdown">
               { !userIsAuthenticated() &&
             <>
-              <Link to="/explore/all" className="navbar-item">
+              <Link to="/explore/destinations" className="navbar-item">
                   Explore
               </Link>
               <Link to="/feed" className="navbar-item">
@@ -105,7 +105,7 @@ const Navbar = () => {
                 <Link to={`/profile/${profileId}`} className="navbar-item" >
               My Profile
                 </Link>
-                <Link to="/explore/all" className="navbar-item">
+                <Link to="/explore/destinations" className="navbar-item">
               Explore
                 </Link>
                 <Link to="/feed" className="navbar-item">
