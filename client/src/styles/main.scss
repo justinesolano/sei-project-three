@@ -27,64 +27,63 @@ body {
   flex-direction: column;
   align-items: center;
   font-family: 'Montserrat', sans-serif;
-  // background-image: url('../assets/blackwhitemoved8.jpg');
+  // background-image: url('https://image.shutterstock.com/image-vector/vector-seamless-pattern-modern-stylish-260nw-283845620.jpg');
+  // background-size: cover;
+  // height: 100%;
+  // background-repeat: no-repeat center center fixed;
   background-color: black;
-}
-.exploreContent {
-  border: 4px black solid;
-  border-radius: 25px;
-  font-size: 15px;
-  padding: 10px 40px;
-  background-color: white;
+    .explorePicture {
+      text-align: center;
+      margin-top: 8vh;
+      padding-bottom: 10px;
+    }
+    .exploreContent {
+      border: 4px black solid;
+      border-radius: 25px;
+      font-size: 15px;
+      padding: 10px 40px;
+      background-color: white;
+    }
+      .summary {
+        max-width: 40vw;
+        padding: 10px 0;
+      }
+      .exploreSpan {
+        font-size: 15px;
+      }
+      .location {
+        max-width: 10px;
+      }
+      .picture {
+        height: 350px;
+        width: 450px;
+      }
+      .exploreDate {
+        padding: 7px 0;
+        font-size: 13px;
+      }
+        .ui.button.likeButton {
+          background: none;
+        }
+        .likesArea {
+          padding-right: 5vw;
+          pointer-events: none;
+        }
+        #commentsButton {
+          // padding: 15px 0 20px 5px ;
+          background: none
+        }
+        .pExplore {
+          padding-left: 20px;
+        }
+        .ui.icon.primary.left.labeled.button {
+          width: 12vw;
+          height: 4vh;
+          text-align: left;
+          font-size: 13px;
+        }
 }
 
-.exploreDate {
-  padding: 7px 0;
-  font-size: 13px;
-}
-
-.explorePicture {
-  text-align: center;
-  margin-top: 8vh;
-  padding-bottom: 10px;
-}
-
-
-.pExplore {
-  padding-left: 20px;
-}
-
-.exploreSpan {
-  font-size: 15px;
-}
-
-.location {
-  max-width: 10px;
-}
-
-
-#commentsButton {
-  // padding: 15px 0 20px 5px ;
-  background: none
-}
-
-.likesArea {
-  padding-right: 5vw;
-  pointer-events: none;
-}
-
-.ui.button.likeButton {
-  background: none;
-}
-
-.picture {
-  height: 350px;
-  width: 450px;
-}
-.summary {
-  max-width: 40vw;
-  padding: 10px 0;
-}
 
 //* LANDING PAGE
 .landing.ui.grid {

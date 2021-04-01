@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Button, Feed, Icon, Form, Link } from 'semantic-ui-react'
+import { Button, Feed, Icon, Form } from 'semantic-ui-react'
 import axios from 'axios'
 // import { getPayloadFromToken } from '../helpers/auth'
 import feedPicture from '../assets/photofeed.png'
@@ -49,7 +49,7 @@ const Explore = () => {
     text: ''
   })
 
-  
+
   const handleChange = event => {
     console.log('NAME', event.target.name)
     const newFormData = { ...commentData, text: event.target.value }
@@ -71,7 +71,7 @@ const Explore = () => {
         })
         window.location.reload()
       } catch (err) {
-        console.log(err)
+        window.alert('You cannot comment on the photo, you are not logged in. 😬')
       }
     }
     setComment()
@@ -127,13 +127,10 @@ const Explore = () => {
                               <div key={comment._id} className="pExplore">
                                 {
                                   <p  >
-                                    <Link to={`/profile/${user.id}`}>
-                                      <Icon.Group size="small">
-                                        <Icon size="big" name="circle outline" />
-                                        <Icon name="user" />
-                                      </Icon.Group>
-                                      {comment.text}
-                                    </Link>
+                                    <Icon.Group size="small" href={`/profile/${user.id}`}>
+                                      <Icon name="user" />
+                                    </Icon.Group>
+                                    {comment.text}
                                   </p>
                                 }
                               </div>
@@ -145,7 +142,7 @@ const Explore = () => {
                           onSubmit={handleComment}
                           target={user.id}
                           name={photo._id} >
-                          <Form.TextArea onChange={handleChange} />
+                          <Form.TextArea rows={1} onChange={handleChange} />
                           <Button
                             content='Add Comment' labelPosition='left' icon='edit' primary />
                         </Form>
