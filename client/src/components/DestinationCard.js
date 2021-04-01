@@ -4,13 +4,6 @@ import { Link, useParams } from 'react-router-dom'
 const DestinationCard = ( { photos, _id, username }) => {
 
   const { destination } = useParams()
-<<<<<<< HEAD
-  
-  // console.log('PARAMS', destination)
-  // console.log('PHOTOS', photos[0].locationName)
-  // console.log('DESTINATION', destination === photos[0].locationName)
-=======
->>>>>>> development
 
   return (
     <div
@@ -36,7 +29,7 @@ const DestinationCard = ( { photos, _id, username }) => {
             </div>
           )
         } 
-        if (destination === 'alldestinations'){
+        if (destination === 'all'){
           return (
             <div
               className="tile is-child notification"

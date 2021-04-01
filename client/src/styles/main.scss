@@ -116,6 +116,9 @@ body {
     .field{
       margin-top: 20px;
     }
+    .last-field{
+      margin-bottom: 20px;
+    }
     .button {
       margin-top: 20px;
       width: 100%;
@@ -135,8 +138,8 @@ body {
 }
 .register-content {
   height: 500px;
-  .last-field{
-    margin-bottom: 20px;
+  .button{
+    margin-top: 10px;
   }
 }
 
