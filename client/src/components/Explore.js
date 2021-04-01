@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import { Button, Feed, Icon } from 'semantic-ui-react'
+import { Button, Feed, Icon, Form } from 'semantic-ui-react'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 // import { getPayloadFromToken } from '../helpers/auth'
 import feedPicture from '../assets/photofeed.png'
@@ -10,7 +11,6 @@ const Explore = () => {
     const getData = async () => {
       const { data } = await axios.get('/api/profiles/')
       setProfiles(data)
-      console.log(data)
     }
     getData()
   }, [])
@@ -27,9 +27,7 @@ const Explore = () => {
     const setLikes = async () => {
       try {
         const token = window.localStorage.getItem('token')
-        console.log('EVENT', event.target.id)
-        console.log('EVENT', event.target.name)
-        console.log(token)
+        console.log('EVENTT', event.target)
         await axios.post(`/api/profiles/${event.target.id}/photos/${event.target.name}/likes`, formData,
           {
             headers: {
@@ -46,6 +44,41 @@ const Explore = () => {
   }
 
 
+  //ADD COMMENTS
+
+  const [commentData, setCommentData] = useState({
+    text: ''
+  })
+
+  
+  const handleChange = event => {
+    console.log('NAME', event.target.name)
+    const newFormData = { ...commentData, text: event.target.value }
+    setCommentData(newFormData)
+  }
+
+
+  const handleComment = async event => {
+    const setComment = async () => {
+      try {
+        event.preventDefault()
+        const token = window.localStorage.getItem('token')
+        console.log(token)
+        // console.log('COMMENTS', comments)
+        await axios.post(`/api/profiles/${event.target.target}/photos/${event.target.name}`, commentData, {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        })
+        window.location.reload()
+      } catch (err) {
+        console.log(err)
+      }
+    }
+    setComment()
+  }
+
+
   if (!profiles) return null
 
   return (
@@ -54,13 +87,13 @@ const Explore = () => {
         <img src={feedPicture} className="explorePicture"></img>
         {profiles.map((user) => {
           return (
-            <Feed.Event key={user.id}>
+            <Feed.Event key={user._id}>
               <Feed.Content  >
                 {user.photos.map((photo) => {
                   return (
                     <div key={photo._id} className="exploreContent" >
                       <Feed.Summary>
-                        <Feed.User href={`/profile/${user.id}`} className="exploreUser">
+                        <Feed.User className="exploreUser" href={`/profile/${user.id}`}>
                           {user.username}
                         </Feed.User >
                         <span className="exploreSpan"> added a photo: </span>
@@ -75,40 +108,49 @@ const Explore = () => {
                       </Feed.Extra>
                       <Feed.Date className="exploreDate">{new Date(photo.createdAt).toString()}
                       </Feed.Date>
-                      <Feed.Meta>
-                        <Feed.Like>
-                          <Button
-                            name={photo._id}
-                            id={`${user.id}`}
-                            onClick={handleLike}
-                            className="likeButton">
-                            <p className="likesArea">❤️  Likes {photo.likes.length}</p> 
-                          </Button>
-                          <Button
-                            id="commentsButton"
-                            onClick={() => setShowComments(!showComments)}
-                            name={`${photo.id}`}>
-                              View comments
-                          </Button>
-                          {
-                            showComments ?
-                              photo.comments.map(comment => (
-                                <div key={comment._id} className="pExplore">
-                                  {
-                                    <p  >
-                                      <Icon.Group href={`/profile/${user.id}`} size="small">
+                      <div >
+                        <Button
+                          name={`${photo._id}`}
+                          id={`${user.id}`}
+                          onClick={handleLike}
+                          className="likeButton">
+                          <p className="likesArea">❤️  Likes {photo.likes.length}</p>
+                        </Button>
+                        <Button
+                          id="commentsButton"
+                          onClick={() => setShowComments(!showComments)}
+                          name={`${photo.id}`}>
+                          View comments
+                        </Button>
+                        {
+                          showComments ?
+                            photo.comments.map(comment => (
+                              <div key={comment._id} className="pExplore">
+                                {
+                                  <p  >
+                                    <Link to={`/profile/${user.id}`}>
+                                      <Icon.Group size="small">
+                                        <Icon size="big" name="circle outline" />
                                         <Icon name="user" />
                                       </Icon.Group>
                                       {comment.text}
-                                    </p>
-                                  }
-                                </div>
-                              ))
-                              :
-                              <p></p>
-                          }
-                        </Feed.Like>
-                      </Feed.Meta>
+                                    </Link>
+                                  </p>
+                                }
+                              </div>
+                            ))
+                            :
+                            <p></p>
+                        }
+                        <Form
+                          onSubmit={handleComment}
+                          target={user.id}
+                          name={photo._id} >
+                          <Form.TextArea onChange={handleChange} />
+                          <Button
+                            content='Add Comment' labelPosition='left' icon='edit' primary />
+                        </Form>
+                      </div>
                     </div>
                   )
                 })}

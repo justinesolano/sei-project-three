@@ -22,14 +22,14 @@ const DestinationCard = ( { photos, _id, username }) => {
                   className="has-tooltip-bottom"
                   data-tooltip=
                     {`
-                      ${photo.title} ${photo.location.icon} by ${username} 📍 ${photo.locationName}`}>
+                      ${photo.title} by ${username} 📍 ${photo.locationName}`}>
                   <img src={photo.image} alt={`${username._id}`} className="feed-image " />
                 </div>
               </Link>
             </div>
           )
         } 
-        if (destination === 'alldestinations'){
+        if (destination === 'destinations'){
           return (
             <div
               className="tile is-child notification"
@@ -40,7 +40,7 @@ const DestinationCard = ( { photos, _id, username }) => {
                   className="has-tooltip-bottom"
                   data-tooltip=
                     {`
-                    ${photo.title} ${photo.location.icon} by ${username} 📍 ${photo.locationName}`}>
+                    ${photo.title} by ${username} 📍 ${photo.locationName}`}>
                   <img src={photo.image} alt={`${username._id}`} className="feed-image " />
                 </div>
               </Link>
