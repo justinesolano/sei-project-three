@@ -35,6 +35,11 @@ const UserProfile = () => {
         <div className='columns user-profile-header columns'>
           <div className='column'>
             <img src={profilePicture} className='explorePicture is-hidden-touch	'></img>
+            <div className='level-item'>
+              <Link to='/addpicturetoprofile'>
+                <button type='submit' className='button is-info is-small is-danger'>Add a photo.</button>
+              </Link>
+            </div>
           </div>
           <div className='column'>
             <figure className='image is-96x96 image-to-centre'>
@@ -43,6 +48,7 @@ const UserProfile = () => {
           </div>
           <div className='column is-vcentred'>
             <h1 className='title is-hidden-touch'> &nbsp; &nbsp; {profile.username}</h1>
+
           </div>
         </div>
         <div className='columns is-multiline  '>
