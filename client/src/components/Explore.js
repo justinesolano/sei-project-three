@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Button, Feed, Icon, Form } from 'semantic-ui-react'
-import axios from 'axios'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 // import { getPayloadFromToken } from '../helpers/auth'
 import feedPicture from '../assets/photofeed.png'
 

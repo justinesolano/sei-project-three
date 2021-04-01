@@ -16,7 +16,7 @@ export default [
         'comments': [],
         'likes': [],
         'createdAt': '2021-03-31T21:39:50.317Z',
-        'updatedAt': '2021-03-31T21:39:50.317Z'
+        'updatedAt': '2021-03-31T21:39:50.317Z',
       },
       {
         'title': 'Flying high',
@@ -25,7 +25,7 @@ export default [
         'comments': [],
         'likes': [],
         'createdAt': '2021-03-31T21:41:00.724Z',
-        'updatedAt': '2021-03-31T21:41:00.724Z'
+        'updatedAt': '2021-03-31T21:41:00.724Z',
       },
       {
         'title': 'Paris!',
@@ -34,7 +34,7 @@ export default [
         'comments': [],
         'likes': [],
         'createdAt': '2021-03-31T21:41:54.551Z',
-        'updatedAt': '2021-03-31T21:41:54.551Z'
+        'updatedAt': '2021-03-31T21:41:54.551Z',
       },
       {
         'title': 'Beach, beach beach!',
@@ -43,7 +43,7 @@ export default [
         'comments': [],
         'likes': [],
         'createdAt': '2021-03-31T21:42:50.506Z',
-        'updatedAt': '2021-03-31T21:42:50.506Z'
+        'updatedAt': '2021-03-31T21:42:50.506Z',
       },
       {
         'title': 'Taj Mahal',
@@ -52,7 +52,7 @@ export default [
         'comments': [],
         'likes': [],
         'createdAt': '2021-03-31T21:43:26.413Z',
-        'updatedAt': '2021-03-31T21:43:26.413Z'
+        'updatedAt': '2021-03-31T21:43:26.413Z',
       },
       {
         'title': 'When in Rome...',
@@ -61,7 +61,7 @@ export default [
         'comments': [],
         'likes': [],
         'createdAt': '2021-03-31T21:43:55.696Z',
-        'updatedAt': '2021-03-31T21:43:55.696Z'
+        'updatedAt': '2021-03-31T21:43:55.696Z',
       },
       {
         'title': 'Faro Fun',
@@ -70,9 +70,9 @@ export default [
         'comments': [],
         'likes': [],
         'createdAt': '2021-03-31T21:44:30.401Z',
-        'updatedAt': '2021-03-31T21:44:30.401Z'
+        'updatedAt': '2021-03-31T21:44:30.401Z',
       }
-    ]
+    ],
   },
   {
     'username': 'Flynn',
@@ -160,6 +160,122 @@ export default [
             'owner': '605c81c516c14b3a5d0f11c6',
           }
         ],
+      },
+      {
+        'title': 'Massive doggo',
+        'location': { longitude: 115.188919, latitude: -8.409518, icon: '😎' },
+        'image': 'https://cms.guggenheim-bilbao.eus/uploads/2019/03/puppy-jeff-koons-guggenheim-bilbao-996x1024.jpg',
+        'locationName': 'Spain',
+        'comments': [
+          {
+            'text': 'Whoaaaa',
+            'owner': '605c704de6bac43634ea22bd',
+          }
+        ],
+        'likes': [
+          {
+            'like': true,
+            'owner': '605c81c516c14b3a5d0f11c6',
+          }
+        ],
+      },
+      {
+        'title': 'Gang gang',
+        'location': { longitude: 115.188919, latitude: -8.409518, icon: '😎' },
+        'image': 'https://s.abcnews.com/images/Lifestyle/ht_cat_selfie_split_hb_160115_4x3t_608.jpg',
+        'locationName': 'USA',
+        'comments': [
+          {
+            'text': 'HAHAHAHAHAHAHA',
+            'owner': '605c704de6bac43634ea22bd',
+          }
+        ],
+        'likes': [
+          {
+            'like': true,
+            'owner': '605c81c516c14b3a5d0f11c6',
+          }
+        ],
+      },
+      {
+        'title': 'I\'m on top!',
+        'location': { longitude: 115.188919, latitude: -8.409518, icon: '😎' },
+        'image': 'https://i1.wp.com/www.travindy.com/wp-content/uploads/2019/10/south-africa-1982418_1920.jpg?fit=1920%2C1280&ssl=1',
+        'locationName': 'South Africa',
+        'comments': [
+          {
+            'text': 'Don\'t fall!',
+            'owner': '605c704de6bac43634ea22bd',
+          }
+        ],
+        'likes': [
+          {
+            'like': true,
+            'owner': '605c81c516c14b3a5d0f11c6',
+          }
+        ],
+      },
+      {
+        'title': 'Gates!',
+        'location': { longitude: 115.188919, latitude: -8.409518, icon: '😎' },
+        'image': 'https://study-eu.s3.amazonaws.com/uploads/image/path/46/wide_fullhd_15317597976_b86a01bd5e_o.jpg',
+        'locationName': 'Germany',
+        'comments': [
+          {
+            'text': 'Always wanted to go there!',
+            'owner': '605c704de6bac43634ea22bd',
+          }
+        ],
+        'likes': [
+          {
+            'like': true,
+            'owner': '605c81c516c14b3a5d0f11c6',
+          }
+        ],
+      },
+      {
+        'title': 'Before lockdown :D',
+        'location': { longitude: 115.188919, latitude: -8.409518, icon: '😎' },
+        'image': 'https://media.npr.org/assets/img/2020/10/29/ap_20302629886833-d5d324f86ad23ad6bc0dd407e76702fba170fd92-s800-c85.jpg',
+        'locationName': 'Germany',
+        'comments': [
+          {
+            'text': 'Good times...',
+            'owner': '605c704de6bac43634ea22bd',
+          }
+        ],
+        'likes': [
+          {
+            'like': true,
+            'owner': '605c81c516c14b3a5d0f11c6',
+          }
+        ],
+      },
+      {
+        'title': 'I\'m here! CHELSEAAA!',
+        'location': { longitude: 115.188919, latitude: -8.409518, icon: '😎' },
+        'image': 'https://i2-prod.mylondon.news/incoming/article10089822.ece/ALTERNATES/s1200c/GettyImages-489069688.jpg',
+        'locationName': 'London',
+        'comments': [],
+        'likes': [
+          {
+            'like': true,
+            'owner': '605c81c516c14b3a5d0f11c6',
+          }
+        ],
+      },
+      {
+        'title': 'Beautiful!',
+        'location': { longitude: 115.188919, latitude: -8.409518, icon: '😎' },
+        'image': 'https://assets.simpleview-europe.com/dorset2016/imageresizer/?image=%2Fdbimgs%2FExplore-Towns-Swanage-2.jpg&action=FeaturedItemsScrollFullWidth3x2',
+        'locationName': 'England',
+        'comments': [],
+        'likes': [
+          {
+            'like': true,
+            'owner': '605c81c516c14b3a5d0f11c6',
+          }
+        ],
       }
     ],
   }, 
@@ -198,6 +314,54 @@ export default [
         'location': { longitude: 140.869415, latitude:	38.268223, icon: '🏰' },
         'image': 'https://images.squarespace-cdn.com/content/v1/5755a97d1d07c0b8c3216c63/1547164815068-6BP0O1E0X2E272EJDZSX/ke17ZwdGBToddI8pDm48kFWxnDtCdRm2WA9rXcwtIYR7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1UcTSrQkGwCGRqSxozz07hWZrYGYYH8sg4qn8Lpf9k1pYMHPsat2_S1jaQY3SwdyaXg/Conwy+Castle+%2F%2F+The+Most+Beautiful+Places+to+Visit+in+Wales+%2F%2F+%23readysetjetset+%23wales+%23uk+%23welsh+%23travel+%23photospots+%23blogpost',
         'locationName': 'Wales',
+        'comments': [],
+        'likes': [],
+      },
+      {
+        'title': 'Going to Comic Con',
+        'location': { longitude: 140.869415, latitude:	38.268223, icon: '🧎🏻‍♀️' },
+        'image': 'https://soranews24.com/wp-content/uploads/sites/3/2020/08/Japan-cosplay-cat-Ghibli-anime-Catbus-Nausicaa-Kikis-Delivery-Service-Japanese-cute-news-photos-videos-top-1.jpg',
+        'locationName': 'Japan',
+        'comments': [],
+        'likes': [],
+      },
+      {
+        'title': 'Monterey pic',
+        'location': { longitude: 140.869415, latitude:	38.268223, icon: '🏰' },
+        'image': 'https://a.travel-assets.com/findyours-php/viewfinder/images/res70/25000/25439-Monterey.jpg',
+        'locationName': 'California',
+        'comments': [],
+        'likes': [],
+      },
+      {
+        'title': 'Stone castle!',
+        'location': { longitude: 140.869415, latitude:	38.268223, icon: '🏰' },
+        'image': 'https://cdn.cnn.com/cnnnext/dam/assets/170606121333-scotland---travel-destination---shutterstock-512226913-super-tease.jpg',
+        'locationName': 'Scotland',
+        'comments': [],
+        'likes': [],
+      },
+      {
+        'title': 'UNITEEEEDDDD!',
+        'location': { longitude: 140.869415, latitude:	38.268223, icon: '🏰' },
+        'image': 'https://assets.manutd.com/AssetPicker/images/0/0/10/235/715703/OT_matchday_HR-351533822579827.jpg',
+        'locationName': 'Manchester',
+        'comments': [],
+        'likes': [],
+      },
+      {
+        'title': 'Old town, Sofia',
+        'location': { longitude: 140.869415, latitude:	38.268223, icon: '🏰' },
+        'image': 'https://i1.wp.com/passionpassport-1.s3.amazonaws.com/wp-content/uploads/2020/11/05114630/sofia-bulgaria-gem-header.jpg?resize=1068%2C801&ssl=1',
+        'locationName': 'Bulgaria',
+        'comments': [],
+        'likes': [],
+      },
+      {
+        'title': 'Overlook',
+        'location': { longitude: 140.869415, latitude:	38.268223, icon: '🏰' },
+        'image': 'https://www.costacruises.co.uk/content/dam/costa/inventory-assets/ports/IBZ/ibz-ibiza-port-1b.jpg.image.750.563.low.jpg',
+        'locationName': 'Ibiza',
         'comments': [],
         'likes': [],
       }
@@ -831,6 +995,152 @@ export default [
         'comments': [
           {
             'text': 'Lilypads!',
+            'owner': '6061b97caded06111e804935',
+          }
+        ],
+        'likes': [
+          {
+            'like': true,
+            'owner': '6061b97caded06111e804935',
+          }
+        ],
+      }
+    ],
+  },
+  {
+    'username': 'james10',
+    'email': 'james@email',
+    'password': 'pass',
+    'passwordConfirmation': 'pass',
+    'photos': [
+      {
+        'title': 'Adventuring',
+        'location': { longitude: -118.243683, latitude: 34.052235, icon: '🌋'  },
+        'image': 'https://offloadmedia.feverup.com/secretldn.com/wp-content/uploads/2017/10/18114146/sagar-and-wilde.jpg',
+        'locationName': 'London',
+        'comments': [],
+        'likes': [
+          {
+            'like': true,
+            'owner': '605c81c516c14b3a5d0f11c6',
+          },
+          {
+            'like': true,
+            'owner': '605c704de6bac43634ea22bd',
+          }
+        ],
+      },
+      {
+        'title': 'FREEDOM!',
+        'location': { longitude: -119.417931, latitude: 36.778259, icon: '🌴' },
+        'image': 'https://s3-eu-west-1.amazonaws.com/eflanguagesblog/wp-content/uploads/2019/06/19214735/10-reasons-to-love-Brighton_568x464.jpg',
+        'locationName': 'Brighton',
+        'comments': [],
+        'likes': [],
+      },
+      {
+        'title': 'Painstaking shot',
+        'location': { longitude: -119.417931, latitude: 36.778259, icon: '🌾' },
+        'image': 'https://www.islandecho.co.uk/wp-content/uploads/2020/08/londonnight.jpg',
+        'locationName': 'London',
+        'comments': [
+          {
+            'text': 'Wowowowowow!',
+            'owner': '605c704de6bac43634ea22bd',
+          }
+        ],
+        'likes': [
+          {
+            'like': true,
+            'owner': '605c81c516c14b3a5d0f11c6',
+          },
+          {
+            'like': true,
+            'owner': '605c704de6bac43634ea22bd',
+          }
+        ],
+      },
+      {
+        'title': 'Empty yeaaahhh!',
+        'location': { longitude: -119.417931, latitude: 36.778259, icon: '🏝' },
+        'image': 'https://www.premierclubrewards.org/blog/wp-content/uploads/2019/07/trafalgar-square.jpg',
+        'locationName': 'London',
+        'comments': [
+          {
+            'text': 'The water\'s nice!!',
+            'owner': '6061b97caded06111e804935',
+          }
+        ],
+        'likes': [
+          {
+            'like': true,
+            'owner': '6061b97caded06111e804935',
+          }
+        ],
+      }
+    ],
+  },
+  {
+    'username': 'lonelytraveller',
+    'email': 'lonely@email',
+    'password': 'pass',
+    'passwordConfirmation': 'pass',
+    'photos': [
+      {
+        'title': 'I\'m tiny',
+        'location': { longitude: -118.243683, latitude: 34.052235, icon: '🌋'  },
+        'image': 'https://theworldtravelguy.com/wp-content/uploads/2020/05/DSCF3624.jpg',
+        'locationName': 'Myanmar',
+        'comments': [],
+        'likes': [
+          {
+            'like': true,
+            'owner': '605c81c516c14b3a5d0f11c6',
+          },
+          {
+            'like': true,
+            'owner': '605c704de6bac43634ea22bd',
+          }
+        ],
+      },
+      {
+        'title': 'Beautiful Congo',
+        'location': { longitude: -119.417931, latitude: 36.778259, icon: '🌴' },
+        'image': 'https://i.redd.it/r1pru4bc4ld21.jpg',
+        'locationName': 'Democratic Republic of Congo',
+        'comments': [],
+        'likes': [],
+      },
+      {
+        'title': 'Kiribati wind',
+        'location': { longitude: -119.417931, latitude: 36.778259, icon: '🌾' },
+        'image': 'https://wi-images.condecdn.net/image/M4jBxdDYLMp/crop/1440/0.5235602094240838/f/001-Kiribati.jpg',
+        'locationName': 'Kiribati',
+        'comments': [
+          {
+            'text': ':(',
+            'owner': '605c704de6bac43634ea22bd',
+          }
+        ],
+        'likes': [
+          {
+            'like': true,
+            'owner': '605c81c516c14b3a5d0f11c6',
+          },
+          {
+            'like': true,
+            'owner': '605c704de6bac43634ea22bd',
+          }
+        ],
+      },
+      {
+        'title': 'Singapore at night',
+        'location': { longitude: -119.417931, latitude: 36.778259, icon: '🏝' },
+        'image': 'https://wp.technologyreview.com/wp-content/uploads/2020/03/ap20043772614104web-8.jpg',
+        'locationName': 'Singapore',
+        'comments': [
+          {
+            'text': 'Awesome lights!!',
             'owner': '6061b97caded06111e804935',
           }
         ],
