@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { ImageUploadField } from '../components/ImageUploadField'
 import { getPayloadFromToken } from '../helpers/auth'
 import { Header } from 'semantic-ui-react'
+import { useHistory } from 'react-router-dom'
 
 const AddPictureToProfile = () => {
 
@@ -13,13 +14,16 @@ const AddPictureToProfile = () => {
     image: ''
   })
 
+  const history = useHistory()
+
   const handleChange = (event) => {
     const name = event.target.name
     const value = event.target.value
     setFormdata({ ...formdata, [name]: value })
   }
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (event) => {
+    event.preventDefault()
     const profileId = getPayloadFromToken().sub
     try {
       await axios.post(`/api/profiles/${profileId}/photos`, formdata, {
@@ -30,6 +34,7 @@ const AddPictureToProfile = () => {
     } catch (err) {
       console.log(err)
     }
+    history.push(`/profile/${profileId}`)
   }
 
   const handleImageUrl = url => {
