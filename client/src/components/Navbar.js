@@ -2,13 +2,14 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import jetflixLogo from '../assets/jetflixlogo.png'
 import Select from 'react-select'
-import { suitableOptions, tagOptions } from './data/searchData'
+import { suitableOptions, tagOptions, continentOptions } from './data/searchData'
 import { userIsAuthenticated, getPayloadFromToken } from '../helpers/auth'
 import { useHistory, useLocation } from 'react-router-dom'
 
 const groupedOptions = [
   { label: 'Suitable For', options: suitableOptions },
-  { label: 'Tags', options: tagOptions }
+  { label: 'Tags', options: tagOptions },
+  { label: 'Continents', options: continentOptions }
 ]
 
 const customStyles = {

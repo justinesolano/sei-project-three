@@ -70,6 +70,7 @@ body {
 
 .likesArea {
   padding-right: 5vw;
+  pointer-events: none;
 }
 
 .ui.button.likeButton {
@@ -152,9 +153,10 @@ body {
       color: white;
     }
     img {
-      height: 50vh;
+      height: 80vh;
       width: auto;
       object-fit: cover;
+      margin-bottom: 45px;
     }
     .hero-info {
       position: absolute;
@@ -219,10 +221,10 @@ body {
   // * Previews
   .home-previews {
     h3 {
-      padding-top: 35px;
       padding-left: 15px;
       margin-top: 0;
       margin-bottom: 0;
+      font-size: 25px;
     }
     img {
       height: 180px;
