@@ -6,10 +6,15 @@ import Hero from '../components/Home/Hero'
 import Previews from '../components/Home/Previews'
 import DetailInfo from '../components/Home/DetailInfo'
 
-const Home = () => {
+
+const Home = ({ searchData }) => {
 
   const [destinations, setDestinations] = useState(null)
+  const [allDestinations, setAllDestinations] = useState(null)
+  const [heroDestination, setHeroDestination] = useState(null)
   const [tagDestinations, setTagDestinations] = useState(null)
+
+  const [search, setSearch] = useState([])
   const [myList, setMyList] = useState(null)
   const [myNewList, setMyNewList] = useState(null)
   const [hero, setHero] = useState(0)
@@ -26,10 +31,29 @@ const Home = () => {
   useEffect(() => {
     const getUsers = async () => {
       const myDestinationArray = []
+      const mySearchArray = []
       try {
         const { data } = await axios.get('/api/destinations')
-        setDestinations(data)
-        const destinationsArray = data
+        setAllDestinations(data)
+        const searchArray = data
+        if (searchData.search.length > 0) {
+          searchData.search.map(search => {
+            searchArray.map(destination => {
+              if (destination.tags.includes(search)) mySearchArray.push(destination)
+              if (destination.suitableFor.includes(search)) mySearchArray.push(destination)
+              if (destination.continent.includes(search)) mySearchArray.push(destination)
+            })
+          })
+          setDestinations(mySearchArray)
+        } else {
+          setDestinations(data)
+        }
+        let destinationsArray = []
+        if (mySearchArray.length > 0) {
+          destinationsArray = mySearchArray
+        } else {
+          destinationsArray = data
+        }
         const response = await axios.get('/api/profiles')
         response.data.map(user => {
           if (user.id === getPayloadFromToken().sub) {
@@ -50,13 +74,18 @@ const Home = () => {
       }
     }
     getUsers()
-  }, [rating])
+  }, [search, rating])
+
+  useEffect(() => {
+    setSearch(searchData)
+  })
 
   // GET Hero destination
   useEffect(() => {
     const getHero = async () => {
       try {
         const { data } = await axios.get('/api/destinations')
+        setHeroDestination(data)
         setHero(parseFloat(Math.floor(Math.random() * data.length)))
       } catch (err) {
         console.log(err)
@@ -92,8 +121,16 @@ const Home = () => {
   
   // Open info popup
   const handleInfoButton = (event) => {
+    setSearch(null)
     setDetailInfoId(event.target.name)
     setMyList(myNewList)
+    setRating({
+      one: 'icon',
+      two: 'icon',
+      three: 'icon',
+      four: 'icon',
+      five: 'icon'
+    })
   }
 
   // Close info popup
@@ -119,6 +156,7 @@ const Home = () => {
       console.log(err)
       window.alert('You need to login to submit a rating')
     }
+    if (event.target.id === allDestinations[hero].id) return
     setRating({
       one: 'icon',
       two: 'icon',
@@ -128,7 +166,7 @@ const Home = () => {
     })
   }
 
-  if (!destinations) return null
+  if (!destinations || !heroDestination) return null
 
   return (
     <div className="home-page is-fullheight-with-navbar">
@@ -138,13 +176,13 @@ const Home = () => {
         handleMyList={handleMyList}
         handleRating={handleRating}
         rating={rating}
-        destinations={destinations}
+        destinations={allDestinations}
       />
-      <Hero 
+      <Hero
         handleInfoButton={handleInfoButton}
         handleRating={handleRating}
         handleMyList={handleMyList}
-        destinations={destinations}
+        destinations={heroDestination}
         hero={hero}
         rating={rating}
       />

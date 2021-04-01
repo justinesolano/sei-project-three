@@ -19,15 +19,11 @@ const customStyles = {
   })
 }
 
-const Navbar = () => {
+const Navbar = ({ searchData, setSearchData }) => {
 
-  const [formdata, setFormdata] = useState({
-    search: []
-  })
-
-  const handleMultiChange = (selected, name) => {
+  const handleSearchChange = (selected, name) => {
     const values = selected ? selected.map(item => item.value) : []
-    setFormdata({ ...formdata, [name]: [...values] })
+    setSearchData({ ...searchData, [name]: [...values] })
   }
 
   const location = useLocation()
@@ -111,6 +107,7 @@ const Navbar = () => {
           </div>
         </div>
         <div className="navbar-end">
+          {window.location.pathname === '/home' &&
           <div className="navbar-item">
             <Select className="search-bar-link"
               options={groupedOptions}
@@ -118,9 +115,10 @@ const Navbar = () => {
               isMulti
               name="search"
               placeholder="Find your paradise here"
-              onChange={(selected) => handleMultiChange(selected, 'search')}
+              onChange={(selected) => handleSearchChange(selected, 'search')}
             />
           </div>
+          }
           { !userIsAuthenticated() &&
           <div className="navbar-item">
             <div className="buttons">
