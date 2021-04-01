@@ -116,6 +116,9 @@ body {
     .field{
       margin-top: 20px;
     }
+    .last-field{
+      margin-bottom: 20px;
+    }
     .button {
       margin-top: 20px;
       width: 100%;
@@ -135,8 +138,8 @@ body {
 }
 .register-content {
   height: 500px;
-  .last-field{
-    margin-bottom: 20px;
+  .button{
+    margin-top: 10px;
   }
 }
 
@@ -282,19 +285,24 @@ body {
   font-weight: bold;
   background-color: rgb(15, 15, 15);
   // DESTINATION CARD
+  .tile.is-parent.is-vertical.is-gapless.one-destination{
+    display: flex;
+    justify-content: center;
+  }
   .tile.is-parent{
     margin: 1px;
-    .content{
-      display: flex;
-      justify-content: center;
+    // .content{
+    //   display: flex;
+    //   justify-content: center;
       .feed-image{
       display: flex;
       justify-content: center;
       align-content: center;
       }
-    }
   }
 }
+
+
 
 // Userprofile 
 .everythingProfile { 
@@ -320,9 +328,7 @@ body {
     width: auto;
   }
   .user-profile-header{ 
-    display: flex;
-    justify-content: space-between;
-    max-width: 800px;
+    max-width: 930px;
     padding-top: 80px;
   }
   .user-profile-left-header { 
@@ -339,6 +345,7 @@ body {
   }
   .round-the-image { 
     border-radius: 15px;
+    margin-left: 75px;
   }
   .explorePicture { 
     margin-top: 20px;
@@ -348,6 +355,7 @@ body {
   
 // user comments add
 .body-show-comments{ 
+  font-family: 'Montserrat', sans-serif;
     background-color: black;
     .show-comments {
       margin-top: 50px; 
@@ -376,9 +384,9 @@ body {
     }
     .user-profile-header{ 
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       max-width: 600px;
-      padding-top: 10px;
+      padding-top: 70px;
       margin: auto;
     }
     .user-profile-left-header { 
@@ -387,6 +395,24 @@ body {
       margin-bottom: 0;
       margin-top: 80px;
       padding-right: 40px;
+    }
+    .title.is-4 { 
+      padding-top: 4px;
+    }
+    .round-the-image { 
+      border-radius: 15px;
+    }
+    .title-to-change-padding { 
+      padding:0px;
+    }
+    .button { 
+      width: 170px;
+    }
+    .change-color-font { 
+      color:black;
+    }
+    .is-small.input { 
+      border-radius: 25px;
     }
 }
   

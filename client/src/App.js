@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Landing from './components/Landing'
@@ -14,15 +14,24 @@ import Map from './components/Map'
 import AddCommentsToProfile from './components/AddCommentsToProfile'
 const App = () => {
 
+  const [searchData, setSearchData] = useState({
+    search: []
+  })
+
   return (
     <BrowserRouter>
-      <Navbar />
+      <Navbar 
+        searchData={searchData}
+        setSearchData={setSearchData}
+      />
       <Switch>
         <Route exact path="/">
           <Landing />
         </Route>
         <Route path="/home">
-          <Home />
+          <Home 
+            searchData={searchData}
+          />
         </Route>
         <Route path="/destinations/:id">
           <Destination />

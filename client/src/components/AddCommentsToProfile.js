@@ -43,9 +43,36 @@ const AddCommentsToProfile = () => {
     setLikes()
   }
 
-  const handleComment = event => { 
-    console.log(event.target)
+  const [commentData, setCommentData] = useState({
+    text: ''
+  })
+  const handleComment = event => {
+    console.log('NAME', event.target.name)
+    const newFormData = { ...commentData, text: event.target.value }
+    setCommentData(newFormData)
   }
+
+
+  const handleSubmit = event => {
+    const setComment = async () => {
+      try {
+        event.preventDefault()
+        const token = window.localStorage.getItem('token')
+        console.log(token)
+        // console.log('COMMENTS', comments)
+        await axios.post(`/api/profiles/${event.target.target}/photos/${event.target.name}`, commentData, {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        })
+        window.location.reload()
+      } catch (err) {
+        console.log(err)
+      }
+    }
+    setComment()
+  }
+
 
   if (!profile) return null
   return (
@@ -55,15 +82,13 @@ const AddCommentsToProfile = () => {
           <div
             title={`${profile.username}`}
             className='has-tooltip-bottom'
-            data-tooltip=
-              {'👤 Back to profile'}>
+            data-tooltip={'👤 Back to profile'}>
             <figure className='image is-96x96 '>
               <Link to={`/profile/${profile._id}`}>
                 <img src={smileyGreen} alt='Placeholder image' className='round-the-image' />
               </Link>
             </figure>
           </div>
-          <h1 className='title is-hidden-mobile	'> &nbsp; &nbsp; {profile.username}</h1>
         </div>
         {profile.photos.map(photo => {
           return (
@@ -77,9 +102,16 @@ const AddCommentsToProfile = () => {
                 <div className='card-content'>
                   <div className='media'>
                     <div className='media-left'>
-                      <figure className='image is-48x48'>
-                        <img src={smileyGreen} alt='Placeholder image' />
-                      </figure>
+                      <div
+                        title={`${profile.username}`}
+                        className='has-tooltip-bottom'
+                        data-tooltip={'👤 Back to profile'}>
+                        <figure className='image is-48x48'>
+                          <Link to={`/profile/${profile._id}`}>
+                            <img src={smileyGreen} alt='Placeholder image' />
+                          </Link>
+                        </figure>
+                      </div>
                     </div>
                     <div className='media-content'>
                       <p className='title is-4 is-hidden-mobile'>{photo.title}</p>
@@ -94,47 +126,47 @@ const AddCommentsToProfile = () => {
                   </div>
                 </div>
                 <div className='content'>
-                  <h5 className='title is-5'>Comments:</h5>
-                  {photo.comments.map(comment => (
-                    <div key={comment._id}>
-                      {<p className='p-userprofile' >
-                        <Link to={`/profiles/${comment.owner}`}> 👤 - {comment.text} </Link>
-                      </p>}
-                    </div>
-                  ))}
-                  <div>
-                    <article className='media '>
-                      <figure className='media-right'>
-                        <p className='image is-64x64'>
-                          <img src='https://bulma.io/images/placeholders/128x128.png' />
-                        </p>
-                      </figure>
-                      <div className='media-content'>
-                        <div className='field'>
-                          <p className='control'>
-                            <textarea className='textarea is-small' placeholder='Add a comment...'></textarea>
-                          </p>
+                  <div className='columns card-content'>
+                    <div className='column is-three-fifths'>
+                      <h5 className='title is-5 title-to-change-padding'>Comments:</h5>
+                      {photo.comments.map(comment => (
+                        <div key={comment._id}>
+                          {<p className='p-userprofile' >
+                            <Link to={`/profile/${comment.owner}`} className='change-color-font'> <span className='is-size-5'>👤 - {comment.text}</span><p className='is-size-7'> {new Date(comment.createdAt).toDateString()}</p> </Link>
+                          </p>}
                         </div>
-                        <nav className='level'>
-                          <div className='level-left'>
-                            <div className='level-item'>
-                              <a onClick={handleComment} className='button is-info'>Submit</a> 
+                      ))}
+                    </div>
+                    <div className='column is-left'>
+                      <article className='media '>
+                        <form onSubmit={handleSubmit}
+                          target={profile.id}
+                          name={photo._id} >
+                          <div className='media-content' >
+                            <div className='field'>
+                              <p className='control'>
+                                <textarea onChange={handleComment} className='textarea normal round-the-image ' placeholder='Add a comment...'></textarea>
+                              </p>
                             </div>
+                            <nav className='level'>
+                              <div className='level-left'>
+                                <div className='level-item'>
+                                  <button type='submit' className='button is-info is-3 is-danger'>Submit</button>
+                                </div>
+                              </div>
+
+                              <div className='level-right'>
+                              </div>
+                            </nav>
                           </div>
-                          <div className='level-right'>
-                            <div className='level-item'>
-                              <label className='checkbox'>
-                                <input type='checkbox' /> Press enter to submit
-                              </label>
-                            </div>
-                          </div>
-                        </nav>
-                      </div>
-                    </article>
+                        </form>
+                      </article>
+                    </div>
                   </div>
+
                   <br>
                   </br>
-                  <time>11:09 PM - 1 Jan 2016</time>
+                  <time>{new Date(photo.createdAt).toString()}</time>
                 </div>
               </div>
             </div>
