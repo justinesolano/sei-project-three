@@ -42,10 +42,17 @@ const AddCommentsToProfile = () => {
     }
     setLikes()
   }
+  const [comments, setComments] = useState('')
+  const handleComment = event => {
+    setComments(event.target.value)
+  }
+  console.log(comments)
 
-  const handleComment = event => { 
+  const handleSubmit = event => {
+    event.preventDefault()
     console.log(event.target)
   }
+
 
   if (!profile) return null
   return (
@@ -55,15 +62,13 @@ const AddCommentsToProfile = () => {
           <div
             title={`${profile.username}`}
             className='has-tooltip-bottom'
-            data-tooltip=
-              {'👤 Back to profile'}>
+            data-tooltip={'👤 Back to profile'}>
             <figure className='image is-96x96 '>
               <Link to={`/profile/${profile._id}`}>
                 <img src={smileyGreen} alt='Placeholder image' className='round-the-image' />
               </Link>
             </figure>
           </div>
-          <h1 className='title is-hidden-mobile	'> &nbsp; &nbsp; {profile.username}</h1>
         </div>
         {profile.photos.map(photo => {
           return (
@@ -77,9 +82,16 @@ const AddCommentsToProfile = () => {
                 <div className='card-content'>
                   <div className='media'>
                     <div className='media-left'>
-                      <figure className='image is-48x48'>
-                        <img src={smileyGreen} alt='Placeholder image' />
-                      </figure>
+                      <div
+                        title={`${profile.username}`}
+                        className='has-tooltip-bottom'
+                        data-tooltip={'👤 Back to profile'}>
+                        <figure className='image is-48x48'>
+                          <Link to={`/profile/${profile._id}`}>
+                            <img src={smileyGreen} alt='Placeholder image' />
+                          </Link>
+                        </figure>
+                      </div>
                     </div>
                     <div className='media-content'>
                       <p className='title is-4 is-hidden-mobile'>{photo.title}</p>
@@ -109,29 +121,32 @@ const AddCommentsToProfile = () => {
                           <img src='https://bulma.io/images/placeholders/128x128.png' />
                         </p>
                       </figure>
-                      <div className='media-content'>
-                        <div className='field'>
-                          <p className='control'>
-                            <textarea className='textarea is-small' placeholder='Add a comment...'></textarea>
-                          </p>
+                      <form onSubmit={handleSubmit}>
+                        <div className='media-content' >
+                          <div className='field'>
+                            <p className='control'>
+                              <textarea onChange={handleComment} className='textarea is-small' placeholder='Add a comment...'></textarea>
+                            </p>
+                          </div>
+                          <nav className='level'>
+                            <div className='level-left'>
+                              <div className='level-item'>
+                                <button type='submit' className='button is-info'>Submit</button>
+                              </div>
+                            </div>
+                            <div className='level-right'>
+                              <div className='level-item'>
+                                <label className='checkbox'>
+                                  <input type='checkbox' /> Press enter to submit
+                                </label>
+                              </div>
+                            </div>
+                          </nav>
                         </div>
-                        <nav className='level'>
-                          <div className='level-left'>
-                            <div className='level-item'>
-                              <a onClick={handleComment} className='button is-info'>Submit</a> 
-                            </div>
-                          </div>
-                          <div className='level-right'>
-                            <div className='level-item'>
-                              <label className='checkbox'>
-                                <input type='checkbox' /> Press enter to submit
-                              </label>
-                            </div>
-                          </div>
-                        </nav>
-                      </div>
+                      </form>
                     </article>
                   </div>
+
                   <br>
                   </br>
                   <time>11:09 PM - 1 Jan 2016</time>
