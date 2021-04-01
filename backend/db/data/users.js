@@ -842,5 +842,151 @@ export default [
         ],
       }
     ],
+  },
+  {
+    'username': 'james10',
+    'email': 'james@email',
+    'password': 'pass',
+    'passwordConfirmation': 'pass',
+    'photos': [
+      {
+        'title': 'Adventuring',
+        'location': { longitude: -118.243683, latitude: 34.052235, icon: '🌋'  },
+        'image': 'https://offloadmedia.feverup.com/secretldn.com/wp-content/uploads/2017/10/18114146/sagar-and-wilde.jpg',
+        'locationName': 'London',
+        'comments': [],
+        'likes': [
+          {
+            'like': true,
+            'owner': '605c81c516c14b3a5d0f11c6',
+          },
+          {
+            'like': true,
+            'owner': '605c704de6bac43634ea22bd',
+          }
+        ],
+      },
+      {
+        'title': 'FREEDOM!',
+        'location': { longitude: -119.417931, latitude: 36.778259, icon: '🌴' },
+        'image': 'https://www.charlottebbqandblues.com/wp-content/uploads/2018/10/1123.jpg',
+        'locationName': 'Brighton',
+        'comments': [],
+        'likes': [],
+      },
+      {
+        'title': 'Painstaking shot',
+        'location': { longitude: -119.417931, latitude: 36.778259, icon: '🌾' },
+        'image': 'https://www.islandecho.co.uk/wp-content/uploads/2020/08/londonnight.jpg',
+        'locationName': 'London',
+        'comments': [
+          {
+            'text': 'Wowowowowow!',
+            'owner': '605c704de6bac43634ea22bd',
+          }
+        ],
+        'likes': [
+          {
+            'like': true,
+            'owner': '605c81c516c14b3a5d0f11c6',
+          },
+          {
+            'like': true,
+            'owner': '605c704de6bac43634ea22bd',
+          }
+        ],
+      },
+      {
+        'title': 'Empty yeaaahhh!',
+        'location': { longitude: -119.417931, latitude: 36.778259, icon: '🏝' },
+        'image': 'https://www.premierclubrewards.org/blog/wp-content/uploads/2019/07/trafalgar-square.jpg',
+        'locationName': 'London',
+        'comments': [
+          {
+            'text': 'The water\'s nice!!',
+            'owner': '6061b97caded06111e804935',
+          }
+        ],
+        'likes': [
+          {
+            'like': true,
+            'owner': '6061b97caded06111e804935',
+          }
+        ],
+      }
+    ],
+  },
+  {
+    'username': 'lonelytraveller',
+    'email': 'lonely@email',
+    'password': 'pass',
+    'passwordConfirmation': 'pass',
+    'photos': [
+      {
+        'title': 'I\'m tiny',
+        'location': { longitude: -118.243683, latitude: 34.052235, icon: '🌋'  },
+        'image': 'https://theworldtravelguy.com/wp-content/uploads/2020/05/DSCF3624.jpg',
+        'locationName': 'Myanmar',
+        'comments': [],
+        'likes': [
+          {
+            'like': true,
+            'owner': '605c81c516c14b3a5d0f11c6',
+          },
+          {
+            'like': true,
+            'owner': '605c704de6bac43634ea22bd',
+          }
+        ],
+      },
+      {
+        'title': 'Beautiful Congo',
+        'location': { longitude: -119.417931, latitude: 36.778259, icon: '🌴' },
+        'image': 'https://i.redd.it/r1pru4bc4ld21.jpg',
+        'locationName': 'Democratic Republic of Congo',
+        'comments': [],
+        'likes': [],
+      },
+      {
+        'title': 'Kiribati wind',
+        'location': { longitude: -119.417931, latitude: 36.778259, icon: '🌾' },
+        'image': 'https://wi-images.condecdn.net/image/M4jBxdDYLMp/crop/1440/0.5235602094240838/f/001-Kiribati.jpg',
+        'locationName': 'Kiribati',
+        'comments': [
+          {
+            'text': ':(',
+            'owner': '605c704de6bac43634ea22bd',
+          }
+        ],
+        'likes': [
+          {
+            'like': true,
+            'owner': '605c81c516c14b3a5d0f11c6',
+          },
+          {
+            'like': true,
+            'owner': '605c704de6bac43634ea22bd',
+          }
+        ],
+      },
+      {
+        'title': 'Singapore at night',
+        'location': { longitude: -119.417931, latitude: 36.778259, icon: '🏝' },
+        'image': 'https://wp.technologyreview.com/wp-content/uploads/2020/03/ap20043772614104web-8.jpg',
+        'locationName': 'Singapore',
+        'comments': [
+          {
+            'text': 'Awesome lights!!',
+            'owner': '6061b97caded06111e804935',
+          }
+        ],
+        'likes': [
+          {
+            'like': true,
+            'owner': '6061b97caded06111e804935',
+          }
+        ],
+      }
+    ],
   }
 ]
