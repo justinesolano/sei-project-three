@@ -57,8 +57,21 @@ const Home = ({ searchData }) => {
         const response = await axios.get('/api/profiles')
         response.data.map(user => {
           if (user.id === getPayloadFromToken().sub) {
-            setMyNewList(user.myList)
-            setMyList(user.myList)
+            const mySearchList = []
+            if (searchData.search.length > 0) {
+              searchData.search.map(search => {
+                user.myList.map(destination => {
+                  if (destination.tags.includes(search)) mySearchList.push(destination)
+                  if (destination.suitableFor.includes(search)) mySearchList.push(destination)
+                  if (destination.continent.includes(search)) mySearchList.push(destination)
+                })
+              })
+              setMyNewList(mySearchList)
+              setMyList(mySearchList)
+            } else {
+              setMyNewList(user.myList)
+              setMyList(user.myList)
+            }
             user.myTags.map(tag => {
               destinationsArray.map(destination => {
                 if (destination.tags.includes(tag)) myDestinationArray.push(destination)
