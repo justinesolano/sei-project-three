@@ -9,6 +9,7 @@ const destinationSchema = new mongoose.Schema({
   name: { type: String, required: true, unique: true },
   description: { type: String, required: true },
   country: { type: String, required: true },
+  continent: { type: String, required: true },
   language: { type: String, required: true },
   currency: { type: String, required: true },
   highlights: { type: Array, required: true },
