@@ -348,6 +348,7 @@ body {
   
 // user comments add
 .body-show-comments{ 
+  font-family: 'Montserrat', sans-serif;
     background-color: black;
     .show-comments {
       margin-top: 50px; 
@@ -393,6 +394,18 @@ body {
     }
     .round-the-image { 
       border-radius: 15px;
+    }
+    .title-to-change-padding { 
+      padding:0px;
+    }
+    .button { 
+      width: 170px;
+    }
+    .change-color-font { 
+      color:black;
+    }
+    .is-small.input { 
+      border-radius: 25px;
     }
 }
   

@@ -42,15 +42,35 @@ const AddCommentsToProfile = () => {
     }
     setLikes()
   }
-  const [comments, setComments] = useState('')
+
+  const [commentData, setCommentData] = useState({
+    text: ''
+  })
   const handleComment = event => {
-    setComments(event.target.value)
+    console.log('NAME', event.target.name)
+    const newFormData = { ...commentData, text: event.target.value }
+    setCommentData(newFormData)
   }
-  console.log(comments)
+
 
   const handleSubmit = event => {
-    event.preventDefault()
-    console.log(event.target)
+    const setComment = async () => {
+      try {
+        event.preventDefault()
+        const token = window.localStorage.getItem('token')
+        console.log(token)
+        // console.log('COMMENTS', comments)
+        await axios.post(`/api/profiles/${event.target.target}/photos/${event.target.name}`, commentData, {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        })
+        window.location.reload()
+      } catch (err) {
+        console.log(err)
+      }
+    }
+    setComment()
   }
 
 
@@ -106,50 +126,47 @@ const AddCommentsToProfile = () => {
                   </div>
                 </div>
                 <div className='content'>
-                  <h5 className='title is-5'>Comments:</h5>
-                  {photo.comments.map(comment => (
-                    <div key={comment._id}>
-                      {<p className='p-userprofile' >
-                        <Link to={`/profiles/${comment.owner}`}> 👤 - {comment.text} </Link>
-                      </p>}
-                    </div>
-                  ))}
-                  <div>
-                    <article className='media '>
-                      <figure className='media-right'>
-                        <p className='image is-64x64'>
-                          <img src='https://bulma.io/images/placeholders/128x128.png' />
-                        </p>
-                      </figure>
-                      <form onSubmit={handleSubmit}>
-                        <div className='media-content' >
-                          <div className='field'>
-                            <p className='control'>
-                              <textarea onChange={handleComment} className='textarea is-small' placeholder='Add a comment...'></textarea>
-                            </p>
-                          </div>
-                          <nav className='level'>
-                            <div className='level-left'>
-                              <div className='level-item'>
-                                <button type='submit' className='button is-info'>Submit</button>
-                              </div>
-                            </div>
-                            <div className='level-right'>
-                              <div className='level-item'>
-                                <label className='checkbox'>
-                                  <input type='checkbox' /> Press enter to submit
-                                </label>
-                              </div>
-                            </div>
-                          </nav>
+                  <div className='columns card-content'>
+                    <div className='column is-three-fifths'>
+                      <h5 className='title is-5 title-to-change-padding'>Comments:</h5>
+                      {photo.comments.map(comment => (
+                        <div key={comment._id}>
+                          {<p className='p-userprofile' >
+                            <Link to={`/profile/${comment.owner}`} className='change-color-font'> <span className='is-size-5'>👤 - {comment.text}</span><p className='is-size-7'> {new Date(comment.createdAt).toDateString()}</p> </Link>
+                          </p>}
                         </div>
-                      </form>
-                    </article>
+                      ))}
+                    </div>
+                    <div className='column is-left'>
+                      <article className='media '>
+                        <form onSubmit={handleSubmit}
+                          target={profile.id}
+                          name={photo._id} >
+                          <div className='media-content' >
+                            <div className='field'>
+                              <p className='control'>
+                                <textarea onChange={handleComment} className='textarea normal round-the-image ' placeholder='Add a comment...'></textarea>
+                              </p>
+                            </div>
+                            <nav className='level'>
+                              <div className='level-left'>
+                                <div className='level-item'>
+                                  <button type='submit' className='button is-info is-3 is-danger'>Submit</button>
+                                </div>
+                              </div>
+
+                              <div className='level-right'>
+                              </div>
+                            </nav>
+                          </div>
+                        </form>
+                      </article>
+                    </div>
                   </div>
 
                   <br>
                   </br>
-                  <time>11:09 PM - 1 Jan 2016</time>
+                  <time>{new Date(photo.createdAt).toString()}</time>
                 </div>
               </div>
             </div>
