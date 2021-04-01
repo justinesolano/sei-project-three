@@ -3,7 +3,7 @@ import { Header } from 'semantic-ui-react'
 import { useHistory } from 'react-router'
 import axios from 'axios'
 import Select from 'react-select'
-import { suitableOptions, tagOptions } from '../components/data/searchData'
+import { suitableOptions, tagOptions, continentOptions } from '../components/data/searchData'
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -20,7 +20,8 @@ const Register = () => {
 
   const groupedOptions = [
     { label: 'Suitable For', options: suitableOptions },
-    { label: 'Tags', options: tagOptions }
+    { label: 'Tags', options: tagOptions },
+    { label: 'Continents', options: continentOptions }
   ]
 
   const customStyles = {
