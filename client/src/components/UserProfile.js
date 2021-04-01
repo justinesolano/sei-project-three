@@ -42,9 +42,6 @@ const UserProfile = () => {
     getData()
   }, [])
 
-
-
-
   if (!profile) return null
 
 
@@ -58,7 +55,7 @@ const UserProfile = () => {
             </figure>
             <h1 className='title'> &nbsp; &nbsp; {profile.username}</h1>
           </div>
-          <img src={profilePicture} className="explorePicture is-hidden-mobile		"></img>
+          <img src={profilePicture} className='explorePicture is-hidden-touch	'></img>
         </div>
         <div className='columns is-multiline  '>
           {profile.photos.map(photo => {
@@ -67,11 +64,11 @@ const UserProfile = () => {
                 <div className=''>                <div
                   key={photo._id}
                   title={`${profile.username}`}
-                  className="has-tooltip-bottom"
+                  className='has-tooltip-bottom'
                   data-tooltip=
                     {`
                       📍 ${photo.locationName} ❤️ Likes: ${photo.likes.length} 💬 View comments`}>
-                  <img src={photo.image} className="picture card-image column column-user-profile button" />
+                  <img src={photo.image} className='picture card-image column column-user-profile button' />
                 </div>
 
                 </div>
@@ -81,7 +78,6 @@ const UserProfile = () => {
           {/* </div> */}
         </div>
       </div>
-
     </div>
   )
 }

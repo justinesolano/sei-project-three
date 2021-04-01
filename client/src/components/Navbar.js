@@ -2,13 +2,14 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import jetflixLogo from '../assets/jetflixlogo.png'
 import Select from 'react-select'
-import { suitableOptions, tagOptions } from './data/searchData'
+import { suitableOptions, tagOptions, continentOptions } from './data/searchData'
 import { userIsAuthenticated, getPayloadFromToken } from '../helpers/auth'
 import { useHistory, useLocation } from 'react-router-dom'
 
 const groupedOptions = [
   { label: 'Suitable For', options: suitableOptions },
-  { label: 'Tags', options: tagOptions }
+  { label: 'Tags', options: tagOptions },
+  { label: 'Continents', options: continentOptions }
 ]
 
 const customStyles = {
@@ -85,7 +86,7 @@ const Navbar = () => {
             <div className="navbar-dropdown">
               { !userIsAuthenticated() &&
             <>
-              <Link to="/explore" className="navbar-item">
+              <Link to="/explore/alldestinations" className="navbar-item">
                   Explore
               </Link>
               <Link to="/feed" className="navbar-item">
@@ -98,11 +99,11 @@ const Navbar = () => {
                 <Link to={`/profile/${profileId}`} className="navbar-item" >
               My Profile
                 </Link>
-                <Link to="/explore" className="navbar-item">
-              Explore
-                </Link>
                 <Link to="/feed" className="navbar-item">
               Feed
+                </Link>
+                <Link to="/explore/alldestinations" className="navbar-item">
+              Explore
                 </Link>
               </>
               }

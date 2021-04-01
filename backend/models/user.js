@@ -16,7 +16,7 @@ const commentSchema = new mongoose.Schema({
 
 const photoSchema = new mongoose.Schema({
   title: { type: String, required: true },
-  location: { type: Object, required: true },
+  location: { type: Object },
   image: { type: String, required: true },
   locationName: { type: String, required: true },
   comments: [commentSchema],
