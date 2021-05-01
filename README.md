@@ -40,13 +40,13 @@ https://jetflix-app.herokuapp.com/
 
 To explore the app, use these login credentials:
  
-<b>email</b>: justine@email.com <br />
+<b>email</b>: admin@email.com <br />
 <b>password</b>: adminpass
 
 ## Installation
 Clone or download sei-project-three repo then run these in Terminal:
-* `mongod —dbpath ~/data/db` in Terminal to run Mongo
-* `yarn` to install yarn packages
+* `mongod —dbpath ~/data/db` to run Mongo
+* Open project and `yarn` to install yarn packages
 * Split terminals in project
 * `cd backend` in first Terminal to go into backend directory
 * `yarn seed` to seed database
@@ -57,8 +57,12 @@ Clone or download sei-project-three repo then run these in Terminal:
 
 # PROCESS
 ## PLANNING (day 1)
-## Concept
+### Concept
 The base idea for Jetflix was the group's shared interest for travel. We thought it would be a good idea to make a travel app for users to browse for holiday destinations after COVID-19. We thought it would be a cool challenge to make a clone of an existing website. We picked Netflix because of it's browsing-based structure and we wanted to remake this with travel destinations instead of TV shows/movies. To give our app a distinguishing aspect from Netflix, we decided to incorporate an Instagram-based element. We wanted users to be able to share their travel pictures with each other and interact with these posts to maximise the app's ability to heighten social connections.
 
 ### Storyboard/Wireframes
 ![Jetflix Storyboard](client/src/assets/storyboard.jpeg)
+
+
+### Trello Organisation
+![Jetflix Trello](client/src/assets/trello.jpg)
