@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-import profilePicture from '../assets/profile.png'
+// import profilePicture from '../assets/profile.png'
 
 import smileyGreen from '../assets/smileyfacegreen.jpg'
 const UserProfile = () => {
@@ -34,10 +34,10 @@ const UserProfile = () => {
       <div className='user-profile is-fullheight-with-navbar ' >
         <div className='columns user-profile-header columns'>
           <div className='column'>
-            <img src={profilePicture} className='explorePicture is-hidden-touch	'></img>
+            {/* <img src={profilePicture} className='explorePicture is-hidden-touch	'></img> */}
             <div className='level-item'>
               <Link to='/addpicturetoprofile'>
-                <button type='submit' className='button is-info is-small is-danger'>Add a photo.</button>
+                <button type='submit' className='button is-info is-small is-danger addphoto'>Add a photo.</button>
               </Link>
             </div>
           </div>
@@ -55,13 +55,14 @@ const UserProfile = () => {
           {profile.photos.map(photo => {
             return (
               <Link key={photo._id} to={`/profile/${profile._id}/showcomments`}>
-                <div className=''>                <div
-                  key={photo._id}
-                  title={`${profile.username}`}
-                  className='has-tooltip-bottom'
-                  data-tooltip={`📍 ${photo.locationName} ❤️ Likes: ${photo.likes.length} 💬 View comments`}>
-                  <img src={photo.image} className='picture card-image column column-user-profile button' />
-                </div>
+                <div className=''>                
+                  <div
+                    key={photo._id}
+                    title={`${profile.username}`}
+                    className='has-tooltip-bottom'
+                    data-tooltip={`📍 ${photo.locationName} ❤️  Likes: ${photo.likes.length} 💬 View comments`}>
+                    <img src={photo.image} className='picture card-image column column-user-profile button' />
+                  </div>
 
                 </div>
               </Link>

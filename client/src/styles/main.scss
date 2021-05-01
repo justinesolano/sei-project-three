@@ -151,6 +151,7 @@ body {
   // * Hero
   .hero {
     position: relative;
+    margin-top: 50px;
     h1 {
       color: white;
     }
@@ -162,7 +163,7 @@ body {
     }
     .hero-info {
       position: absolute;
-      top: 50px;
+      top: 300px;
       left: 0;
       color: white;
       background-color: rgba(0, 0, 0, 0.5);
@@ -307,7 +308,7 @@ body {
 // Userprofile 
 .everythingProfile { 
   height:100%;
-  background-color: black;
+  background-color: white;
   .user-profile{ 
     max-width:1000px;
     margin:auto;
@@ -330,6 +331,7 @@ body {
   .user-profile-header{ 
     max-width: 930px;
     padding-top: 80px;
+    font-family: 'Arial, Helvetica, sans-serif';
   }
   .user-profile-left-header { 
     display: flex;
@@ -347,10 +349,16 @@ body {
     border-radius: 15px;
     margin-left: 75px;
   }
-  .explorePicture { 
-    margin-top: 20px;
-    height: 80px;
+  .addphoto{
+    margin-top: 30px;
+    height: 40px;
+    width: 120px;
+    font-size: 20px;
   }
+  // .explorePicture { 
+  //   margin-top: 20px;
+  //   height: 80px;
+  // }
 }
   
 // user comments add

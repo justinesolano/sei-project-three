@@ -10,7 +10,8 @@ const Hero = ({ handleInfoButton, handleRating, handleMyList, destinations, hero
             <img src={destinations[hero].image}/>
             <div className="columns">
               <div className="hero-info column is-half-tablet is-full-mobile">
-                <h1 className="title">{destinations[hero].name}</h1>
+                <h2 className="hero-country"></h2>
+                <h1 className="title">{destinations[hero].name}, {destinations[hero].country}</h1>
                 <p>{destinations[hero].description}</p>
                 <div className="ui large star rating" role="radiogroup" name="hero-rating" onClick={handleRating}
                   style={{

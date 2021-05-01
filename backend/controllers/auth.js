@@ -6,7 +6,7 @@ export const registerUser = async (req, res) => {
   try {
     const newUser = await User.create(req.body)
     console.log(req.body)
-    return res.status(202).json({ message: `Welcome ${newUser.username}, you're passport is valid` })
+    return res.status(202).json({ message: `Welcome ${newUser.username}, your passport is valid` })
   } catch (err) {
     console.log(err)
     return res.status(422).json(err)

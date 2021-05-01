@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import { ImageUploadField } from '../components/ImageUploadField'
-import { getPayloadFromToken } from '../helpers/auth'
+import { getPayloadFromToken, getTokenFromLocalStorage } from '../helpers/auth'
 import { Header } from 'semantic-ui-react'
 import { useHistory } from 'react-router-dom'
 
@@ -28,7 +28,7 @@ const AddPictureToProfile = () => {
     try {
       await axios.post(`/api/profiles/${profileId}/photos`, formdata, {
         headers: {
-          Authorization: `Bearer ${window.localStorage.getItem('token')}`
+          Authorization: `Bearer ${getTokenFromLocalStorage}`
         }
       })
     } catch (err) {
@@ -37,7 +37,7 @@ const AddPictureToProfile = () => {
     history.push(`/profile/${profileId}`)
   }
 
-  const handleImageUrl = url => {
+  const handleImageUrl = (url) => {
     setFormdata({ ...formdata, image: url })
   }
 
@@ -83,7 +83,7 @@ const AddPictureToProfile = () => {
             </div>
             <ImageUploadField
               value={formdata.image}
-              name="photoImage"
+              name="image"
               handleImageUrl={handleImageUrl}
             />
             <div className="field">
