@@ -102,7 +102,7 @@ We setup the backend together so there was no confusion about any of the models 
 
 We had two schemas: one for users and a second for main destinations.
 
-The `userSchema` had an embedded `photoSchema` which in turn had two embedded schemas(`commentSchema` and `likesSchema`):
+The `userSchema` had an embedded `photoSchema` which in turn has two embedded schemas(`commentSchema` and `likesSchema`):
 ```javascript
 const likesSchema = new mongoose.Schema({
   like: { type: Boolean, required: true },
@@ -137,7 +137,7 @@ const userSchema = new mongoose.Schema({
 })
 ```
 
-This meant that only authenticated users could post photos, like and comment. Users can post photos, which can be liked and commented on. The userSchema also has a `myList` field which allows users to add destinations to their favourites list, and a `myTags` field which renders destinations on the Recommended For You slider upon login based on the user tags that are selected on the 'Pick your favourite destinations' dropdown during registration.
+This means that only authenticated users can post photos, and like and comment on these posts. The userSchema also has a `myList` field which allows users to add destinations to their favourites list that shows up on the homepage, and a `myTags` field which renders destinations on the Recommended For You slider upon login based on the user tags that are selected on the 'Pick your favourite destinations' dropdown during registration.
 ![Jetflix Tags](client/src/assets/mytags.jpg)
 
 

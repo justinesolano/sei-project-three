@@ -2,9 +2,9 @@ import axios from 'axios'
 import React, { useState, useEffect } from 'react'
 import { getPayloadFromToken } from '../helpers/auth'
 
-import Hero from '../components/Home/Hero'
-import Previews from '../components/Home/Previews'
-import DetailInfo from '../components/Home/DetailInfo'
+import Hero from './home/Hero'
+import Previews from './home/Previews'
+import DetailInfo from './home/DetailInfo'
 
 
 const Home = ({ searchData }) => {

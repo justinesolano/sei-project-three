@@ -2,12 +2,19 @@ import React from 'react'
 import { Button } from 'semantic-ui-react'
 import Slider from 'react-slick'
 import { sliderSettings } from './SliderSettings'
+// import { userIsAuthenticated } from '../helpers/auth'
+import { userIsAuthenticated } from '../../helpers/auth'
 
 const Previews = ({ handleInfoButton, destinations, myNewList, tagDestinations }) => {
 
   return (
     <div className="home-previews">
+      { userIsAuthenticated() &&
       <h3>My List</h3>
+      }
+      { !userIsAuthenticated() &&
+      <h3></h3>
+      }
       {myNewList ?
         <div className="home-container">
           <Slider {...sliderSettings} className="slider">
