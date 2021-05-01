@@ -1,10 +1,8 @@
-const express = require('express')
-const mongoose = require('mongoose')
-const app = express()
-const logger = require('./lib/logger')
-const router = require('./config/routes')
-const errorHandler = require('./lib/errorHandler')
-const { dbURI, port } = require('./config/environment')
+
+import express from 'express'
+import mongoose from 'mongoose'
+import router from './config/router.js'
+import { dbURI, port } from './config/environment.js'
 
 const app = express()
 
