@@ -43,6 +43,34 @@ To explore the app, use these login credentials:
 <b>email</b>: admin@email.com <br />
 <b>password</b>: adminpass
 
+## Technologies used
+### Frontend:
+- React
+- Axios
+- Semantic UI React
+- Semantic UI
+- Bulma
+- SASS
+- HTTP-proxy-middleware
+- React Router DOM
+### Backend:
+- Node
+- MongoDB
+- Mongoose
+- Express
+- Bcrypt
+- jsonwebtoken
+### Development tools:
+- VSCode
+- Insomnia
+- Yarn
+- Git & GitHub
+- Google Chrome development tools
+- Trello Board (planning)
+- Adobe Photoshop 2021 (assets)
+- Cloudinary
+- Heroku (deployment)
+
 ## Installation
 Clone or download sei-project-three repo then run these in Terminal:
 * `mongod —dbpath ~/data/db` to run Mongo
@@ -63,6 +91,74 @@ The base idea for Jetflix was the group's shared interest for travel. We thought
 ### Storyboard/Wireframes
 ![Jetflix Storyboard](client/src/assets/storyboard.jpeg)
 
-
 ### Trello Organisation
 ![Jetflix Trello](client/src/assets/trello.jpg)
+
+Because there were so many components that were involved in our project and four of us, we used Trello to organize the project into smaller components. We decided to setup the backend together and then tackle the frontend individually by delegating different parts to each group member. We stayed on Zoom each day from beginning to end so that we could quickly communicate any problems or questions we had, also frequently needing to use screen share. We also used Slack extensively to send each other code snippets/project assets.
+
+## BACKEND (day 2)
+### Setup
+We setup the backend together so there was no confusion about any of the models and the database. We created the backend using Mongoose and tackling it as a group made the process less complicated. One person typed and we used the Live Share extension pack so we could all see the progress on VSCode. Doing this also helped to see whether there was anything missing in the code that maybe other group members had missed and made debugging errors faster.
+
+We had two schemas: one for users and a second for main destinations.
+
+The `userSchema` had an embedded `photoSchema` which in turn had two embedded schemas(`commentSchema` and `likesSchema`):
+```javascript
+const likesSchema = new mongoose.Schema({
+  like: { type: Boolean, required: true },
+  owner: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
+})
+
+const commentSchema = new mongoose.Schema({
+  text: { type: String, required: true, maxlength: 300 },
+  owner: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
+}, {
+  timestamps: true,
+})
+
+const photoSchema = new mongoose.Schema({
+  title: { type: String, required: true },
+  location: { type: Object },
+  image: { type: String, required: true },
+  locationName: { type: String, required: true },
+  comments: [commentSchema],
+  likes: [likesSchema],
+}, {
+  timestamps: true,
+})
+
+const userSchema = new mongoose.Schema({
+  username: { type: String, required: true, unique: true, maxlength: 40 },
+  email: { type: String, required: true, unique: true },
+  password: { type: String, required: true },
+  photos: [photoSchema],
+  myList: { type: Array, unique: true },
+  myTags: { type: Array, unique: true },
+})
+```
+
+This meant that only authenticated users could post photos, like and comment. Users can post photos, which can be liked and commented on. The userSchema also has a `myList` field which allows users to add destinations to their favourites list, and a `myTags` field which renders destinations on the Recommended For You slider upon login based on the user tags that are selected on the 'Pick your favourite destinations' dropdown during registration.
+![Jetflix Tags](client/src/assets/mytags.jpg)
+
+
+The `destinationSchema` also has an embedded schema `ratingSchema`:
+```javascript
+const ratingSchema = new mongoose.Schema({
+  rating: { type: Number, required: true, min: 1, max: 5 },
+  owner: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
+})
+
+const destinationSchema = new mongoose.Schema({
+  name: { type: String, required: true, unique: true },
+  description: { type: String, required: true },
+  country: { type: String, required: true },
+  continent: { type: String, required: true },
+  language: { type: String, required: true },
+  currency: { type: String, required: true },
+  highlights: { type: Array, required: true },
+  suitableFor: { type: Array, required: true },
+  tags: { type: Array, required: true },
+  image: { type: String, required: true },
+  ratings: [ratingSchema],
+})
+```
