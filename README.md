@@ -1,4 +1,4 @@
-# General Assembly Project 4: GreenHouse
+# General Assembly Project 3: Jetflix
 ![Jetflix Logo](client/src/assets/jetflixlogo.png)
 ----
 # Table of Contents
@@ -26,4 +26,7 @@
 8 Days
 
 ## Description
-Jetflix
+Jetflix is a Netflix/Instagram inspired project. It is an app that aims to help users find a holiday/getaway using the destinations in the database. The destinations included are cities, towns and tourist spots. Users can also register with the site, favourite specific destinations, and post pictures of destinations they've been to and tag them with the location. These posts appear on the Explore page but only as the image, user owner and location. There is also a Feed page which shows activity of all users, such as their recent posts, recent likes, and recent comments.
+
+### Deployed version:
+https://greenhouse-app.herokuapp.com/
