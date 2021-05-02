@@ -13,6 +13,8 @@ const startServer = async() => {
     await mongoose.connect(dbURI, { useNewURLParser: true, useCreateIndex: true, useUnifiedTopology: true })
     console.log('🛫 Database has connected successfully')
 
+    app.use(express.static(`${__dirname}/frontend/build`))
+
     // Body parser
     app.use(express.json())
 
@@ -24,6 +26,8 @@ const startServer = async() => {
 
     // Run the router
     app.use('/api', router)
+
+    app.use('/*', (_, res) => res.sendFile(`${__dirname}/frontend/build/index.html`))
 
     // Server
     app.listen(process.env.PORT || 4000, () => console.log(`🛫 Express is up and running on port ${port}`))
