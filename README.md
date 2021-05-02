@@ -167,7 +167,7 @@ const destinationSchema = new mongoose.Schema({
 The routes were also straightforward to setup. We made sure there routes for even the likes, comments, user lists, and ratings. We checked all routes in Insomnia, making sure we could login, register, and check the authentication permissions using token authorization which were all successful. Aside from some few errors due to missing code which were quickly fixed, the backend setup went smoothly and all our planned models were created.
 
 ## FRONTEND (day 3, 4, 5, 6, 7 & 8)
-Once we moved onto the frontend, we all discussed who would do which components. JI decided to tackle the Navbar and the Explore page.
+Once we moved onto the frontend, we all discussed who would do which components. I decided to tackle the Navbar and the Explore page.
 
 ### Navbar & ExploreDestination Page
 I started on the Navbar first. The nav elements were quick to setup but we encountered some problems with styling which was fixed later. 
@@ -467,29 +467,37 @@ This definitely made the project more confusing in terms of styling because Bulm
 The afternoon before the end of the project was spent on error handling, deleting unnecessary code, and getting rid of console log errors.
 
 ## Final project walkthrough
-Homepage:
-![Jetflix Home Page](client/src/assets/projectfour.jpg)
+Landing page:
+![Jetflix Landing](client/src/assets/landing.jpg)
+ 
+On hover:
+![Jetflix Landing Hover](client/src/assets/landinghover.jpg)
  
 Register:
-![Jetflix Trello](client/src/assets/register.jpg)
+![Jetflix Register](client/src/assets/register.jpg)
  
 Login:
-![Jetflix Trello](client/src/assets/login.jpg)
+![Jetflix Login](client/src/assets/login.jpg)
  
-PlantIndex
-![Jetflix Trello](client/src/assets/plantindex.jpg)
+Home:
+![Jetflix Home](client/src/assets/home.jpg)
  
-PlantShow:
-![Jetflix Trello](client/src/assets/plantshow.jpg)
+Destination's More Info:
+![Jetflix More Info](client/src/assets/moreinfo.jpg)
  
 Explore:
 ![Jetflix Trello](client/src/assets/explore.jpg)
  
-MakePost:
-![Jetflix Trello](client/src/assets/makepost.jpg)
- 
-UserProfile:
+Feed:
+![Jetflix Trello](client/src/assets/feed.jpg)
+
+User Profile:
 ![Jetflix Trello](client/src/assets/userprofile.jpg)
+
+Make Post:
+![Jetflix Trello](client/src/assets/userprofile.jpg)
+
+
 
 ## Wins, hurdles and unsolved problems
 Wins:
