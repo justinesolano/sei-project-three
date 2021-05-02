@@ -3,9 +3,6 @@ import axios from 'axios'
 
 const uploadUrl = process.env.REACT_APP_CLOUDINARY_URL
 const uploadPreset = process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET
-console.log('CLOUDINARY', process.env.REACT_APP_CLOUDINARY_URL)
-console.log('CLOUDINARY', process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET)
-
 
 export const ImageUploadField = ({ handleImageUrl, value }) => {
 

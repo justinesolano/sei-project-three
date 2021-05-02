@@ -28,9 +28,9 @@ const startServer = async() => {
     // Server
     app.listen(process.env.PORT || 4000, () => console.log(`🛫 Express is up and running on port ${port}`))
 
-    app.use(express.static(`${__dirname}/frontend/build`))
+    // app.use(express.static(`${__dirname}/frontend/build`))
     
-    app.use('/*', (_, res) => res.sendFile(`${__dirname}/frontend/build/index.html`))
+    // app.use('/*', (_, res) => res.sendFile(`${__dirname}/frontend/build/index.html`))
 
   } catch (err) {
     console.log('🛩 The plane crashed while starting the app')
