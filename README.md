@@ -164,6 +164,43 @@ const destinationSchema = new mongoose.Schema({
   ratings: [ratingSchema],
 })
 ```
-The routes were also straightforward to setup. We made sure there routes for even the likes, comments, user lists, and ratings.
+The routes were also straightforward to setup. We made sure there routes for even the likes, comments, user lists, and ratings. We checked all routes in Insomnia, making sure we could login, register, and check the authentication permissions using token authorization which were all successful. Aside from some few errors due to missing code which were quickly fixed, the backend setup went smoothly and all our planned models were created.
 
-Aside from some few errors due to missing code which were quickly fixed, the backend setup went smoothly and all our planned models were created.
+## FRONTEND (day 3, 4, 5, 6, 7 & 8)
+Once we moved onto the frontend, we all discussed who would do which components. JI decided to tackle the Navbar and the Explore page.
+
+### Navbar & Explore Page
+I started on the Navbar first as this was quick and simple. However, there was one flaw at the start of our planning which was that we decided to try and use a new CSS framework Semantic UI. We wanted to challenge ourselves and try to use a framework we had not used before. We decided to place a searchbar onto the right of the Navbar and the logo to the far left but this was difficult to do with Semantic. The other items in the bar would move or become cornered or would disappear. I tried to fix this using margins and creating a LOT of divs and applying flexbox which worked. However, we also wanted a responsive Navbar which Semantic could not account for, specifically because of the searchbar. I knew that having a responsive Navbar would be a bonus in terms of the whole look of the project and the only way this could be possible using Semantic was to use media queries. I spent a lot of time laying out media queries for different screen widths. For example:
+```css
+@media screen and (max-width: 1690px){
+  .navbar-link-list{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+  text-decoration: none;
+  list-style-type: none;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 70px;
+  margin-inline-end: 0px;
+  padding-inline-start: 0px;
+  justify-content: flex-start;
+  }
+  .navbar-link-list-two{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    list-style-type: none;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 250px;
+    margin-inline-end: -320px;
+    padding-inline-start: 0px;
+    justify-content: flex-end;
+  }
+}
+```
+There was a LOT of CSS involved which made it more complex and messy. I voiced this problem to my group and in the end, we decided that Bulma would be the best framework to use for the Navbar. Jacqueline helped me fix the problem by copying the code and replacing the Semantic UI code with Bulma. The Navbar was finally finished but we also had another problem. Andrew later told us that he was having problems with Semantic UI and 
