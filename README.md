@@ -214,31 +214,48 @@ Each post is linked to the user's profile page.
 
 The Destination component was an extra function that maps through two external APIs `https://api.pexels.com/videos/search?query=${destination}` and `https://api.pexels.com/v1/search?query=${destination}`. The Explore page's url 'http://localhost:3001/explore/destinations' can be modified - 'destinations' can be replaced by a location name, capitalized first letter. To avoid an empty Explore page if certain locations are used in the url and there are no user posts that correspond to the location, we included the external APIs to fill the page with pictures in their database. I also used conditional rendering in the ExploreDestination page - `if (photo.locationName === destination){` & `if (destination === 'destinations'){` - so whatever the url was, whether the normal '/destinations' url or specified location url was used, all posts appearing on the ExploreDestination page would have the same format used in the DestinationCard.
 
-## Assets
+### Assets
 I created all the assets shown below using Adobe Photoshop, as well as pictures of Oli's dog who we used as the main test user.
 
-![Jetflix Login](client/src/assets/jetflixlogo.png)
+![Jetflix Logo](client/src/assets/jetflixlogo.png)
 
-![Jetflix Login](client/src/assets/photofeed.png)
+![Jetflix PhotoFeed](client/src/assets/photofeed.png)
 
-![Jetflix Login](client/src/assets/profile.png)
+![Jetflix Profile](client/src/assets/profile.png)
 
-![Jetflix Login](client/src/assets/explore.png)
+![Jetflix Explore](client/src/assets/explore.png)
 
-![Jetflix Login](client/src/assets/redguestimagewithshadow.jpg)
+![Jetflix Guest](client/src/assets/redguestimagewithshadow.jpg)
 
 ![Jetflix Login](client/src/assets/redloginimagewithshadow.jpg)
 
-![Jetflix Login](client/src/assets/redregisterimagewithshadow.jpg)
+![Jetflix Register](client/src/assets/redregisterimagewithshadow.jpg)
 
-![Jetflix Login](client/src/assets/smileyfaceblue.jpg)
+![Jetflix SmileyBlue](client/src/assets/smileyfaceblue.jpg)
 
-![Jetflix Login](client/src/assets/smileyfacegreen.jpg)
+![Jetflix SmileyGreen](client/src/assets/smileyfacegreen.jpg)
 
-![Jetflix Login](client/src/assets/smileyfaceyellow.jpg)
+![Jetflix SmileyYellow](client/src/assets/smileyfaceyellow.jpg)
 
-![Jetflix Login](client/src/assets/jetflixbg.jpg)
+![Jetflix Background](client/src/assets/jetflixbg.jpg)
 
+![Jetflix Background](client/src/assets/flynnbeach.jpg)
+
+![Jetflix Background](client/src/assets/flynncolosseum.jpg)
+
+![Jetflix Background](client/src/assets/flynnmask.jpg)
+
+![Jetflix Background](client/src/assets/flynnparis.jpg)
+
+![Jetflix Background](client/src/assets/flynnplane.jpg)
+
+![Jetflix Background](client/src/assets/flynnpyramid.jpg)
+
+![Jetflix Background](client/src/assets/flynnsnow.jpg)
+
+![Jetflix Background](client/src/assets/flynntajmahal.jpg)
+
+![Jetflix Background](client/src/assets/flynnski.jpg)
 
 ### Styling
 
