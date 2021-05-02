@@ -100,6 +100,8 @@ Because there were so many components that were involved in our project and four
 ### Setup
 We setup the backend together so there was no confusion about any of the models and the database. We created the backend using Mongoose and tackling it as a group made the process less complicated. One person typed and we used the Live Share extension pack so we could all see the progress on VSCode. Doing this also helped to see whether there was anything missing in the code that maybe other group members had missed and made debugging errors faster.
 
+In terms of our API, we tried to find one that had a more comprehensive detail for each destination such as language, currency, key spots etc. Many of the APIs we found online were not free and/or not matching the details we wanted. We ended up creating our own API using destinations from https://www.lonelyplanet.com/, including using the website's images and descriptions.
+
 We had two schemas: one for users and a second for main destinations.
 
 The `userSchema` had an embedded `photoSchema` which in turn has two embedded schemas(`commentSchema` and `likesSchema`):
@@ -162,3 +164,6 @@ const destinationSchema = new mongoose.Schema({
   ratings: [ratingSchema],
 })
 ```
+The routes were also straightforward to setup. We made sure there routes for even the likes, comments, user lists, and ratings.
+
+Aside from some few errors due to missing code which were quickly fixed, the backend setup went smoothly and all our planned models were created.
