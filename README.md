@@ -384,6 +384,7 @@ Navbar:
 ```
 <br />
 Feed page:
+<br />
 ```javascript
    <Feed >
      <div className="explore">
@@ -471,18 +472,25 @@ Unauthenticated users will land on the first page where they can login, register
 ![Jetflix Landing](client/src/assets/landing.jpg)
 On hover:
 ![Jetflix Landing Hover](client/src/assets/landinghover.jpg)
+<br />
 Login:
 ![Jetflix Login](client/src/assets/login.jpg)
- 
+<br />
 Register:
 The Register page asks users to pick their favourite destinations via 3 filter selections: 'Suitable for', 'Tags' for what kind of location, and 'Continents'. These selections will filter the best matches for locations and display them on the Recommended For You slider on the main homepage once registered and logged in.
 ![Jetflix Register](client/src/assets/register.jpg)
+<br />
+
 Home:
 If the user is authenticated, they will have access to the 'My List' slider and can add destinations to their list, like TV shows/movies in Netflix.
 ![Jetflix Home](client/src/assets/home.jpg)
+<br />
+
 Destination's More Info:
 This also follows the UI of Netflix. The user can learn more about a location if they are interested.
 ![Jetflix More Info](client/src/assets/moreinfo.jpg)
+<br />
+
 They can also rate the location if they have been there and the location then calculates an average rating using function from the backend
 ```javascript
 destinationSchema
@@ -494,35 +502,39 @@ destinationSchema
    }, 0)
    return sum / this.ratings.leng
 ```
- 
+<br />
 Explore:
 ![Jetflix Trello](client/src/assets/explore.jpg)
+
+<br />
 Feed:
 The 'View comments' button will toggle the visibility of the comments on click.
 ![Jetflix Trello](client/src/assets/feed.jpg)
  
+<br />
 User Profile:
 From the user profile, you can 'Add a photo.'
 ![Jetflix Trello](client/src/assets/profile.jpg)
- 
-Make Post:
+
+<br />
+ Make Post:
 ![Jetflix Trello](client/src/assets/post.jpg)
  
- 
- 
+<br />
+
 ## Wins, hurdles and unsolved problems
-Wins:
-<br /> The biggest win for me from this project was finally understanding how React hooks work and React as a whole. It definitely has made me more comfortable and excited for undertaking future React projects. The scope of our project also showed me that React is capable of a lot of things and is reliable when building UI. I've found that it is easier to write React than when I first started learning it.
+### Wins:
+The biggest win for me from this project was finally understanding how React hooks work and React as a whole. It definitely has made me more comfortable and excited for undertaking future React projects. The scope of our project also showed me that React is capable of a lot of things and is reliable when building UI. I've found that it is easier to write React than when I first started learning it.
  
 The range of talent of our group was also wide and I feel that we all supported each other when we made mistakes or needed help, and praised each other when we made something work. We all worked hard and late almost every night to finish certain components and debugging errors which definitely paid off. Our team spirit dwindled at times because some things wouldn't work but when we came together again to tackle it, we would almost always come out satisfied. Collaborating as a team was definitely beneficial to the project.
  
 It was the first time we also used Git as a group of four and merging onto the development branch was very confusing at times but there were no major problems we encountered which I count as a win.
  
-Hurdles:
-<br /> There was some miscommunication from time to time. Andrew was working on the Feed Page but had named it Explore and we had to communicate to clear up any confusion about the right names. We settled on having the page title of Andrew's Explore.js component 'Photo Feed' and my ExploreDestination page 'Explore'. The situation with which CSS framework to use was also a hurdle but team communication definitely helped with organising the styling.
+### Hurdles:
+There was some miscommunication from time to time. Andrew was working on the Feed Page but had named it Explore and we had to communicate to clear up any confusion about the right names. We settled on having the page title of Andrew's Explore.js component 'Photo Feed' and my ExploreDestination page 'Explore'. The situation with which CSS framework to use was also a hurdle but team communication definitely helped with organising the styling.
  
-Unsolved problems:
-<br /> A random DestinationCard gains whitespace at the bottom of the card when a new post is submitted and a certain number of posts for each user must be met before the whitespace is removed. It is most likely a bug with the way Bulma organises its Card components and I would like to fix the bug in the future, most likely using another CSS framework such as Semantic to see if it can be fixed. The styling for some pages are also not as smooth or slick as the rest of the project.
+### Unsolved problems:
+A random DestinationCard gains whitespace at the bottom of the card when a new post is submitted and a certain number of posts for each user must be met before the whitespace is removed. It is most likely a bug with the way Bulma organises its Card components and I would like to fix the bug in the future, most likely using another CSS framework such as Semantic to see if it can be fixed. The styling for some pages are also not as smooth or slick as the rest of the project.
  
 ## Extra features/improvements
 - Making sure that the detail popup shows all of the location image because it is usually cut off at the top
