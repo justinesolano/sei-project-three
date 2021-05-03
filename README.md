@@ -468,34 +468,51 @@ The afternoon before the end of the project was spent on error handling, deletin
 
 ## Final project walkthrough
 Landing page:
+Unauthenticated users will land on the first page where they can login, register, or visit the app as a guest so no register/login required.
 ![Jetflix Landing](client/src/assets/landing.jpg)
  
 On hover:
 ![Jetflix Landing Hover](client/src/assets/landinghover.jpg)
  
+ Login:
+![Jetflix Login](client/src/assets/login.jpg)
+
 Register:
+The Register page asks users to pick their favourite destinations via 3 filter selections: 'Suitable for', 'Tags' for what kind of location, and 'Continents'. These selections will filter the best matches for locations and display them on the Recommended For You slider on the main homepage once registered and logged in.
 ![Jetflix Register](client/src/assets/register.jpg)
  
-Login:
-![Jetflix Login](client/src/assets/login.jpg)
- 
 Home:
+If the user is authenticated, they will have access to the 'My List' slider and can add destinations to their list, like TV shows/movies in Netflix.
 ![Jetflix Home](client/src/assets/home.jpg)
  
 Destination's More Info:
+This also follows the UI of Netflix. The user can learn more about a location if they are interested.
 ![Jetflix More Info](client/src/assets/moreinfo.jpg)
- 
+They can also rate the location if they have been there and the location then calculates an average rating using function from the backend
+```javascript
+destinationSchema
+  .virtual('avgRating')
+  .get(function() {
+    if (!this.ratings.length) return 'Not yet rated'
+    const sum = this.ratings.reduce((acc, curr) => {
+      return acc + curr.rating
+    }, 0)
+    return sum / this.ratings.leng
+ ```
+
 Explore:
 ![Jetflix Trello](client/src/assets/explore.jpg)
  
 Feed:
+The 'View comments' button will toggle the visibility of the comments on click.
 ![Jetflix Trello](client/src/assets/feed.jpg)
 
 User Profile:
-![Jetflix Trello](client/src/assets/userprofile.jpg)
+From the user profile, you can 'Add a photo.'
+![Jetflix Trello](client/src/assets/profile.jpg)
 
 Make Post:
-![Jetflix Trello](client/src/assets/userprofile.jpg)
+![Jetflix Trello](client/src/assets/post.jpg)
 
 
 
