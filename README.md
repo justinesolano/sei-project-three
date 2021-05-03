@@ -6,7 +6,7 @@
 * Jacqueline de Leeuw: https://github.com/jacquelinedeleeuw
 * Oliver Lewis: https://github.com/olilewis1
 * Andrew Ogilvy: https://github.com/aogilvy10
- 
+
  
 # Table of Contents
 * Project Brief
