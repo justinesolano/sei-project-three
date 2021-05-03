@@ -492,6 +492,7 @@ This also follows the UI of Netflix. The user can learn more about a location if
 <br />
 
 They can also rate the location if they have been there and the location then calculates an average rating using function from the backend
+
 ```javascript
 destinationSchema
  .virtual('avgRating')
@@ -504,20 +505,24 @@ destinationSchema
 ```
 <br />
 Explore:
+
 ![Jetflix Trello](client/src/assets/explore.jpg)
 
 <br />
 Feed:
 The 'View comments' button will toggle the visibility of the comments on click.
+
 ![Jetflix Trello](client/src/assets/feed.jpg)
  
 <br />
 User Profile:
 From the user profile, you can 'Add a photo.'
+
 ![Jetflix Trello](client/src/assets/profile.jpg)
 
 <br />
  Make Post:
+ 
 ![Jetflix Trello](client/src/assets/post.jpg)
  
 <br />
