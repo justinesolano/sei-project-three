@@ -536,7 +536,7 @@ The range of talent of our group was also wide and I feel that we all supported 
 It was the first time we also used Git as a group of four and merging onto the development branch was very confusing at times but there were no major problems we encountered which I count as a win.
  
 ### Hurdles:
-There was some miscommunication from time to time. Andrew was working on the Feed Page but had named it Explore and we had to communicate to clear up any confusion about the right names. We settled on having the page title of Andrew's Explore.js component 'Photo Feed' and my ExploreDestination page 'Explore'. The situation with which CSS framework to use was also a hurdle but team communication definitely helped with organising the styling.
+There was one instance of miscommunication but it did not cause massive problems, thankfully. Andrew was working on the Feed Page but had named it Explore and we had to communicate to clear up any confusion about the right names. We settled on having the page title of Andrew's Explore.js component 'Photo Feed' and my ExploreDestination page 'Explore'. The situation with which CSS framework to use was also a hurdle but team communication definitely helped with organising the styling.
  
 ### Unsolved problems:
 A random DestinationCard gains whitespace at the bottom of the card when a new post is submitted and a certain number of posts for each user must be met before the whitespace is removed. It is most likely a bug with the way Bulma organises its Card components and I would like to fix the bug in the future, most likely using another CSS framework such as Semantic to see if it can be fixed. The styling for some pages are also not as smooth or slick as the rest of the project.
