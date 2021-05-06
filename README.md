@@ -256,9 +256,8 @@ I created all the assets shown below using Adobe Photoshop, as well as pictures 
  
 ![Jetflix Background](client/src/assets/flynnski.jpg)
  
-### Styling
- 
-However, there was one flaw at the start of our planning which was that we decided to try and use a new CSS framework Semantic UI/Semantic UI React. We wanted to challenge ourselves and try to use a framework we had not used before. We decided to place a search bar onto the right of the Navbar and the logo to the far left but this was difficult to do with Semantic. The other items in the bar would move or become cornered or would disappear. I tried to fix this using margins and creating a LOT of divs and applying flexbox which worked. However, we also wanted a responsive Navbar which Semantic could not account for, specifically because of the search bar. I knew that having a responsive Navbar would be a bonus in terms of the whole look of the project and the only way this could be possible using Semantic was to use media queries. I spent a lot of time laying out media queries for different screen widths. For example:
+### Styling (day 7 & 8)
+There was one flaw at the start of our planning which was that we decided to try and use a new CSS framework Semantic UI/Semantic UI React. We wanted to challenge ourselves and try to use a framework we had not used before. We decided to place a search bar onto the right of the Navbar and the logo to the far left but this was difficult to do with Semantic. The other items in the bar would move or become cornered or would disappear. I tried to fix this using margins and creating a LOT of divs and applying flexbox which worked. However, we also wanted a responsive Navbar which Semantic could not account for, specifically because of the search bar. I knew that having a responsive Navbar would be a bonus in terms of the whole look of the project and the only way this could be possible using Semantic was to use media queries. I spent a lot of time laying out media queries for different screen widths. For example:
 ```css
 @media screen and (max-width: 1690px){
  .navbar-link-list{
