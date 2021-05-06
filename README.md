@@ -1,5 +1,5 @@
 # General Assembly Project 3: Jetflix
-![Jetflix Logo](client/src/assets/jetflixlogo2.png)
+![Jetflix Logo](client/src/assets/jetflixlogo.png)
 ----
 # Group Members:
 * Justine Solano: https://github.com/justinesolano
