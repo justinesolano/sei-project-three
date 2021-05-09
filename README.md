@@ -528,7 +528,7 @@ A random DestinationCard gains whitespace at the bottom of the card when a new p
 - Fully responsive design, especially the ExploreDestination page
 - Users can edit their profile picture
 - Ability to search for users
-- Users can edit or delete comments/posts
+- Users can edit or delete comments/posts/my list
 - Usernames appear on comments
 - Fix page reload after like/comment, dynamic change
 
