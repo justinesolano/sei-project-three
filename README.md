@@ -365,8 +365,8 @@ Navbar:
    </nav>
 ```
 <br />
+
 Feed page:
-<br />
 ```javascript
    <Feed >
      <div className="explore">
@@ -444,7 +444,6 @@ Feed page:
      </div>
    </Feed >
 ```
-<br />
 This definitely made the project more confusing in terms of styling because Bulma's structure in the CSS meant we needed to nest JSX elements and this would conflict with elements styled with Semantic sometimes. Because there were four of us working from different branches and pushing onto the development branch, this made many merge conflicts appear in the CSS due to similar element names such as 'title' or 'explore'. We reserved the morning of the last day towards organising the CSS because one or two of the group would forget to use Bulma format in CSS whilst working on their components and not have the element styling nested. We fixed the element names so there were no duplicates and fixed any questionable positioning of styled components.
  
 The afternoon before the end of the project was spent on error handling, deleting unnecessary code, and getting rid of console log errors.
