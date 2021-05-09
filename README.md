@@ -36,9 +36,9 @@
 Jetflix is a Netflix/Instagram inspired project. It is an app that aims to help users find a holiday/getaway using the destinations in the database. The destinations included are cities, towns and tourist spots. Users can also register with the site, favourite specific destinations, and post pictures of destinations they've been to and tag them with the location. These posts appear on the Explore page but only as the image, user owner and location. There is also a Feed page which shows activity of all users, such as their recent posts, recent likes, and recent comments.
  
 ### Deployed version:
-https://jetflix-app.herokuapp.com/
+https://jetflixapp.herokuapp.com/
  
-To explore the app, use these login credentials:
+To explore the app, use these login credentials:<br />
 <b>email</b>: admin@email.com <br />
 <b>password</b>: adminpass
  
@@ -237,24 +237,7 @@ I created all the assets shown below using Adobe Photoshop, as well as pictures 
 ![Jetflix SmileyYellow](client/src/assets/smileyfaceyellow.jpg)
  
 ![Jetflix Background](client/src/assets/jetflixbg.jpg)
- 
-![Jetflix Background](client/src/assets/flynnbeach.jpg)
- 
-![Jetflix Background](client/src/assets/flynncolosseum.jpg)
- 
-![Jetflix Background](client/src/assets/flynnmask.jpg)
- 
-![Jetflix Background](client/src/assets/flynnparis.jpg)
- 
-![Jetflix Background](client/src/assets/flynnplane.jpg)
- 
-![Jetflix Background](client/src/assets/flynnpyramid.jpg)
- 
-![Jetflix Background](client/src/assets/flynnsnow.jpg)
- 
-![Jetflix Background](client/src/assets/flynntajmahal.jpg)
- 
-![Jetflix Background](client/src/assets/flynnski.jpg)
+
  
 ### Styling (day 7 & 8)
 There was one flaw at the start of our planning which was that we decided to try and use a new CSS framework Semantic UI/Semantic UI React. We wanted to challenge ourselves and try to use a framework we had not used before. We decided to place a search bar onto the right of the Navbar and the logo to the far left but this was difficult to do with Semantic. The other items in the bar would move or become cornered or would disappear. I tried to fix this using margins and creating a LOT of divs and applying flexbox which worked. However, we also wanted a responsive Navbar which Semantic could not account for, specifically because of the search bar. I knew that having a responsive Navbar would be a bonus in terms of the whole look of the project and the only way this could be possible using Semantic was to use media queries. I spent a lot of time laying out media queries for different screen widths. For example:
