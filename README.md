@@ -39,8 +39,8 @@ Jetflix is a Netflix/Instagram inspired project. It is an app that aims to help 
 https://jetflixapp.herokuapp.com/
  
 To explore the app, use these login credentials:<br />
-<b>email</b>: admin@email.com <br />
-<b>password</b>: adminpass
+<b>email</b>: justine@email<br />
+<b>password</b>: pass
  
 ## Technologies used
 ### Frontend:
