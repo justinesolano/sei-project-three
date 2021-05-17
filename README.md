@@ -2,7 +2,7 @@
 ![Jetflix Logo](client/src/assets/readmelogo.png)
 ----
 # Group Members:
-* Justine Solano: https://github.com/justinesolano
+* Justine Solano (me): https://github.com/justinesolano
 * Jacqueline de Leeuw: https://github.com/jacquelinedeleeuw
 * Oliver Lewis: https://github.com/olilewis1
 * Andrew Ogilvy: https://github.com/aogilvy10
