@@ -163,7 +163,7 @@ const destinationSchema = new mongoose.Schema({
  ratings: [ratingSchema],
 })
 ```
-The routes were also straightforward to setup. We made sure there routes for even the likes, comments, user lists, and ratings. We checked all routes in Insomnia, making sure we could login, register, and check the authentication permissions using token authorization which were all successful. Aside from some few errors due to missing code which were quickly fixed, the backend setup went smoothly and all our planned models were created.
+The routes were also straightforward to setup. We made sure there were routes for even the likes, comments, user lists, and ratings. We checked all routes in Insomnia, making sure we could login, register, and check the authentication permissions using token authorization which were all successful. Aside from a few errors due to missing code which were quickly fixed, the backend setup went smoothly and all our planned models were created.
  
 ## FRONTEND (day 3, 4, 5, 6, 7 & 8)
 Once we moved onto the frontend, we all discussed who would do which components. I decided to tackle the Navbar and the Explore page.
